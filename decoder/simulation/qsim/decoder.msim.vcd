@@ -1,0 +1,92 @@
+$comment
+	File created using the following command:
+		vcd file decoder.msim.vcd -direction
+$end
+$date
+	Thu Sep 18 22:30:51 2025
+$end
+$version
+	ModelSim Version 10.1d
+$end
+$timescale
+	1ps
+$end
+$scope module decoder_vlg_vec_tst $end
+$var reg 3 ! Din [2:0] $end
+$var wire 1 " Dout [7] $end
+$var wire 1 # Dout [6] $end
+$var wire 1 $ Dout [5] $end
+$var wire 1 % Dout [4] $end
+$var wire 1 & Dout [3] $end
+$var wire 1 ' Dout [2] $end
+$var wire 1 ( Dout [1] $end
+$var wire 1 ) Dout [0] $end
+$var wire 1 * sampler $end
+$scope module i1 $end
+$var wire 1 + gnd $end
+$var wire 1 , vcc $end
+$var wire 1 - unknown $end
+$var tri1 1 . devclrn $end
+$var tri1 1 / devpor $end
+$var tri1 1 0 devoe $end
+$var wire 1 1 Dout[0]~output_o $end
+$var wire 1 2 Dout[1]~output_o $end
+$var wire 1 3 Dout[2]~output_o $end
+$var wire 1 4 Dout[3]~output_o $end
+$var wire 1 5 Dout[4]~output_o $end
+$var wire 1 6 Dout[5]~output_o $end
+$var wire 1 7 Dout[6]~output_o $end
+$var wire 1 8 Dout[7]~output_o $end
+$var wire 1 9 Din[2]~input_o $end
+$var wire 1 : Din[1]~input_o $end
+$var wire 1 ; Din[0]~input_o $end
+$var wire 1 < Mux7~0_combout $end
+$var wire 1 = Mux7~1_combout $end
+$var wire 1 > Mux7~2_combout $end
+$var wire 1 ? Mux7~3_combout $end
+$var wire 1 @ Mux7~4_combout $end
+$var wire 1 A Mux7~5_combout $end
+$var wire 1 B Mux7~6_combout $end
+$var wire 1 C Mux7~7_combout $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b111 !
+0)
+0(
+0'
+0&
+0%
+0$
+0#
+1"
+x*
+0+
+1,
+x-
+1.
+1/
+10
+01
+02
+03
+04
+05
+06
+07
+18
+19
+1:
+1;
+0<
+0=
+0>
+0?
+0@
+0A
+0B
+1C
+$end
+#1000000

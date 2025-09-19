@@ -1,0 +1,403 @@
+|multiply_4bit
+a[0] => multiplier_unit:generate_mx_uout:0:unit_mout.a[0]
+a[0] => multiplier_unit:generate_mx_uout:1:unit_mout.a[0]
+a[0] => multiplier_unit:generate_mx_uout:2:unit_mout.a[0]
+a[0] => multiplier_unit:generate_mx_uout:3:unit_mout.a[0]
+a[1] => multiplier_unit:generate_mx_uout:0:unit_mout.a[1]
+a[1] => multiplier_unit:generate_mx_uout:1:unit_mout.a[1]
+a[1] => multiplier_unit:generate_mx_uout:2:unit_mout.a[1]
+a[1] => multiplier_unit:generate_mx_uout:3:unit_mout.a[1]
+a[2] => multiplier_unit:generate_mx_uout:0:unit_mout.a[2]
+a[2] => multiplier_unit:generate_mx_uout:1:unit_mout.a[2]
+a[2] => multiplier_unit:generate_mx_uout:2:unit_mout.a[2]
+a[2] => multiplier_unit:generate_mx_uout:3:unit_mout.a[2]
+a[3] => multiplier_unit:generate_mx_uout:0:unit_mout.a[3]
+a[3] => multiplier_unit:generate_mx_uout:1:unit_mout.a[3]
+a[3] => multiplier_unit:generate_mx_uout:2:unit_mout.a[3]
+a[3] => multiplier_unit:generate_mx_uout:3:unit_mout.a[3]
+b[0] => multiplier_unit:generate_mx_uout:0:unit_mout.b
+b[1] => multiplier_unit:generate_mx_uout:1:unit_mout.b
+b[2] => multiplier_unit:generate_mx_uout:2:unit_mout.b
+b[3] => multiplier_unit:generate_mx_uout:3:unit_mout.b
+mul_out[0] << multiplier_unit:generate_mx_uout:0:unit_mout.uout[0]
+mul_out[1] << fulladd_clg:c0.s[0]
+mul_out[2] << fulladd_clg:c1.s[0]
+mul_out[3] << fulladd_clg:c2.s[0]
+mul_out[4] << fulladd_clg:c2.s[1]
+mul_out[5] << fulladd_clg:c2.s[2]
+mul_out[6] << fulladd_clg:c2.s[3]
+mul_out[7] << fulladd_clg:c2.cout
+
+
+|multiply_4bit|multiplier_unit:\generate_mx_uout:0:unit_mout
+a[0] => uout.IN0
+a[1] => uout.IN0
+a[2] => uout.IN0
+a[3] => uout.IN0
+b => uout.IN1
+b => uout.IN1
+b => uout.IN1
+b => uout.IN1
+uout[0] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+uout[1] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+uout[2] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+uout[3] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|multiplier_unit:\generate_mx_uout:1:unit_mout
+a[0] => uout.IN0
+a[1] => uout.IN0
+a[2] => uout.IN0
+a[3] => uout.IN0
+b => uout.IN1
+b => uout.IN1
+b => uout.IN1
+b => uout.IN1
+uout[0] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+uout[1] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+uout[2] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+uout[3] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|multiplier_unit:\generate_mx_uout:2:unit_mout
+a[0] => uout.IN0
+a[1] => uout.IN0
+a[2] => uout.IN0
+a[3] => uout.IN0
+b => uout.IN1
+b => uout.IN1
+b => uout.IN1
+b => uout.IN1
+uout[0] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+uout[1] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+uout[2] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+uout[3] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|multiplier_unit:\generate_mx_uout:3:unit_mout
+a[0] => uout.IN0
+a[1] => uout.IN0
+a[2] => uout.IN0
+a[3] => uout.IN0
+b => uout.IN1
+b => uout.IN1
+b => uout.IN1
+b => uout.IN1
+uout[0] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+uout[1] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+uout[2] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+uout[3] <= uout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c0
+a[0] => fulladd:f0.a
+a[1] => fulladd:f1.a
+a[2] => fulladd:f2.a
+a[3] => fulladd:f3.a
+b[0] => fulladd:f0.b
+b[1] => fulladd:f1.b
+b[2] => fulladd:f2.b
+b[3] => fulladd:f3.b
+cin => clg:c0.cin
+cin => fulladd:f0.cin
+s[0] <= fulladd:f0.s
+s[1] <= fulladd:f1.s
+s[2] <= fulladd:f2.s
+s[3] <= fulladd:f3.s
+cout <= clg:c0.cout
+
+
+|multiply_4bit|fulladd_clg:c0|clg:c0
+cin => c_middle.IN0
+cin => c_middle.IN1
+cin => c_middle.IN1
+cin => cout.IN1
+g[0] => c_middle.IN1
+g[0] => c_middle.IN0
+g[0] => c_middle.IN1
+g[0] => cout.IN1
+g[1] => c_middle.IN1
+g[1] => c_middle.IN0
+g[1] => cout.IN1
+g[2] => c_middle.IN1
+g[2] => cout.IN0
+g[3] => cout.IN1
+p[0] => c_middle.IN1
+p[0] => c_middle.IN0
+p[0] => c_middle.IN1
+p[0] => cout.IN1
+p[1] => c_middle.IN1
+p[1] => c_middle.IN1
+p[1] => c_middle.IN0
+p[1] => cout.IN1
+p[2] => c_middle.IN1
+p[2] => c_middle.IN1
+p[2] => cout.IN0
+p[3] => cout.IN1
+p[3] => cout.IN1
+c_middle[0] <= c_middle.DB_MAX_OUTPUT_PORT_TYPE
+c_middle[1] <= c_middle.DB_MAX_OUTPUT_PORT_TYPE
+c_middle[2] <= c_middle.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c0|fulladd:f0
+a => g.IN0
+a => p.IN0
+a => s.IN0
+b => g.IN1
+b => p.IN1
+b => s.IN1
+cin => s.IN1
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c0|fulladd:f1
+a => g.IN0
+a => p.IN0
+a => s.IN0
+b => g.IN1
+b => p.IN1
+b => s.IN1
+cin => s.IN1
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c0|fulladd:f2
+a => g.IN0
+a => p.IN0
+a => s.IN0
+b => g.IN1
+b => p.IN1
+b => s.IN1
+cin => s.IN1
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c0|fulladd:f3
+a => g.IN0
+a => p.IN0
+a => s.IN0
+b => g.IN1
+b => p.IN1
+b => s.IN1
+cin => s.IN1
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c1
+a[0] => fulladd:f0.a
+a[1] => fulladd:f1.a
+a[2] => fulladd:f2.a
+a[3] => fulladd:f3.a
+b[0] => fulladd:f0.b
+b[1] => fulladd:f1.b
+b[2] => fulladd:f2.b
+b[3] => fulladd:f3.b
+cin => clg:c0.cin
+cin => fulladd:f0.cin
+s[0] <= fulladd:f0.s
+s[1] <= fulladd:f1.s
+s[2] <= fulladd:f2.s
+s[3] <= fulladd:f3.s
+cout <= clg:c0.cout
+
+
+|multiply_4bit|fulladd_clg:c1|clg:c0
+cin => c_middle.IN0
+cin => c_middle.IN1
+cin => c_middle.IN1
+cin => cout.IN1
+g[0] => c_middle.IN1
+g[0] => c_middle.IN0
+g[0] => c_middle.IN1
+g[0] => cout.IN1
+g[1] => c_middle.IN1
+g[1] => c_middle.IN0
+g[1] => cout.IN1
+g[2] => c_middle.IN1
+g[2] => cout.IN0
+g[3] => cout.IN1
+p[0] => c_middle.IN1
+p[0] => c_middle.IN0
+p[0] => c_middle.IN1
+p[0] => cout.IN1
+p[1] => c_middle.IN1
+p[1] => c_middle.IN1
+p[1] => c_middle.IN0
+p[1] => cout.IN1
+p[2] => c_middle.IN1
+p[2] => c_middle.IN1
+p[2] => cout.IN0
+p[3] => cout.IN1
+p[3] => cout.IN1
+c_middle[0] <= c_middle.DB_MAX_OUTPUT_PORT_TYPE
+c_middle[1] <= c_middle.DB_MAX_OUTPUT_PORT_TYPE
+c_middle[2] <= c_middle.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c1|fulladd:f0
+a => g.IN0
+a => p.IN0
+a => s.IN0
+b => g.IN1
+b => p.IN1
+b => s.IN1
+cin => s.IN1
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c1|fulladd:f1
+a => g.IN0
+a => p.IN0
+a => s.IN0
+b => g.IN1
+b => p.IN1
+b => s.IN1
+cin => s.IN1
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c1|fulladd:f2
+a => g.IN0
+a => p.IN0
+a => s.IN0
+b => g.IN1
+b => p.IN1
+b => s.IN1
+cin => s.IN1
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c1|fulladd:f3
+a => g.IN0
+a => p.IN0
+a => s.IN0
+b => g.IN1
+b => p.IN1
+b => s.IN1
+cin => s.IN1
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c2
+a[0] => fulladd:f0.a
+a[1] => fulladd:f1.a
+a[2] => fulladd:f2.a
+a[3] => fulladd:f3.a
+b[0] => fulladd:f0.b
+b[1] => fulladd:f1.b
+b[2] => fulladd:f2.b
+b[3] => fulladd:f3.b
+cin => clg:c0.cin
+cin => fulladd:f0.cin
+s[0] <= fulladd:f0.s
+s[1] <= fulladd:f1.s
+s[2] <= fulladd:f2.s
+s[3] <= fulladd:f3.s
+cout <= clg:c0.cout
+
+
+|multiply_4bit|fulladd_clg:c2|clg:c0
+cin => c_middle.IN0
+cin => c_middle.IN1
+cin => c_middle.IN1
+cin => cout.IN1
+g[0] => c_middle.IN1
+g[0] => c_middle.IN0
+g[0] => c_middle.IN1
+g[0] => cout.IN1
+g[1] => c_middle.IN1
+g[1] => c_middle.IN0
+g[1] => cout.IN1
+g[2] => c_middle.IN1
+g[2] => cout.IN0
+g[3] => cout.IN1
+p[0] => c_middle.IN1
+p[0] => c_middle.IN0
+p[0] => c_middle.IN1
+p[0] => cout.IN1
+p[1] => c_middle.IN1
+p[1] => c_middle.IN1
+p[1] => c_middle.IN0
+p[1] => cout.IN1
+p[2] => c_middle.IN1
+p[2] => c_middle.IN1
+p[2] => cout.IN0
+p[3] => cout.IN1
+p[3] => cout.IN1
+c_middle[0] <= c_middle.DB_MAX_OUTPUT_PORT_TYPE
+c_middle[1] <= c_middle.DB_MAX_OUTPUT_PORT_TYPE
+c_middle[2] <= c_middle.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c2|fulladd:f0
+a => g.IN0
+a => p.IN0
+a => s.IN0
+b => g.IN1
+b => p.IN1
+b => s.IN1
+cin => s.IN1
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c2|fulladd:f1
+a => g.IN0
+a => p.IN0
+a => s.IN0
+b => g.IN1
+b => p.IN1
+b => s.IN1
+cin => s.IN1
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c2|fulladd:f2
+a => g.IN0
+a => p.IN0
+a => s.IN0
+b => g.IN1
+b => p.IN1
+b => s.IN1
+cin => s.IN1
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiply_4bit|fulladd_clg:c2|fulladd:f3
+a => g.IN0
+a => p.IN0
+a => s.IN0
+b => g.IN1
+b => p.IN1
+b => s.IN1
+cin => s.IN1
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+

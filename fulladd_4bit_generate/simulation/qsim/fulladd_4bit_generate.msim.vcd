@@ -1,0 +1,96 @@
+$comment
+	File created using the following command:
+		vcd file fulladd_4bit_generate.msim.vcd -direction
+$end
+$date
+	Wed Sep 17 22:22:48 2025
+$end
+$version
+	ModelSim Version 10.1d
+$end
+$timescale
+	1ps
+$end
+$scope module fulladd_4bit_generate_vlg_vec_tst $end
+$var reg 4 ! a [3:0] $end
+$var reg 4 " b [3:0] $end
+$var reg 1 # cin $end
+$var wire 1 $ cout $end
+$var wire 1 % s [3] $end
+$var wire 1 & s [2] $end
+$var wire 1 ' s [1] $end
+$var wire 1 ( s [0] $end
+$var wire 1 ) sampler $end
+$scope module i1 $end
+$var wire 1 * gnd $end
+$var wire 1 + vcc $end
+$var wire 1 , unknown $end
+$var tri1 1 - devclrn $end
+$var tri1 1 . devpor $end
+$var tri1 1 / devoe $end
+$var wire 1 0 s[0]~output_o $end
+$var wire 1 1 s[1]~output_o $end
+$var wire 1 2 s[2]~output_o $end
+$var wire 1 3 s[3]~output_o $end
+$var wire 1 4 cout~output_o $end
+$var wire 1 5 cin~input_o $end
+$var wire 1 6 a[0]~input_o $end
+$var wire 1 7 b[0]~input_o $end
+$var wire 1 8 generate_adder:0:u_fa|s~0_combout $end
+$var wire 1 9 generate_adder:0:u_fa|cout~0_combout $end
+$var wire 1 : a[1]~input_o $end
+$var wire 1 ; b[1]~input_o $end
+$var wire 1 < generate_adder:1:u_fa|s~combout $end
+$var wire 1 = generate_adder:1:u_fa|cout~0_combout $end
+$var wire 1 > b[2]~input_o $end
+$var wire 1 ? a[2]~input_o $end
+$var wire 1 @ generate_adder:2:u_fa|s~combout $end
+$var wire 1 A b[3]~input_o $end
+$var wire 1 B a[3]~input_o $end
+$var wire 1 C generate_adder:2:u_fa|cout~0_combout $end
+$var wire 1 D generate_adder:3:u_fa|s~combout $end
+$var wire 1 E generate_adder:3:u_fa|cout~0_combout $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1100 !
+b1 "
+0#
+0$
+1(
+0'
+1&
+1%
+x)
+0*
+1+
+x,
+1-
+1.
+1/
+10
+01
+12
+13
+04
+05
+06
+17
+18
+09
+0:
+0;
+0<
+0=
+0>
+1?
+1@
+0A
+1B
+0C
+1D
+0E
+$end
+#1000000

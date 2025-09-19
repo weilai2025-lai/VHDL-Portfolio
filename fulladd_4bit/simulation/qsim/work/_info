@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\VHDL_training\fulladd_4bit\simulation\qsim
+vfulladd_4bit
+Z1 !s100 PleaKd:P=mmdRgbShhUK=0
+Z2 I;moJoboWkGmZLXaJ7C@360
+Z3 Vcm3W3K4CNFQ48mhKE3TIE2
+Z4 dC:\VHDL_training\fulladd_4bit\simulation\qsim
+Z5 w1758164022
+Z6 8fulladd_4bit.vo
+Z7 Ffulladd_4bit.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|fulladd_4bit.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1758164023.027000
+Z12 !s107 fulladd_4bit.vo|
+!s101 -O0
+vfulladd_4bit_vlg_check_tst
+!i10b 1
+!s100 T?Do`Ddhj=00>oX_8[;d82
+I_hGJFM9<NUB4RG=:;X20:3
+Z13 V>[3c7PhI:cmmE@bzDTJ^M3
+R4
+Z14 w1758164021
+Z15 8Waveform1.vwf.vt
+Z16 FWaveform1.vwf.vt
+L0 61
+R8
+r1
+!s85 0
+31
+Z17 !s108 1758164023.076000
+Z18 !s107 Waveform1.vwf.vt|
+Z19 !s90 -work|work|Waveform1.vwf.vt|
+!s101 -O0
+R10
+vfulladd_4bit_vlg_sample_tst
+!i10b 1
+!s100 B3M5R]hSAgN9_I=CnZe[@2
+IkSIj>:GlAVeM8S2IFSCfV3
+Z20 VfO5I[]A_e8PLgoL@Q3C8Z2
+R4
+R14
+R15
+R16
+L0 29
+R8
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R10
+vfulladd_4bit_vlg_vec_tst
+!i10b 1
+!s100 ^YQzFcKPVgmm4BAeAo8;43
+I3W]k8WQW61@:aSB<<^JbN3
+Z21 VUK0Vgc=H=CBh78SCiNYA81
+R4
+R14
+R15
+R16
+Z22 L0 236
+R8
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R10

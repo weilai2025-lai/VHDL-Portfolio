@@ -1,0 +1,61 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity multiply_4bit is
+ generic (width_in: integer:=4;
+    width_out: integer:=8);
+ port (a :in std_logic_vector(width_in-1 downto 0);
+       b :in std_logic_vector(width_in-1 downto 0);
+		 mul_out :out std_logic_vector(width_out-1 downto 0));
+end entity multiply_4bit;
+
+architecture structure of multiply_4bit is
+ component multiplier_unit is
+ port(a :in std_logic_vector(width_in-1 downto 0);
+    b :in std_logic;
+    uout :out std_logic_vector(width_in-1 downto 0));
+ end component;
+ component fulladd_clg is
+ port(a :in std_logic_vector(width_in-1 downto 0);
+      b :in std_logic_vector(width_in-1 downto 0);
+    cin :in std_logic;
+    s :out std_logic_vector(width_in-1 downto 0);
+    cout :out std_logic);
+ end component;
+ type t_multiply_unitout is array (width_in-1 downto 0) of std_logic_vector(width_in-1 downto 0);
+ type t_cla_unitout is array (width_in-2 downto 0) of std_logic_vector(width_in-1 downto 0);
+ signal multiply_unitout:t_multiply_unitout;
+ signal cla_s :t_cla_unitout;
+ signal cla_c :std_logic_vector(width_in-2 downto 0);
+begin
+ generate_mx_uout:
+ for i in 0 to (width_in -1) generate
+ unit_mout: multiplier_unit
+ port map(a=>a,b=>b(i),uout=>multiply_unitout(i));
+ end generate;
+ c0: fulladd_clg
+ port map(a=>'0' & multiply_unitout(0)(width_in-1 downto 1),
+    b=>multiply_unitout(1),
+    cin=>'0',
+    s=>cla_s(0),
+    cout=>cla_c(0));
+ c1: fulladd_clg
+ port map(a=>cla_c(0) & cla_s(0)(width_in-1 downto 1),
+    b=>multiply_unitout(2),
+    cin=>'0',
+    s=>cla_s(1),
+    cout=>cla_c(1)); 
+ c2: fulladd_clg
+ port map(a=>cla_c(1) & cla_s(1)(width_in-1 downto 1),
+    b=>multiply_unitout(3),
+    cin=>'0',
+    s=>cla_s(2),
+    cout=>cla_c(2)); 
+ mul_out(0) <= multiply_unitout(0)(0);
+ mul_out(1) <= cla_s(0)(0);
+ mul_out(2) <= cla_s(1)(0);
+ mul_out(6 downto 3) <= cla_s(2);
+ mul_out(7) <= cla_c(2);
+
+end architecture structure;

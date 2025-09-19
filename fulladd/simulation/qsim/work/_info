@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\VHDL_training\fulladd\simulation\qsim
+vfulladd
+Z1 I1b`C>kOWzceK2Qn:A@mRg2
+Z2 VhEh23L@NcLI1Db2LBb5HQ3
+Z3 dC:\VHDL_training\fulladd\simulation\qsim
+Z4 w1758160391
+Z5 8fulladd.vo
+Z6 Ffulladd.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 o-work work -O0
+!i10b 1
+Z9 !s100 gd_c`Md_4CkY;Gd[AgOD<3
+!s85 0
+Z10 !s108 1758160392.818000
+Z11 !s107 fulladd.vo|
+Z12 !s90 -work|work|fulladd.vo|
+!s101 -O0
+vfulladd_vlg_check_tst
+!i10b 1
+!s100 T8<[cLl]CWDX`aH>U6j2H3
+I3IIam8Zo;FhTKGTgQ3dI;2
+VFlSg5cnUPEI::ZcKEYKS^0
+R3
+R4
+Z13 8Waveform.vwf.vt
+Z14 FWaveform.vwf.vt
+L0 61
+R7
+r1
+!s85 0
+31
+Z15 !s108 1758160392.881000
+Z16 !s107 Waveform.vwf.vt|
+Z17 !s90 -work|work|Waveform.vwf.vt|
+!s101 -O0
+R8
+vfulladd_vlg_sample_tst
+!i10b 1
+!s100 E3T3oJ5m7UbgANzBK5JHC2
+Ig=jQ>1cjjDXLjDDa<9;Zj1
+VYQZ=o@7dhffIWBc2gB@BB2
+R3
+R4
+R13
+R14
+L0 29
+R7
+r1
+!s85 0
+31
+R15
+R16
+R17
+!s101 -O0
+R8
+vfulladd_vlg_vec_tst
+!i10b 1
+!s100 d[SVlR@9F:0faKRD0llMM0
+I8Vnl322DYQh^mMGS6K?[W0
+Va]oYBNH8?3UJP2_nn`aHA1
+R3
+R4
+R13
+R14
+L0 183
+R7
+r1
+!s85 0
+31
+R15
+R16
+R17
+!s101 -O0
+R8
