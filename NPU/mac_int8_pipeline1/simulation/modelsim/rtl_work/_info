@@ -1,0 +1,79 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\VHDL_training\NPU\mac_int8_pipeline1\simulation\modelsim
+Emac_int8_pipeline1
+Z1 w1758939836
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\VHDL_training\NPU\mac_int8_pipeline1\simulation\modelsim
+Z6 8C:/VHDL_training/NPU/mac_int8_pipeline1/mac_int8_pipeline1.vhd
+Z7 FC:/VHDL_training/NPU/mac_int8_pipeline1/mac_int8_pipeline1.vhd
+l0
+L5
+VejV8e6lEVfKZ^Gdh0N[X_0
+Z8 OV;C;10.1d;51
+32
+Z9 !s108 1758940649.712000
+Z10 !s90 -reportprogress|300|C:/VHDL_training/NPU/mac_int8_pipeline1/mac_int8_pipeline1.vhd|
+Z11 !s107 C:/VHDL_training/NPU/mac_int8_pipeline1/mac_int8_pipeline1.vhd|
+o-O0
+Z12 tExplicit 1
+!s100 j@ZZngZVSKRlbB@kB^P2O2
+!i10b 1
+Artl_pipe
+R2
+R3
+R4
+DEx4 work 18 mac_int8_pipeline1 0 22 ejV8e6lEVfKZ^Gdh0N[X_0
+l44
+L14
+VCWd?6^Jii@56<h`F_f8ke1
+!s100 LbCzVd[1lUN>2J[W_5oLQ0
+R8
+32
+R9
+R10
+R11
+o-O0
+R12
+!i10b 1
+Emac_int8_pipeline1tb
+Z13 w1758940355
+R2
+R3
+R4
+R5
+Z14 8C:/VHDL_training/NPU/mac_int8_pipeline1/mac_int8_pipeline1tb.vhd
+Z15 FC:/VHDL_training/NPU/mac_int8_pipeline1/mac_int8_pipeline1tb.vhd
+l0
+L5
+V=1L7ERGYM`<gooU9WCkab1
+!s100 7Dg@o9fd8WbFEKe;?2O_O2
+R8
+32
+!i10b 1
+Z16 !s108 1758940652.462000
+Z17 !s90 -reportprogress|300|C:/VHDL_training/NPU/mac_int8_pipeline1/mac_int8_pipeline1tb.vhd|
+Z18 !s107 C:/VHDL_training/NPU/mac_int8_pipeline1/mac_int8_pipeline1tb.vhd|
+o-O0
+R12
+Abehavior
+R2
+R3
+R4
+DEx4 work 20 mac_int8_pipeline1tb 0 22 =1L7ERGYM`<gooU9WCkab1
+l35
+L8
+VQkA`ch4Il?hei>04iLhn03
+!s100 Ac9m5MEdbl>>1@3RPD8OX3
+R8
+32
+!i10b 1
+R16
+R17
+R18
+o-O0
+R12

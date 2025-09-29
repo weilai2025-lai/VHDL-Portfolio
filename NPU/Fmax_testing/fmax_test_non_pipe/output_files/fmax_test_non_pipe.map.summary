@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Sat Sep 27 11:58:15 2025
+Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Revision Name : fmax_test_non_pipe
+Top-level Entity Name : fmax_test_non_pipe
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 79
+Total pins : 33
+Total virtual pins : 0
+Total block memory bits : 0
+Total DSP Blocks : 1
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

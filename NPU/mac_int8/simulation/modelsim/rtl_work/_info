@@ -1,0 +1,79 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\VHDL_training\NPU\mac_int8\simulation\modelsim
+Emac_int8
+Z1 w1758895187
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\VHDL_training\NPU\mac_int8\simulation\modelsim
+Z6 8C:/VHDL_training/NPU/mac_int8/mac_int8.vhd
+Z7 FC:/VHDL_training/NPU/mac_int8/mac_int8.vhd
+l0
+L5
+VG9J>c`Y]W[LeBnX3MJcmC0
+Z8 OV;C;10.1d;51
+32
+Z9 !s108 1758923481.447000
+Z10 !s90 -reportprogress|300|C:/VHDL_training/NPU/mac_int8/mac_int8.vhd|
+Z11 !s107 C:/VHDL_training/NPU/mac_int8/mac_int8.vhd|
+o-O0
+Z12 tExplicit 1
+!s100 zoBYRW;1RT:EV^Nloo]`c1
+!i10b 1
+Artl_code
+R2
+R3
+R4
+DEx4 work 8 mac_int8 0 22 G9J>c`Y]W[LeBnX3MJcmC0
+l42
+L14
+VblUHVzE^G?Q`3z9oF>GU:1
+!s100 9D3][K^:ePmINOaBaLonO2
+R8
+32
+R9
+R10
+R11
+o-O0
+R12
+!i10b 1
+Emac_int8tb
+Z13 w1758899886
+R2
+R3
+R4
+R5
+Z14 8C:/VHDL_training/NPU/mac_int8/mac_int8tb.vhd
+Z15 FC:/VHDL_training/NPU/mac_int8/mac_int8tb.vhd
+l0
+L5
+VVcR4mi=7I2kXW9WoW>ZzJ0
+!s100 >_[AcL`47ZPB[f]Kjf@g:0
+R8
+32
+!i10b 1
+Z16 !s108 1758923487.984000
+Z17 !s90 -reportprogress|300|C:/VHDL_training/NPU/mac_int8/mac_int8tb.vhd|
+Z18 !s107 C:/VHDL_training/NPU/mac_int8/mac_int8tb.vhd|
+o-O0
+R12
+Asimulation
+R2
+R3
+R4
+DEx4 work 10 mac_int8tb 0 22 VcR4mi=7I2kXW9WoW>ZzJ0
+l27
+L8
+VDKTL@B3MW`I[GGHYlTjmQ3
+!s100 M[4@mab=K6[M;3EUR_z@A0
+R8
+32
+!i10b 1
+R16
+R17
+R18
+o-O0
+R12
