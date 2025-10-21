@@ -1,0 +1,118 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+use work.nn_config.all;  -- 如果你有 PRETRAINED 等常數
+
+entity Layer_1 is
+  generic (
+    NN             : integer := 30;
+    numWeight      : integer := 784;
+    dataWidth      : integer := 16;
+    layerNum       : integer := 1;
+    sigmoidSize    : integer := 10;
+    weightIntWidth : integer := 4;
+    actType        : string  := "relu"   -- "relu" 或 "sigmoid"
+  );
+  port (
+    clk, rst       : in  std_logic;
+    -- 權重/偏置的 AXI-lite 風介面（或自行餵檔；與你的 neuron 對齊）
+    weightValid    : in  std_logic;
+    biasValid      : in  std_logic;
+    weightValue    : in  signed(31 downto 0);
+    biasValue      : in  signed(31 downto 0);
+    config_layer_num  : in unsigned(31 downto 0);
+    config_neuron_num : in unsigned(31 downto 0);
+
+    -- 前一層餵的「序列化」單一輸入
+    x_valid        : in  std_logic;
+    x_in           : in  signed(dataWidth-1 downto 0);
+
+    -- 本層的並列輸出（展平成總線）
+    o_valid        : out std_logic_vector(NN-1 downto 0);
+    x_out          : out std_logic_vector(NN*dataWidth-1 downto 0)
+  );
+end entity;
+
+architecture rtl of Layer_1 is
+  -- 轉 int → 不帶空白的字串（避免 integer'image 的前導空白）
+  function int2str(n : natural) return string is
+    variable tmp : natural := n;
+    variable len : natural := 1;
+    variable s   : string(1 to 11); -- 足夠放 32-bit 正整數
+  begin
+    if n = 0 then
+      return "0";
+    end if;
+    len := 0;
+    while tmp > 0 loop
+      tmp := tmp / 10;
+      len := len + 1;
+    end loop;
+    tmp := n;
+    for p in reverse 1 to len loop
+      s(p) := character'val( character'pos('0') + integer(tmp mod 10) );
+      tmp  := tmp / 10;
+    end loop;
+    return s(1 to len);
+  end function;
+
+  -- 自動組 weight / bias 檔名： "w_<layer>_<neuron>.mif" / "b_<layer>_<neuron>.mif"
+  function w_file(layer : natural; nidx : natural) return string is
+  begin
+    return "w_" & int2str(layer) & "_" & int2str(nidx) & ".mif";
+  end function;
+
+  function b_file(layer : natural; nidx : natural) return string is
+  begin
+    return "b_" & int2str(layer) & "_" & int2str(nidx) & ".mif";
+  end function;
+
+  -- 方便內部連接：每顆 neuron 的輸出與 valid
+  type signed_vec_t is array (natural range <>) of signed(dataWidth-1 downto 0);
+  signal y_bus   : signed_vec_t(0 to NN-1);
+  signal v_bus   : std_logic_vector(0 to NN-1);
+
+begin
+  ------------------------------------------------------------------
+  -- 產生 NN 顆 neuron；每顆吃同一個序列化輸入 x_in / x_valid
+  -- 檔名由函式在 elaboration 時產生 → 傳給 generic
+  ------------------------------------------------------------------
+  gen_neurons : for i in 0 to NN-1 generate
+  begin
+    N_I : entity work.neuron
+      generic map(
+        layerNo        => layerNum,
+        neuronNo       => i,
+        numWeight      => numWeight,
+        dataWidth      => dataWidth,
+        sigmoidSize    => sigmoidSize,
+        weightIntWidth => weightIntWidth,
+        actType        => actType,
+        weightFile     => w_file(layerNum, i),
+        biasFile       => b_file(layerNum, i)
+      )
+      port map(
+        clk   => clk,
+        rst   => rst,
+        myinput       => x_in,
+        myinputValid  => x_valid,
+        weightValid   => weightValid,
+        biasValid     => biasValid,
+        weightValue   => weightValue,
+        biasValue     => biasValue,
+        config_layer_num  => config_layer_num,
+        config_neuron_num => config_neuron_num,
+        output    => y_bus(i),
+        outvalid  => v_bus(i)
+      );
+  end generate;
+
+  -- 打包成扁平總線輸出（與 Verilog 的 x_out[ i*W +: W ] 等價）
+  pack_bus : for i in 0 to NN-1 generate
+  begin
+    x_out( (i+1)*dataWidth-1 downto i*dataWidth ) <= std_logic_vector(y_bus(i));
+  end generate;
+
+  o_valid <= v_bus;
+
+end architecture rtl;

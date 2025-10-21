@@ -1,0 +1,118 @@
+-- tb_layer1.vhd
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+use STD.textio.all;
+use IEEE.std_logic_textio.all;
+
+entity tb_layer1 is
+end entity;
+
+architecture sim of tb_layer1 is
+  -- 依你的 nn_config 預設
+  constant NN            : integer := 30;
+  constant numWeight     : integer := 784;
+  constant dataWidth     : integer := 16;
+  constant layerNum      : integer := 1;
+  constant sigmoidSize   : integer := 10;  -- 你專案內若是 5 就改 5
+  constant weightIntWidth: integer := 4;
+
+  -- === 請依實際路徑調整測試檔 ===
+  constant TEST_FILE : string := "C:/VHDL_training/Neural/test_data_0000.txt";
+  -- 若你把檔案 copy 到模擬工作目錄，也可改成相對路徑 "test_data_0000.txt"
+
+  signal clk               : std_logic := '0';
+  signal rst               : std_logic := '1';
+
+  -- 這些在 PRETRAINED 模式不會用到，但仍需連線
+  signal weightValid       : std_logic := '0';
+  signal biasValid         : std_logic := '0';
+  signal weightValue       : std_logic_vector(31 downto 0) := (others => '0');
+  signal biasValue         : std_logic_vector(31 downto 0) := (others => '0');
+  signal config_layer_num  : std_logic_vector(31 downto 0) := (others => '0');
+  signal config_neuron_num : std_logic_vector(31 downto 0) := (others => '0');
+
+  signal x_valid           : std_logic := '0';
+  signal x_in              : std_logic_vector(dataWidth-1 downto 0) := (others => '0');
+
+  signal o_valid           : std_logic_vector(NN-1 downto 0);
+  signal x_out             : std_logic_vector(NN*dataWidth-1 downto 0);
+
+begin
+  -- Clock 10ns
+  clk <= not clk after 5 ns;
+
+  -- DUT
+  dut: entity work.Layer_1
+    generic map (
+      NN             => NN,
+      numWeight      => numWeight,
+      dataWidth      => dataWidth,
+      layerNum       => layerNum,
+      sigmoidSize    => sigmoidSize,
+      weightIntWidth => weightIntWidth,
+      actType        => "sigmoid"
+    )
+    port map (
+      clk               => clk,
+      rst               => rst,
+      weightValid       => weightValid,
+      biasValid         => biasValid,
+      weightValue       => weightValue,
+      biasValue         => biasValue,
+      config_layer_num  => config_layer_num,
+      config_neuron_num => config_neuron_num,
+      x_valid           => x_valid,
+      x_in              => x_in,
+      o_valid           => o_valid,
+      x_out             => x_out
+    );
+
+  -- 驅動 reset
+  p_reset: process
+  begin
+    rst <= '1';
+    wait for 100 ns;
+    rst <= '0';
+    wait;
+  end process;
+
+  -- 餵測資（逐行讀 784 筆；忽略最後一行 label）
+  p_stim: process
+    file f      : text open read_mode is TEST_FILE;
+    variable l  : line;
+    variable din: std_logic_vector(dataWidth-1 downto 0);
+    variable i  : integer := 0;
+  begin
+    -- 等 reset 解除
+    wait until rst = '0';
+    wait for 20 ns;
+
+    -- 可選：告訴 DUT 我們是在第 1 層（即使 PRETRAINED 不用）
+    config_layer_num  <= std_logic_vector(to_unsigned(layerNum, 32));
+    config_neuron_num <= (others => '0');
+
+    -- 送 784 筆
+    for i in 0 to numWeight-1 loop
+      if endfile(f) then
+        assert false report "Input file ended before 784 lines." severity failure;
+      end if;
+      readline(f, l);
+      read(l, din);                   -- 一行是一個 16-bit 二進位字串
+      x_in    <= din;
+      x_valid <= '1';
+      wait until rising_edge(clk);
+    end loop;
+
+    -- 停止送資料
+    x_valid <= '0';
+    x_in    <= (others => '0');
+
+    -- 再等一陣子讓各 neuron 完成
+    wait for 10 us;
+
+    assert false report "TB finished." severity note;
+    wait;
+  end process;
+
+end architecture;

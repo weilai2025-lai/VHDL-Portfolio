@@ -1,0 +1,21 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity test is
+	port(
+		clk :in std_logic;
+		a :in std_logic;
+		b :out std_logic
+	);
+end entity test;
+
+architecture rtl of test is
+begin
+	process(clk)
+	begin
+	if rising_edge(clk) then
+		b <= a;
+	end if;
+	end
+end entity test;

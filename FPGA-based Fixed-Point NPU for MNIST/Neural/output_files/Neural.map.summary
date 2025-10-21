@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Oct 20 18:47:21 2025
+Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Revision Name : Neural
+Top-level Entity Name : zyNet
+Family : Cyclone IV E
+Total logic elements : 100
+    Total combinational functions : 84
+    Dedicated logic registers : 77
+Total registers : 77
+Total pins : 155
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

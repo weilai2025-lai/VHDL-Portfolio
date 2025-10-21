@@ -1,0 +1,25 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "class_valid",
+					"strict" : false
+				},
+				{
+					"name" : "s_axi_aclk",
+					"strict" : false
+				},
+				{
+					"name" : "s_axi_aresetn",
+					"strict" : false
+				},
+				{
+					"name" : "axis_in_data_valid",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

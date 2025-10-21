@@ -1,0 +1,532 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\VHDL_training\Neural
+Elayer_1
+Z1 w1760658743
+Z2 DPx4 work 9 nn_config 0 22 RIY]=CmKYkIe[9k]GQTjb0
+Z3 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z6 dC:\VHDL_training\Neural
+Z7 8Layer_1.vhd
+Z8 FLayer_1.vhd
+l0
+L6
+VBR0zaZjLOzENz=fSPYk0[0
+Z9 OV;C;10.1d;51
+33
+Z10 !s108 1760967787.075000
+Z11 !s90 -reportprogress|300|-2008|Layer_1.vhd|
+Z12 !s107 Layer_1.vhd|
+Z13 o-2008 -O0
+Z14 tExplicit 1
+!s100 ^@jk7<n69laUON8mDmnL30
+!i10b 1
+Artl
+Z15 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
+Z16 DEx4 work 6 neuron 0 22 <ZWL0Ch6bKf>3IP1^Oz[K0
+R2
+R3
+R4
+R5
+Z17 DEx4 work 7 layer_1 0 22 BR0zaZjLOzENz=fSPYk0[0
+l36
+L35
+V]PFnzJ=Ie4cfRhH;PNE_G2
+R9
+33
+R10
+R11
+R12
+R13
+R14
+!s100 1126>`^:aE76GSGN`Bm=o0
+!i10b 1
+Elayer_2
+Z18 w1760659162
+R2
+R3
+R4
+R5
+R6
+Z19 8Layer_2.vhd
+Z20 FLayer_2.vhd
+l0
+L6
+V4SNdWSR^g<V>nbL9PUUHb1
+R9
+33
+Z21 !s108 1760967787.191000
+Z22 !s90 -reportprogress|300|-2008|Layer_2.vhd|
+Z23 !s107 Layer_2.vhd|
+R13
+R14
+!s100 LQn^QX6iDkFc:T8_hBBCa3
+!i10b 1
+Artl
+R15
+R16
+R2
+R3
+R4
+R5
+Z24 DEx4 work 7 layer_2 0 22 4SNdWSR^g<V>nbL9PUUHb1
+l36
+L35
+VDOPHEAgMSQ3@lQl@j]H1^1
+R9
+33
+R21
+R22
+R23
+R13
+R14
+!s100 gVaEVfOYnS7`b1iNTlfTP3
+!i10b 1
+Elayer_3
+Z25 w1760659373
+R2
+R3
+R4
+R5
+R6
+Z26 8Layer_3.vhd
+Z27 FLayer_3.vhd
+l0
+L6
+VJ42a_SOePCPfdSz2d8K4m2
+R9
+33
+Z28 !s108 1760967787.318000
+Z29 !s90 -reportprogress|300|-2008|Layer_3.vhd|
+Z30 !s107 Layer_3.vhd|
+R13
+R14
+!s100 SJ?Y34W=e6UE;2o`4GQTF0
+!i10b 1
+Artl
+R15
+R16
+R2
+R3
+R4
+R5
+Z31 DEx4 work 7 layer_3 0 22 J42a_SOePCPfdSz2d8K4m2
+l36
+L35
+VD_<^A1k=44_a@Yl;O?n_V3
+R9
+33
+R28
+R29
+R30
+R13
+R14
+!s100 6mQVGWnJ1@3^`e=[z=fHT3
+!i10b 1
+Elayer_4
+Z32 w1760659483
+R2
+R3
+R4
+R5
+R6
+Z33 8Layer_4.vhd
+Z34 FLayer_4.vhd
+l0
+L6
+Vh`=bCPFXQ9_BcN8UAl[6P0
+R9
+33
+Z35 !s108 1760967787.429000
+Z36 !s90 -reportprogress|300|-2008|Layer_4.vhd|
+Z37 !s107 Layer_4.vhd|
+R13
+R14
+!s100 0`1>V^Qj:g<JjaU4c3ZV:0
+!i10b 1
+Artl
+R15
+R16
+R2
+R3
+R4
+R5
+Z38 DEx4 work 7 layer_4 0 22 h`=bCPFXQ9_BcN8UAl[6P0
+l36
+L35
+VfJOb_YGZY47ezG8_ZSEHX3
+R9
+33
+R35
+R36
+R37
+R13
+R14
+!s100 =@JdAzAl@kZiDKF[2jC_Q2
+!i10b 1
+Emaxfinder
+Z39 w1760905378
+R3
+R4
+R5
+R6
+Z40 8maxFinder.vhd
+Z41 FmaxFinder.vhd
+l0
+L5
+VWDbX1oK6@J9kiSGLiOMn22
+R9
+33
+Z42 !s108 1760967786.413000
+Z43 !s90 -reportprogress|300|-2008|maxFinder.vhd|
+Z44 !s107 maxFinder.vhd|
+R13
+R14
+!s100 B5Um_E9=o0P:3=o]<??k63
+!i10b 1
+Artl
+R3
+R4
+R5
+Z45 DEx4 work 9 maxfinder 0 22 WDbX1oK6@J9kiSGLiOMn22
+l35
+L19
+Vg@dE4;Yzae?RiHaa==>K53
+R9
+33
+R42
+R43
+R44
+R13
+R14
+!s100 LVJUJEKiI@o;h8P4W<M6S2
+!i10b 1
+Eneuron
+Z46 w1760902810
+R2
+R15
+R3
+R5
+R4
+R6
+Z47 8neuron.vhd
+Z48 Fneuron.vhd
+l0
+L9
+V<ZWL0Ch6bKf>3IP1^Oz[K0
+R9
+33
+Z49 !s108 1760967786.927000
+Z50 !s90 -reportprogress|300|-2008|neuron.vhd|
+Z51 !s107 neuron.vhd|
+R13
+R14
+!s100 ZVeU<SCH5EP6UEZCUXWjK2
+!i10b 1
+Artl
+Z52 DEx4 work 4 relu 0 22 W0AIAUB8dJOG5KD8nHU>]3
+Z53 DEx4 work 7 sig_rom 0 22 6DZ>L;GUXP@B?bDEa<<z@3
+Z54 DEx4 work 13 weight_memory 0 22 ;N0hVNK?jJI>Icj9ElhoI0
+R2
+R15
+R3
+R5
+R4
+R16
+l107
+L38
+Va_M8U^KPK5:1DD^ERT`c:3
+R9
+33
+R49
+R50
+R51
+R13
+R14
+!s100 9QS1X^FSo6HgYUSeOe5@92
+!i10b 1
+Pnn_config
+R4
+R5
+Z55 w1760967656
+R6
+Z56 8nn_config.vhd
+Z57 Fnn_config.vhd
+l0
+L4
+VRIY]=CmKYkIe[9k]GQTjb0
+R9
+33
+Z58 !s108 1760967786.292000
+Z59 !s90 -reportprogress|300|-2008|nn_config.vhd|
+Z60 !s107 nn_config.vhd|
+R13
+R14
+!s100 WXZO6ZE7AzQYe:;2IaYdW3
+!i10b 1
+Bbody
+R2
+R4
+R5
+l0
+L38
+Vncd3?BlKRS7:dBZ>ibNTK2
+R9
+33
+R58
+R59
+R60
+R13
+R14
+nbody
+!s100 C`zF>4D1@j?^GZjglATld1
+!i10b 1
+Erelu
+Z61 w1760136436
+R3
+R4
+R5
+R6
+Z62 8ReLU.vhd
+Z63 FReLU.vhd
+l0
+L5
+VW0AIAUB8dJOG5KD8nHU>]3
+R9
+33
+Z64 !s108 1760967786.684000
+Z65 !s90 -reportprogress|300|-2008|ReLU.vhd|
+Z66 !s107 ReLU.vhd|
+R13
+R14
+!s100 EPELzBZC;X5bPk?Uf>0B_0
+!i10b 1
+Artl
+R3
+R4
+R5
+R52
+l27
+L17
+VScPBAagl[2a1`^BC6A0[<3
+R9
+33
+R64
+R65
+R66
+R13
+R14
+!s100 Jj]7kgkQR]F_=`>=@LUnX0
+!i10b 1
+Esig_rom
+Z67 w1760908537
+R2
+R15
+R3
+R5
+R4
+R6
+Z68 8Sig_ROM.vhd
+Z69 FSig_ROM.vhd
+l0
+L9
+V6DZ>L;GUXP@B?bDEa<<z@3
+R9
+33
+Z70 !s108 1760967786.552000
+Z71 !s90 -reportprogress|300|-2008|Sig_ROM.vhd|
+Z72 !s107 Sig_ROM.vhd|
+R13
+R14
+!s100 EklEKWaI@WbMm1So:?W:K3
+!i10b 1
+Abehavior
+R2
+R15
+R3
+R5
+R4
+R53
+l51
+L23
+VllaWn><D<XG7m=o@hFbMj1
+R9
+33
+R70
+R71
+R72
+R13
+R14
+!s100 2>@i7BciQXi[[eHN;AzVK1
+!i10b 1
+Etb_layer1
+Z73 w1760927368
+R15
+R3
+R4
+R5
+R6
+Z74 8tb_layer1.vhd
+Z75 Ftb_layer1.vhd
+l0
+L8
+V48_EgQHzCQ7_36Q[J7[Ko0
+R9
+33
+Z76 !s108 1760929095.261000
+Z77 !s90 -reportprogress|300|-2008|-work|work|tb_layer1.vhd|
+Z78 !s107 tb_layer1.vhd|
+Z79 o-2008 -work work -O0
+R14
+!s100 QR280O<clO7f52EXl>_fY2
+!i10b 1
+Asim
+DPx4 work 9 nn_config 0 22 @kaz4WU@`ShN^e6>_GMTS1
+DEx4 work 7 layer_1 0 22 7?Z6G:g?KI0?>9E79=TeN0
+R15
+R3
+R4
+R5
+DEx4 work 9 tb_layer1 0 22 48_EgQHzCQ7_36Q[J7[Ko0
+l82
+L11
+VYUZlcfD6<8odF0cC8ncHQ1
+R9
+33
+R76
+R77
+R78
+R79
+R14
+!s100 P>H@W]CGB=ecnV>OQ3Nk50
+!i10b 1
+Eweight_memory
+Z80 w1760903354
+R2
+R3
+R5
+R15
+R4
+R6
+Z81 8Weight_memory.vhd
+Z82 FWeight_memory.vhd
+l0
+L9
+V;N0hVNK?jJI>Icj9ElhoI0
+R9
+33
+Z83 !s108 1760967786.805000
+Z84 !s90 -reportprogress|300|-2008|Weight_memory.vhd|
+Z85 !s107 Weight_memory.vhd|
+R13
+R14
+!s100 <o[K]20:RZoBong^iGB6Z1
+!i10b 1
+Abehavior
+R2
+R3
+R5
+R15
+R4
+R54
+l34
+L28
+VjJ7B`AdoRnM]T[Qk`ghjo0
+R9
+33
+R83
+R84
+R85
+R13
+R14
+!s100 PE5iG@=YDRidn1aiSiLC90
+!i10b 1
+Ezynet
+Z86 w1760908204
+R2
+R3
+R4
+R5
+R6
+Z87 8zyNet.vhd
+Z88 FzyNet.vhd
+l0
+L6
+VfZ[QP?0JMdc3Ih>]Dbd=k1
+R9
+33
+Z89 !s108 1760967787.555000
+Z90 !s90 -reportprogress|300|-2008|zyNet.vhd|
+Z91 !s107 zyNet.vhd|
+R13
+R14
+!s100 >1VbMMbmzbTgiTRNdS3]F1
+!i10b 1
+Artl
+R45
+R38
+R31
+R24
+R17
+R2
+R3
+R4
+R5
+Z92 DEx4 work 5 zynet 0 22 fZ[QP?0JMdc3Ih>]Dbd=k1
+l88
+L35
+V2ka^eP;W[22Bh]^B]FmIV1
+!s100 >aVn@K0>cBHECAMfYfanT3
+R9
+33
+R89
+R90
+R91
+R13
+R14
+!i10b 1
+Ezynet_tb
+Z93 w1760906116
+R2
+R15
+R3
+R4
+R5
+R6
+Z94 8zyNet_tb.vhd
+Z95 FzyNet_tb.vhd
+l0
+L8
+V[QQ]P_b@l6iG`l0NMlL<90
+!s100 PPdY_OM<mkDj<BUJPNQB61
+R9
+33
+!i10b 1
+Z96 !s108 1760967787.698000
+Z97 !s90 -reportprogress|300|-2008|zyNet_tb.vhd|
+Z98 !s107 zyNet_tb.vhd|
+R13
+R14
+Asim
+R92
+R2
+R15
+R3
+R4
+R5
+Z99 DEx4 work 8 zynet_tb 0 22 [QQ]P_b@l6iG`l0NMlL<90
+l40
+L11
+Z100 VbEK=NDJUHcCWGL=nm9lkK1
+Z101 !s100 fheBGU8?7?fASF@aoM7P50
+R9
+33
+!i10b 1
+R96
+R97
+R98
+R13
+R14

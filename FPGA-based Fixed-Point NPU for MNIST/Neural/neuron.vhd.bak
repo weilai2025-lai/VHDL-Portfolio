@@ -1,0 +1,72 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity neuron is
+	generic(
+    layerNo       : integer := 0;
+    neuronNo      : integer := 0;
+    numWeight     : integer := 784;
+    dataWidth     : integer := 16;
+    sigmoidSize   : integer := 5;
+    weightIntWidth: integer := 1;
+    actType       : string  := "relu"
+	);
+	port(
+    clk   : in  std_logic;
+    rst   : in  std_logic;
+    myinput : in  signed(dataWidth-1 downto 0);
+    myinputValid : in  std_logic;
+    weightValid   : in  std_logic;
+    biasValid     : in  std_logic;
+    weightValue   : in  signed(31 downto 0);  
+    biasValue     : in  signed(31 downto 0);  
+    config_layer_num  : in unsigned(31 downto 0);
+    config_neuron_num : in unsigned(31 downto 0);
+    out : out signed(dataWidth-1 downto 0);
+    outvalid : out std_logic	
+	);
+end entity neuron;
+
+architecture rtl of neuron is
+
+  -- automatically calculate width--
+  function clog2(n : positive) return natural is
+    variable v : natural := n - 1;
+    variable r : natural := 0;
+  begin
+    while v > 0 loop
+      v := v / 2;
+      r := r + 1;
+    end loop;
+    return r;
+  end function;
+
+  ---------------internal signals--------------------------
+  constant addressWidth : integer := clog2(numWeight);
+
+  signal wen    : std_logic;
+  signal ren    : std_logic;
+  signal w_addr : unsigned(addressWidth-1 downto 0);
+  signal r_addr : unsigned(addressWidth downto 0);
+  signal w_in   : signed(dataWidth-1 downto 0);
+  signal w_out  : signed(dataWidth-1 downto 0);
+  signal mul    : signed(2*dataWidth-1 downto 0);
+  signal sum    : signed(2*dataWidth-1 downto 0);
+  signal bias   : signed(2*dataWidth-1 downto 0);
+  ---------------Valid Flag--------------------------------
+  signal weight_valid : std_logic;
+  signal mult_valid   : std_logic;
+  signal mux_valid    : std_logic;
+  signal sigValid     : std_logic;
+
+  signal myinputd     : signed(dataWidth-1 downto 0);
+  signal muxValid_d   : std_logic;
+  signal muxValid_f   : std_logic;
+  ------------add result with overflow check---------------
+  signal comboAdd : signed(2*dataWidth downto 0);
+  signal BiasAdd  : signed(2*dataWidth downto 0);
+
+begin
+  -- 這裡才會放 process 或 component 實例化
+end architecture rtl;

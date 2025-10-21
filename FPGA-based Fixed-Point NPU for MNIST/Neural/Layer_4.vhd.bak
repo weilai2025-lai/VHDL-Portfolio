@@ -1,0 +1,209 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity Layer_4 is
+  generic (
+    NN             : integer := 10;   -- 本層 neuron 數（=輸出層 10）
+    numWeight      : integer := 10;   -- 來自前一層的輸入數 (Layer_3 有 10 個 neuron)
+    dataWidth      : integer := 16;
+    layerNum       : integer := 4;
+    sigmoidSize    : integer := 5;
+    weightIntWidth : integer := 1;
+    actType        : string  := "sigmoid"
+  );
+  port (
+    clk   : in  std_logic;
+    rst   : in  std_logic;
+
+    -- 若 PRETRAINED=false 會用到；=true 可綁常 0
+    weightValid        : in  std_logic;
+    biasValid          : in  std_logic;
+    weightValue        : in  signed(31 downto 0);
+    biasValue          : in  signed(31 downto 0);
+    config_layer_num   : in  unsigned(31 downto 0);
+    config_neuron_num  : in  unsigned(31 downto 0);
+
+    -- 由上一層串流進來
+    x_valid : in  std_logic;
+    x_in    : in  signed(dataWidth-1 downto 0);
+
+    -- 串流輸出到外界（或下一個模組做 argmax）
+    y_valid : out std_logic;
+    y_out   : out signed(dataWidth-1 downto 0)
+  );
+end entity;
+
+architecture rtl of Layer_4 is
+  type vec_t is array (natural range <>) of signed(dataWidth-1 downto 0);
+  signal y_bus : vec_t(0 to NN-1);
+  signal v_bus : std_logic_vector(NN-1 downto 0);
+
+  signal packed_bus : std_logic_vector(NN*dataWidth-1 downto 0);
+
+  signal hold_reg     : std_logic_vector(NN*dataWidth-1 downto 0) := (others => '0');
+  signal y_out_reg    : signed(dataWidth-1 downto 0) := (others => '0');
+  signal y_valid_reg  : std_logic := '0';
+
+  type state_t is (IDLE, SEND);
+  signal st   : state_t := IDLE;
+  signal idx  : integer range 0 to NN := 0;
+begin
+  y_out   <= y_out_reg;
+  y_valid <= y_valid_reg;
+
+  pack_bus : for i in 0 to NN-1 generate
+  begin
+    packed_bus( (i+1)*dataWidth-1 downto i*dataWidth ) <= std_logic_vector(y_bus(i));
+  end generate;
+
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      case st is
+        when IDLE =>
+          y_valid_reg <= '0';
+          if v_bus(0) = '1' then
+            hold_reg    <= packed_bus;
+            idx         <= 0;
+            y_out_reg   <= signed(packed_bus(dataWidth-1 downto 0));
+            y_valid_reg <= '1';
+            st          <= SEND;
+          end if;
+
+        when SEND =>
+          y_out_reg <= signed(hold_reg(dataWidth-1 downto 0));
+          hold_reg  <= (others => '0') & hold_reg(hold_reg'high downto dataWidth);
+
+          if idx = NN-1 then
+            y_valid_reg <= '0';
+            st          <= IDLE;
+          else
+            y_valid_reg <= '1';
+            idx         <= idx + 1;
+          end if;
+      end case;
+
+      if rst = '1' then
+        st          <= IDLE;
+        y_valid_reg <= '0';
+        idx         <= 0;
+        hold_reg    <= (others => '0');
+        y_out_reg   <= (others => '0');
+      end if;
+    end if;
+  end process;
+
+  ----------------------------------------------------------------------------
+  -- 10 顆 neuron（手動指定檔名；無法在 generate 中拼字串）
+  ----------------------------------------------------------------------------
+  N0 : entity work.neuron
+    generic map (numWeight=>numWeight, layerNo=>layerNum, neuronNo=>0,
+                 dataWidth=>dataWidth, sigmoidSize=>sigmoidSize,
+                 weightIntWidth=>weightIntWidth, actType=>actType,
+                 weightFile=>"w_4_0.mif", biasFile=>"b_4_0.mif")
+    port map (clk=>clk, rst=>rst, myinput=>x_in, myinputValid=>x_valid,
+              weightValid=>weightValid, biasValid=>biasValid,
+              weightValue=>weightValue, biasValue=>biasValue,
+              config_layer_num=>config_layer_num, config_neuron_num=>config_neuron_num,
+              output=>y_bus(0), outvalid=>v_bus(0));
+
+  N1 : entity work.neuron
+    generic map (numWeight=>numWeight, layerNo=>layerNum, neuronNo=>1,
+                 dataWidth=>dataWidth, sigmoidSize=>sigmoidSize,
+                 weightIntWidth=>weightIntWidth, actType=>actType,
+                 weightFile=>"w_4_1.mif", biasFile=>"b_4_1.mif")
+    port map (clk=>clk, rst=>rst, myinput=>x_in, myinputValid=>x_valid,
+              weightValid=>weightValid, biasValid=>biasValid,
+              weightValue=>weightValue, biasValue=>biasValue,
+              config_layer_num=>config_layer_num, config_neuron_num=>config_neuron_num,
+              output=>y_bus(1), outvalid=>v_bus(1));
+
+  N2 : entity work.neuron
+    generic map (numWeight=>numWeight, layerNo=>layerNum, neuronNo=>2,
+                 dataWidth=>dataWidth, sigmoidSize=>sigmoidSize,
+                 weightIntWidth=>weightIntWidth, actType=>actType,
+                 weightFile=>"w_4_2.mif", biasFile=>"b_4_2.mif")
+    port map (clk=>clk, rst=>rst, myinput=>x_in, myinputValid=>x_valid,
+              weightValid=>weightValid, biasValid=>biasValid,
+              weightValue=>weightValue, biasValue=>biasValue,
+              config_layer_num=>config_layer_num, config_neuron_num=>config_neuron_num,
+              output=>y_bus(2), outvalid=>v_bus(2));
+
+  N3 : entity work.neuron
+    generic map (numWeight=>numWeight, layerNo=>layerNum, neuronNo=>3,
+                 dataWidth=>dataWidth, sigmoidSize=>sigmoidSize,
+                 weightIntWidth=>weightIntWidth, actType=>actType,
+                 weightFile=>"w_4_3.mif", biasFile=>"b_4_3.mif")
+    port map (clk=>clk, rst=>rst, myinput=>x_in, myinputValid=>x_valid,
+              weightValid=>weightValid, biasValid=>biasValid,
+              weightValue=>weightValue, biasValue=>biasValue,
+              config_layer_num=>config_layer_num, config_neuron_num=>config_neuron_num,
+              output=>y_bus(3), outvalid=>v_bus(3));
+
+  N4 : entity work.neuron
+    generic map (numWeight=>numWeight, layerNo=>layerNum, neuronNo=>4,
+                 dataWidth=>dataWidth, sigmoidSize=>sigmoidSize,
+                 weightIntWidth=>weightIntWidth, actType=>actType,
+                 weightFile=>"w_4_4.mif", biasFile=>"b_4_4.mif")
+    port map (clk=>clk, rst=>rst, myinput=>x_in, myinputValid=>x_valid,
+              weightValid=>weightValid, biasValid=>biasValid,
+              weightValue=>weightValue, biasValue=>biasValue,
+              config_layer_num=>config_layer_num, config_neuron_num=>config_neuron_num,
+              output=>y_bus(4), outvalid=>v_bus(4));
+
+  N5 : entity work.neuron
+    generic map (numWeight=>numWeight, layerNo=>layerNum, neuronNo=>5,
+                 dataWidth=>dataWidth, sigmoidSize=>sigmoidSize,
+                 weightIntWidth=>weightIntWidth, actType=>actType,
+                 weightFile=>"w_4_5.mif", biasFile=>"b_4_5.mif")
+    port map (clk=>clk, rst=>rst, myinput=>x_in, myinputValid=>x_valid,
+              weightValid=>weightValid, biasValid=>biasValid,
+              weightValue=>weightValue, biasValue=>biasValue,
+              config_layer_num=>config_layer_num, config_neuron_num=>config_neuron_num,
+              output=>y_bus(5), outvalid=>v_bus(5));
+
+  N6 : entity work.neuron
+    generic map (numWeight=>numWeight, layerNo=>layerNum, neuronNo=>6,
+                 dataWidth=>dataWidth, sigmoidSize=>sigmoidSize,
+                 weightIntWidth=>weightIntWidth, actType=>actType,
+                 weightFile=>"w_4_6.mif", biasFile=>"b_4_6.mif")
+    port map (clk=>clk, rst=>rst, myinput=>x_in, myinputValid=>x_valid,
+              weightValid=>weightValid, biasValid=>biasValid,
+              weightValue=>weightValue, biasValue=>biasValue,
+              config_layer_num=>config_layer_num, config_neuron_num=>config_neuron_num,
+              output=>y_bus(6), outvalid=>v_bus(6));
+
+  N7 : entity work.neuron
+    generic map (numWeight=>numWeight, layerNo=>layerNum, neuronNo=>7,
+                 dataWidth=>dataWidth, sigmoidSize=>sigmoidSize,
+                 weightIntWidth=>weightIntWidth, actType=>actType,
+                 weightFile=>"w_4_7.mif", biasFile=>"b_4_7.mif")
+    port map (clk=>clk, rst=>rst, myinput=>x_in, myinputValid=>x_valid,
+              weightValid=>weightValid, biasValid=>biasValid,
+              weightValue=>weightValue, biasValue=>biasValue,
+              config_layer_num=>config_layer_num, config_neuron_num=>config_neuron_num,
+              output=>y_bus(7), outvalid=>v_bus(7));
+
+  N8 : entity work.neuron
+    generic map (numWeight=>numWeight, layerNo=>layerNum, neuronNo=>8,
+                 dataWidth=>dataWidth, sigmoidSize=>sigmoidSize,
+                 weightIntWidth=>weightIntWidth, actType=>actType,
+                 weightFile=>"w_4_8.mif", biasFile=>"b_4_8.mif")
+    port map (clk=>clk, rst=>rst, myinput=>x_in, myinputValid=>x_valid,
+              weightValid=>weightValid, biasValid=>biasValid,
+              weightValue=>weightValue, biasValue=>biasValue,
+              config_layer_num=>config_layer_num, config_neuron_num=>config_neuron_num,
+              output=>y_bus(8), outvalid=>v_bus(8));
+
+  N9 : entity work.neuron
+    generic map (numWeight=>numWeight, layerNo=>layerNum, neuronNo=>9,
+                 dataWidth=>dataWidth, sigmoidSize=>sigmoidSize,
+                 weightIntWidth=>weightIntWidth, actType=>actType,
+                 weightFile=>"w_4_9.mif", biasFile=>"b_4_9.mif")
+    port map (clk=>clk, rst=>rst, myinput=>x_in, myinputValid=>x_valid,
+              weightValid=>weightValid, biasValid=>biasValid,
+              weightValue=>weightValue, biasValue=>biasValue,
+              config_layer_num=>config_layer_num, config_neuron_num=>config_neuron_num,
+              output=>y_bus(9), outvalid=>v_bus(9));
+end architecture;
