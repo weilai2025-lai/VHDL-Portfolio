@@ -3,87 +3,291 @@ K3
 13
 cModel Technology
 Z0 dC:\VHDL_training\Neural\simulation\modelsim
-Elayer_1
-Z1 w1760658743
-Z2 DPx4 work 9 nn_config 0 22 @kaz4WU@`ShN^e6>_GMTS1
+Ednn
+Z1 w1761790645
+Z2 DPx4 work 9 nn_config 0 22 =]J^EXmG5GY585kPf0]2X0
 Z3 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
 Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
 Z6 dC:\VHDL_training\Neural\simulation\modelsim
-Z7 8C:/VHDL_training/Neural/Layer_1.vhd
-Z8 FC:/VHDL_training/Neural/Layer_1.vhd
+Z7 8C:/VHDL_training/Neural/DNN.vhd
+Z8 FC:/VHDL_training/Neural/DNN.vhd
 l0
 L6
-V7?Z6G:g?KI0?>9E79=TeN0
-!s100 ^@jk7<n69laUON8mDmnL30
+VomF`1Dg>gkSIa[63TLf^[1
+!s100 MCA:bUSX7>IioH[V21PAP1
 Z9 OV;C;10.1d;51
-33
+31
 !i10b 1
-Z10 !s108 1760967273.953000
-Z11 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/Neural/Layer_1.vhd|
-Z12 !s107 C:/VHDL_training/Neural/Layer_1.vhd|
-Z13 o-2008 -work work -O0
+Z10 !s108 1761791034.524000
+Z11 !s90 -reportprogress|300|-93|-work|work|C:/VHDL_training/Neural/DNN.vhd|
+Z12 !s107 C:/VHDL_training/Neural/DNN.vhd|
+Z13 o-93 -work work -O0
 Z14 tExplicit 1
 Artl
-Z15 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
-Z16 DEx4 work 6 neuron 0 22 L170c75D>H54Y`0c6KKai1
+Z15 DEx4 work 9 maxfinder 0 22 `P_Y?D7f2m>17Sk?5bCgh0
+Z16 DEx4 work 7 layer_4 0 22 NSckfFF?E^0LizlThA3ba2
+Z17 DEx4 work 7 layer_3 0 22 TPZOlYXV^YFbXg05:3Z321
+Z18 DEx4 work 7 layer_2 0 22 1[UZJFn2zGiSX=YGK7jTo2
+Z19 DEx4 work 7 layer_1 0 22 Fc:ZhBZjbn7al=;LTQNT^1
 R2
 R3
 R4
 R5
-DEx4 work 7 layer_1 0 22 7?Z6G:g?KI0?>9E79=TeN0
-l36
+DEx4 work 3 dnn 0 22 omF`1Dg>gkSIa[63TLf^[1
+l88
 L35
-VCB0o8:A2n0XQ6?GCBg[4n0
-!s100 1126>`^:aE76GSGN`Bm=o0
+V2@121;3N_ImaVHY[KkDkY2
+!s100 c=S>M<IkcmY<TcAfV0RUJ0
 R9
-33
+31
 !i10b 1
 R10
 R11
 R12
 R13
 R14
-Eneuron
-Z17 w1760902810
+Elayer_1
+Z20 w1760658743
 R2
+R3
+R4
+R5
+R6
+Z21 8C:/VHDL_training/Neural/Layer_1.vhd
+Z22 FC:/VHDL_training/Neural/Layer_1.vhd
+l0
+L6
+VFc:ZhBZjbn7al=;LTQNT^1
+R9
+31
+Z23 !s108 1761791034.422000
+Z24 !s90 -reportprogress|300|-93|-work|work|C:/VHDL_training/Neural/Layer_1.vhd|
+Z25 !s107 C:/VHDL_training/Neural/Layer_1.vhd|
+R13
+R14
+!s100 ^@jk7<n69laUON8mDmnL30
+!i10b 1
+Artl
+Z26 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
+Z27 DEx4 work 6 neuron 0 22 SjiWHVog5F;Q;lzFK_[5l0
+R2
+R3
+R4
+R5
+R19
+l36
+L35
+VPhFVWWcFN@k8XkfT?PA;F2
+R9
+31
+R23
+R24
+R25
+R13
+R14
+!s100 1126>`^:aE76GSGN`Bm=o0
+!i10b 1
+Elayer_2
+Z28 w1760659162
+R2
+R3
+R4
+R5
+R6
+Z29 8C:/VHDL_training/Neural/Layer_2.vhd
+Z30 FC:/VHDL_training/Neural/Layer_2.vhd
+l0
+L6
+V1[UZJFn2zGiSX=YGK7jTo2
+R9
+31
+Z31 !s108 1761791034.322000
+Z32 !s90 -reportprogress|300|-93|-work|work|C:/VHDL_training/Neural/Layer_2.vhd|
+Z33 !s107 C:/VHDL_training/Neural/Layer_2.vhd|
+R13
+R14
+!s100 LQn^QX6iDkFc:T8_hBBCa3
+!i10b 1
+Artl
+R26
+R27
+R2
+R3
+R4
+R5
+R18
+l36
+L35
+V]ke;]8DIZj4FL<=8DjcVB3
+R9
+31
+R31
+R32
+R33
+R13
+R14
+!s100 gVaEVfOYnS7`b1iNTlfTP3
+!i10b 1
+Elayer_3
+Z34 w1760659373
+R2
+R3
+R4
+R5
+R6
+Z35 8C:/VHDL_training/Neural/Layer_3.vhd
+Z36 FC:/VHDL_training/Neural/Layer_3.vhd
+l0
+L6
+VTPZOlYXV^YFbXg05:3Z321
+R9
+31
+Z37 !s108 1761791034.241000
+Z38 !s90 -reportprogress|300|-93|-work|work|C:/VHDL_training/Neural/Layer_3.vhd|
+Z39 !s107 C:/VHDL_training/Neural/Layer_3.vhd|
+R13
+R14
+!s100 SJ?Y34W=e6UE;2o`4GQTF0
+!i10b 1
+Artl
+R26
+R27
+R2
+R3
+R4
+R5
+R17
+l36
+L35
+VMz65FV[N54YKQg5a<jM[52
+R9
+31
+R37
+R38
+R39
+R13
+R14
+!s100 6mQVGWnJ1@3^`e=[z=fHT3
+!i10b 1
+Elayer_4
+Z40 w1760659483
+R2
+R3
+R4
+R5
+R6
+Z41 8C:/VHDL_training/Neural/Layer_4.vhd
+Z42 FC:/VHDL_training/Neural/Layer_4.vhd
+l0
+L6
+VNSckfFF?E^0LizlThA3ba2
+R9
+31
+Z43 !s108 1761791034.150000
+Z44 !s90 -reportprogress|300|-93|-work|work|C:/VHDL_training/Neural/Layer_4.vhd|
+Z45 !s107 C:/VHDL_training/Neural/Layer_4.vhd|
+R13
+R14
+!s100 0`1>V^Qj:g<JjaU4c3ZV:0
+!i10b 1
+Artl
+R26
+R27
+R2
+R3
+R4
+R5
+R16
+l36
+L35
+V>Egb@1l4hJD8oDe86G:c]1
+R9
+31
+R43
+R44
+R45
+R13
+R14
+!s100 =@JdAzAl@kZiDKF[2jC_Q2
+!i10b 1
+Emaxfinder
+Z46 w1760905378
+R3
+R4
+R5
+R6
+Z47 8C:/VHDL_training/Neural/maxFinder.vhd
+Z48 FC:/VHDL_training/Neural/maxFinder.vhd
+l0
+L5
+V`P_Y?D7f2m>17Sk?5bCgh0
+R9
+31
+Z49 !s108 1761791033.757000
+Z50 !s90 -reportprogress|300|-93|-work|work|C:/VHDL_training/Neural/maxFinder.vhd|
+Z51 !s107 C:/VHDL_training/Neural/maxFinder.vhd|
+R13
+R14
+!s100 B5Um_E9=o0P:3=o]<??k63
+!i10b 1
+Artl
+R3
+R4
+R5
 R15
+l35
+L19
+Vn4:0[Z[zd24S6Z01P[T2W0
+R9
+31
+R49
+R50
+R51
+R13
+R14
+!s100 LVJUJEKiI@o;h8P4W<M6S2
+!i10b 1
+Eneuron
+Z52 w1760902810
+R2
+R26
 R3
 R5
 R4
 R6
-Z18 8C:/VHDL_training/Neural/neuron.vhd
-Z19 FC:/VHDL_training/Neural/neuron.vhd
+Z53 8C:/VHDL_training/Neural/neuron.vhd
+Z54 FC:/VHDL_training/Neural/neuron.vhd
 l0
 L9
-VL170c75D>H54Y`0c6KKai1
+VSjiWHVog5F;Q;lzFK_[5l0
 R9
-33
-Z20 !s108 1760967273.851000
-Z21 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/Neural/neuron.vhd|
-Z22 !s107 C:/VHDL_training/Neural/neuron.vhd|
+31
+Z55 !s108 1761791034.032000
+Z56 !s90 -reportprogress|300|-93|-work|work|C:/VHDL_training/Neural/neuron.vhd|
+Z57 !s107 C:/VHDL_training/Neural/neuron.vhd|
 R13
 R14
 !s100 ZVeU<SCH5EP6UEZCUXWjK2
 !i10b 1
 Artl
-Z23 DEx4 work 4 relu 0 22 i6aYAA@M<T8U?<H[dm@BW0
-Z24 DEx4 work 7 sig_rom 0 22 mFV9o7Cg:fD2k^A;?e^303
-Z25 DEx4 work 13 weight_memory 0 22 JTPmz^ojmTIjbTTXO^2cJ1
+Z58 DEx4 work 4 relu 0 22 :bRb@5bn6]Z1^KR4oP7Q11
+Z59 DEx4 work 7 sig_rom 0 22 ?Y<5lDm_0@VXfL644k>^B2
+Z60 DEx4 work 13 weight_memory 0 22 53Eo0ZSo`:?EN0MQJa>z81
 R2
-R15
+R26
 R3
 R5
 R4
-R16
+R27
 l107
 L38
-VHTaiz19gR9LQ9_ge61nDT3
+VO7U]]32YdIcidH]K9bVGo3
 R9
-33
-R20
-R21
-R22
+31
+R55
+R56
+R57
 R13
 R14
 !s100 9QS1X^FSo6HgYUSeOe5@92
@@ -91,21 +295,21 @@ R14
 Pnn_config
 R4
 R5
-Z26 w1760927421
+Z61 w1760967656
 R6
-Z27 8C:/VHDL_training/Neural/nn_config.vhd
-Z28 FC:/VHDL_training/Neural/nn_config.vhd
+Z62 8C:/VHDL_training/Neural/nn_config.vhd
+Z63 FC:/VHDL_training/Neural/nn_config.vhd
 l0
 L4
-V@kaz4WU@`ShN^e6>_GMTS1
+V=]J^EXmG5GY585kPf0]2X0
 R9
-33
-Z29 !s108 1760967273.478000
-Z30 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/Neural/nn_config.vhd|
-Z31 !s107 C:/VHDL_training/Neural/nn_config.vhd|
+31
+Z64 !s108 1761791033.676000
+Z65 !s90 -reportprogress|300|-93|-work|work|C:/VHDL_training/Neural/nn_config.vhd|
+Z66 !s107 C:/VHDL_training/Neural/nn_config.vhd|
 R13
 R14
-!s100 Dj>]1[h49TlLUVoV?N>M22
+!s100 WXZO6ZE7AzQYe:;2IaYdW3
 !i10b 1
 Bbody
 R2
@@ -113,33 +317,33 @@ R4
 R5
 l0
 L38
-V@]@7_2Y98aY?`^N4^a`QY0
+VZZ^Kkkh1`L3KE0KN5BJD^0
 R9
-33
-R29
-R30
-R31
+31
+R64
+R65
+R66
 R13
 R14
 nbody
 !s100 C`zF>4D1@j?^GZjglATld1
 !i10b 1
 Erelu
-Z32 w1760136436
+Z67 w1760136436
 R3
 R4
 R5
 R6
-Z33 8C:/VHDL_training/Neural/ReLU.vhd
-Z34 FC:/VHDL_training/Neural/ReLU.vhd
+Z68 8C:/VHDL_training/Neural/ReLU.vhd
+Z69 FC:/VHDL_training/Neural/ReLU.vhd
 l0
 L5
-Vi6aYAA@M<T8U?<H[dm@BW0
+V:bRb@5bn6]Z1^KR4oP7Q11
 R9
-33
-Z35 !s108 1760967273.559000
-Z36 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/Neural/ReLU.vhd|
-Z37 !s107 C:/VHDL_training/Neural/ReLU.vhd|
+31
+Z70 !s108 1761791033.591000
+Z71 !s90 -reportprogress|300|-93|-work|work|C:/VHDL_training/Neural/ReLU.vhd|
+Z72 !s107 C:/VHDL_training/Neural/ReLU.vhd|
 R13
 R14
 !s100 EPELzBZC;X5bPk?Uf>0B_0
@@ -148,78 +352,78 @@ Artl
 R3
 R4
 R5
-R23
+R58
 l27
 L17
-VRgme^=>mnbjE5:7XEG?AJ3
+VGUB3_H]]H[BzVGAUSYNg;2
 R9
-33
-R35
-R36
-R37
+31
+R70
+R71
+R72
 R13
 R14
 !s100 Jj]7kgkQR]F_=`>=@LUnX0
 !i10b 1
 Esig_rom
-Z38 w1760908537
+Z73 w1760908537
 R2
-R15
+R26
 R3
 R5
 R4
 R6
-Z39 8C:/VHDL_training/Neural/Sig_ROM.vhd
-Z40 FC:/VHDL_training/Neural/Sig_ROM.vhd
+Z74 8C:/VHDL_training/Neural/Sig_ROM.vhd
+Z75 FC:/VHDL_training/Neural/Sig_ROM.vhd
 l0
 L9
-VmFV9o7Cg:fD2k^A;?e^303
+V?Y<5lDm_0@VXfL644k>^B2
 R9
-33
-Z41 !s108 1760967273.760000
-Z42 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/Neural/Sig_ROM.vhd|
-Z43 !s107 C:/VHDL_training/Neural/Sig_ROM.vhd|
+31
+Z76 !s108 1761791033.955000
+Z77 !s90 -reportprogress|300|-93|-work|work|C:/VHDL_training/Neural/Sig_ROM.vhd|
+Z78 !s107 C:/VHDL_training/Neural/Sig_ROM.vhd|
 R13
 R14
 !s100 EklEKWaI@WbMm1So:?W:K3
 !i10b 1
 Abehavior
 R2
-R15
+R26
 R3
 R5
 R4
-R24
+R59
 l51
 L23
-V4=dVknjBAl149X?_j2o`42
+V7S`nleOo^6MT5J`PAO1W]1
 R9
-33
-R41
-R42
-R43
+31
+R76
+R77
+R78
 R13
 R14
 !s100 2>@i7BciQXi[[eHN;AzVK1
 !i10b 1
 Eweight_memory
-Z44 w1760903354
+Z79 w1760903354
 R2
 R3
 R5
-R15
+R26
 R4
 R6
-Z45 8C:/VHDL_training/Neural/Weight_Memory.vhd
-Z46 FC:/VHDL_training/Neural/Weight_Memory.vhd
+Z80 8C:/VHDL_training/Neural/Weight_Memory.vhd
+Z81 FC:/VHDL_training/Neural/Weight_Memory.vhd
 l0
 L9
-VJTPmz^ojmTIjbTTXO^2cJ1
+V53Eo0ZSo`:?EN0MQJa>z81
 R9
-33
-Z47 !s108 1760967273.655000
-Z48 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/Neural/Weight_Memory.vhd|
-Z49 !s107 C:/VHDL_training/Neural/Weight_Memory.vhd|
+31
+Z82 !s108 1761791033.856000
+Z83 !s90 -reportprogress|300|-93|-work|work|C:/VHDL_training/Neural/Weight_Memory.vhd|
+Z84 !s107 C:/VHDL_training/Neural/Weight_Memory.vhd|
 R13
 R14
 !s100 <o[K]20:RZoBong^iGB6Z1
@@ -228,17 +432,17 @@ Abehavior
 R2
 R3
 R5
-R15
+R26
 R4
-R25
+R60
 l34
 L28
-VAfa@eO6kRK9314nm`Z?H[3
+V;]M88`l3M7M9SDOTflQfO0
 R9
-33
-R47
-R48
-R49
+31
+R82
+R83
+R84
 R13
 R14
 !s100 PE5iG@=YDRidn1aiSiLC90

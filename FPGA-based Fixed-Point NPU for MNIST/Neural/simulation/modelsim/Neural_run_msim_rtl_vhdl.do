@@ -43,10 +43,15 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vcom -2008 -work work {C:/VHDL_training/Neural/nn_config.vhd}
-vcom -2008 -work work {C:/VHDL_training/Neural/ReLU.vhd}
-vcom -2008 -work work {C:/VHDL_training/Neural/Weight_Memory.vhd}
-vcom -2008 -work work {C:/VHDL_training/Neural/Sig_ROM.vhd}
-vcom -2008 -work work {C:/VHDL_training/Neural/neuron.vhd}
-vcom -2008 -work work {C:/VHDL_training/Neural/Layer_1.vhd}
+vcom -93 -work work {C:/VHDL_training/Neural/ReLU.vhd}
+vcom -93 -work work {C:/VHDL_training/Neural/nn_config.vhd}
+vcom -93 -work work {C:/VHDL_training/Neural/maxFinder.vhd}
+vcom -93 -work work {C:/VHDL_training/Neural/Weight_Memory.vhd}
+vcom -93 -work work {C:/VHDL_training/Neural/Sig_ROM.vhd}
+vcom -93 -work work {C:/VHDL_training/Neural/neuron.vhd}
+vcom -93 -work work {C:/VHDL_training/Neural/Layer_4.vhd}
+vcom -93 -work work {C:/VHDL_training/Neural/Layer_3.vhd}
+vcom -93 -work work {C:/VHDL_training/Neural/Layer_2.vhd}
+vcom -93 -work work {C:/VHDL_training/Neural/Layer_1.vhd}
+vcom -93 -work work {C:/VHDL_training/Neural/DNN.vhd}
 

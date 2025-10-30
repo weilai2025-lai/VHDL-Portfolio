@@ -1,0 +1,48 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity ReLU is
+  generic(
+    dataWidth      : integer := 16;
+    weightIntWidth : integer := 1
+  );
+  port(
+    clk    : in  std_logic;
+    x      : in  signed(2*dataWidth-1 downto 0);
+    output : out signed(dataWidth-1 downto 0)
+  );
+end entity ReLU;
+
+architecture rtl of ReLU is
+  -- OR-reduce 小工具
+  function or_reduce(v: std_logic_vector) return std_logic is
+    variable r: std_logic := '0';
+  begin
+    for i in v'range loop
+      r := r or v(i);
+    end loop;
+    return r;
+  end function;
+begin
+  process(clk)
+    variable upper_bits : std_logic_vector(weightIntWidth downto 0); -- x[x'high : x'high-weightIntWidth]
+    variable win        : signed(dataWidth-1 downto 0);              -- 取出的 dataWidth 視窗
+  begin
+    if rising_edge(clk) then
+      if x >= 0 then
+        upper_bits := std_logic_vector(x(x'high downto x'high - weightIntWidth));
+        if or_reduce(upper_bits) = '1' then
+          -- 正飽和：0 & 全 1
+          output <= to_signed(2**(dataWidth-1)-1, dataWidth);
+        else
+          -- 取 dataWidth 寬度的視窗：x[x'high-weightIntWidth : x'high-weightIntWidth-(dataWidth-1)]
+          win:= x(x'high - weightIntWidth downto x'high - weightIntWidth - (dataWidth-1));
+          output <= win;
+        end if;
+      else
+        output <= (others => '0');
+      end if;
+    end if;
+  end process;
+end architecture rtl;

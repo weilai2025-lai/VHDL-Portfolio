@@ -1,13 +1,13 @@
-Fitter Status : Successful - Mon Oct 20 18:47:39 2025
+Fitter Status : Successful - Wed Oct 29 21:18:13 2025
 Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 Revision Name : Neural
-Top-level Entity Name : zyNet
+Top-level Entity Name : DNN
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 101 / 114,480 ( < 1 % )
+Total logic elements : 103 / 114,480 ( < 1 % )
     Total combinational functions : 84 / 114,480 ( < 1 % )
-    Dedicated logic registers : 76 / 114,480 ( < 1 % )
+    Dedicated logic registers : 77 / 114,480 ( < 1 % )
 Total registers : 77
 Total pins : 155 / 529 ( 29 % )
 Total virtual pins : 0

@@ -1,0 +1,138 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+use std.textio.all;
+use ieee.std_logic_textio.all;
+use work.nn_config.all;  -- 取用 DATA_WIDTH 等常數 (DATA_WIDTH=16)
+
+entity DNN_tb is
+end entity;
+
+architecture sim of DNN_tb is
+  -- 時脈/重置
+  signal clk   : std_logic := '0';
+  signal rstn  : std_logic := '0';
+  constant T   : time := 5 ns;  -- 100 MHz
+
+  -- 被測模組 I/O
+  signal axis_in_data       : std_logic_vector(DATA_WIDTH-1 downto 0) := (others=>'0');
+  signal axis_in_data_valid : std_logic := '0';
+  signal axis_in_data_ready : std_logic;
+  signal class_id           : std_logic_vector(3 downto 0);
+  signal class_valid        : std_logic;
+
+  -- 你已用 MIF preload，這些綁 0/不動就好
+  signal weightValid        : std_logic := '0';
+  signal biasValid          : std_logic := '0';
+  signal weightValue        : std_logic_vector(31 downto 0) := (others=>'0');
+  signal biasValue          : std_logic_vector(31 downto 0) := (others=>'0');
+  signal config_layer_num   : std_logic_vector(31 downto 0) := (others=>'0');
+  signal config_neuron_num  : std_logic_vector(31 downto 0) := (others=>'0');
+
+  -- 從檔案讀的 785 筆 (784 像素 + 1 標籤)
+  type mem_t is array (0 to 784) of std_logic_vector(DATA_WIDTH-1 downto 0);
+  signal sample : mem_t := (others => (others => '0'));
+
+  -- ⚠️ 改成你的檔案：preprocess 後的單張測資 (785 行，每行 16 個 0/1)
+  constant FILEPATH : string :=
+    "/home/kpb1466/NPU/test_data/test_data_0002.txt";
+
+begin
+  -- 時脈
+  clk <= not clk after T/2;
+
+  -- DUT
+  dut: entity work.zyNet
+    generic map (
+      C_S_AXI_DATA_WIDTH => 32,
+      C_S_AXI_ADDR_WIDTH => 5
+    )
+    port map (
+      s_axi_aclk          => clk,
+      s_axi_aresetn       => rstn,
+      axis_in_data        => axis_in_data,
+      axis_in_data_valid  => axis_in_data_valid,
+      axis_in_data_ready  => axis_in_data_ready,
+      class_id            => class_id,
+      class_valid         => class_valid,
+      weightValid         => weightValid,
+      biasValid           => biasValid,
+      weightValue         => weightValue,
+      biasValue           => biasValue,
+      config_layer_num    => config_layer_num,
+      config_neuron_num   => config_neuron_num
+    );
+
+  -- 讀檔 + 刺激
+  stim: process
+    file f         : text open read_mode is FILEPATH;
+    variable L     : line;
+    variable v     : std_logic_vector(DATA_WIDTH-1 downto 0);
+    variable i     : integer;
+    variable expected16 : std_logic_vector(DATA_WIDTH-1 downto 0);
+    variable exp_id     : integer;
+    variable got_id     : integer;
+    constant TIMEOUT_CYC : integer := 200000;  -- 給足夠時間等 pipeline 跑完
+    variable wait_cnt    : integer := 0;
+  begin
+    -- 讀 785 行
+    for i in 0 to 784 loop
+      if endfile(f) then
+        report "ERROR: Unexpected EOF before 785 lines" severity failure;
+      end if;
+      readline(f, L);
+      -- 每行是 16 個 '0'/'1'，直接讀成 slv
+      read(L, v);
+      sample(i) <= v;
+    end loop;
+    file_close(f);
+
+    -- reset
+    rstn <= '0';
+    axis_in_data_valid <= '0';
+    axis_in_data       <= (others=>'0');
+    wait for 20*T;
+    rstn <= '1';
+    wait for 10*T;
+
+    -- 丟 784 筆像素（ready 在 DUT 內固定 '1'，這裡就連續送）
+    for i in 0 to 783 loop
+      axis_in_data       <= sample(i);
+      axis_in_data_valid <= '1';
+      wait until rising_edge(clk);
+    end loop;
+    axis_in_data_valid <= '0';
+    axis_in_data       <= (others=>'0');
+
+    -- 期望標籤（第 785 行）
+    expected16 := sample(784);
+    exp_id     := to_integer(unsigned(expected16(3 downto 0))); -- 0..9
+
+    -- 等待 maxFinder 結果
+    wait_cnt := 0;
+    while class_valid = '0' loop
+      wait until rising_edge(clk);
+      wait_cnt := wait_cnt + 1;
+      if wait_cnt > TIMEOUT_CYC then
+        report "TIMEOUT: class_valid not asserted" severity failure;
+      end if;
+    end loop;
+
+    got_id := to_integer(unsigned(class_id));
+    if got_id = exp_id then
+      report "PASS: class_id=" & integer'image(got_id) &
+             " expected=" & integer'image(exp_id);
+    else
+      report "FAIL: class_id=" & integer'image(got_id) &
+             " expected=" & integer'image(exp_id) severity warning;
+    end if;
+    --結束模擬--
+    assert false report "Simulation finished." severity failure;
+    -- 結束模擬(有問題版本)
+    --wait until rising_edge(clk) and class_valid = '1';
+    --report "Simulation finished." severity note;
+    --std.env.stop;  -- VHDL-2008；不支援就用 wait;
+    wait;
+  end process;
+
+end architecture;

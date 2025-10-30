@@ -1,4 +1,4 @@
-|zyNet
+|DNN
 s_axi_aclk => layer_1:L1.clk
 s_axi_aclk => out_data_3[0].CLK
 s_axi_aclk => out_data_3[1].CLK
@@ -2401,12 +2401,12 @@ axis_in_data[13] => layer_1:L1.x_in[13]
 axis_in_data[14] => layer_1:L1.x_in[14]
 axis_in_data[15] => layer_1:L1.x_in[15]
 axis_in_data_valid => layer_1:L1.x_valid
-axis_in_data_ready << <VCC>
-class_id[0] << maxfinder:mFind.o_data[0]
-class_id[1] << maxfinder:mFind.o_data[1]
-class_id[2] << maxfinder:mFind.o_data[2]
-class_id[3] << maxfinder:mFind.o_data[3]
-class_valid << maxfinder:mFind.o_data_valid
+axis_in_data_ready <= <VCC>
+class_id[0] <= maxfinder:mFind.o_data[0]
+class_id[1] <= maxfinder:mFind.o_data[1]
+class_id[2] <= maxfinder:mFind.o_data[2]
+class_id[3] <= maxfinder:mFind.o_data[3]
+class_valid <= maxfinder:mFind.o_data_valid
 weightValid => layer_1:L1.weightValid
 weightValid => layer_2:L2.weightValid
 weightValid => layer_3:L3.weightValid
@@ -2929,7 +2929,7 @@ config_neuron_num[31] => layer_3:L3.config_neuron_num[31]
 config_neuron_num[31] => layer_4:L4.config_neuron_num[31]
 
 
-|zyNet|Layer_1:L1
+|DNN|Layer_1:L1
 clk => neuron:n_0.clk
 clk => neuron:n_1.clk
 clk => neuron:n_2.clk
@@ -7912,7 +7912,7 @@ x_out[478] <= neuron:n_29.output[14]
 x_out[479] <= neuron:n_29.output[15]
 
 
-|zyNet|Layer_1:L1|neuron:n_0
+|DNN|Layer_1:L1|neuron:n_0
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -8277,7 +8277,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_0|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_0|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -8335,7 +8335,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_0|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_0|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -8365,7 +8365,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_1
+|DNN|Layer_1:L1|neuron:n_1
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -8730,7 +8730,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_1|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_1|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -8788,7 +8788,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_1|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_1|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -8818,7 +8818,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_2
+|DNN|Layer_1:L1|neuron:n_2
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -9183,7 +9183,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_2|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_2|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -9241,7 +9241,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_2|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_2|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -9271,7 +9271,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_3
+|DNN|Layer_1:L1|neuron:n_3
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -9636,7 +9636,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_3|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_3|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -9694,7 +9694,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_3|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_3|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -9724,7 +9724,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_4
+|DNN|Layer_1:L1|neuron:n_4
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -10089,7 +10089,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_4|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_4|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -10147,7 +10147,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_4|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_4|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -10177,7 +10177,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_5
+|DNN|Layer_1:L1|neuron:n_5
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -10542,7 +10542,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_5|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_5|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -10600,7 +10600,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_5|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_5|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -10630,7 +10630,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_6
+|DNN|Layer_1:L1|neuron:n_6
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -10995,7 +10995,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_6|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_6|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -11053,7 +11053,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_6|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_6|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -11083,7 +11083,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_7
+|DNN|Layer_1:L1|neuron:n_7
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -11448,7 +11448,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_7|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_7|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -11506,7 +11506,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_7|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_7|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -11536,7 +11536,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_8
+|DNN|Layer_1:L1|neuron:n_8
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -11901,7 +11901,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_8|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_8|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -11959,7 +11959,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_8|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_8|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -11989,7 +11989,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_9
+|DNN|Layer_1:L1|neuron:n_9
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -12354,7 +12354,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_9|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_9|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -12412,7 +12412,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_9|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_9|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -12442,7 +12442,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_10
+|DNN|Layer_1:L1|neuron:n_10
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -12807,7 +12807,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_10|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_10|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -12865,7 +12865,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_10|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_10|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -12895,7 +12895,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_11
+|DNN|Layer_1:L1|neuron:n_11
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -13260,7 +13260,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_11|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_11|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -13318,7 +13318,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_11|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_11|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -13348,7 +13348,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_12
+|DNN|Layer_1:L1|neuron:n_12
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -13713,7 +13713,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_12|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_12|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -13771,7 +13771,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_12|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_12|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -13801,7 +13801,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_13
+|DNN|Layer_1:L1|neuron:n_13
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -14166,7 +14166,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_13|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_13|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -14224,7 +14224,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_13|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_13|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -14254,7 +14254,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_14
+|DNN|Layer_1:L1|neuron:n_14
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -14619,7 +14619,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_14|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_14|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -14677,7 +14677,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_14|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_14|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -14707,7 +14707,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_15
+|DNN|Layer_1:L1|neuron:n_15
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -15072,7 +15072,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_15|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_15|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -15130,7 +15130,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_15|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_15|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -15160,7 +15160,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_16
+|DNN|Layer_1:L1|neuron:n_16
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -15525,7 +15525,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_16|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_16|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -15583,7 +15583,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_16|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_16|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -15613,7 +15613,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_17
+|DNN|Layer_1:L1|neuron:n_17
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -15978,7 +15978,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_17|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_17|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -16036,7 +16036,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_17|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_17|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -16066,7 +16066,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_18
+|DNN|Layer_1:L1|neuron:n_18
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -16431,7 +16431,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_18|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_18|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -16489,7 +16489,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_18|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_18|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -16519,7 +16519,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_19
+|DNN|Layer_1:L1|neuron:n_19
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -16884,7 +16884,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_19|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_19|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -16942,7 +16942,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_19|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_19|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -16972,7 +16972,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_20
+|DNN|Layer_1:L1|neuron:n_20
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -17337,7 +17337,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_20|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_20|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -17395,7 +17395,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_20|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_20|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -17425,7 +17425,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_21
+|DNN|Layer_1:L1|neuron:n_21
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -17790,7 +17790,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_21|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_21|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -17848,7 +17848,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_21|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_21|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -17878,7 +17878,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_22
+|DNN|Layer_1:L1|neuron:n_22
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -18243,7 +18243,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_22|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_22|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -18301,7 +18301,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_22|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_22|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -18331,7 +18331,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_23
+|DNN|Layer_1:L1|neuron:n_23
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -18696,7 +18696,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_23|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_23|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -18754,7 +18754,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_23|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_23|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -18784,7 +18784,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_24
+|DNN|Layer_1:L1|neuron:n_24
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -19149,7 +19149,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_24|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_24|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -19207,7 +19207,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_24|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_24|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -19237,7 +19237,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_25
+|DNN|Layer_1:L1|neuron:n_25
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -19602,7 +19602,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_25|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_25|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -19660,7 +19660,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_25|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_25|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -19690,7 +19690,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_26
+|DNN|Layer_1:L1|neuron:n_26
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -20055,7 +20055,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_26|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_26|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -20113,7 +20113,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_26|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_26|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -20143,7 +20143,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_27
+|DNN|Layer_1:L1|neuron:n_27
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -20508,7 +20508,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_27|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_27|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -20566,7 +20566,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_27|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_27|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -20596,7 +20596,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_28
+|DNN|Layer_1:L1|neuron:n_28
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -20961,7 +20961,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_28|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_28|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -21019,7 +21019,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_28|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_28|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -21049,7 +21049,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_29
+|DNN|Layer_1:L1|neuron:n_29
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -21414,7 +21414,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_1:L1|neuron:n_29|Weight_Memory:WM
+|DNN|Layer_1:L1|neuron:n_29|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -21472,7 +21472,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_1:L1|neuron:n_29|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_1:L1|neuron:n_29|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -21502,7 +21502,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2
+|DNN|Layer_2:L2
 clk => neuron:n_0.clk
 clk => neuron:n_1.clk
 clk => neuron:n_2.clk
@@ -26485,7 +26485,7 @@ x_out[478] <= neuron:n_29.output[14]
 x_out[479] <= neuron:n_29.output[15]
 
 
-|zyNet|Layer_2:L2|neuron:n_0
+|DNN|Layer_2:L2|neuron:n_0
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -26830,7 +26830,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_0|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_0|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -26878,7 +26878,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_0|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_0|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -26908,7 +26908,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_1
+|DNN|Layer_2:L2|neuron:n_1
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -27253,7 +27253,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_1|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_1|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -27301,7 +27301,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_1|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_1|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -27331,7 +27331,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_2
+|DNN|Layer_2:L2|neuron:n_2
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -27676,7 +27676,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_2|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_2|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -27724,7 +27724,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_2|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_2|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -27754,7 +27754,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_3
+|DNN|Layer_2:L2|neuron:n_3
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -28099,7 +28099,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_3|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_3|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -28147,7 +28147,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_3|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_3|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -28177,7 +28177,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_4
+|DNN|Layer_2:L2|neuron:n_4
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -28522,7 +28522,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_4|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_4|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -28570,7 +28570,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_4|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_4|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -28600,7 +28600,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_5
+|DNN|Layer_2:L2|neuron:n_5
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -28945,7 +28945,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_5|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_5|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -28993,7 +28993,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_5|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_5|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -29023,7 +29023,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_6
+|DNN|Layer_2:L2|neuron:n_6
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -29368,7 +29368,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_6|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_6|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -29416,7 +29416,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_6|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_6|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -29446,7 +29446,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_7
+|DNN|Layer_2:L2|neuron:n_7
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -29791,7 +29791,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_7|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_7|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -29839,7 +29839,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_7|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_7|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -29869,7 +29869,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_8
+|DNN|Layer_2:L2|neuron:n_8
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -30214,7 +30214,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_8|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_8|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -30262,7 +30262,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_8|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_8|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -30292,7 +30292,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_9
+|DNN|Layer_2:L2|neuron:n_9
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -30637,7 +30637,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_9|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_9|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -30685,7 +30685,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_9|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_9|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -30715,7 +30715,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_10
+|DNN|Layer_2:L2|neuron:n_10
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -31060,7 +31060,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_10|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_10|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -31108,7 +31108,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_10|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_10|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -31138,7 +31138,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_11
+|DNN|Layer_2:L2|neuron:n_11
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -31483,7 +31483,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_11|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_11|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -31531,7 +31531,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_11|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_11|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -31561,7 +31561,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_12
+|DNN|Layer_2:L2|neuron:n_12
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -31906,7 +31906,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_12|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_12|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -31954,7 +31954,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_12|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_12|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -31984,7 +31984,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_13
+|DNN|Layer_2:L2|neuron:n_13
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -32329,7 +32329,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_13|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_13|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -32377,7 +32377,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_13|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_13|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -32407,7 +32407,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_14
+|DNN|Layer_2:L2|neuron:n_14
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -32752,7 +32752,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_14|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_14|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -32800,7 +32800,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_14|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_14|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -32830,7 +32830,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_15
+|DNN|Layer_2:L2|neuron:n_15
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -33175,7 +33175,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_15|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_15|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -33223,7 +33223,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_15|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_15|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -33253,7 +33253,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_16
+|DNN|Layer_2:L2|neuron:n_16
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -33598,7 +33598,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_16|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_16|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -33646,7 +33646,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_16|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_16|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -33676,7 +33676,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_17
+|DNN|Layer_2:L2|neuron:n_17
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -34021,7 +34021,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_17|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_17|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -34069,7 +34069,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_17|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_17|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -34099,7 +34099,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_18
+|DNN|Layer_2:L2|neuron:n_18
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -34444,7 +34444,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_18|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_18|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -34492,7 +34492,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_18|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_18|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -34522,7 +34522,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_19
+|DNN|Layer_2:L2|neuron:n_19
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -34867,7 +34867,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_19|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_19|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -34915,7 +34915,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_19|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_19|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -34945,7 +34945,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_20
+|DNN|Layer_2:L2|neuron:n_20
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -35290,7 +35290,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_20|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_20|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -35338,7 +35338,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_20|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_20|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -35368,7 +35368,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_21
+|DNN|Layer_2:L2|neuron:n_21
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -35713,7 +35713,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_21|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_21|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -35761,7 +35761,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_21|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_21|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -35791,7 +35791,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_22
+|DNN|Layer_2:L2|neuron:n_22
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -36136,7 +36136,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_22|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_22|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -36184,7 +36184,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_22|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_22|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -36214,7 +36214,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_23
+|DNN|Layer_2:L2|neuron:n_23
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -36559,7 +36559,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_23|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_23|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -36607,7 +36607,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_23|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_23|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -36637,7 +36637,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_24
+|DNN|Layer_2:L2|neuron:n_24
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -36982,7 +36982,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_24|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_24|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -37030,7 +37030,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_24|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_24|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -37060,7 +37060,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_25
+|DNN|Layer_2:L2|neuron:n_25
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -37405,7 +37405,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_25|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_25|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -37453,7 +37453,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_25|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_25|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -37483,7 +37483,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_26
+|DNN|Layer_2:L2|neuron:n_26
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -37828,7 +37828,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_26|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_26|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -37876,7 +37876,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_26|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_26|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -37906,7 +37906,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_27
+|DNN|Layer_2:L2|neuron:n_27
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -38251,7 +38251,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_27|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_27|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -38299,7 +38299,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_27|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_27|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -38329,7 +38329,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_28
+|DNN|Layer_2:L2|neuron:n_28
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -38674,7 +38674,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_28|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_28|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -38722,7 +38722,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_28|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_28|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -38752,7 +38752,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_29
+|DNN|Layer_2:L2|neuron:n_29
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -39097,7 +39097,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_2:L2|neuron:n_29|Weight_Memory:WM
+|DNN|Layer_2:L2|neuron:n_29|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -39145,7 +39145,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_2:L2|neuron:n_29|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_2:L2|neuron:n_29|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -39175,7 +39175,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_3:L3
+|DNN|Layer_3:L3
 clk => neuron:n_0.clk
 clk => neuron:n_1.clk
 clk => neuron:n_2.clk
@@ -40838,7 +40838,7 @@ x_out[158] <= neuron:n_9.output[14]
 x_out[159] <= neuron:n_9.output[15]
 
 
-|zyNet|Layer_3:L3|neuron:n_0
+|DNN|Layer_3:L3|neuron:n_0
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -41183,7 +41183,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_3:L3|neuron:n_0|Weight_Memory:WM
+|DNN|Layer_3:L3|neuron:n_0|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -41231,7 +41231,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_0|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_3:L3|neuron:n_0|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -41261,7 +41261,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_1
+|DNN|Layer_3:L3|neuron:n_1
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -41606,7 +41606,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_3:L3|neuron:n_1|Weight_Memory:WM
+|DNN|Layer_3:L3|neuron:n_1|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -41654,7 +41654,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_1|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_3:L3|neuron:n_1|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -41684,7 +41684,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_2
+|DNN|Layer_3:L3|neuron:n_2
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -42029,7 +42029,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_3:L3|neuron:n_2|Weight_Memory:WM
+|DNN|Layer_3:L3|neuron:n_2|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -42077,7 +42077,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_2|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_3:L3|neuron:n_2|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -42107,7 +42107,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_3
+|DNN|Layer_3:L3|neuron:n_3
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -42452,7 +42452,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_3:L3|neuron:n_3|Weight_Memory:WM
+|DNN|Layer_3:L3|neuron:n_3|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -42500,7 +42500,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_3|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_3:L3|neuron:n_3|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -42530,7 +42530,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_4
+|DNN|Layer_3:L3|neuron:n_4
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -42875,7 +42875,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_3:L3|neuron:n_4|Weight_Memory:WM
+|DNN|Layer_3:L3|neuron:n_4|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -42923,7 +42923,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_4|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_3:L3|neuron:n_4|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -42953,7 +42953,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_5
+|DNN|Layer_3:L3|neuron:n_5
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -43298,7 +43298,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_3:L3|neuron:n_5|Weight_Memory:WM
+|DNN|Layer_3:L3|neuron:n_5|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -43346,7 +43346,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_5|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_3:L3|neuron:n_5|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -43376,7 +43376,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_6
+|DNN|Layer_3:L3|neuron:n_6
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -43721,7 +43721,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_3:L3|neuron:n_6|Weight_Memory:WM
+|DNN|Layer_3:L3|neuron:n_6|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -43769,7 +43769,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_6|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_3:L3|neuron:n_6|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -43799,7 +43799,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_7
+|DNN|Layer_3:L3|neuron:n_7
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -44144,7 +44144,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_3:L3|neuron:n_7|Weight_Memory:WM
+|DNN|Layer_3:L3|neuron:n_7|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -44192,7 +44192,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_7|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_3:L3|neuron:n_7|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -44222,7 +44222,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_8
+|DNN|Layer_3:L3|neuron:n_8
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -44567,7 +44567,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_3:L3|neuron:n_8|Weight_Memory:WM
+|DNN|Layer_3:L3|neuron:n_8|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -44615,7 +44615,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_8|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_3:L3|neuron:n_8|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -44645,7 +44645,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_9
+|DNN|Layer_3:L3|neuron:n_9
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -44990,7 +44990,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_3:L3|neuron:n_9|Weight_Memory:WM
+|DNN|Layer_3:L3|neuron:n_9|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -45038,7 +45038,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_3:L3|neuron:n_9|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_3:L3|neuron:n_9|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -45068,7 +45068,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_4:L4
+|DNN|Layer_4:L4
 clk => neuron:n_0.clk
 clk => neuron:n_1.clk
 clk => neuron:n_2.clk
@@ -46731,7 +46731,7 @@ x_out[158] <= neuron:n_9.output[14]
 x_out[159] <= neuron:n_9.output[15]
 
 
-|zyNet|Layer_4:L4|neuron:n_0
+|DNN|Layer_4:L4|neuron:n_0
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -47072,7 +47072,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_4:L4|neuron:n_0|Weight_Memory:WM
+|DNN|Layer_4:L4|neuron:n_0|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -47118,7 +47118,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_0|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_4:L4|neuron:n_0|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -47148,7 +47148,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_1
+|DNN|Layer_4:L4|neuron:n_1
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -47489,7 +47489,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_4:L4|neuron:n_1|Weight_Memory:WM
+|DNN|Layer_4:L4|neuron:n_1|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -47535,7 +47535,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_1|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_4:L4|neuron:n_1|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -47565,7 +47565,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_2
+|DNN|Layer_4:L4|neuron:n_2
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -47906,7 +47906,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_4:L4|neuron:n_2|Weight_Memory:WM
+|DNN|Layer_4:L4|neuron:n_2|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -47952,7 +47952,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_2|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_4:L4|neuron:n_2|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -47982,7 +47982,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_3
+|DNN|Layer_4:L4|neuron:n_3
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -48323,7 +48323,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_4:L4|neuron:n_3|Weight_Memory:WM
+|DNN|Layer_4:L4|neuron:n_3|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -48369,7 +48369,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_3|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_4:L4|neuron:n_3|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -48399,7 +48399,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_4
+|DNN|Layer_4:L4|neuron:n_4
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -48740,7 +48740,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_4:L4|neuron:n_4|Weight_Memory:WM
+|DNN|Layer_4:L4|neuron:n_4|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -48786,7 +48786,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_4|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_4:L4|neuron:n_4|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -48816,7 +48816,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_5
+|DNN|Layer_4:L4|neuron:n_5
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -49157,7 +49157,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_4:L4|neuron:n_5|Weight_Memory:WM
+|DNN|Layer_4:L4|neuron:n_5|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -49203,7 +49203,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_5|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_4:L4|neuron:n_5|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -49233,7 +49233,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_6
+|DNN|Layer_4:L4|neuron:n_6
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -49574,7 +49574,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_4:L4|neuron:n_6|Weight_Memory:WM
+|DNN|Layer_4:L4|neuron:n_6|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -49620,7 +49620,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_6|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_4:L4|neuron:n_6|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -49650,7 +49650,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_7
+|DNN|Layer_4:L4|neuron:n_7
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -49991,7 +49991,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_4:L4|neuron:n_7|Weight_Memory:WM
+|DNN|Layer_4:L4|neuron:n_7|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -50037,7 +50037,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_7|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_4:L4|neuron:n_7|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -50067,7 +50067,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_8
+|DNN|Layer_4:L4|neuron:n_8
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -50408,7 +50408,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_4:L4|neuron:n_8|Weight_Memory:WM
+|DNN|Layer_4:L4|neuron:n_8|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -50454,7 +50454,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_8|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_4:L4|neuron:n_8|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -50484,7 +50484,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_9
+|DNN|Layer_4:L4|neuron:n_9
 clk => weight_memory:WM.clk
 clk => sum[0].CLK
 clk => sum[1].CLK
@@ -50825,7 +50825,7 @@ output[15] <= sig_rom:SIGMOID_GEN:SROM.output[15]
 outvalid <= outvalid_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|zyNet|Layer_4:L4|neuron:n_9|Weight_Memory:WM
+|DNN|Layer_4:L4|neuron:n_9|Weight_Memory:WM
 clk => ~NO_FANOUT~
 wen => ~NO_FANOUT~
 ren => ~NO_FANOUT~
@@ -50871,7 +50871,7 @@ wout[14] <= <GND>
 wout[15] <= <GND>
 
 
-|zyNet|Layer_4:L4|neuron:n_9|Sig_ROM:\SIGMOID_GEN:SROM
+|DNN|Layer_4:L4|neuron:n_9|Sig_ROM:\SIGMOID_GEN:SROM
 clk => ~NO_FANOUT~
 x[0] => ~NO_FANOUT~
 x[1] => ~NO_FANOUT~
@@ -50901,7 +50901,7 @@ output[14] <= <GND>
 output[15] <= <GND>
 
 
-|zyNet|maxFinder:mFind
+|DNN|maxFinder:mFind
 i_clk => counter[0].CLK
 i_clk => counter[1].CLK
 i_clk => counter[2].CLK

@@ -1,7 +1,7 @@
-Analysis & Synthesis Status : Successful - Mon Oct 20 18:47:21 2025
+Analysis & Synthesis Status : Successful - Wed Oct 29 21:17:56 2025
 Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 Revision Name : Neural
-Top-level Entity Name : zyNet
+Top-level Entity Name : DNN
 Family : Cyclone IV E
 Total logic elements : 100
     Total combinational functions : 84

@@ -1,0 +1,29 @@
+# RC 角落定義：定義電阻電容特性
+create_rc_corner -name rc \
+    -preRoute_res {1.0} \
+    -preRoute_cap {1.0} \
+    -preRoute_clkres {0.0} \
+    -preRoute_clkcap {0.0} \
+    -postRoute_res {1.0} \
+    -postRoute_cap {1.0} \
+    -postRoute_xcap {1.0} \
+    -postRoute_clkres {0.0} \
+    -postRoute_clkcap {0.0}
+
+# 操作條件：定義電壓、溫度、工藝庫
+create_op_cond -name op -library_file {/vol/ece303/genus_tutorial/NangateOpenCellLibrary_typical.lib} -P {1.0} -V {1.0} -T {25.0}
+
+# 庫集合：指向時序庫文件
+create_library_set -name lib -timing {/vol/ece303/genus_tutorial/NangateOpenCellLibrary_typical.lib}
+
+# 約束模式：指向 SDC 文件
+create_constraint_mode -name sdc -sdc_files {/home/kpb1466/Neuron/DNN.sdc}
+
+# 延遲角落：結合庫集合和 RC 角落
+create_delay_corner -name dc -library_set {lib} -rc_corner {rc}
+
+# 分析視圖：結合約束模式和延遲角落
+create_analysis_view -name an -constraint_mode {sdc} -delay_corner {dc}
+
+# 設定分析視圖
+set_analysis_view -setup {an} -hold {an}

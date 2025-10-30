@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Neural
-Mon Oct 20 18:47:21 2025
+Wed Oct 29 21:17:56 2025
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -17,7 +17,7 @@ Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
   9. Removed Registers Triggering Further Register Optimizations
  10. General Register Statistics
  11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: Top-level Entity: |zyNet
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |DNN
  13. Parameter Settings for User Entity Instance: Layer_1:L1
  14. Parameter Settings for User Entity Instance: Layer_1:L1|neuron:n_0
  15. Parameter Settings for User Entity Instance: Layer_1:L1|neuron:n_0|Weight_Memory:WM
@@ -296,10 +296,10 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Oct 20 18:47:21 2025          ;
+; Analysis & Synthesis Status        ; Successful - Wed Oct 29 21:17:56 2025          ;
 ; Quartus Prime Version              ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                      ; Neural                                         ;
-; Top-level Entity Name              ; zyNet                                          ;
+; Top-level Entity Name              ; DNN                                            ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Total logic elements               ; 100                                            ;
 ;     Total combinational functions  ; 84                                             ;
@@ -319,10 +319,8 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; zyNet              ; Neural             ;
+; Top-level entity name                                            ; DNN                ; Neural             ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
-; VHDL Show LMF Mapping Messages                                   ; Off                ;                    ;
-; VHDL Version                                                     ; VHDL_2008          ; VHDL_1993          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                      ; Off                ; Off                ;
@@ -331,6 +329,7 @@ https://fpgasoftware.intel.com/eula.
 ; Preserve fewer node names                                        ; On                 ; On                 ;
 ; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
 ; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
 ; State Machine Processing                                         ; Auto               ; Auto               ;
 ; Safe State Machine                                               ; Off                ; Off                ;
 ; Extract Verilog State Machines                                   ; On                 ; On                 ;
@@ -422,17 +421,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+-----------------+-------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path              ; Library ;
 +----------------------------------+-----------------+-----------------+-------------------------------------------+---------+
-; nn_config.vhd                    ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/nn_config.vhd     ;         ;
 ; Weight_Memory.vhd                ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/Weight_Memory.vhd ;         ;
-; neuron.vhd                       ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/neuron.vhd        ;         ;
 ; Sig_ROM.vhd                      ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/Sig_ROM.vhd       ;         ;
 ; ReLU.vhd                         ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/ReLU.vhd          ;         ;
-; Layer_1.vhd                      ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/Layer_1.vhd       ;         ;
-; Layer_2.vhd                      ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/Layer_2.vhd       ;         ;
-; Layer_3.vhd                      ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/Layer_3.vhd       ;         ;
-; Layer_4.vhd                      ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/Layer_4.vhd       ;         ;
-; zyNet.vhd                        ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/zyNet.vhd         ;         ;
+; nn_config.vhd                    ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/nn_config.vhd     ;         ;
+; neuron.vhd                       ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/neuron.vhd        ;         ;
 ; maxFinder.vhd                    ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/maxFinder.vhd     ;         ;
+; Layer_4.vhd                      ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/Layer_4.vhd       ;         ;
+; Layer_3.vhd                      ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/Layer_3.vhd       ;         ;
+; Layer_2.vhd                      ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/Layer_2.vhd       ;         ;
+; Layer_1.vhd                      ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/Layer_1.vhd       ;         ;
+; DNN.vhd                          ; yes             ; User VHDL File  ; C:/VHDL_training/Neural/DNN.vhd           ;         ;
 +----------------------------------+-----------------+-----------------+-------------------------------------------+---------+
 
 
@@ -468,22 +467,22 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                               ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name          ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------+-------------+--------------+
-; |zyNet                     ; 84 (27)             ; 77 (20)                   ; 0           ; 0            ; 0       ; 0         ; 155  ; 0            ; |zyNet                       ; zyNet       ; work         ;
-;    |Layer_1:L1|            ; 18 (0)              ; 17 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |zyNet|Layer_1:L1            ; Layer_1     ; work         ;
-;       |neuron:n_0|         ; 18 (18)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |zyNet|Layer_1:L1|neuron:n_0 ; neuron      ; work         ;
-;    |Layer_2:L2|            ; 10 (0)              ; 12 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |zyNet|Layer_2:L2            ; Layer_2     ; work         ;
-;       |neuron:n_0|         ; 10 (10)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |zyNet|Layer_2:L2|neuron:n_0 ; neuron      ; work         ;
-;    |Layer_3:L3|            ; 10 (0)              ; 12 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |zyNet|Layer_3:L3            ; Layer_3     ; work         ;
-;       |neuron:n_0|         ; 10 (10)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |zyNet|Layer_3:L3|neuron:n_0 ; neuron      ; work         ;
-;    |Layer_4:L4|            ; 9 (0)               ; 11 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |zyNet|Layer_4:L4            ; Layer_4     ; work         ;
-;       |neuron:n_0|         ; 9 (9)               ; 11 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |zyNet|Layer_4:L4|neuron:n_0 ; neuron      ; work         ;
-;    |maxFinder:mFind|       ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |zyNet|maxFinder:mFind       ; maxFinder   ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------+-------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                             ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name        ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+-------------+--------------+
+; |DNN                       ; 84 (27)             ; 77 (20)                   ; 0           ; 0            ; 0       ; 0         ; 155  ; 0            ; |DNN                       ; DNN         ; work         ;
+;    |Layer_1:L1|            ; 18 (0)              ; 17 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DNN|Layer_1:L1            ; Layer_1     ; work         ;
+;       |neuron:n_0|         ; 18 (18)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DNN|Layer_1:L1|neuron:n_0 ; neuron      ; work         ;
+;    |Layer_2:L2|            ; 10 (0)              ; 12 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DNN|Layer_2:L2            ; Layer_2     ; work         ;
+;       |neuron:n_0|         ; 10 (10)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DNN|Layer_2:L2|neuron:n_0 ; neuron      ; work         ;
+;    |Layer_3:L3|            ; 10 (0)              ; 12 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DNN|Layer_3:L3            ; Layer_3     ; work         ;
+;       |neuron:n_0|         ; 10 (10)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DNN|Layer_3:L3|neuron:n_0 ; neuron      ; work         ;
+;    |Layer_4:L4|            ; 9 (0)               ; 11 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DNN|Layer_4:L4            ; Layer_4     ; work         ;
+;       |neuron:n_0|         ; 9 (9)               ; 11 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DNN|Layer_4:L4|neuron:n_0 ; neuron      ; work         ;
+;    |maxFinder:mFind|       ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DNN|maxFinder:mFind       ; maxFinder   ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -533,27 +532,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |zyNet|Layer_1:L1|neuron:n_0|r_addr[1] ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |zyNet|count_3[0]                      ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |zyNet|count_2[0]                      ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |zyNet|count_1[2]                      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |zyNet|maxFinder:mFind|counter[1]      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |DNN|Layer_1:L1|neuron:n_0|r_addr[1] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DNN|count_3[0]                      ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |DNN|count_2[0]                      ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |DNN|count_1[2]                      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DNN|maxFinder:mFind|counter[1]      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 
 
-+-----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |zyNet ;
-+--------------------+-------+------------------------------------------+
-; Parameter Name     ; Value ; Type                                     ;
-+--------------------+-------+------------------------------------------+
-; C_S_AXI_DATA_WIDTH ; 32    ; Signed Integer                           ;
-; C_S_AXI_ADDR_WIDTH ; 5     ; Signed Integer                           ;
-+--------------------+-------+------------------------------------------+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |DNN ;
++--------------------+-------+----------------------------------------+
+; Parameter Name     ; Value ; Type                                   ;
++--------------------+-------+----------------------------------------+
+; C_S_AXI_DATA_WIDTH ; 32    ; Signed Integer                         ;
+; C_S_AXI_ADDR_WIDTH ; 5     ; Signed Integer                         ;
++--------------------+-------+----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -4469,61 +4468,53 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Mon Oct 20 18:46:58 2025
+    Info: Processing started: Wed Oct 29 21:17:36 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Neural -c Neural
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file test.vhd
-    Info (12022): Found design unit 1: test-rtl File: C:/VHDL_training/Neural/test.vhd Line: 19
-    Info (12023): Found entity 1: test File: C:/VHDL_training/Neural/test.vhd Line: 5
-Info (12021): Found 2 design units, including 0 entities, in source file nn_config.vhd
-    Info (12022): Found design unit 1: nn_config File: C:/VHDL_training/Neural/nn_config.vhd Line: 4
-    Info (12022): Found design unit 2: nn_config-body File: C:/VHDL_training/Neural/nn_config.vhd Line: 38
 Info (12021): Found 2 design units, including 1 entities, in source file weight_memory.vhd
     Info (12022): Found design unit 1: Weight_Memory-behavior File: C:/VHDL_training/Neural/Weight_Memory.vhd Line: 28
     Info (12023): Found entity 1: Weight_Memory File: C:/VHDL_training/Neural/Weight_Memory.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file neuron.vhd
-    Info (12022): Found design unit 1: neuron-rtl File: C:/VHDL_training/Neural/neuron.vhd Line: 38
-    Info (12023): Found entity 1: neuron File: C:/VHDL_training/Neural/neuron.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file tb_layer1.vhd
+    Info (12022): Found design unit 1: tb_layer1-sim File: C:/VHDL_training/Neural/tb_layer1.vhd Line: 11
+    Info (12023): Found entity 1: tb_layer1 File: C:/VHDL_training/Neural/tb_layer1.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file sig_rom.vhd
     Info (12022): Found design unit 1: Sig_ROM-behavior File: C:/VHDL_training/Neural/Sig_ROM.vhd Line: 23
     Info (12023): Found entity 1: Sig_ROM File: C:/VHDL_training/Neural/Sig_ROM.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file relu.vhd
     Info (12022): Found design unit 1: ReLU-rtl File: C:/VHDL_training/Neural/ReLU.vhd Line: 17
     Info (12023): Found entity 1: ReLU File: C:/VHDL_training/Neural/ReLU.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file layer_1.vhd
-    Info (12022): Found design unit 1: Layer_1-rtl File: C:/VHDL_training/Neural/Layer_1.vhd Line: 35
-    Info (12023): Found entity 1: Layer_1 File: C:/VHDL_training/Neural/Layer_1.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file layer_2.vhd
-    Info (12022): Found design unit 1: Layer_2-rtl File: C:/VHDL_training/Neural/Layer_2.vhd Line: 35
-    Info (12023): Found entity 1: Layer_2 File: C:/VHDL_training/Neural/Layer_2.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file layer_3.vhd
-    Info (12022): Found design unit 1: Layer_3-rtl File: C:/VHDL_training/Neural/Layer_3.vhd Line: 35
-    Info (12023): Found entity 1: Layer_3 File: C:/VHDL_training/Neural/Layer_3.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file layer_4.vhd
-    Info (12022): Found design unit 1: Layer_4-rtl File: C:/VHDL_training/Neural/Layer_4.vhd Line: 35
-    Info (12023): Found entity 1: Layer_4 File: C:/VHDL_training/Neural/Layer_4.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file zynet.vhd
-    Info (12022): Found design unit 1: zyNet-rtl File: C:/VHDL_training/Neural/zyNet.vhd Line: 35
-    Info (12023): Found entity 1: zyNet File: C:/VHDL_training/Neural/zyNet.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file maxfinder.vhd
-    Info (12022): Found design unit 1: maxFinder-rtl File: C:/VHDL_training/Neural/maxFinder.vhd Line: 19
-    Info (12023): Found entity 1: maxFinder File: C:/VHDL_training/Neural/maxFinder.vhd Line: 5
-Info (12021): Found 1 design units, including 1 entities, in source file axi_lite_wrapper.v
-    Info (12023): Found entity 1: axi_lite_wrapper File: C:/VHDL_training/Neural/axi_lite_wrapper.v Line: 3
-Info (12021): Found 2 design units, including 1 entities, in source file zynet_tb.vhd
-    Info (12022): Found design unit 1: zyNet_tb-sim File: C:/VHDL_training/Neural/zyNet_tb.vhd Line: 11
-    Info (12023): Found entity 1: zyNet_tb File: C:/VHDL_training/Neural/zyNet_tb.vhd Line: 8
+Info (12021): Found 2 design units, including 0 entities, in source file nn_config.vhd
+    Info (12022): Found design unit 1: nn_config File: C:/VHDL_training/Neural/nn_config.vhd Line: 4
+    Info (12022): Found design unit 2: nn_config-body File: C:/VHDL_training/Neural/nn_config.vhd Line: 38
 Info (12021): Found 2 design units, including 1 entities, in source file neuron_tb.vhd
     Info (12022): Found design unit 1: neuron_tb-sim File: C:/VHDL_training/Neural/neuron_tb.vhd Line: 12
     Info (12023): Found entity 1: neuron_tb File: C:/VHDL_training/Neural/neuron_tb.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file tb_layer1.vhd
-    Info (12022): Found design unit 1: tb_layer1-sim File: C:/VHDL_training/Neural/tb_layer1.vhd Line: 11
-    Info (12023): Found entity 1: tb_layer1 File: C:/VHDL_training/Neural/tb_layer1.vhd Line: 8
-Info (12127): Elaborating entity "zyNet" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at zyNet.vhd(81): object "out_data_4" assigned a value but never read File: C:/VHDL_training/Neural/zyNet.vhd Line: 81
-Warning (10036): Verilog HDL or VHDL warning at zyNet.vhd(82): object "data_out_valid_4" assigned a value but never read File: C:/VHDL_training/Neural/zyNet.vhd Line: 82
-Info (12128): Elaborating entity "Layer_1" for hierarchy "Layer_1:L1" File: C:/VHDL_training/Neural/zyNet.vhd Line: 96
+Info (12021): Found 2 design units, including 1 entities, in source file neuron.vhd
+    Info (12022): Found design unit 1: neuron-rtl File: C:/VHDL_training/Neural/neuron.vhd Line: 38
+    Info (12023): Found entity 1: neuron File: C:/VHDL_training/Neural/neuron.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file maxfinder.vhd
+    Info (12022): Found design unit 1: maxFinder-rtl File: C:/VHDL_training/Neural/maxFinder.vhd Line: 19
+    Info (12023): Found entity 1: maxFinder File: C:/VHDL_training/Neural/maxFinder.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file layer_4.vhd
+    Info (12022): Found design unit 1: Layer_4-rtl File: C:/VHDL_training/Neural/Layer_4.vhd Line: 35
+    Info (12023): Found entity 1: Layer_4 File: C:/VHDL_training/Neural/Layer_4.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file layer_3.vhd
+    Info (12022): Found design unit 1: Layer_3-rtl File: C:/VHDL_training/Neural/Layer_3.vhd Line: 35
+    Info (12023): Found entity 1: Layer_3 File: C:/VHDL_training/Neural/Layer_3.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file layer_2.vhd
+    Info (12022): Found design unit 1: Layer_2-rtl File: C:/VHDL_training/Neural/Layer_2.vhd Line: 35
+    Info (12023): Found entity 1: Layer_2 File: C:/VHDL_training/Neural/Layer_2.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file layer_1.vhd
+    Info (12022): Found design unit 1: Layer_1-rtl File: C:/VHDL_training/Neural/Layer_1.vhd Line: 35
+    Info (12023): Found entity 1: Layer_1 File: C:/VHDL_training/Neural/Layer_1.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file dnn.vhd
+    Info (12022): Found design unit 1: DNN-rtl File: C:/VHDL_training/Neural/DNN.vhd Line: 35
+    Info (12023): Found entity 1: DNN File: C:/VHDL_training/Neural/DNN.vhd Line: 6
+Info (12127): Elaborating entity "DNN" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at DNN.vhd(81): object "out_data_4" assigned a value but never read File: C:/VHDL_training/Neural/DNN.vhd Line: 81
+Warning (10036): Verilog HDL or VHDL warning at DNN.vhd(82): object "data_out_valid_4" assigned a value but never read File: C:/VHDL_training/Neural/DNN.vhd Line: 82
+Info (12128): Elaborating entity "Layer_1" for hierarchy "Layer_1:L1" File: C:/VHDL_training/Neural/DNN.vhd Line: 96
 Info (12128): Elaborating entity "neuron" for hierarchy "Layer_1:L1|neuron:n_0" File: C:/VHDL_training/Neural/Layer_1.vhd Line: 38
 Info (12128): Elaborating entity "Weight_Memory" for hierarchy "Layer_1:L1|neuron:n_0|Weight_Memory:WM" File: C:/VHDL_training/Neural/neuron.vhd Line: 239
 Warning (10873): Using initial value X (don't care) for net "wout" at Weight_Memory.vhd(24) File: C:/VHDL_training/Neural/Weight_Memory.vhd Line: 24
@@ -4617,7 +4608,7 @@ Warning (10873): Using initial value X (don't care) for net "wout" at Weight_Mem
 Info (12128): Elaborating entity "neuron" for hierarchy "Layer_1:L1|neuron:n_29" File: C:/VHDL_training/Neural/Layer_1.vhd Line: 559
 Info (12128): Elaborating entity "Weight_Memory" for hierarchy "Layer_1:L1|neuron:n_29|Weight_Memory:WM" File: C:/VHDL_training/Neural/neuron.vhd Line: 239
 Warning (10873): Using initial value X (don't care) for net "wout" at Weight_Memory.vhd(24) File: C:/VHDL_training/Neural/Weight_Memory.vhd Line: 24
-Info (12128): Elaborating entity "Layer_2" for hierarchy "Layer_2:L2" File: C:/VHDL_training/Neural/zyNet.vhd Line: 158
+Info (12128): Elaborating entity "Layer_2" for hierarchy "Layer_2:L2" File: C:/VHDL_training/Neural/DNN.vhd Line: 158
 Info (12128): Elaborating entity "neuron" for hierarchy "Layer_2:L2|neuron:n_0" File: C:/VHDL_training/Neural/Layer_2.vhd Line: 38
 Info (12128): Elaborating entity "Weight_Memory" for hierarchy "Layer_2:L2|neuron:n_0|Weight_Memory:WM" File: C:/VHDL_training/Neural/neuron.vhd Line: 239
 Warning (10873): Using initial value X (don't care) for net "wout" at Weight_Memory.vhd(24) File: C:/VHDL_training/Neural/Weight_Memory.vhd Line: 24
@@ -4708,7 +4699,7 @@ Warning (10873): Using initial value X (don't care) for net "wout" at Weight_Mem
 Info (12128): Elaborating entity "neuron" for hierarchy "Layer_2:L2|neuron:n_29" File: C:/VHDL_training/Neural/Layer_2.vhd Line: 559
 Info (12128): Elaborating entity "Weight_Memory" for hierarchy "Layer_2:L2|neuron:n_29|Weight_Memory:WM" File: C:/VHDL_training/Neural/neuron.vhd Line: 239
 Warning (10873): Using initial value X (don't care) for net "wout" at Weight_Memory.vhd(24) File: C:/VHDL_training/Neural/Weight_Memory.vhd Line: 24
-Info (12128): Elaborating entity "Layer_3" for hierarchy "Layer_3:L3" File: C:/VHDL_training/Neural/zyNet.vhd Line: 220
+Info (12128): Elaborating entity "Layer_3" for hierarchy "Layer_3:L3" File: C:/VHDL_training/Neural/DNN.vhd Line: 220
 Info (12128): Elaborating entity "neuron" for hierarchy "Layer_3:L3|neuron:n_0" File: C:/VHDL_training/Neural/Layer_3.vhd Line: 38
 Info (12128): Elaborating entity "Weight_Memory" for hierarchy "Layer_3:L3|neuron:n_0|Weight_Memory:WM" File: C:/VHDL_training/Neural/neuron.vhd Line: 239
 Warning (10873): Using initial value X (don't care) for net "wout" at Weight_Memory.vhd(24) File: C:/VHDL_training/Neural/Weight_Memory.vhd Line: 24
@@ -4739,7 +4730,7 @@ Warning (10873): Using initial value X (don't care) for net "wout" at Weight_Mem
 Info (12128): Elaborating entity "neuron" for hierarchy "Layer_3:L3|neuron:n_9" File: C:/VHDL_training/Neural/Layer_3.vhd Line: 219
 Info (12128): Elaborating entity "Weight_Memory" for hierarchy "Layer_3:L3|neuron:n_9|Weight_Memory:WM" File: C:/VHDL_training/Neural/neuron.vhd Line: 239
 Warning (10873): Using initial value X (don't care) for net "wout" at Weight_Memory.vhd(24) File: C:/VHDL_training/Neural/Weight_Memory.vhd Line: 24
-Info (12128): Elaborating entity "Layer_4" for hierarchy "Layer_4:L4" File: C:/VHDL_training/Neural/zyNet.vhd Line: 282
+Info (12128): Elaborating entity "Layer_4" for hierarchy "Layer_4:L4" File: C:/VHDL_training/Neural/DNN.vhd Line: 282
 Info (12128): Elaborating entity "neuron" for hierarchy "Layer_4:L4|neuron:n_0" File: C:/VHDL_training/Neural/Layer_4.vhd Line: 38
 Info (12128): Elaborating entity "Weight_Memory" for hierarchy "Layer_4:L4|neuron:n_0|Weight_Memory:WM" File: C:/VHDL_training/Neural/neuron.vhd Line: 239
 Warning (10873): Using initial value X (don't care) for net "wout" at Weight_Memory.vhd(24) File: C:/VHDL_training/Neural/Weight_Memory.vhd Line: 24
@@ -4770,172 +4761,172 @@ Warning (10873): Using initial value X (don't care) for net "wout" at Weight_Mem
 Info (12128): Elaborating entity "neuron" for hierarchy "Layer_4:L4|neuron:n_9" File: C:/VHDL_training/Neural/Layer_4.vhd Line: 219
 Info (12128): Elaborating entity "Weight_Memory" for hierarchy "Layer_4:L4|neuron:n_9|Weight_Memory:WM" File: C:/VHDL_training/Neural/neuron.vhd Line: 239
 Warning (10873): Using initial value X (don't care) for net "wout" at Weight_Memory.vhd(24) File: C:/VHDL_training/Neural/Weight_Memory.vhd Line: 24
-Info (12128): Elaborating entity "maxFinder" for hierarchy "maxFinder:mFind" File: C:/VHDL_training/Neural/zyNet.vhd Line: 349
+Info (12128): Elaborating entity "maxFinder" for hierarchy "maxFinder:mFind" File: C:/VHDL_training/Neural/DNN.vhd Line: 349
 Warning (10036): Verilog HDL or VHDL warning at maxFinder.vhd(34): object "curr_dbg" assigned a value but never read File: C:/VHDL_training/Neural/maxFinder.vhd Line: 34
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "axis_in_data_ready" is stuck at VCC File: C:/VHDL_training/Neural/zyNet.vhd Line: 18
-    Warning (13410): Pin "class_id[0]" is stuck at GND File: C:/VHDL_training/Neural/zyNet.vhd Line: 20
-    Warning (13410): Pin "class_id[1]" is stuck at GND File: C:/VHDL_training/Neural/zyNet.vhd Line: 20
-    Warning (13410): Pin "class_id[2]" is stuck at GND File: C:/VHDL_training/Neural/zyNet.vhd Line: 20
-    Warning (13410): Pin "class_id[3]" is stuck at GND File: C:/VHDL_training/Neural/zyNet.vhd Line: 20
+    Warning (13410): Pin "axis_in_data_ready" is stuck at VCC File: C:/VHDL_training/Neural/DNN.vhd Line: 18
+    Warning (13410): Pin "class_id[0]" is stuck at GND File: C:/VHDL_training/Neural/DNN.vhd Line: 20
+    Warning (13410): Pin "class_id[1]" is stuck at GND File: C:/VHDL_training/Neural/DNN.vhd Line: 20
+    Warning (13410): Pin "class_id[2]" is stuck at GND File: C:/VHDL_training/Neural/DNN.vhd Line: 20
+    Warning (13410): Pin "class_id[3]" is stuck at GND File: C:/VHDL_training/Neural/DNN.vhd Line: 20
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 146 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "axis_in_data[0]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[1]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[2]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[3]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[4]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[5]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[6]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[7]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[8]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[9]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[10]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[11]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[12]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[13]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[14]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "axis_in_data[15]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 16
-    Warning (15610): No output dependent on input pin "weightValid" File: C:/VHDL_training/Neural/zyNet.vhd Line: 24
-    Warning (15610): No output dependent on input pin "biasValid" File: C:/VHDL_training/Neural/zyNet.vhd Line: 25
-    Warning (15610): No output dependent on input pin "weightValue[0]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[1]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[2]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[3]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[4]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[5]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[6]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[7]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[8]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[9]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[10]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[11]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[12]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[13]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[14]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[15]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[16]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[17]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[18]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[19]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[20]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[21]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[22]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[23]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[24]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[25]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[26]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[27]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[28]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[29]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[30]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "weightValue[31]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 26
-    Warning (15610): No output dependent on input pin "biasValue[0]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[1]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[2]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[3]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[4]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[5]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[6]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[7]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[8]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[9]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[10]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[11]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[12]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[13]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[14]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[15]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[16]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[17]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[18]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[19]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[20]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[21]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[22]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[23]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[24]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[25]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[26]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[27]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[28]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[29]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[30]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "biasValue[31]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 27
-    Warning (15610): No output dependent on input pin "config_layer_num[0]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[1]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[2]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[3]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[4]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[5]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[6]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[7]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[8]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[9]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[10]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[11]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[12]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[13]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[14]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[15]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[16]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[17]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[18]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[19]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[20]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[21]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[22]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[23]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[24]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[25]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[26]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[27]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[28]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[29]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[30]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_layer_num[31]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 28
-    Warning (15610): No output dependent on input pin "config_neuron_num[0]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[1]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[2]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[3]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[4]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[5]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[6]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[7]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[8]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[9]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[10]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[11]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[12]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[13]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[14]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[15]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[16]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[17]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[18]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[19]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[20]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[21]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[22]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[23]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[24]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[25]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[26]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[27]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[28]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[29]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[30]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
-    Warning (15610): No output dependent on input pin "config_neuron_num[31]" File: C:/VHDL_training/Neural/zyNet.vhd Line: 29
+    Warning (15610): No output dependent on input pin "axis_in_data[0]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[1]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[2]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[3]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[4]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[5]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[6]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[7]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[8]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[9]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[10]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[11]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[12]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[13]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[14]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "axis_in_data[15]" File: C:/VHDL_training/Neural/DNN.vhd Line: 16
+    Warning (15610): No output dependent on input pin "weightValid" File: C:/VHDL_training/Neural/DNN.vhd Line: 24
+    Warning (15610): No output dependent on input pin "biasValid" File: C:/VHDL_training/Neural/DNN.vhd Line: 25
+    Warning (15610): No output dependent on input pin "weightValue[0]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[1]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[2]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[3]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[4]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[5]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[6]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[7]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[8]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[9]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[10]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[11]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[12]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[13]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[14]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[15]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[16]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[17]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[18]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[19]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[20]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[21]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[22]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[23]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[24]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[25]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[26]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[27]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[28]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[29]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[30]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "weightValue[31]" File: C:/VHDL_training/Neural/DNN.vhd Line: 26
+    Warning (15610): No output dependent on input pin "biasValue[0]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[1]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[2]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[3]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[4]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[5]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[6]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[7]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[8]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[9]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[10]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[11]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[12]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[13]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[14]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[15]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[16]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[17]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[18]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[19]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[20]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[21]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[22]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[23]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[24]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[25]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[26]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[27]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[28]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[29]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[30]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "biasValue[31]" File: C:/VHDL_training/Neural/DNN.vhd Line: 27
+    Warning (15610): No output dependent on input pin "config_layer_num[0]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[1]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[2]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[3]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[4]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[5]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[6]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[7]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[8]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[9]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[10]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[11]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[12]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[13]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[14]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[15]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[16]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[17]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[18]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[19]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[20]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[21]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[22]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[23]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[24]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[25]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[26]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[27]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[28]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[29]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[30]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_layer_num[31]" File: C:/VHDL_training/Neural/DNN.vhd Line: 28
+    Warning (15610): No output dependent on input pin "config_neuron_num[0]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[1]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[2]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[3]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[4]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[5]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[6]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[7]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[8]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[9]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[10]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[11]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[12]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[13]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[14]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[15]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[16]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[17]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[18]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[19]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[20]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[21]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[22]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[23]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[24]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[25]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[26]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[27]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[28]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[29]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[30]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
+    Warning (15610): No output dependent on input pin "config_neuron_num[31]" File: C:/VHDL_training/Neural/DNN.vhd Line: 29
 Info (21057): Implemented 258 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 149 input pins
     Info (21059): Implemented 6 output pins
     Info (21061): Implemented 103 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 239 warnings
-    Info: Peak virtual memory: 13381 megabytes
-    Info: Processing ended: Mon Oct 20 18:47:22 2025
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:26
+    Info: Peak virtual memory: 13402 megabytes
+    Info: Processing ended: Wed Oct 29 21:17:56 2025
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:30
 
 

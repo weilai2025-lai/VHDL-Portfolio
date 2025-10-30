@@ -1,5 +1,5 @@
 Flow report for Neural
-Mon Oct 20 18:47:48 2025
+Wed Oct 29 21:18:22 2025
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -41,16 +41,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Mon Oct 20 18:47:48 2025          ;
+; Flow Status                        ; Successful - Wed Oct 29 21:18:22 2025          ;
 ; Quartus Prime Version              ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                      ; Neural                                         ;
-; Top-level Entity Name              ; zyNet                                          ;
+; Top-level Entity Name              ; DNN                                            ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE115F29C7                                  ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 101 / 114,480 ( < 1 % )                        ;
+; Total logic elements               ; 103 / 114,480 ( < 1 % )                        ;
 ;     Total combinational functions  ; 84 / 114,480 ( < 1 % )                         ;
-;     Dedicated logic registers      ; 76 / 114,480 ( < 1 % )                         ;
+;     Dedicated logic registers      ; 77 / 114,480 ( < 1 % )                         ;
 ; Total registers                    ; 77                                             ;
 ; Total pins                         ; 155 / 529 ( 29 % )                             ;
 ; Total virtual pins                 ; 0                                              ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/20/2025 18:46:59 ;
+; Start date & time ; 10/29/2025 21:17:36 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Neural              ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 121378871423.176100401914196           ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 121378871423.176179065606100           ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -87,15 +87,11 @@ https://fpgasoftware.intel.com/eula.
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --                                ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --                                ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --                                ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; zyNet       ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; zyNet       ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; zyNet       ; Top                               ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --                                ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                                ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; DNN         ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; DNN         ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; DNN         ; Top                               ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                    ; zyNet                                  ; Neural        ; --          ; --                                ;
-; VHDL_INPUT_VERSION                  ; VHDL_2008                              ; VHDL_1993     ; --          ; --                                ;
-; VHDL_SHOW_LMF_MAPPING_MESSAGES      ; Off                                    ; --            ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                    ; DNN                                    ; Neural        ; --          ; --                                ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 
 
@@ -104,12 +100,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:23     ; 1.0                     ; 13381 MB            ; 00:00:26                           ;
-; Fitter               ; 00:00:17     ; 1.0                     ; 14224 MB            ; 00:00:20                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 13421 MB            ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 13300 MB            ; 00:00:02                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 13078 MB            ; 00:00:00                           ;
-; Total                ; 00:00:45     ; --                      ; --                  ; 00:00:51                           ;
+; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 13402 MB            ; 00:00:30                           ;
+; Fitter               ; 00:00:16     ; 1.0                     ; 14239 MB            ; 00:00:21                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 13434 MB            ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 13310 MB            ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 13091 MB            ; 00:00:00                           ;
+; Total                ; 00:00:42     ; --                      ; --                  ; 00:00:56                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
