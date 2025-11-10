@@ -1,0 +1,401 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sun Nov  9 00:16:55 2025                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v16.20-p002_1 (64bit) 11/08/2016 11:31 (Linux 2.6.18-194.el5)
+#@(#)CDS: NanoRoute 16.20-p002_1 NR161103-1425/16_20-UB (database version 2.30, 354.6.1) {superthreading v1.34}
+#@(#)CDS: AAE 16.20-p004 (64bit) 11/08/2016 (Linux 2.6.18-194.el5)
+#@(#)CDS: CTE 16.20-p008_1 () Oct 29 2016 08:26:57 ( )
+#@(#)CDS: SYNTECH 16.20-p001_1 () Oct 27 2016 11:33:00 ( )
+#@(#)CDS: CPE v16.20-p011
+#@(#)CDS: IQRC/TQRC 15.2.5-s803 (64bit) Tue Sep 13 18:23:58 PDT 2016 (Linux 2.6.18-194.el5)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getDrawView
+loadWorkspace -name Physical
+win
+set init_gnd_net VSS
+set init_lef_file /vol/ece303/genus_tutorial/NangateOpenCellLibrary.lef
+set init_design_settop 0
+set init_verilog ../Synthesis/DNN_syn.v
+set init_mmmc_file DNN.view
+set init_pwr_net VDD
+init_design
+setDesignMode -process 45
+floorPlan -r 1.0 0.5 20 20 20 20
+fit
+resizeFloorplan -coreSize {<1500> <1500>} -origin {<20> <20>}
+resizeFloorplan -help
+getIoFlowFlag
+setIoFlowFlag 0
+floorPlan -site FreePDK45_38x28_10R_NP_162NW_34O -b 0.0 0.0 812.25 810.04 0.0 0.0 812.25 810.04 20.14 20.02 1500 1500
+uiSetTool select
+getIoFlowFlag
+fit
+setIoFlowFlag 0
+floorPlan -site FreePDK45_38x28_10R_NP_162NW_34O -b 0.0 0.0 1500.05 1500.05 0.0 0.0 1500.05 1500.05 20.14 20.02 1500.05 1500.05
+uiSetTool select
+getIoFlowFlag
+fit
+floorPlan -r 1.0 0.5 40 40 40 40
+getIoFlowFlag
+setIoFlowFlag 0
+floorPlan -site FreePDK45_38x28_10R_NP_162NW_34O -b 0.0 0.0 1600 1600 0.0 0.0 1600 1600 40.09 40.04 1500 1500
+uiSetTool select
+getIoFlowFlag
+fit
+setIoFlowFlag 0
+floorPlan -site FreePDK45_38x28_10R_NP_162NW_34O -b 0.0 0.0 1599.99 1600.06 0.0 0.0 1599.99 1600.06 100 100 1500.05 1499.96
+uiSetTool select
+getIoFlowFlag
+fit
+setIoFlowFlag 0
+floorPlan -site FreePDK45_38x28_10R_NP_162NW_34O -b 0.0 0.0 1599.99 1600.06 0.0 0.0 1599.99 1600.06 99.94 99.96 1500.05 1499.96
+uiSetTool select
+getIoFlowFlag
+fit
+getIoFlowFlag
+getIoFlowFlag
+getCTSMode -engine -quiet
+getIoFlowFlag
+setIoFlowFlag 0
+floorPlan -site FreePDK45_38x28_10R_NP_162NW_34O -r 0.999921434744 0.551622 99.94 99.96 99.94 100.1
+uiSetTool select
+getIoFlowFlag
+fit
+setIoFlowFlag 0
+floorPlan -site FreePDK45_38x28_10R_NP_162NW_34O -r 0.998720287527 0.151539 99.94 99.96 99.94 100.1
+uiSetTool select
+getIoFlowFlag
+fit
+setIoFlowFlag 0
+floorPlan -site FreePDK45_38x28_10R_NP_162NW_34O -b 0.0 0.0 1602.27 1598.66 0.0 0.0 1602.27 1598.66 99.94 99.96 1502.33 1498.56
+uiSetTool select
+getIoFlowFlag
+fit
+globalNetConnect VDD -type pgpin -pin VDD -inst *
+globalNetConnect VSS -type pgpin -pin VSS -inst *
+globalNetConnect VDD -type tiehi
+globalNetConnect VSS -type tielo
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Left -layer 3 -spreadType center -spacing 0.14 -pin {{axis_in_data[0]} {axis_in_data[1]} {axis_in_data[2]} {axis_in_data[3]} {axis_in_data[4]} {axis_in_data[5]} {axis_in_data[6]} {axis_in_data[7]} {axis_in_data[8]} {axis_in_data[9]} {axis_in_data[10]} {axis_in_data[11]} {axis_in_data[12]} {axis_in_data[13]} {axis_in_data[14]} {axis_in_data[15]} axis_in_data_ready axis_in_data_valid}
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Right -layer 3 -spreadType center -spacing 0.14 -pin {biasValid {biasValue[0]} {biasValue[1]} {biasValue[2]} {biasValue[3]} {biasValue[4]} {biasValue[5]} {biasValue[6]} {biasValue[7]} {biasValue[8]} {biasValue[9]} {biasValue[10]} {biasValue[11]} {biasValue[12]} {biasValue[13]} {biasValue[14]} {biasValue[15]} {biasValue[16]} {biasValue[17]} {biasValue[18]} {biasValue[19]} {biasValue[20]} {biasValue[21]} {biasValue[22]} {biasValue[23]} {biasValue[24]} {biasValue[25]} {biasValue[26]} {biasValue[27]} {biasValue[28]} {biasValue[29]} {biasValue[30]} {biasValue[31]} {class_id[0]} {class_id[1]} {class_id[2]} {class_id[3]} class_valid}
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Left -layer 3 -spreadType center -spacing 20 -pin {{config_layer_num[0]} {config_layer_num[1]} {config_layer_num[2]} {config_layer_num[3]} {config_layer_num[4]} {config_layer_num[5]} {config_layer_num[6]} {config_layer_num[7]} {config_layer_num[8]} {config_layer_num[9]} {config_layer_num[10]} {config_layer_num[11]} {config_layer_num[12]} {config_layer_num[13]} {config_layer_num[14]} {config_layer_num[15]} {config_layer_num[16]} {config_layer_num[17]} {config_layer_num[18]} {config_layer_num[19]} {config_layer_num[20]} {config_layer_num[21]} {config_layer_num[22]} {config_layer_num[23]} {config_layer_num[24]} {config_layer_num[25]} {config_layer_num[26]} {config_layer_num[27]} {config_layer_num[28]} {config_layer_num[29]} {config_layer_num[30]} {config_layer_num[31]} {config_neuron_num[0]} {config_neuron_num[1]} {config_neuron_num[2]} {config_neuron_num[3]} {config_neuron_num[4]} {config_neuron_num[5]} {config_neuron_num[6]} {config_neuron_num[7]} {config_neuron_num[8]} {config_neuron_num[9]} {config_neuron_num[10]} {config_neuron_num[11]} {config_neuron_num[12]} {config_neuron_num[13]} {config_neuron_num[14]} {config_neuron_num[15]} {config_neuron_num[16]} {config_neuron_num[17]} {config_neuron_num[18]} {config_neuron_num[19]} {config_neuron_num[20]} {config_neuron_num[21]} {config_neuron_num[22]} {config_neuron_num[23]} {config_neuron_num[24]} {config_neuron_num[25]} {config_neuron_num[26]} {config_neuron_num[27]} {config_neuron_num[28]} {config_neuron_num[29]} {config_neuron_num[30]} {config_neuron_num[31]}}
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.07 -pinDepth 0.07 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Right -layer 3 -spreadType center -spacing 20 -pin {{class_id[0]} {class_id[1]} {class_id[2]} {class_id[3]} class_valid}
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.07 -pinDepth 0.07 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Left -layer 3 -spreadType center -spacing 20 -pin {{axis_in_data[0]} {axis_in_data[1]} {axis_in_data[2]} {axis_in_data[3]} {axis_in_data[4]} {axis_in_data[5]} {axis_in_data[6]} {axis_in_data[7]} {axis_in_data[8]} {axis_in_data[9]} {axis_in_data[10]} {axis_in_data[11]} {axis_in_data[12]} {axis_in_data[13]} {axis_in_data[14]} {axis_in_data[15]} axis_in_data_ready axis_in_data_valid biasValid {biasValue[0]} {biasValue[1]} {biasValue[2]} {biasValue[3]} {biasValue[4]} {biasValue[5]} {biasValue[6]} {biasValue[7]} {biasValue[8]} {biasValue[9]} {biasValue[10]} {biasValue[11]} {biasValue[12]} {biasValue[13]} {biasValue[14]} {biasValue[15]} {biasValue[16]} {biasValue[17]} {biasValue[18]} {biasValue[19]} {biasValue[20]} {biasValue[21]} {biasValue[22]} {biasValue[23]} {biasValue[24]} {biasValue[25]} {biasValue[26]} {biasValue[27]} {biasValue[28]} {biasValue[29]} {biasValue[30]} {biasValue[31]}}
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Top -layer 4 -spreadType center -spacing 0.14 -pin s_axi_aclk
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Bottom -layer 4 -spreadType center -spacing 0.14 -pin s_axi_aresetn
+setPinAssignMode -pinEditInBatch true
+editPin -use POWER -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Top -layer 4 -spreadType center -spacing 0.14 -pin VDD
+setPinAssignMode -pinEditInBatch true
+editPin -use GROUND -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Bottom -layer 4 -spreadType center -spacing 0.14 -pin VSS
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Right -layer 3 -spreadType center -spacing 20 -pin {weightValid {weightValue[0]} {weightValue[1]} {weightValue[2]} {weightValue[3]} {weightValue[4]} {weightValue[5]} {weightValue[6]} {weightValue[7]} {weightValue[8]} {weightValue[9]} {weightValue[10]} {weightValue[11]} {weightValue[12]} {weightValue[13]} {weightValue[14]} {weightValue[15]} {weightValue[16]} {weightValue[17]} {weightValue[18]} {weightValue[19]} {weightValue[20]} {weightValue[21]} {weightValue[22]} {weightValue[23]} {weightValue[24]} {weightValue[25]} {weightValue[26]} {weightValue[27]} {weightValue[28]} {weightValue[29]} {weightValue[30]} {weightValue[31]}}
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.07 -pinDepth 0.07 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Right -layer 3 -spreadType center -spacing 20 -pin {{weightValue[0]} {weightValue[1]} {weightValue[2]} {weightValue[3]} {weightValue[4]} {weightValue[5]} {weightValue[6]} {weightValue[7]} {weightValue[8]} {weightValue[9]} {weightValue[10]} {weightValue[11]} {weightValue[12]} {weightValue[13]} {weightValue[14]} {weightValue[15]} {weightValue[16]} {weightValue[17]} {weightValue[18]} {weightValue[19]} {weightValue[20]} {weightValue[21]} {weightValue[22]} {weightValue[23]} {weightValue[24]} {weightValue[25]} {weightValue[26]} {weightValue[27]} {weightValue[28]} {weightValue[29]} {weightValue[30]} {weightValue[31]}}
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.07 -pinDepth 0.07 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Right -layer 3 -spreadType center -spacing -20.02 -pin {{weightValue[0]} {weightValue[1]} {weightValue[2]} {weightValue[3]} {weightValue[4]} {weightValue[5]} {weightValue[6]} {weightValue[7]} {weightValue[8]} {weightValue[9]} {weightValue[10]} {weightValue[11]} {weightValue[12]} {weightValue[13]} {weightValue[14]} {weightValue[15]} {weightValue[16]} {weightValue[17]} {weightValue[18]} {weightValue[19]} {weightValue[20]} {weightValue[21]} {weightValue[22]} {weightValue[23]} {weightValue[24]} {weightValue[25]} {weightValue[26]} {weightValue[27]} {weightValue[28]} {weightValue[29]} {weightValue[30]} {weightValue[31]}}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -use CLOCK -pinWidth 0.14 -pinDepth 0.14 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Top -layer 4 -spreadType center -spacing 0.28 -pin s_axi_aclk
+setPinAssignMode -pinEditInBatch true
+editPin -use CLOCK -pinWidth 0.14 -pinDepth 0.14 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Top -layer 4 -spreadType center -spacing 0.28 -pin s_axi_aclk
+setPinAssignMode -pinEditInBatch false
+saveDesign DNN_conv_fl4.enc
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+setAddRingMode -ring_target default -extend_over_row 0 -ignore_rows 0 -avoid_short 0 -skip_crossing_trunks none -stacked_via_top_layer metal10 -stacked_via_bottom_layer metal1 -via_using_exact_crossover_size 1 -orthogonal_only true -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape }
+addRing -nets {} -type core_rings -follow core -layer {top metal5 bottom metal5 left metal4 right metal4} -width {top 20 bottom 20 left 20 right 20} -spacing {top 20 bottom 20 left 20 right 20} -offset {top 0 bottom 0 left 0 right 0} -center 0 -extend_corner {} -threshold 0 -jog_distance 0 -snap_wire_center_to_grid None
+setAddRingMode -ring_target default -extend_over_row 0 -ignore_rows 0 -avoid_short 0 -skip_crossing_trunks none -stacked_via_top_layer metal10 -stacked_via_bottom_layer metal1 -via_using_exact_crossover_size 1 -orthogonal_only true -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape }
+addRing -nets {VDD VSS} -type core_rings -follow core -layer {top metal5 bottom metal5 left metal4 right metal4} -width {top 20 bottom 20 left 20 right 20} -spacing {top 20 bottom 20 left 20 right 20} -offset {top 0 bottom 0 left 0 right 0} -center 0 -extend_corner {} -threshold 0 -jog_distance 0 -snap_wire_center_to_grid None
+fit
+setAddRingMode -ring_target default -extend_over_row 0 -ignore_rows 0 -avoid_short 0 -skip_crossing_trunks none -stacked_via_top_layer metal10 -stacked_via_bottom_layer metal1 -via_using_exact_crossover_size 1 -orthogonal_only true -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape }
+addRing -nets {VDD VSS} -type core_rings -follow core -layer {top metal5 bottom metal5 left metal4 right metal4} -width {top 20 bottom 20 left 20 right 20} -spacing {top 20 bottom 20 left 20 right 20} -offset {top 0 bottom 0 left 0 right 0} -center 0 -extend_corner {} -threshold 0 -jog_distance 0 -snap_wire_center_to_grid None
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+setAddStripeMode -ignore_block_check false -break_at none -route_over_rows_only false -rows_without_stripes_only false -extend_to_closest_target none -stop_at_last_wire_for_area false -partial_set_thru_domain false -ignore_nondefault_domains false -trim_antenna_back_to_shape none -spacing_type edge_to_edge -spacing_from_block 0 -stripe_min_length 0 -stacked_via_top_layer metal10 -stacked_via_bottom_layer metal1 -via_using_exact_crossover_size false -split_vias false -orthogonal_only true -allow_jog { padcore_ring  block_ring }
+addStripe -nets {VDD VSS} -layer metal4 -direction vertical -width 20 -spacing 20 -set_to_set_distance 80 -start_from left -switch_layer_over_obs false -max_same_layer_jog_length 2 -padcore_ring_top_layer_limit metal10 -padcore_ring_bottom_layer_limit metal1 -block_ring_top_layer_limit metal10 -block_ring_bottom_layer_limit metal1 -use_wire_group 0 -snap_wire_center_to_grid None -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape }
+setAddStripeMode -ignore_block_check false -break_at none -route_over_rows_only false -rows_without_stripes_only false -extend_to_closest_target none -stop_at_last_wire_for_area false -partial_set_thru_domain false -ignore_nondefault_domains false -trim_antenna_back_to_shape none -spacing_type edge_to_edge -spacing_from_block 0 -stripe_min_length 0 -stacked_via_top_layer metal10 -stacked_via_bottom_layer metal1 -via_using_exact_crossover_size false -split_vias false -orthogonal_only true -allow_jog { padcore_ring  block_ring }
+addStripe -nets {VDD VSS} -layer metal5 -direction horizontal -width 20 -spacing 20 -set_to_set_distance 80 -start_from left -switch_layer_over_obs false -max_same_layer_jog_length 2 -padcore_ring_top_layer_limit metal10 -padcore_ring_bottom_layer_limit metal1 -block_ring_top_layer_limit metal10 -block_ring_bottom_layer_limit metal1 -use_wire_group 0 -snap_wire_center_to_grid None -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape }
+setAddStripeMode -ignore_block_check false -break_at none -route_over_rows_only false -rows_without_stripes_only false -extend_to_closest_target none -stop_at_last_wire_for_area false -partial_set_thru_domain false -ignore_nondefault_domains false -trim_antenna_back_to_shape none -spacing_type edge_to_edge -spacing_from_block 0 -stripe_min_length 0 -stacked_via_top_layer metal10 -stacked_via_bottom_layer metal1 -via_using_exact_crossover_size false -split_vias false -orthogonal_only true -allow_jog { padcore_ring  block_ring }
+addStripe -nets {VDD VSS} -layer metal5 -direction horizontal -width 20 -spacing 20 -set_to_set_distance 80 -start_from left -switch_layer_over_obs false -max_same_layer_jog_length 2 -padcore_ring_top_layer_limit metal10 -padcore_ring_bottom_layer_limit metal1 -block_ring_top_layer_limit metal10 -block_ring_bottom_layer_limit metal1 -use_wire_group 0 -snap_wire_center_to_grid None -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape }
+setSrouteMode -viaConnectToShape { noshape }
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { metal1(1) metal10(10) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { firstAfterRowEnd } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 1 -crossoverViaLayerRange { metal1(1) metal10(10) } -nets { VDD VSS } -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { metal1(1) metal10(10) }
+setSrouteMode -viaConnectToShape { noshape }
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { metal1(1) metal10(10) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { firstAfterRowEnd } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 1 -crossoverViaLayerRange { metal1(1) metal10(10) } -nets { VDD VSS } -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { metal1(1) metal10(10) }
+selectWire 79.9400 739.9600 1522.3300 759.9600 5 VDD
+fit
+saveDesign DNN_conv_power4.enc
+deselectAll
+selectWire 39.9400 1019.9600 1562.3300 1039.9600 5 VSS
+fit
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setPlaceMode -reset
+setPlaceMode -fp false
+placeDesign
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+deselectAll
+saveDesign DNN_conv_placeDesign4.enc
+timeDesign -preCTS -numPaths 200
+setDrawView fplan
+zoomOut
+fit
+setDrawView place
+fit
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+fit
+optDesign -preCTS -numPaths 200
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+saveDesign DNN_conv_pl4.enc
+set_interactive_constraint_modes sdc
+ccopt_design -cts
+getCTSMode -engine -quiet
+ctd_win -id ctd_window
+saveDesign saveDesign DNN_conv_pl4_clktree.enc
+getFillerMode -quiet
+addFillerGap 0.6
+addFillerGap 0.2
+addFiller -cell FILLCELL_X1 FILLCELL_X2 FILLCELL_X4 FILLCELL_X8 -prefix FILLER -markFixed
+selectInst FILLER_635505
+fit
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+setDrawView ameba
+setDrawView place
+saveDesign DNN_powerroute_clk4_filler.enc
+getMultiCpuUsage -localCpu
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report DNN.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+fit
+setNanoRouteMode -quiet -drouteFixAntenna false
+setNanoRouteMode -quiet -routeTopRoutingLayer default
+setNanoRouteMode -quiet -routeBottomRoutingLayer default
+setNanoRouteMode -quiet -drouteEndIteration default
+setNanoRouteMode -quiet -routeWithTimingDriven false
+setNanoRouteMode -quiet -routeWithSiDriven false
+setNanoRouteMode -quiet -routeTopRoutingLayer 10
+routeDesign -globalDetail
+saveDesign DNN_conv_powerroute_clk4_filler.enc
+deselectAll
+selectInst FILLER_256947
+deselectAll
+pan 198.552 -43.660
+fit
+verify_drc -report cnn.drc.rpt -limit 1000
+verifyConnectivity -type all -error 1000 -warning 50
+verifyProcessAntenna -reportfile cnn.antenna.rpt -error 1000
+fit
