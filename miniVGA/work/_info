@@ -1,0 +1,346 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\VHDL_training\miniVGA
+Ecolorrom
+Z1 w1763175112
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\VHDL_training\miniVGA
+Z5 8colorROM.vhd
+Z6 FcolorROM.vhd
+l0
+L41
+VSD9QFF55IA7^=XPaDFTGe2
+Z7 OV;C;10.1d;51
+33
+Z8 !s108 1763394998.962000
+Z9 !s90 -reportprogress|300|-2008|colorROM.vhd|
+Z10 !s107 colorROM.vhd|
+Z11 o-2008 -O0
+Z12 tExplicit 1
+!s100 PW]aB1O1c]XdGei;z4OEk0
+!i10b 1
+Asyn
+R2
+R3
+DEx4 work 8 colorrom 0 22 SD9QFF55IA7^=XPaDFTGe2
+l80
+L51
+V<]TQRMZ_Z7hV9A4:mAo6R0
+R7
+33
+R8
+R9
+R10
+R11
+R12
+!s100 n6zc`R]i4CN:j4ChX2cP62
+!i10b 1
+Epixelgenerator
+Z13 w1763175291
+Z14 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+R2
+R3
+R4
+Z15 8pixelGenerator.vhd
+Z16 FpixelGenerator.vhd
+l0
+L5
+VhlDN2O3]dJN8=1>Y:zNYJ1
+R7
+33
+Z17 !s108 1763324678.141000
+Z18 !s90 -reportprogress|300|-2008|pixelGenerator.vhd|
+Z19 !s107 pixelGenerator.vhd|
+R11
+R12
+!s100 5Gdm4::djI`R3dZ:4bci]3
+!i10b 1
+Abehavior
+R14
+R2
+R3
+DEx4 work 14 pixelgenerator 0 22 hlDN2O3]dJN8=1>Y:zNYJ1
+l35
+L14
+V7zf30N1Mm01icXZ`mC:Qz3
+R7
+33
+R17
+R18
+R19
+R11
+R12
+!s100 U@z@L9ama<jVI:l[BklnB0
+!i10b 1
+Epixelgenerator_dynamicmodule
+Z20 w1763349913
+R14
+R2
+R3
+R4
+Z21 8pixelGenerator_dynamicmodule.vhd
+Z22 FpixelGenerator_dynamicmodule.vhd
+l0
+L5
+VXTDOJ0nfJdF^7<aDRXM7f0
+R7
+33
+Z23 !s108 1763364346.062000
+Z24 !s90 -reportprogress|300|-2008|pixelGenerator_dynamicmodule.vhd|
+Z25 !s107 pixelGenerator_dynamicmodule.vhd|
+R11
+R12
+!s100 DJU7jDaJOKE0HGOLcF9mE2
+!i10b 1
+Abehavior
+R14
+R2
+R3
+Z26 DEx4 work 28 pixelgenerator_dynamicmodule 0 22 XTDOJ0nfJdF^7<aDRXM7f0
+l64
+L21
+VnA@kaXXDHL[8GEa4nd@EQ3
+R7
+33
+R23
+R24
+R25
+R11
+R12
+!s100 7Obj=iJobzR^dRDl^ACza0
+!i10b 1
+Epixelgenerator_dynamicpipealignmodule
+Z27 w1763394987
+R14
+R2
+R3
+R4
+Z28 8pixelGenerator_dynamicpipealignmodule.vhd
+Z29 FpixelGenerator_dynamicpipealignmodule.vhd
+l0
+L5
+VEd7F02OXW84<gH:;dF8L?3
+R7
+33
+Z30 !s108 1763394999.136000
+Z31 !s90 -reportprogress|300|-2008|pixelGenerator_dynamicpipealignmodule.vhd|
+Z32 !s107 pixelGenerator_dynamicpipealignmodule.vhd|
+R11
+R12
+!s100 k^<zCFC?Ud[UbR5^PbljA2
+!i10b 1
+Abehavior
+R14
+R2
+R3
+DEx4 work 37 pixelgenerator_dynamicpipealignmodule 0 22 Ed7F02OXW84<gH:;dF8L?3
+l66
+L21
+V`VaU4;:=8``=laKek7E4F2
+R7
+33
+R30
+R31
+R32
+R11
+R12
+!s100 OoOkTCgO6cP1>?I>B2DP@3
+!i10b 1
+Epixelgenerator_staticmodule
+Z33 w1763330186
+R14
+R2
+R3
+R4
+Z34 8pixelGenerator_staticmodule.vhd
+Z35 FpixelGenerator_staticmodule.vhd
+l0
+L5
+VikD_jF89Ucd_UJCBW2VYL3
+R7
+33
+Z36 !s108 1763330193.350000
+Z37 !s90 -reportprogress|300|-2008|pixelGenerator_staticmodule.vhd|
+Z38 !s107 pixelGenerator_staticmodule.vhd|
+R11
+R12
+!s100 6C<;hzTMD=kYX@@`BZXKO3
+!i10b 1
+Abehavior
+R14
+R2
+R3
+Z39 DEx4 work 27 pixelgenerator_staticmodule 0 22 ikD_jF89Ucd_UJCBW2VYL3
+l74
+L14
+V:cdT6cSlTdTad>>Ic1i[<2
+R7
+33
+R36
+R37
+R38
+R11
+R12
+!s100 `EYABY7ah1Ch@WJLCMEiE0
+!i10b 1
+Etank_bottom
+Z40 w1763349570
+R14
+R2
+R3
+R4
+Z41 8tank_bottom.vhd
+Z42 Ftank_bottom.vhd
+l0
+L5
+V17YeR_=Le3A:neSm]`Ei?0
+R7
+33
+Z43 !s108 1763394999.215000
+Z44 !s90 -reportprogress|300|-2008|tank_bottom.vhd|
+Z45 !s107 tank_bottom.vhd|
+R11
+R12
+!s100 Hml^i9]>h0V:WCNIjUZmH1
+!i10b 1
+Abehavior
+R14
+R2
+R3
+Z46 DEx4 work 11 tank_bottom 0 22 17YeR_=Le3A:neSm]`Ei?0
+l44
+L30
+VUzcm:4DjzXK8<Ilz[ONM<0
+!s100 K4o;1>L`bcWk3Nz^0180:0
+R7
+33
+R43
+R44
+R45
+R11
+R12
+!i10b 1
+Evga_dynamic_tb
+Z47 w1763393853
+Z48 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
+R14
+R2
+R3
+R4
+Z49 8vga_dynamic_tb.vhd
+Z50 Fvga_dynamic_tb.vhd
+l0
+L8
+V0=LjSDbZk0b1nin7n^P?[1
+!s100 4jk=R>z>0WKXh?OHX[XMG2
+R7
+32
+!i10b 1
+Z51 !s108 1763394999.311000
+Z52 !s90 -reportprogress|300|vga_dynamic_tb.vhd|
+Z53 !s107 vga_dynamic_tb.vhd|
+o-O0
+R12
+Asim
+R26
+R46
+Z54 DEx4 work 8 vga_sync 0 22 6=Znb0izH5NgZI;33LHGB3
+R48
+R14
+R2
+R3
+Z55 DEx4 work 14 vga_dynamic_tb 0 22 0=LjSDbZk0b1nin7n^P?[1
+l58
+L11
+Z56 Vzn@TOgU@OKB@h]LMQl_jL1
+Z57 !s100 7GfE^]SiY?NaHAMoE4QEj1
+R7
+32
+!i10b 1
+R51
+R52
+R53
+o-O0
+R12
+Evga_sync
+Z58 w1763321821
+R14
+R2
+R3
+R4
+Z59 8vga_sync.vhd
+Z60 Fvga_sync.vhd
+l0
+L5
+V6=Znb0izH5NgZI;33LHGB3
+R7
+33
+Z61 !s108 1763394999.052000
+Z62 !s90 -reportprogress|300|-2008|vga_sync.vhd|
+Z63 !s107 vga_sync.vhd|
+R11
+R12
+!s100 QKe6mWTc>eJoRAARi@:RE2
+!i10b 1
+Abehavior
+R14
+R2
+R3
+R54
+l30
+L14
+V`8ndRK:PSZCcIcb1iZM<f2
+R7
+33
+R61
+R62
+R63
+R11
+R12
+!s100 kCgNz>g7?`>FbK3<;QYF^0
+!i10b 1
+Evga_tb
+Z64 w1763327886
+R14
+R3
+R48
+R2
+R4
+Z65 8vga_tb.vhd
+Z66 Fvga_tb.vhd
+l0
+L10
+VFRe0fN1e>RCPBEkLYGoN31
+R7
+32
+Z67 !s108 1763330193.470000
+Z68 !s90 -reportprogress|300|vga_tb.vhd|
+Z69 !s107 vga_tb.vhd|
+o-O0
+R12
+!s100 Q_=:1kcXh9E^RQ8gcjVY61
+!i10b 1
+Asim
+DPx3 std 3 env 0 22 kU@g3bh3dSQ6SKX7=V`LE3
+R39
+R54
+R14
+R3
+R48
+R2
+DEx4 work 6 vga_tb 0 22 FRe0fN1e>RCPBEkLYGoN31
+l39
+L13
+VaE_^T`I^>^@30:5e2INdd2
+R7
+32
+R67
+R68
+R69
+o-O0
+R12
+!s100 X>K^bHPFKZhLhZRR=N^@B2
+!i10b 1

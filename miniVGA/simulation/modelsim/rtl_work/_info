@@ -1,0 +1,149 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\VHDL_training\miniVGA\simulation\modelsim
+Ecolorrom
+Z1 w1763175112
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\VHDL_training\miniVGA\simulation\modelsim
+Z5 8C:/VHDL_training/miniVGA/colorROM.vhd
+Z6 FC:/VHDL_training/miniVGA/colorROM.vhd
+l0
+L41
+V6FY[=zJSgd<h1TXJEl>P32
+Z7 OV;C;10.1d;51
+33
+Z8 !s108 1763394936.709000
+Z9 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/colorROM.vhd|
+Z10 !s107 C:/VHDL_training/miniVGA/colorROM.vhd|
+Z11 o-2008 -work work -O0
+Z12 tExplicit 1
+!s100 PW]aB1O1c]XdGei;z4OEk0
+!i10b 1
+Asyn
+R2
+R3
+DEx4 work 8 colorrom 0 22 6FY[=zJSgd<h1TXJEl>P32
+l80
+L51
+V76cDJN6odgTX?Y9;aXf4Z0
+R7
+33
+R8
+R9
+R10
+R11
+R12
+!s100 n6zc`R]i4CN:j4ChX2cP62
+!i10b 1
+Epixelgenerator
+Z13 w1763175291
+Z14 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+R2
+R3
+R4
+Z15 8C:/VHDL_training/miniVGA/pixelGenerator.vhd
+Z16 FC:/VHDL_training/miniVGA/pixelGenerator.vhd
+l0
+L5
+VfEFm]LMl=9VK4e`1Jl3Q41
+R7
+33
+Z17 !s108 1763394936.617000
+Z18 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/pixelGenerator.vhd|
+Z19 !s107 C:/VHDL_training/miniVGA/pixelGenerator.vhd|
+R11
+R12
+!s100 5Gdm4::djI`R3dZ:4bci]3
+!i10b 1
+Abehavior
+R14
+R2
+R3
+DEx4 work 14 pixelgenerator 0 22 fEFm]LMl=9VK4e`1Jl3Q41
+l35
+L14
+VebhS@^kCO@FhWWISVicY?1
+R7
+33
+R17
+R18
+R19
+R11
+R12
+!s100 U@z@L9ama<jVI:l[BklnB0
+!i10b 1
+Evga_sync
+Z20 w1763321821
+R14
+R2
+R3
+R4
+Z21 8C:/VHDL_training/miniVGA/vga_sync.vhd
+Z22 FC:/VHDL_training/miniVGA/vga_sync.vhd
+l0
+L5
+VSaaIm3oFbYQ;2[>I<AH453
+R7
+33
+Z23 !s108 1763394936.526000
+Z24 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/vga_sync.vhd|
+Z25 !s107 C:/VHDL_training/miniVGA/vga_sync.vhd|
+R11
+R12
+!s100 QKe6mWTc>eJoRAARi@:RE2
+!i10b 1
+Abehavior
+R14
+R2
+R3
+DEx4 work 8 vga_sync 0 22 SaaIm3oFbYQ;2[>I<AH453
+l30
+L14
+ViFDde^`V<_@Rfdk^]bBGO1
+R7
+33
+R23
+R24
+R25
+R11
+R12
+!s100 kCgNz>g7?`>FbK3<;QYF^0
+!i10b 1
+Evga_top_level
+Z26 w1763179855
+R2
+R3
+R4
+Z27 8C:/VHDL_training/miniVGA/VGA_top_level.vhd
+Z28 FC:/VHDL_training/miniVGA/VGA_top_level.vhd
+l0
+L4
+Vd8^K0]nS]9z:zmOc50Xnj0
+!s100 Sc:hOmHJQLES=jCVMSfYY2
+R7
+33
+!i10b 1
+Z29 !s108 1763394936.782000
+Z30 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/VGA_top_level.vhd|
+Z31 !s107 C:/VHDL_training/miniVGA/VGA_top_level.vhd|
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 13 vga_top_level 0 22 d8^K0]nS]9z:zmOc50Xnj0
+l31
+L13
+Vfok8<VHlE>6za<kHe6hEg2
+!s100 DPZQbZ5J=H^Q?e_GBNl<@3
+R7
+33
+!i10b 1
+R29
+R30
+R31
+R11
+R12

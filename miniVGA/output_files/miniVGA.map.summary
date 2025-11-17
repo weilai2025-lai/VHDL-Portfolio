@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Nov 17 09:52:05 2025
+Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Revision Name : miniVGA
+Top-level Entity Name : VGA_top_level
+Family : Cyclone IV E
+Total logic elements : 71
+    Total combinational functions : 62
+    Dedicated logic registers : 38
+Total registers : 38
+Total pins : 36
+Total virtual pins : 0
+Total memory bits : 120
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

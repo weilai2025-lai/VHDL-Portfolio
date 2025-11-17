@@ -1,0 +1,2871 @@
+// Copyright (C) 2022  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition"
+
+// DATE "11/16/2025 21:57:37"
+
+// 
+// Device: Altera EP4CE115F29C7 Package FBGA780
+// 
+
+// 
+// This Verilog file should be used for ModelSim (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module VGA_top_level (
+	clock_50,
+	reset_n,
+	vga_red,
+	vga_blue,
+	vga_green,
+	horiz_sync,
+	verti_sync,
+	vga_blank,
+	vga_clk);
+input 	clock_50;
+input 	reset_n;
+output 	[9:0] vga_red;
+output 	[9:0] vga_blue;
+output 	[9:0] vga_green;
+output 	horiz_sync;
+output 	verti_sync;
+output 	vga_blank;
+output 	vga_clk;
+
+// Design Ports Information
+// reset_n	=>  Location: PIN_L22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_red[0]	=>  Location: PIN_E14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_red[1]	=>  Location: PIN_D16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_red[2]	=>  Location: PIN_J15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_red[3]	=>  Location: PIN_C16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_red[4]	=>  Location: PIN_D15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_red[5]	=>  Location: PIN_B17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_red[6]	=>  Location: PIN_E15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_red[7]	=>  Location: PIN_G14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_red[8]	=>  Location: PIN_F14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_red[9]	=>  Location: PIN_H14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_blue[0]	=>  Location: PIN_J14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_blue[1]	=>  Location: PIN_F17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_blue[2]	=>  Location: PIN_D12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_blue[3]	=>  Location: PIN_C14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_blue[4]	=>  Location: PIN_D14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_blue[5]	=>  Location: PIN_A12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_blue[6]	=>  Location: PIN_G15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_blue[7]	=>  Location: PIN_C12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_blue[8]	=>  Location: PIN_B11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_blue[9]	=>  Location: PIN_B10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_green[0]	=>  Location: PIN_J13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_green[1]	=>  Location: PIN_A10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_green[2]	=>  Location: PIN_C15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_green[3]	=>  Location: PIN_H15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_green[4]	=>  Location: PIN_A11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_green[5]	=>  Location: PIN_A17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_green[6]	=>  Location: PIN_H16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_green[7]	=>  Location: PIN_F15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_green[8]	=>  Location: PIN_D13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_green[9]	=>  Location: PIN_C13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// horiz_sync	=>  Location: PIN_G13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// verti_sync	=>  Location: PIN_H13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_blank	=>  Location: PIN_J12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vga_clk	=>  Location: PIN_J16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clock_50	=>  Location: PIN_J1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \reset_n~input_o ;
+wire \vga_red[0]~output_o ;
+wire \vga_red[1]~output_o ;
+wire \vga_red[2]~output_o ;
+wire \vga_red[3]~output_o ;
+wire \vga_red[4]~output_o ;
+wire \vga_red[5]~output_o ;
+wire \vga_red[6]~output_o ;
+wire \vga_red[7]~output_o ;
+wire \vga_red[8]~output_o ;
+wire \vga_red[9]~output_o ;
+wire \vga_blue[0]~output_o ;
+wire \vga_blue[1]~output_o ;
+wire \vga_blue[2]~output_o ;
+wire \vga_blue[3]~output_o ;
+wire \vga_blue[4]~output_o ;
+wire \vga_blue[5]~output_o ;
+wire \vga_blue[6]~output_o ;
+wire \vga_blue[7]~output_o ;
+wire \vga_blue[8]~output_o ;
+wire \vga_blue[9]~output_o ;
+wire \vga_green[0]~output_o ;
+wire \vga_green[1]~output_o ;
+wire \vga_green[2]~output_o ;
+wire \vga_green[3]~output_o ;
+wire \vga_green[4]~output_o ;
+wire \vga_green[5]~output_o ;
+wire \vga_green[6]~output_o ;
+wire \vga_green[7]~output_o ;
+wire \vga_green[8]~output_o ;
+wire \vga_green[9]~output_o ;
+wire \horiz_sync~output_o ;
+wire \verti_sync~output_o ;
+wire \vga_blank~output_o ;
+wire \vga_clk~output_o ;
+wire \clock_50~input_o ;
+wire \clock_50~inputclkctrl_outclk ;
+wire \videoSync|pixel_clock_int~0_combout ;
+wire \videoSync|pixel_clock_int~feeder_combout ;
+wire \videoSync|pixel_clock_int~q ;
+wire \videoSync|pixel_clock_int~clkctrl_outclk ;
+wire \videoSync|Add0~0_combout ;
+wire \videoSync|Add0~17 ;
+wire \videoSync|Add0~18_combout ;
+wire \videoSync|h_count~0_combout ;
+wire \videoSync|Equal0~0_combout ;
+wire \videoSync|Equal0~1_combout ;
+wire \videoSync|Equal0~2_combout ;
+wire \videoSync|h_count~3_combout ;
+wire \videoSync|Add0~1 ;
+wire \videoSync|Add0~2_combout ;
+wire \videoSync|Add0~3 ;
+wire \videoSync|Add0~4_combout ;
+wire \videoSync|Add0~5 ;
+wire \videoSync|Add0~6_combout ;
+wire \videoSync|Add0~7 ;
+wire \videoSync|Add0~8_combout ;
+wire \videoSync|Add0~9 ;
+wire \videoSync|Add0~10_combout ;
+wire \videoSync|h_count~2_combout ;
+wire \videoSync|Add0~11 ;
+wire \videoSync|Add0~12_combout ;
+wire \videoSync|Add0~13 ;
+wire \videoSync|Add0~14_combout ;
+wire \videoSync|Add0~15 ;
+wire \videoSync|Add0~16_combout ;
+wire \videoSync|h_count~1_combout ;
+wire \videoSync|pixel_column[8]~feeder_combout ;
+wire \videoSync|LessThan5~0_combout ;
+wire \videoSync|pixel_column[7]~feeder_combout ;
+wire \videoSync|pixel_column[9]~feeder_combout ;
+wire \videoSync|pixel_column[6]~feeder_combout ;
+wire \videoGen|LessThan3~0_combout ;
+wire \videoGen|colorAddress[0]~feeder_combout ;
+wire \videoSync|Equal1~0_combout ;
+wire \videoSync|Equal1~1_combout ;
+wire \videoSync|Add1~0_combout ;
+wire \videoSync|v_count~8_combout ;
+wire \videoSync|v_count[9]~6_combout ;
+wire \videoSync|Add1~1 ;
+wire \videoSync|Add1~2_combout ;
+wire \videoSync|v_count~5_combout ;
+wire \videoSync|Add1~3 ;
+wire \videoSync|Add1~4_combout ;
+wire \videoSync|v_count[2]~7_combout ;
+wire \videoSync|Add1~5 ;
+wire \videoSync|Add1~6_combout ;
+wire \videoSync|v_count[3]~9_combout ;
+wire \videoSync|LessThan1~0_combout ;
+wire \videoSync|Add1~7 ;
+wire \videoSync|Add1~8_combout ;
+wire \videoSync|v_count[4]~10_combout ;
+wire \videoSync|Add1~9 ;
+wire \videoSync|Add1~10_combout ;
+wire \videoSync|v_count[5]~1_combout ;
+wire \videoSync|Add1~11 ;
+wire \videoSync|Add1~12_combout ;
+wire \videoSync|v_count[6]~2_combout ;
+wire \videoSync|Add1~13 ;
+wire \videoSync|Add1~14_combout ;
+wire \videoSync|v_count[7]~3_combout ;
+wire \videoSync|LessThan1~1_combout ;
+wire \videoSync|LessThan1~2_combout ;
+wire \videoSync|Add1~15 ;
+wire \videoSync|Add1~17 ;
+wire \videoSync|Add1~18_combout ;
+wire \videoSync|v_count[9]~0_combout ;
+wire \videoSync|pixel_process~8_combout ;
+wire \videoSync|pixel_process~1_combout ;
+wire \videoSync|pixel_process~9_combout ;
+wire \videoSync|Add1~16_combout ;
+wire \videoSync|v_count[8]~4_combout ;
+wire \videoSync|pixel_process~0_combout ;
+wire \videoSync|LessThan6~0_combout ;
+wire \videoSync|pixel_row[4]~feeder_combout ;
+wire \videoSync|pixel_row[6]~feeder_combout ;
+wire \videoGen|LessThan2~0_combout ;
+wire \videoGen|LessThan2~1_combout ;
+wire \videoSync|pixel_process~4_combout ;
+wire \videoSync|pixel_process~2_combout ;
+wire \videoSync|pixel_process~3_combout ;
+wire \videoSync|pixel_process~5_combout ;
+wire \videoSync|horiz_sync~q ;
+wire \videoSync|horiz_sync_out~0_combout ;
+wire \videoSync|horiz_sync_out~q ;
+wire \videoSync|pixel_process~6_combout ;
+wire \videoSync|pixel_process~7_combout ;
+wire \videoSync|verti_sync~q ;
+wire \videoSync|verti_syn_out~0_combout ;
+wire \videoSync|verti_syn_out~q ;
+wire \videoSync|video_on_h~q ;
+wire \videoSync|video_on_v~feeder_combout ;
+wire \videoSync|video_on_v~q ;
+wire \videoSync|video_on~combout ;
+wire [9:0] \videoSync|pixel_column ;
+wire [29:0] \videoGen|colors|altsyncram_component|auto_generated|q_a ;
+wire [2:0] \videoGen|colorAddress ;
+wire [9:0] \videoSync|v_count ;
+wire [9:0] \videoSync|h_count ;
+wire [9:0] \videoSync|pixel_row ;
+
+wire [35:0] \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus ;
+
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [0] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [0];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [1] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [1];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [2] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [2];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [3] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [3];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [4] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [4];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [5] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [5];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [6] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [6];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [7] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [7];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [8] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [8];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [9] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [9];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [10] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [10];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [11] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [11];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [12] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [12];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [13] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [13];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [14] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [14];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [15] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [15];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [16] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [16];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [17] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [17];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [18] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [18];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [19] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [19];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [20] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [20];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [21] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [21];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [22] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [22];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [23] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [23];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [24] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [24];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [25] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [25];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [26] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [26];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [27] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [27];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [28] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [28];
+assign \videoGen|colors|altsyncram_component|auto_generated|q_a [29] = \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [29];
+
+hard_block auto_generated_inst(
+	.devpor(devpor),
+	.devclrn(devclrn),
+	.devoe(devoe));
+
+// Location: IOOBUF_X45_Y73_N9
+cycloneive_io_obuf \vga_red[0]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [20]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_red[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_red[0]~output .bus_hold = "false";
+defparam \vga_red[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X62_Y73_N23
+cycloneive_io_obuf \vga_red[1]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [21]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_red[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_red[1]~output .bus_hold = "false";
+defparam \vga_red[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X60_Y73_N23
+cycloneive_io_obuf \vga_red[2]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [22]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_red[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_red[2]~output .bus_hold = "false";
+defparam \vga_red[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X62_Y73_N16
+cycloneive_io_obuf \vga_red[3]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [23]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_red[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_red[3]~output .bus_hold = "false";
+defparam \vga_red[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X58_Y73_N23
+cycloneive_io_obuf \vga_red[4]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [24]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_red[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_red[4]~output .bus_hold = "false";
+defparam \vga_red[4]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X60_Y73_N9
+cycloneive_io_obuf \vga_red[5]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [25]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_red[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_red[5]~output .bus_hold = "false";
+defparam \vga_red[5]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X58_Y73_N9
+cycloneive_io_obuf \vga_red[6]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [26]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_red[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_red[6]~output .bus_hold = "false";
+defparam \vga_red[6]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X47_Y73_N16
+cycloneive_io_obuf \vga_red[7]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [27]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_red[7]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_red[7]~output .bus_hold = "false";
+defparam \vga_red[7]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X45_Y73_N2
+cycloneive_io_obuf \vga_red[8]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [28]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_red[8]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_red[8]~output .bus_hold = "false";
+defparam \vga_red[8]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X49_Y73_N16
+cycloneive_io_obuf \vga_red[9]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [29]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_red[9]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_red[9]~output .bus_hold = "false";
+defparam \vga_red[9]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X49_Y73_N23
+cycloneive_io_obuf \vga_blue[0]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [0]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_blue[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_blue[0]~output .bus_hold = "false";
+defparam \vga_blue[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X67_Y73_N16
+cycloneive_io_obuf \vga_blue[1]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [1]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_blue[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_blue[1]~output .bus_hold = "false";
+defparam \vga_blue[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X52_Y73_N23
+cycloneive_io_obuf \vga_blue[2]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [2]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_blue[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_blue[2]~output .bus_hold = "false";
+defparam \vga_blue[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X52_Y73_N2
+cycloneive_io_obuf \vga_blue[3]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [3]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_blue[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_blue[3]~output .bus_hold = "false";
+defparam \vga_blue[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X52_Y73_N9
+cycloneive_io_obuf \vga_blue[4]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [4]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_blue[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_blue[4]~output .bus_hold = "false";
+defparam \vga_blue[4]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X47_Y73_N2
+cycloneive_io_obuf \vga_blue[5]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [5]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_blue[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_blue[5]~output .bus_hold = "false";
+defparam \vga_blue[5]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X65_Y73_N9
+cycloneive_io_obuf \vga_blue[6]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [6]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_blue[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_blue[6]~output .bus_hold = "false";
+defparam \vga_blue[6]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X52_Y73_N16
+cycloneive_io_obuf \vga_blue[7]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [7]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_blue[7]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_blue[7]~output .bus_hold = "false";
+defparam \vga_blue[7]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X42_Y73_N9
+cycloneive_io_obuf \vga_blue[8]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [8]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_blue[8]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_blue[8]~output .bus_hold = "false";
+defparam \vga_blue[8]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X38_Y73_N9
+cycloneive_io_obuf \vga_blue[9]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [9]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_blue[9]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_blue[9]~output .bus_hold = "false";
+defparam \vga_blue[9]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X40_Y73_N2
+cycloneive_io_obuf \vga_green[0]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [10]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_green[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_green[0]~output .bus_hold = "false";
+defparam \vga_green[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X38_Y73_N2
+cycloneive_io_obuf \vga_green[1]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [11]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_green[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_green[1]~output .bus_hold = "false";
+defparam \vga_green[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X58_Y73_N16
+cycloneive_io_obuf \vga_green[2]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [12]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_green[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_green[2]~output .bus_hold = "false";
+defparam \vga_green[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X60_Y73_N16
+cycloneive_io_obuf \vga_green[3]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [13]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_green[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_green[3]~output .bus_hold = "false";
+defparam \vga_green[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X42_Y73_N2
+cycloneive_io_obuf \vga_green[4]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [14]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_green[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_green[4]~output .bus_hold = "false";
+defparam \vga_green[4]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X60_Y73_N2
+cycloneive_io_obuf \vga_green[5]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [15]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_green[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_green[5]~output .bus_hold = "false";
+defparam \vga_green[5]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X65_Y73_N23
+cycloneive_io_obuf \vga_green[6]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [16]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_green[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_green[6]~output .bus_hold = "false";
+defparam \vga_green[6]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X58_Y73_N2
+cycloneive_io_obuf \vga_green[7]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [17]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_green[7]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_green[7]~output .bus_hold = "false";
+defparam \vga_green[7]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X54_Y73_N9
+cycloneive_io_obuf \vga_green[8]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [18]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_green[8]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_green[8]~output .bus_hold = "false";
+defparam \vga_green[8]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X54_Y73_N2
+cycloneive_io_obuf \vga_green[9]~output (
+	.i(\videoGen|colors|altsyncram_component|auto_generated|q_a [19]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_green[9]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_green[9]~output .bus_hold = "false";
+defparam \vga_green[9]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X38_Y73_N16
+cycloneive_io_obuf \horiz_sync~output (
+	.i(\videoSync|horiz_sync_out~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\horiz_sync~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \horiz_sync~output .bus_hold = "false";
+defparam \horiz_sync~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X38_Y73_N23
+cycloneive_io_obuf \verti_sync~output (
+	.i(\videoSync|verti_syn_out~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\verti_sync~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \verti_sync~output .bus_hold = "false";
+defparam \verti_sync~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X40_Y73_N9
+cycloneive_io_obuf \vga_blank~output (
+	.i(\videoSync|video_on~combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_blank~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_blank~output .bus_hold = "false";
+defparam \vga_blank~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X65_Y73_N16
+cycloneive_io_obuf \vga_clk~output (
+	.i(\videoSync|pixel_clock_int~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vga_clk~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vga_clk~output .bus_hold = "false";
+defparam \vga_clk~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y36_N8
+cycloneive_io_ibuf \clock_50~input (
+	.i(clock_50),
+	.ibar(gnd),
+	.o(\clock_50~input_o ));
+// synopsys translate_off
+defparam \clock_50~input .bus_hold = "false";
+defparam \clock_50~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G2
+cycloneive_clkctrl \clock_50~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\clock_50~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\clock_50~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \clock_50~inputclkctrl .clock_type = "global clock";
+defparam \clock_50~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: LCCOMB_X56_Y72_N28
+cycloneive_lcell_comb \videoSync|pixel_clock_int~0 (
+// Equation(s):
+// \videoSync|pixel_clock_int~0_combout  = !\videoSync|pixel_clock_int~q 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\videoSync|pixel_clock_int~q ),
+	.cin(gnd),
+	.combout(\videoSync|pixel_clock_int~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_clock_int~0 .lut_mask = 16'h00FF;
+defparam \videoSync|pixel_clock_int~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X56_Y72_N24
+cycloneive_lcell_comb \videoSync|pixel_clock_int~feeder (
+// Equation(s):
+// \videoSync|pixel_clock_int~feeder_combout  = \videoSync|pixel_clock_int~0_combout 
+
+	.dataa(\videoSync|pixel_clock_int~0_combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\videoSync|pixel_clock_int~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_clock_int~feeder .lut_mask = 16'hAAAA;
+defparam \videoSync|pixel_clock_int~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X56_Y72_N25
+dffeas \videoSync|pixel_clock_int (
+	.clk(\clock_50~inputclkctrl_outclk ),
+	.d(\videoSync|pixel_clock_int~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|pixel_clock_int~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|pixel_clock_int .is_wysiwyg = "true";
+defparam \videoSync|pixel_clock_int .power_up = "low";
+// synopsys translate_on
+
+// Location: CLKCTRL_G10
+cycloneive_clkctrl \videoSync|pixel_clock_int~clkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\videoSync|pixel_clock_int~q }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\videoSync|pixel_clock_int~clkctrl_outclk ));
+// synopsys translate_off
+defparam \videoSync|pixel_clock_int~clkctrl .clock_type = "global clock";
+defparam \videoSync|pixel_clock_int~clkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N6
+cycloneive_lcell_comb \videoSync|Add0~0 (
+// Equation(s):
+// \videoSync|Add0~0_combout  = \videoSync|h_count [0] $ (VCC)
+// \videoSync|Add0~1  = CARRY(\videoSync|h_count [0])
+
+	.dataa(gnd),
+	.datab(\videoSync|h_count [0]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\videoSync|Add0~0_combout ),
+	.cout(\videoSync|Add0~1 ));
+// synopsys translate_off
+defparam \videoSync|Add0~0 .lut_mask = 16'h33CC;
+defparam \videoSync|Add0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N22
+cycloneive_lcell_comb \videoSync|Add0~16 (
+// Equation(s):
+// \videoSync|Add0~16_combout  = (\videoSync|h_count [8] & (\videoSync|Add0~15  $ (GND))) # (!\videoSync|h_count [8] & (!\videoSync|Add0~15  & VCC))
+// \videoSync|Add0~17  = CARRY((\videoSync|h_count [8] & !\videoSync|Add0~15 ))
+
+	.dataa(gnd),
+	.datab(\videoSync|h_count [8]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add0~15 ),
+	.combout(\videoSync|Add0~16_combout ),
+	.cout(\videoSync|Add0~17 ));
+// synopsys translate_off
+defparam \videoSync|Add0~16 .lut_mask = 16'hC30C;
+defparam \videoSync|Add0~16 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N24
+cycloneive_lcell_comb \videoSync|Add0~18 (
+// Equation(s):
+// \videoSync|Add0~18_combout  = \videoSync|Add0~17  $ (\videoSync|h_count [9])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\videoSync|h_count [9]),
+	.cin(\videoSync|Add0~17 ),
+	.combout(\videoSync|Add0~18_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|Add0~18 .lut_mask = 16'h0FF0;
+defparam \videoSync|Add0~18 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X50_Y70_N6
+cycloneive_lcell_comb \videoSync|h_count~0 (
+// Equation(s):
+// \videoSync|h_count~0_combout  = (!\videoSync|Equal0~2_combout  & \videoSync|Add0~18_combout )
+
+	.dataa(gnd),
+	.datab(\videoSync|Equal0~2_combout ),
+	.datac(gnd),
+	.datad(\videoSync|Add0~18_combout ),
+	.cin(gnd),
+	.combout(\videoSync|h_count~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|h_count~0 .lut_mask = 16'h3300;
+defparam \videoSync|h_count~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X50_Y70_N7
+dffeas \videoSync|h_count[9] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|h_count~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|h_count [9]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|h_count[9] .is_wysiwyg = "true";
+defparam \videoSync|h_count[9] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N4
+cycloneive_lcell_comb \videoSync|Equal0~0 (
+// Equation(s):
+// \videoSync|Equal0~0_combout  = (!\videoSync|h_count [2] & (!\videoSync|h_count [0] & (!\videoSync|h_count [1] & !\videoSync|h_count [6])))
+
+	.dataa(\videoSync|h_count [2]),
+	.datab(\videoSync|h_count [0]),
+	.datac(\videoSync|h_count [1]),
+	.datad(\videoSync|h_count [6]),
+	.cin(gnd),
+	.combout(\videoSync|Equal0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|Equal0~0 .lut_mask = 16'h0001;
+defparam \videoSync|Equal0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X50_Y70_N12
+cycloneive_lcell_comb \videoSync|Equal0~1 (
+// Equation(s):
+// \videoSync|Equal0~1_combout  = (!\videoSync|h_count [4] & (!\videoSync|h_count [7] & (\videoSync|h_count [5] & !\videoSync|h_count [3])))
+
+	.dataa(\videoSync|h_count [4]),
+	.datab(\videoSync|h_count [7]),
+	.datac(\videoSync|h_count [5]),
+	.datad(\videoSync|h_count [3]),
+	.cin(gnd),
+	.combout(\videoSync|Equal0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|Equal0~1 .lut_mask = 16'h0010;
+defparam \videoSync|Equal0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X50_Y70_N18
+cycloneive_lcell_comb \videoSync|Equal0~2 (
+// Equation(s):
+// \videoSync|Equal0~2_combout  = (\videoSync|h_count [9] & (\videoSync|h_count [8] & (\videoSync|Equal0~0_combout  & \videoSync|Equal0~1_combout )))
+
+	.dataa(\videoSync|h_count [9]),
+	.datab(\videoSync|h_count [8]),
+	.datac(\videoSync|Equal0~0_combout ),
+	.datad(\videoSync|Equal0~1_combout ),
+	.cin(gnd),
+	.combout(\videoSync|Equal0~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|Equal0~2 .lut_mask = 16'h8000;
+defparam \videoSync|Equal0~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N2
+cycloneive_lcell_comb \videoSync|h_count~3 (
+// Equation(s):
+// \videoSync|h_count~3_combout  = (\videoSync|Add0~0_combout  & !\videoSync|Equal0~2_combout )
+
+	.dataa(\videoSync|Add0~0_combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\videoSync|Equal0~2_combout ),
+	.cin(gnd),
+	.combout(\videoSync|h_count~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|h_count~3 .lut_mask = 16'h00AA;
+defparam \videoSync|h_count~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X49_Y70_N3
+dffeas \videoSync|h_count[0] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|h_count~3_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|h_count [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|h_count[0] .is_wysiwyg = "true";
+defparam \videoSync|h_count[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N8
+cycloneive_lcell_comb \videoSync|Add0~2 (
+// Equation(s):
+// \videoSync|Add0~2_combout  = (\videoSync|h_count [1] & (!\videoSync|Add0~1 )) # (!\videoSync|h_count [1] & ((\videoSync|Add0~1 ) # (GND)))
+// \videoSync|Add0~3  = CARRY((!\videoSync|Add0~1 ) # (!\videoSync|h_count [1]))
+
+	.dataa(gnd),
+	.datab(\videoSync|h_count [1]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add0~1 ),
+	.combout(\videoSync|Add0~2_combout ),
+	.cout(\videoSync|Add0~3 ));
+// synopsys translate_off
+defparam \videoSync|Add0~2 .lut_mask = 16'h3C3F;
+defparam \videoSync|Add0~2 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X49_Y70_N9
+dffeas \videoSync|h_count[1] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|Add0~2_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|h_count [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|h_count[1] .is_wysiwyg = "true";
+defparam \videoSync|h_count[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N10
+cycloneive_lcell_comb \videoSync|Add0~4 (
+// Equation(s):
+// \videoSync|Add0~4_combout  = (\videoSync|h_count [2] & (\videoSync|Add0~3  $ (GND))) # (!\videoSync|h_count [2] & (!\videoSync|Add0~3  & VCC))
+// \videoSync|Add0~5  = CARRY((\videoSync|h_count [2] & !\videoSync|Add0~3 ))
+
+	.dataa(\videoSync|h_count [2]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add0~3 ),
+	.combout(\videoSync|Add0~4_combout ),
+	.cout(\videoSync|Add0~5 ));
+// synopsys translate_off
+defparam \videoSync|Add0~4 .lut_mask = 16'hA50A;
+defparam \videoSync|Add0~4 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X49_Y70_N11
+dffeas \videoSync|h_count[2] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|Add0~4_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|h_count [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|h_count[2] .is_wysiwyg = "true";
+defparam \videoSync|h_count[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N12
+cycloneive_lcell_comb \videoSync|Add0~6 (
+// Equation(s):
+// \videoSync|Add0~6_combout  = (\videoSync|h_count [3] & (!\videoSync|Add0~5 )) # (!\videoSync|h_count [3] & ((\videoSync|Add0~5 ) # (GND)))
+// \videoSync|Add0~7  = CARRY((!\videoSync|Add0~5 ) # (!\videoSync|h_count [3]))
+
+	.dataa(\videoSync|h_count [3]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add0~5 ),
+	.combout(\videoSync|Add0~6_combout ),
+	.cout(\videoSync|Add0~7 ));
+// synopsys translate_off
+defparam \videoSync|Add0~6 .lut_mask = 16'h5A5F;
+defparam \videoSync|Add0~6 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X49_Y70_N13
+dffeas \videoSync|h_count[3] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|Add0~6_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|h_count [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|h_count[3] .is_wysiwyg = "true";
+defparam \videoSync|h_count[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N14
+cycloneive_lcell_comb \videoSync|Add0~8 (
+// Equation(s):
+// \videoSync|Add0~8_combout  = (\videoSync|h_count [4] & (\videoSync|Add0~7  $ (GND))) # (!\videoSync|h_count [4] & (!\videoSync|Add0~7  & VCC))
+// \videoSync|Add0~9  = CARRY((\videoSync|h_count [4] & !\videoSync|Add0~7 ))
+
+	.dataa(gnd),
+	.datab(\videoSync|h_count [4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add0~7 ),
+	.combout(\videoSync|Add0~8_combout ),
+	.cout(\videoSync|Add0~9 ));
+// synopsys translate_off
+defparam \videoSync|Add0~8 .lut_mask = 16'hC30C;
+defparam \videoSync|Add0~8 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X49_Y70_N15
+dffeas \videoSync|h_count[4] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|Add0~8_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|h_count [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|h_count[4] .is_wysiwyg = "true";
+defparam \videoSync|h_count[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N16
+cycloneive_lcell_comb \videoSync|Add0~10 (
+// Equation(s):
+// \videoSync|Add0~10_combout  = (\videoSync|h_count [5] & (!\videoSync|Add0~9 )) # (!\videoSync|h_count [5] & ((\videoSync|Add0~9 ) # (GND)))
+// \videoSync|Add0~11  = CARRY((!\videoSync|Add0~9 ) # (!\videoSync|h_count [5]))
+
+	.dataa(gnd),
+	.datab(\videoSync|h_count [5]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add0~9 ),
+	.combout(\videoSync|Add0~10_combout ),
+	.cout(\videoSync|Add0~11 ));
+// synopsys translate_off
+defparam \videoSync|Add0~10 .lut_mask = 16'h3C3F;
+defparam \videoSync|Add0~10 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X50_Y70_N26
+cycloneive_lcell_comb \videoSync|h_count~2 (
+// Equation(s):
+// \videoSync|h_count~2_combout  = (\videoSync|Add0~10_combout  & !\videoSync|Equal0~2_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\videoSync|Add0~10_combout ),
+	.datad(\videoSync|Equal0~2_combout ),
+	.cin(gnd),
+	.combout(\videoSync|h_count~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|h_count~2 .lut_mask = 16'h00F0;
+defparam \videoSync|h_count~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X50_Y70_N27
+dffeas \videoSync|h_count[5] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|h_count~2_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|h_count [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|h_count[5] .is_wysiwyg = "true";
+defparam \videoSync|h_count[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N18
+cycloneive_lcell_comb \videoSync|Add0~12 (
+// Equation(s):
+// \videoSync|Add0~12_combout  = (\videoSync|h_count [6] & (\videoSync|Add0~11  $ (GND))) # (!\videoSync|h_count [6] & (!\videoSync|Add0~11  & VCC))
+// \videoSync|Add0~13  = CARRY((\videoSync|h_count [6] & !\videoSync|Add0~11 ))
+
+	.dataa(gnd),
+	.datab(\videoSync|h_count [6]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add0~11 ),
+	.combout(\videoSync|Add0~12_combout ),
+	.cout(\videoSync|Add0~13 ));
+// synopsys translate_off
+defparam \videoSync|Add0~12 .lut_mask = 16'hC30C;
+defparam \videoSync|Add0~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X49_Y70_N19
+dffeas \videoSync|h_count[6] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|Add0~12_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|h_count [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|h_count[6] .is_wysiwyg = "true";
+defparam \videoSync|h_count[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N20
+cycloneive_lcell_comb \videoSync|Add0~14 (
+// Equation(s):
+// \videoSync|Add0~14_combout  = (\videoSync|h_count [7] & (!\videoSync|Add0~13 )) # (!\videoSync|h_count [7] & ((\videoSync|Add0~13 ) # (GND)))
+// \videoSync|Add0~15  = CARRY((!\videoSync|Add0~13 ) # (!\videoSync|h_count [7]))
+
+	.dataa(gnd),
+	.datab(\videoSync|h_count [7]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add0~13 ),
+	.combout(\videoSync|Add0~14_combout ),
+	.cout(\videoSync|Add0~15 ));
+// synopsys translate_off
+defparam \videoSync|Add0~14 .lut_mask = 16'h3C3F;
+defparam \videoSync|Add0~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X49_Y70_N21
+dffeas \videoSync|h_count[7] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|Add0~14_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|h_count [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|h_count[7] .is_wysiwyg = "true";
+defparam \videoSync|h_count[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N28
+cycloneive_lcell_comb \videoSync|h_count~1 (
+// Equation(s):
+// \videoSync|h_count~1_combout  = (\videoSync|Add0~16_combout  & !\videoSync|Equal0~2_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\videoSync|Add0~16_combout ),
+	.datad(\videoSync|Equal0~2_combout ),
+	.cin(gnd),
+	.combout(\videoSync|h_count~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|h_count~1 .lut_mask = 16'h00F0;
+defparam \videoSync|h_count~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X49_Y70_N29
+dffeas \videoSync|h_count[8] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|h_count~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|h_count [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|h_count[8] .is_wysiwyg = "true";
+defparam \videoSync|h_count[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X52_Y70_N22
+cycloneive_lcell_comb \videoSync|pixel_column[8]~feeder (
+// Equation(s):
+// \videoSync|pixel_column[8]~feeder_combout  = \videoSync|h_count [8]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\videoSync|h_count [8]),
+	.cin(gnd),
+	.combout(\videoSync|pixel_column[8]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_column[8]~feeder .lut_mask = 16'hFF00;
+defparam \videoSync|pixel_column[8]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X50_Y70_N24
+cycloneive_lcell_comb \videoSync|LessThan5~0 (
+// Equation(s):
+// \videoSync|LessThan5~0_combout  = ((!\videoSync|h_count [8] & !\videoSync|h_count [7])) # (!\videoSync|h_count [9])
+
+	.dataa(\videoSync|h_count [9]),
+	.datab(\videoSync|h_count [8]),
+	.datac(gnd),
+	.datad(\videoSync|h_count [7]),
+	.cin(gnd),
+	.combout(\videoSync|LessThan5~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|LessThan5~0 .lut_mask = 16'h5577;
+defparam \videoSync|LessThan5~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X52_Y70_N23
+dffeas \videoSync|pixel_column[8] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|pixel_column[8]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\videoSync|LessThan5~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|pixel_column [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|pixel_column[8] .is_wysiwyg = "true";
+defparam \videoSync|pixel_column[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X52_Y70_N8
+cycloneive_lcell_comb \videoSync|pixel_column[7]~feeder (
+// Equation(s):
+// \videoSync|pixel_column[7]~feeder_combout  = \videoSync|h_count [7]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\videoSync|h_count [7]),
+	.cin(gnd),
+	.combout(\videoSync|pixel_column[7]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_column[7]~feeder .lut_mask = 16'hFF00;
+defparam \videoSync|pixel_column[7]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X52_Y70_N9
+dffeas \videoSync|pixel_column[7] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|pixel_column[7]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\videoSync|LessThan5~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|pixel_column [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|pixel_column[7] .is_wysiwyg = "true";
+defparam \videoSync|pixel_column[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X52_Y70_N4
+cycloneive_lcell_comb \videoSync|pixel_column[9]~feeder (
+// Equation(s):
+// \videoSync|pixel_column[9]~feeder_combout  = \videoSync|h_count [9]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\videoSync|h_count [9]),
+	.cin(gnd),
+	.combout(\videoSync|pixel_column[9]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_column[9]~feeder .lut_mask = 16'hFF00;
+defparam \videoSync|pixel_column[9]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X52_Y70_N5
+dffeas \videoSync|pixel_column[9] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|pixel_column[9]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\videoSync|LessThan5~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|pixel_column [9]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|pixel_column[9] .is_wysiwyg = "true";
+defparam \videoSync|pixel_column[9] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X52_Y70_N26
+cycloneive_lcell_comb \videoSync|pixel_column[6]~feeder (
+// Equation(s):
+// \videoSync|pixel_column[6]~feeder_combout  = \videoSync|h_count [6]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\videoSync|h_count [6]),
+	.cin(gnd),
+	.combout(\videoSync|pixel_column[6]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_column[6]~feeder .lut_mask = 16'hFF00;
+defparam \videoSync|pixel_column[6]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X52_Y70_N27
+dffeas \videoSync|pixel_column[6] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|pixel_column[6]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\videoSync|LessThan5~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|pixel_column [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|pixel_column[6] .is_wysiwyg = "true";
+defparam \videoSync|pixel_column[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X52_Y70_N30
+cycloneive_lcell_comb \videoGen|LessThan3~0 (
+// Equation(s):
+// \videoGen|LessThan3~0_combout  = (!\videoSync|pixel_column [9] & (((!\videoSync|pixel_column [7] & !\videoSync|pixel_column [6])) # (!\videoSync|pixel_column [8])))
+
+	.dataa(\videoSync|pixel_column [8]),
+	.datab(\videoSync|pixel_column [7]),
+	.datac(\videoSync|pixel_column [9]),
+	.datad(\videoSync|pixel_column [6]),
+	.cin(gnd),
+	.combout(\videoGen|LessThan3~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoGen|LessThan3~0 .lut_mask = 16'h0507;
+defparam \videoGen|LessThan3~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X52_Y70_N28
+cycloneive_lcell_comb \videoGen|colorAddress[0]~feeder (
+// Equation(s):
+// \videoGen|colorAddress[0]~feeder_combout  = \videoGen|LessThan3~0_combout 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\videoGen|LessThan3~0_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\videoGen|colorAddress[0]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoGen|colorAddress[0]~feeder .lut_mask = 16'hF0F0;
+defparam \videoGen|colorAddress[0]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X52_Y70_N29
+dffeas \videoGen|colorAddress[0] (
+	.clk(\clock_50~inputclkctrl_outclk ),
+	.d(\videoGen|colorAddress[0]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoGen|colorAddress [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoGen|colorAddress[0] .is_wysiwyg = "true";
+defparam \videoGen|colorAddress[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N26
+cycloneive_lcell_comb \videoSync|Equal1~0 (
+// Equation(s):
+// \videoSync|Equal1~0_combout  = ((\videoSync|h_count [8]) # ((!\videoSync|h_count [7]) # (!\videoSync|h_count [4]))) # (!\videoSync|h_count [3])
+
+	.dataa(\videoSync|h_count [3]),
+	.datab(\videoSync|h_count [8]),
+	.datac(\videoSync|h_count [4]),
+	.datad(\videoSync|h_count [7]),
+	.cin(gnd),
+	.combout(\videoSync|Equal1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|Equal1~0 .lut_mask = 16'hDFFF;
+defparam \videoSync|Equal1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N30
+cycloneive_lcell_comb \videoSync|Equal1~1 (
+// Equation(s):
+// \videoSync|Equal1~1_combout  = (\videoSync|Equal1~0_combout ) # ((\videoSync|h_count [5]) # ((!\videoSync|h_count [9]) # (!\videoSync|Equal0~0_combout )))
+
+	.dataa(\videoSync|Equal1~0_combout ),
+	.datab(\videoSync|h_count [5]),
+	.datac(\videoSync|Equal0~0_combout ),
+	.datad(\videoSync|h_count [9]),
+	.cin(gnd),
+	.combout(\videoSync|Equal1~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|Equal1~1 .lut_mask = 16'hEFFF;
+defparam \videoSync|Equal1~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N10
+cycloneive_lcell_comb \videoSync|Add1~0 (
+// Equation(s):
+// \videoSync|Add1~0_combout  = \videoSync|v_count [0] $ (VCC)
+// \videoSync|Add1~1  = CARRY(\videoSync|v_count [0])
+
+	.dataa(\videoSync|v_count [0]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\videoSync|Add1~0_combout ),
+	.cout(\videoSync|Add1~1 ));
+// synopsys translate_off
+defparam \videoSync|Add1~0 .lut_mask = 16'h55AA;
+defparam \videoSync|Add1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N2
+cycloneive_lcell_comb \videoSync|v_count~8 (
+// Equation(s):
+// \videoSync|v_count~8_combout  = (\videoSync|pixel_process~9_combout  & \videoSync|Add1~0_combout )
+
+	.dataa(gnd),
+	.datab(\videoSync|pixel_process~9_combout ),
+	.datac(gnd),
+	.datad(\videoSync|Add1~0_combout ),
+	.cin(gnd),
+	.combout(\videoSync|v_count~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|v_count~8 .lut_mask = 16'hCC00;
+defparam \videoSync|v_count~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N18
+cycloneive_lcell_comb \videoSync|v_count[9]~6 (
+// Equation(s):
+// \videoSync|v_count[9]~6_combout  = (!\videoSync|pixel_process~9_combout ) # (!\videoSync|Equal1~1_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\videoSync|Equal1~1_combout ),
+	.datad(\videoSync|pixel_process~9_combout ),
+	.cin(gnd),
+	.combout(\videoSync|v_count[9]~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|v_count[9]~6 .lut_mask = 16'h0FFF;
+defparam \videoSync|v_count[9]~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X48_Y70_N3
+dffeas \videoSync|v_count[0] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|v_count~8_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\videoSync|v_count[9]~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|v_count [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|v_count[0] .is_wysiwyg = "true";
+defparam \videoSync|v_count[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N12
+cycloneive_lcell_comb \videoSync|Add1~2 (
+// Equation(s):
+// \videoSync|Add1~2_combout  = (\videoSync|v_count [1] & (!\videoSync|Add1~1 )) # (!\videoSync|v_count [1] & ((\videoSync|Add1~1 ) # (GND)))
+// \videoSync|Add1~3  = CARRY((!\videoSync|Add1~1 ) # (!\videoSync|v_count [1]))
+
+	.dataa(\videoSync|v_count [1]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add1~1 ),
+	.combout(\videoSync|Add1~2_combout ),
+	.cout(\videoSync|Add1~3 ));
+// synopsys translate_off
+defparam \videoSync|Add1~2 .lut_mask = 16'h5A5F;
+defparam \videoSync|Add1~2 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N6
+cycloneive_lcell_comb \videoSync|v_count~5 (
+// Equation(s):
+// \videoSync|v_count~5_combout  = (\videoSync|pixel_process~9_combout  & \videoSync|Add1~2_combout )
+
+	.dataa(gnd),
+	.datab(\videoSync|pixel_process~9_combout ),
+	.datac(gnd),
+	.datad(\videoSync|Add1~2_combout ),
+	.cin(gnd),
+	.combout(\videoSync|v_count~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|v_count~5 .lut_mask = 16'hCC00;
+defparam \videoSync|v_count~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X48_Y70_N7
+dffeas \videoSync|v_count[1] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|v_count~5_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\videoSync|v_count[9]~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|v_count [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|v_count[1] .is_wysiwyg = "true";
+defparam \videoSync|v_count[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N14
+cycloneive_lcell_comb \videoSync|Add1~4 (
+// Equation(s):
+// \videoSync|Add1~4_combout  = (\videoSync|v_count [2] & (\videoSync|Add1~3  $ (GND))) # (!\videoSync|v_count [2] & (!\videoSync|Add1~3  & VCC))
+// \videoSync|Add1~5  = CARRY((\videoSync|v_count [2] & !\videoSync|Add1~3 ))
+
+	.dataa(\videoSync|v_count [2]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add1~3 ),
+	.combout(\videoSync|Add1~4_combout ),
+	.cout(\videoSync|Add1~5 ));
+// synopsys translate_off
+defparam \videoSync|Add1~4 .lut_mask = 16'hA50A;
+defparam \videoSync|Add1~4 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N4
+cycloneive_lcell_comb \videoSync|v_count[2]~7 (
+// Equation(s):
+// \videoSync|v_count[2]~7_combout  = (\videoSync|pixel_process~9_combout  & ((\videoSync|Equal1~1_combout  & (\videoSync|v_count [2])) # (!\videoSync|Equal1~1_combout  & ((\videoSync|Add1~4_combout )))))
+
+	.dataa(\videoSync|Equal1~1_combout ),
+	.datab(\videoSync|pixel_process~9_combout ),
+	.datac(\videoSync|v_count [2]),
+	.datad(\videoSync|Add1~4_combout ),
+	.cin(gnd),
+	.combout(\videoSync|v_count[2]~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|v_count[2]~7 .lut_mask = 16'hC480;
+defparam \videoSync|v_count[2]~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X48_Y70_N5
+dffeas \videoSync|v_count[2] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|v_count[2]~7_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|v_count [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|v_count[2] .is_wysiwyg = "true";
+defparam \videoSync|v_count[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N16
+cycloneive_lcell_comb \videoSync|Add1~6 (
+// Equation(s):
+// \videoSync|Add1~6_combout  = (\videoSync|v_count [3] & (!\videoSync|Add1~5 )) # (!\videoSync|v_count [3] & ((\videoSync|Add1~5 ) # (GND)))
+// \videoSync|Add1~7  = CARRY((!\videoSync|Add1~5 ) # (!\videoSync|v_count [3]))
+
+	.dataa(\videoSync|v_count [3]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add1~5 ),
+	.combout(\videoSync|Add1~6_combout ),
+	.cout(\videoSync|Add1~7 ));
+// synopsys translate_off
+defparam \videoSync|Add1~6 .lut_mask = 16'h5A5F;
+defparam \videoSync|Add1~6 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N20
+cycloneive_lcell_comb \videoSync|v_count[3]~9 (
+// Equation(s):
+// \videoSync|v_count[3]~9_combout  = (\videoSync|pixel_process~9_combout  & ((\videoSync|Equal1~1_combout  & (\videoSync|v_count [3])) # (!\videoSync|Equal1~1_combout  & ((\videoSync|Add1~6_combout )))))
+
+	.dataa(\videoSync|Equal1~1_combout ),
+	.datab(\videoSync|pixel_process~9_combout ),
+	.datac(\videoSync|v_count [3]),
+	.datad(\videoSync|Add1~6_combout ),
+	.cin(gnd),
+	.combout(\videoSync|v_count[3]~9_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|v_count[3]~9 .lut_mask = 16'hC480;
+defparam \videoSync|v_count[3]~9 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X48_Y70_N21
+dffeas \videoSync|v_count[3] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|v_count[3]~9_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|v_count [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|v_count[3] .is_wysiwyg = "true";
+defparam \videoSync|v_count[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N30
+cycloneive_lcell_comb \videoSync|LessThan1~0 (
+// Equation(s):
+// \videoSync|LessThan1~0_combout  = (((!\videoSync|v_count [1] & !\videoSync|v_count [0])) # (!\videoSync|v_count [3])) # (!\videoSync|v_count [2])
+
+	.dataa(\videoSync|v_count [1]),
+	.datab(\videoSync|v_count [0]),
+	.datac(\videoSync|v_count [2]),
+	.datad(\videoSync|v_count [3]),
+	.cin(gnd),
+	.combout(\videoSync|LessThan1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|LessThan1~0 .lut_mask = 16'h1FFF;
+defparam \videoSync|LessThan1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N18
+cycloneive_lcell_comb \videoSync|Add1~8 (
+// Equation(s):
+// \videoSync|Add1~8_combout  = (\videoSync|v_count [4] & (\videoSync|Add1~7  $ (GND))) # (!\videoSync|v_count [4] & (!\videoSync|Add1~7  & VCC))
+// \videoSync|Add1~9  = CARRY((\videoSync|v_count [4] & !\videoSync|Add1~7 ))
+
+	.dataa(gnd),
+	.datab(\videoSync|v_count [4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add1~7 ),
+	.combout(\videoSync|Add1~8_combout ),
+	.cout(\videoSync|Add1~9 ));
+// synopsys translate_off
+defparam \videoSync|Add1~8 .lut_mask = 16'hC30C;
+defparam \videoSync|Add1~8 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N8
+cycloneive_lcell_comb \videoSync|v_count[4]~10 (
+// Equation(s):
+// \videoSync|v_count[4]~10_combout  = (\videoSync|pixel_process~9_combout  & ((\videoSync|Equal1~1_combout  & (\videoSync|v_count [4])) # (!\videoSync|Equal1~1_combout  & ((\videoSync|Add1~8_combout )))))
+
+	.dataa(\videoSync|Equal1~1_combout ),
+	.datab(\videoSync|pixel_process~9_combout ),
+	.datac(\videoSync|v_count [4]),
+	.datad(\videoSync|Add1~8_combout ),
+	.cin(gnd),
+	.combout(\videoSync|v_count[4]~10_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|v_count[4]~10 .lut_mask = 16'hC480;
+defparam \videoSync|v_count[4]~10 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X48_Y70_N9
+dffeas \videoSync|v_count[4] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|v_count[4]~10_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|v_count [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|v_count[4] .is_wysiwyg = "true";
+defparam \videoSync|v_count[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N20
+cycloneive_lcell_comb \videoSync|Add1~10 (
+// Equation(s):
+// \videoSync|Add1~10_combout  = (\videoSync|v_count [5] & (!\videoSync|Add1~9 )) # (!\videoSync|v_count [5] & ((\videoSync|Add1~9 ) # (GND)))
+// \videoSync|Add1~11  = CARRY((!\videoSync|Add1~9 ) # (!\videoSync|v_count [5]))
+
+	.dataa(gnd),
+	.datab(\videoSync|v_count [5]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add1~9 ),
+	.combout(\videoSync|Add1~10_combout ),
+	.cout(\videoSync|Add1~11 ));
+// synopsys translate_off
+defparam \videoSync|Add1~10 .lut_mask = 16'h3C3F;
+defparam \videoSync|Add1~10 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N10
+cycloneive_lcell_comb \videoSync|v_count[5]~1 (
+// Equation(s):
+// \videoSync|v_count[5]~1_combout  = (\videoSync|pixel_process~9_combout  & ((\videoSync|Equal1~1_combout  & (\videoSync|v_count [5])) # (!\videoSync|Equal1~1_combout  & ((\videoSync|Add1~10_combout )))))
+
+	.dataa(\videoSync|Equal1~1_combout ),
+	.datab(\videoSync|pixel_process~9_combout ),
+	.datac(\videoSync|v_count [5]),
+	.datad(\videoSync|Add1~10_combout ),
+	.cin(gnd),
+	.combout(\videoSync|v_count[5]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|v_count[5]~1 .lut_mask = 16'hC480;
+defparam \videoSync|v_count[5]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X48_Y70_N11
+dffeas \videoSync|v_count[5] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|v_count[5]~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|v_count [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|v_count[5] .is_wysiwyg = "true";
+defparam \videoSync|v_count[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N22
+cycloneive_lcell_comb \videoSync|Add1~12 (
+// Equation(s):
+// \videoSync|Add1~12_combout  = (\videoSync|v_count [6] & (\videoSync|Add1~11  $ (GND))) # (!\videoSync|v_count [6] & (!\videoSync|Add1~11  & VCC))
+// \videoSync|Add1~13  = CARRY((\videoSync|v_count [6] & !\videoSync|Add1~11 ))
+
+	.dataa(\videoSync|v_count [6]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add1~11 ),
+	.combout(\videoSync|Add1~12_combout ),
+	.cout(\videoSync|Add1~13 ));
+// synopsys translate_off
+defparam \videoSync|Add1~12 .lut_mask = 16'hA50A;
+defparam \videoSync|Add1~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N12
+cycloneive_lcell_comb \videoSync|v_count[6]~2 (
+// Equation(s):
+// \videoSync|v_count[6]~2_combout  = (\videoSync|pixel_process~9_combout  & ((\videoSync|Equal1~1_combout  & (\videoSync|v_count [6])) # (!\videoSync|Equal1~1_combout  & ((\videoSync|Add1~12_combout )))))
+
+	.dataa(\videoSync|Equal1~1_combout ),
+	.datab(\videoSync|pixel_process~9_combout ),
+	.datac(\videoSync|v_count [6]),
+	.datad(\videoSync|Add1~12_combout ),
+	.cin(gnd),
+	.combout(\videoSync|v_count[6]~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|v_count[6]~2 .lut_mask = 16'hC480;
+defparam \videoSync|v_count[6]~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X48_Y70_N13
+dffeas \videoSync|v_count[6] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|v_count[6]~2_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|v_count [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|v_count[6] .is_wysiwyg = "true";
+defparam \videoSync|v_count[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N24
+cycloneive_lcell_comb \videoSync|Add1~14 (
+// Equation(s):
+// \videoSync|Add1~14_combout  = (\videoSync|v_count [7] & (!\videoSync|Add1~13 )) # (!\videoSync|v_count [7] & ((\videoSync|Add1~13 ) # (GND)))
+// \videoSync|Add1~15  = CARRY((!\videoSync|Add1~13 ) # (!\videoSync|v_count [7]))
+
+	.dataa(gnd),
+	.datab(\videoSync|v_count [7]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add1~13 ),
+	.combout(\videoSync|Add1~14_combout ),
+	.cout(\videoSync|Add1~15 ));
+// synopsys translate_off
+defparam \videoSync|Add1~14 .lut_mask = 16'h3C3F;
+defparam \videoSync|Add1~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N26
+cycloneive_lcell_comb \videoSync|v_count[7]~3 (
+// Equation(s):
+// \videoSync|v_count[7]~3_combout  = (\videoSync|pixel_process~9_combout  & ((\videoSync|Equal1~1_combout  & (\videoSync|v_count [7])) # (!\videoSync|Equal1~1_combout  & ((\videoSync|Add1~14_combout )))))
+
+	.dataa(\videoSync|Equal1~1_combout ),
+	.datab(\videoSync|pixel_process~9_combout ),
+	.datac(\videoSync|v_count [7]),
+	.datad(\videoSync|Add1~14_combout ),
+	.cin(gnd),
+	.combout(\videoSync|v_count[7]~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|v_count[7]~3 .lut_mask = 16'hC480;
+defparam \videoSync|v_count[7]~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X48_Y70_N27
+dffeas \videoSync|v_count[7] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|v_count[7]~3_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|v_count [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|v_count[7] .is_wysiwyg = "true";
+defparam \videoSync|v_count[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N24
+cycloneive_lcell_comb \videoSync|LessThan1~1 (
+// Equation(s):
+// \videoSync|LessThan1~1_combout  = (!\videoSync|v_count [5] & (!\videoSync|v_count [4] & (!\videoSync|v_count [7] & !\videoSync|v_count [6])))
+
+	.dataa(\videoSync|v_count [5]),
+	.datab(\videoSync|v_count [4]),
+	.datac(\videoSync|v_count [7]),
+	.datad(\videoSync|v_count [6]),
+	.cin(gnd),
+	.combout(\videoSync|LessThan1~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|LessThan1~1 .lut_mask = 16'h0001;
+defparam \videoSync|LessThan1~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N22
+cycloneive_lcell_comb \videoSync|LessThan1~2 (
+// Equation(s):
+// \videoSync|LessThan1~2_combout  = (!\videoSync|v_count [8] & (\videoSync|LessThan1~0_combout  & \videoSync|LessThan1~1_combout ))
+
+	.dataa(gnd),
+	.datab(\videoSync|v_count [8]),
+	.datac(\videoSync|LessThan1~0_combout ),
+	.datad(\videoSync|LessThan1~1_combout ),
+	.cin(gnd),
+	.combout(\videoSync|LessThan1~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|LessThan1~2 .lut_mask = 16'h3000;
+defparam \videoSync|LessThan1~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N26
+cycloneive_lcell_comb \videoSync|Add1~16 (
+// Equation(s):
+// \videoSync|Add1~16_combout  = (\videoSync|v_count [8] & (\videoSync|Add1~15  $ (GND))) # (!\videoSync|v_count [8] & (!\videoSync|Add1~15  & VCC))
+// \videoSync|Add1~17  = CARRY((\videoSync|v_count [8] & !\videoSync|Add1~15 ))
+
+	.dataa(gnd),
+	.datab(\videoSync|v_count [8]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\videoSync|Add1~15 ),
+	.combout(\videoSync|Add1~16_combout ),
+	.cout(\videoSync|Add1~17 ));
+// synopsys translate_off
+defparam \videoSync|Add1~16 .lut_mask = 16'hC30C;
+defparam \videoSync|Add1~16 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N28
+cycloneive_lcell_comb \videoSync|Add1~18 (
+// Equation(s):
+// \videoSync|Add1~18_combout  = \videoSync|v_count [9] $ (\videoSync|Add1~17 )
+
+	.dataa(gnd),
+	.datab(\videoSync|v_count [9]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\videoSync|Add1~17 ),
+	.combout(\videoSync|Add1~18_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|Add1~18 .lut_mask = 16'h3C3C;
+defparam \videoSync|Add1~18 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N0
+cycloneive_lcell_comb \videoSync|v_count[9]~0 (
+// Equation(s):
+// \videoSync|v_count[9]~0_combout  = (\videoSync|pixel_process~9_combout  & ((\videoSync|Equal1~1_combout  & (\videoSync|v_count [9])) # (!\videoSync|Equal1~1_combout  & ((\videoSync|Add1~18_combout )))))
+
+	.dataa(\videoSync|Equal1~1_combout ),
+	.datab(\videoSync|pixel_process~9_combout ),
+	.datac(\videoSync|v_count [9]),
+	.datad(\videoSync|Add1~18_combout ),
+	.cin(gnd),
+	.combout(\videoSync|v_count[9]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|v_count[9]~0 .lut_mask = 16'hC480;
+defparam \videoSync|v_count[9]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X48_Y70_N1
+dffeas \videoSync|v_count[9] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|v_count[9]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|v_count [9]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|v_count[9] .is_wysiwyg = "true";
+defparam \videoSync|v_count[9] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X49_Y70_N0
+cycloneive_lcell_comb \videoSync|pixel_process~8 (
+// Equation(s):
+// \videoSync|pixel_process~8_combout  = (((!\videoSync|h_count [8] & !\videoSync|h_count [7])) # (!\videoSync|h_count [9])) # (!\videoSync|v_count [9])
+
+	.dataa(\videoSync|h_count [8]),
+	.datab(\videoSync|h_count [7]),
+	.datac(\videoSync|v_count [9]),
+	.datad(\videoSync|h_count [9]),
+	.cin(gnd),
+	.combout(\videoSync|pixel_process~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_process~8 .lut_mask = 16'h1FFF;
+defparam \videoSync|pixel_process~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X50_Y70_N0
+cycloneive_lcell_comb \videoSync|pixel_process~1 (
+// Equation(s):
+// \videoSync|pixel_process~1_combout  = (!\videoSync|h_count [6] & (!\videoSync|h_count [5] & ((!\videoSync|h_count [3]) # (!\videoSync|h_count [4]))))
+
+	.dataa(\videoSync|h_count [4]),
+	.datab(\videoSync|h_count [6]),
+	.datac(\videoSync|h_count [5]),
+	.datad(\videoSync|h_count [3]),
+	.cin(gnd),
+	.combout(\videoSync|pixel_process~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_process~1 .lut_mask = 16'h0103;
+defparam \videoSync|pixel_process~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N28
+cycloneive_lcell_comb \videoSync|pixel_process~9 (
+// Equation(s):
+// \videoSync|pixel_process~9_combout  = (\videoSync|LessThan1~2_combout ) # ((\videoSync|pixel_process~8_combout ) # ((!\videoSync|h_count [8] & \videoSync|pixel_process~1_combout )))
+
+	.dataa(\videoSync|LessThan1~2_combout ),
+	.datab(\videoSync|h_count [8]),
+	.datac(\videoSync|pixel_process~8_combout ),
+	.datad(\videoSync|pixel_process~1_combout ),
+	.cin(gnd),
+	.combout(\videoSync|pixel_process~9_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_process~9 .lut_mask = 16'hFBFA;
+defparam \videoSync|pixel_process~9 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N16
+cycloneive_lcell_comb \videoSync|v_count[8]~4 (
+// Equation(s):
+// \videoSync|v_count[8]~4_combout  = (\videoSync|pixel_process~9_combout  & ((\videoSync|Equal1~1_combout  & (\videoSync|v_count [8])) # (!\videoSync|Equal1~1_combout  & ((\videoSync|Add1~16_combout )))))
+
+	.dataa(\videoSync|Equal1~1_combout ),
+	.datab(\videoSync|pixel_process~9_combout ),
+	.datac(\videoSync|v_count [8]),
+	.datad(\videoSync|Add1~16_combout ),
+	.cin(gnd),
+	.combout(\videoSync|v_count[8]~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|v_count[8]~4 .lut_mask = 16'hC480;
+defparam \videoSync|v_count[8]~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X48_Y70_N17
+dffeas \videoSync|v_count[8] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|v_count[8]~4_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|v_count [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|v_count[8] .is_wysiwyg = "true";
+defparam \videoSync|v_count[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N6
+cycloneive_lcell_comb \videoSync|pixel_process~0 (
+// Equation(s):
+// \videoSync|pixel_process~0_combout  = (\videoSync|v_count [6] & (\videoSync|v_count [7] & (\videoSync|v_count [5] & \videoSync|v_count [8])))
+
+	.dataa(\videoSync|v_count [6]),
+	.datab(\videoSync|v_count [7]),
+	.datac(\videoSync|v_count [5]),
+	.datad(\videoSync|v_count [8]),
+	.cin(gnd),
+	.combout(\videoSync|pixel_process~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_process~0 .lut_mask = 16'h8000;
+defparam \videoSync|pixel_process~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N4
+cycloneive_lcell_comb \videoSync|LessThan6~0 (
+// Equation(s):
+// \videoSync|LessThan6~0_combout  = (!\videoSync|v_count [9] & !\videoSync|pixel_process~0_combout )
+
+	.dataa(gnd),
+	.datab(\videoSync|v_count [9]),
+	.datac(gnd),
+	.datad(\videoSync|pixel_process~0_combout ),
+	.cin(gnd),
+	.combout(\videoSync|LessThan6~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|LessThan6~0 .lut_mask = 16'h0033;
+defparam \videoSync|LessThan6~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X47_Y70_N23
+dffeas \videoSync|pixel_row[8] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(gnd),
+	.asdata(\videoSync|v_count [8]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\videoSync|LessThan6~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|pixel_row [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|pixel_row[8] .is_wysiwyg = "true";
+defparam \videoSync|pixel_row[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X47_Y70_N7
+dffeas \videoSync|pixel_row[5] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(gnd),
+	.asdata(\videoSync|v_count [5]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\videoSync|LessThan6~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|pixel_row [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|pixel_row[5] .is_wysiwyg = "true";
+defparam \videoSync|pixel_row[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N2
+cycloneive_lcell_comb \videoSync|pixel_row[4]~feeder (
+// Equation(s):
+// \videoSync|pixel_row[4]~feeder_combout  = \videoSync|v_count [4]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\videoSync|v_count [4]),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\videoSync|pixel_row[4]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_row[4]~feeder .lut_mask = 16'hF0F0;
+defparam \videoSync|pixel_row[4]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X47_Y70_N3
+dffeas \videoSync|pixel_row[4] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|pixel_row[4]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\videoSync|LessThan6~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|pixel_row [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|pixel_row[4] .is_wysiwyg = "true";
+defparam \videoSync|pixel_row[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X47_Y70_N5
+dffeas \videoSync|pixel_row[7] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(gnd),
+	.asdata(\videoSync|v_count [7]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\videoSync|LessThan6~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|pixel_row [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|pixel_row[7] .is_wysiwyg = "true";
+defparam \videoSync|pixel_row[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N0
+cycloneive_lcell_comb \videoSync|pixel_row[6]~feeder (
+// Equation(s):
+// \videoSync|pixel_row[6]~feeder_combout  = \videoSync|v_count [6]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\videoSync|v_count [6]),
+	.cin(gnd),
+	.combout(\videoSync|pixel_row[6]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_row[6]~feeder .lut_mask = 16'hFF00;
+defparam \videoSync|pixel_row[6]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X47_Y70_N1
+dffeas \videoSync|pixel_row[6] (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|pixel_row[6]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\videoSync|LessThan6~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|pixel_row [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|pixel_row[6] .is_wysiwyg = "true";
+defparam \videoSync|pixel_row[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N30
+cycloneive_lcell_comb \videoGen|LessThan2~0 (
+// Equation(s):
+// \videoGen|LessThan2~0_combout  = (((!\videoSync|pixel_row [6]) # (!\videoSync|pixel_row [7])) # (!\videoSync|pixel_row [4])) # (!\videoSync|pixel_row [5])
+
+	.dataa(\videoSync|pixel_row [5]),
+	.datab(\videoSync|pixel_row [4]),
+	.datac(\videoSync|pixel_row [7]),
+	.datad(\videoSync|pixel_row [6]),
+	.cin(gnd),
+	.combout(\videoGen|LessThan2~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoGen|LessThan2~0 .lut_mask = 16'h7FFF;
+defparam \videoGen|LessThan2~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X47_Y70_N8
+cycloneive_lcell_comb \videoGen|LessThan2~1 (
+// Equation(s):
+// \videoGen|LessThan2~1_combout  = (\videoSync|pixel_row [8]) # (!\videoGen|LessThan2~0_combout )
+
+	.dataa(gnd),
+	.datab(\videoSync|pixel_row [8]),
+	.datac(gnd),
+	.datad(\videoGen|LessThan2~0_combout ),
+	.cin(gnd),
+	.combout(\videoGen|LessThan2~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoGen|LessThan2~1 .lut_mask = 16'hCCFF;
+defparam \videoGen|LessThan2~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X47_Y70_N9
+dffeas \videoGen|colorAddress[1] (
+	.clk(\clock_50~inputclkctrl_outclk ),
+	.d(\videoGen|LessThan2~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoGen|colorAddress [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoGen|colorAddress[1] .is_wysiwyg = "true";
+defparam \videoGen|colorAddress[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: M9K_X51_Y70_N0
+cycloneive_ram_block \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 (
+	.portawe(vcc),
+	.portare(vcc),
+	.portaaddrstall(gnd),
+	.portbwe(gnd),
+	.portbre(vcc),
+	.portbaddrstall(gnd),
+	.clk0(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.clk1(gnd),
+	.ena0(vcc),
+	.ena1(vcc),
+	.ena2(vcc),
+	.ena3(vcc),
+	.clr0(gnd),
+	.clr1(gnd),
+	.portadatain(36'b000000000000000000000000000000000000),
+	.portaaddr({\videoGen|colorAddress [1],\videoGen|colorAddress [0]}),
+	.portabyteenamasks(1'b1),
+	.portbdatain(36'b000000000000000000000000000000000000),
+	.portbaddr(2'b00),
+	.portbbyteenamasks(1'b1),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.portadataout(\videoGen|colors|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus ),
+	.portbdataout());
+// synopsys translate_off
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .data_interleave_offset_in_bits = 1;
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .data_interleave_width_in_bits = 1;
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .init_file = "colorROM.mif";
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .init_file_layout = "port_a";
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .logical_ram_name = "pixelGenerator:videoGen|colorROM:colors|altsyncram:altsyncram_component|altsyncram_b481:auto_generated|ALTSYNCRAM";
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .operation_mode = "rom";
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_a_address_clear = "none";
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_a_address_width = 2;
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_a_byte_enable_clock = "none";
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_a_data_out_clear = "none";
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_a_data_out_clock = "none";
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_a_data_width = 36;
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_a_first_address = 0;
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_a_first_bit_number = 0;
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_a_last_address = 3;
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_a_logical_ram_depth = 8;
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_a_logical_ram_width = 30;
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_a_read_during_write_mode = "new_data_with_nbe_read";
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_a_write_enable_clock = "none";
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_b_address_width = 2;
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .port_b_data_width = 36;
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .ram_block_type = "M9K";
+defparam \videoGen|colors|altsyncram_component|auto_generated|ram_block1a0 .mem_init0 = 144'h03FFFFC000000003FF0000FFC0003FF00000;
+// synopsys translate_on
+
+// Location: LCCOMB_X50_Y70_N30
+cycloneive_lcell_comb \videoSync|pixel_process~4 (
+// Equation(s):
+// \videoSync|pixel_process~4_combout  = (\videoSync|h_count [3] & (\videoSync|h_count [6] & \videoSync|h_count [4]))
+
+	.dataa(\videoSync|h_count [3]),
+	.datab(\videoSync|h_count [6]),
+	.datac(gnd),
+	.datad(\videoSync|h_count [4]),
+	.cin(gnd),
+	.combout(\videoSync|pixel_process~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_process~4 .lut_mask = 16'h8800;
+defparam \videoSync|pixel_process~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X50_Y70_N22
+cycloneive_lcell_comb \videoSync|pixel_process~2 (
+// Equation(s):
+// \videoSync|pixel_process~2_combout  = ((\videoSync|h_count [8]) # (!\videoSync|h_count [7])) # (!\videoSync|h_count [9])
+
+	.dataa(\videoSync|h_count [9]),
+	.datab(\videoSync|h_count [8]),
+	.datac(gnd),
+	.datad(\videoSync|h_count [7]),
+	.cin(gnd),
+	.combout(\videoSync|pixel_process~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_process~2 .lut_mask = 16'hDDFF;
+defparam \videoSync|pixel_process~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X50_Y70_N16
+cycloneive_lcell_comb \videoSync|pixel_process~3 (
+// Equation(s):
+// \videoSync|pixel_process~3_combout  = (\videoSync|h_count [5] & ((\videoSync|h_count [1]) # ((\videoSync|h_count [0]) # (\videoSync|h_count [2]))))
+
+	.dataa(\videoSync|h_count [1]),
+	.datab(\videoSync|h_count [0]),
+	.datac(\videoSync|h_count [5]),
+	.datad(\videoSync|h_count [2]),
+	.cin(gnd),
+	.combout(\videoSync|pixel_process~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_process~3 .lut_mask = 16'hF0E0;
+defparam \videoSync|pixel_process~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X50_Y70_N28
+cycloneive_lcell_comb \videoSync|pixel_process~5 (
+// Equation(s):
+// \videoSync|pixel_process~5_combout  = (!\videoSync|pixel_process~1_combout  & (!\videoSync|pixel_process~2_combout  & ((!\videoSync|pixel_process~3_combout ) # (!\videoSync|pixel_process~4_combout ))))
+
+	.dataa(\videoSync|pixel_process~4_combout ),
+	.datab(\videoSync|pixel_process~1_combout ),
+	.datac(\videoSync|pixel_process~2_combout ),
+	.datad(\videoSync|pixel_process~3_combout ),
+	.cin(gnd),
+	.combout(\videoSync|pixel_process~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_process~5 .lut_mask = 16'h0103;
+defparam \videoSync|pixel_process~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X50_Y70_N29
+dffeas \videoSync|horiz_sync (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|pixel_process~5_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|horiz_sync~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|horiz_sync .is_wysiwyg = "true";
+defparam \videoSync|horiz_sync .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X42_Y70_N8
+cycloneive_lcell_comb \videoSync|horiz_sync_out~0 (
+// Equation(s):
+// \videoSync|horiz_sync_out~0_combout  = !\videoSync|horiz_sync~q 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\videoSync|horiz_sync~q ),
+	.cin(gnd),
+	.combout(\videoSync|horiz_sync_out~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|horiz_sync_out~0 .lut_mask = 16'h00FF;
+defparam \videoSync|horiz_sync_out~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X42_Y70_N9
+dffeas \videoSync|horiz_sync_out (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|horiz_sync_out~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|horiz_sync_out~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|horiz_sync_out .is_wysiwyg = "true";
+defparam \videoSync|horiz_sync_out .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X48_Y70_N14
+cycloneive_lcell_comb \videoSync|pixel_process~6 (
+// Equation(s):
+// \videoSync|pixel_process~6_combout  = ((\videoSync|v_count [1] & ((\videoSync|v_count [2]) # (!\videoSync|v_count [0]))) # (!\videoSync|v_count [1] & (!\videoSync|v_count [2]))) # (!\videoSync|v_count [3])
+
+	.dataa(\videoSync|v_count [1]),
+	.datab(\videoSync|v_count [3]),
+	.datac(\videoSync|v_count [2]),
+	.datad(\videoSync|v_count [0]),
+	.cin(gnd),
+	.combout(\videoSync|pixel_process~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_process~6 .lut_mask = 16'hB7BF;
+defparam \videoSync|pixel_process~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X46_Y70_N10
+cycloneive_lcell_comb \videoSync|pixel_process~7 (
+// Equation(s):
+// \videoSync|pixel_process~7_combout  = (!\videoSync|v_count [9] & (!\videoSync|v_count [4] & (!\videoSync|pixel_process~6_combout  & \videoSync|pixel_process~0_combout )))
+
+	.dataa(\videoSync|v_count [9]),
+	.datab(\videoSync|v_count [4]),
+	.datac(\videoSync|pixel_process~6_combout ),
+	.datad(\videoSync|pixel_process~0_combout ),
+	.cin(gnd),
+	.combout(\videoSync|pixel_process~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|pixel_process~7 .lut_mask = 16'h0100;
+defparam \videoSync|pixel_process~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X46_Y70_N11
+dffeas \videoSync|verti_sync (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|pixel_process~7_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|verti_sync~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|verti_sync .is_wysiwyg = "true";
+defparam \videoSync|verti_sync .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X42_Y70_N10
+cycloneive_lcell_comb \videoSync|verti_syn_out~0 (
+// Equation(s):
+// \videoSync|verti_syn_out~0_combout  = !\videoSync|verti_sync~q 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\videoSync|verti_sync~q ),
+	.cin(gnd),
+	.combout(\videoSync|verti_syn_out~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|verti_syn_out~0 .lut_mask = 16'h00FF;
+defparam \videoSync|verti_syn_out~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X42_Y70_N11
+dffeas \videoSync|verti_syn_out (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|verti_syn_out~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|verti_syn_out~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|verti_syn_out .is_wysiwyg = "true";
+defparam \videoSync|verti_syn_out .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X45_Y70_N5
+dffeas \videoSync|video_on_h (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(gnd),
+	.asdata(\videoSync|LessThan5~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|video_on_h~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|video_on_h .is_wysiwyg = "true";
+defparam \videoSync|video_on_h .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X46_Y70_N24
+cycloneive_lcell_comb \videoSync|video_on_v~feeder (
+// Equation(s):
+// \videoSync|video_on_v~feeder_combout  = \videoSync|LessThan6~0_combout 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\videoSync|LessThan6~0_combout ),
+	.cin(gnd),
+	.combout(\videoSync|video_on_v~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|video_on_v~feeder .lut_mask = 16'hFF00;
+defparam \videoSync|video_on_v~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X46_Y70_N25
+dffeas \videoSync|video_on_v (
+	.clk(\videoSync|pixel_clock_int~clkctrl_outclk ),
+	.d(\videoSync|video_on_v~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\videoSync|video_on_v~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \videoSync|video_on_v .is_wysiwyg = "true";
+defparam \videoSync|video_on_v .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X45_Y70_N4
+cycloneive_lcell_comb \videoSync|video_on (
+// Equation(s):
+// \videoSync|video_on~combout  = (\videoSync|video_on_h~q  & \videoSync|video_on_v~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\videoSync|video_on_h~q ),
+	.datad(\videoSync|video_on_v~q ),
+	.cin(gnd),
+	.combout(\videoSync|video_on~combout ),
+	.cout());
+// synopsys translate_off
+defparam \videoSync|video_on .lut_mask = 16'hF000;
+defparam \videoSync|video_on .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y62_N15
+cycloneive_io_ibuf \reset_n~input (
+	.i(reset_n),
+	.ibar(gnd),
+	.o(\reset_n~input_o ));
+// synopsys translate_off
+defparam \reset_n~input .bus_hold = "false";
+defparam \reset_n~input .simulate_z_as = "z";
+// synopsys translate_on
+
+assign vga_red[0] = \vga_red[0]~output_o ;
+
+assign vga_red[1] = \vga_red[1]~output_o ;
+
+assign vga_red[2] = \vga_red[2]~output_o ;
+
+assign vga_red[3] = \vga_red[3]~output_o ;
+
+assign vga_red[4] = \vga_red[4]~output_o ;
+
+assign vga_red[5] = \vga_red[5]~output_o ;
+
+assign vga_red[6] = \vga_red[6]~output_o ;
+
+assign vga_red[7] = \vga_red[7]~output_o ;
+
+assign vga_red[8] = \vga_red[8]~output_o ;
+
+assign vga_red[9] = \vga_red[9]~output_o ;
+
+assign vga_blue[0] = \vga_blue[0]~output_o ;
+
+assign vga_blue[1] = \vga_blue[1]~output_o ;
+
+assign vga_blue[2] = \vga_blue[2]~output_o ;
+
+assign vga_blue[3] = \vga_blue[3]~output_o ;
+
+assign vga_blue[4] = \vga_blue[4]~output_o ;
+
+assign vga_blue[5] = \vga_blue[5]~output_o ;
+
+assign vga_blue[6] = \vga_blue[6]~output_o ;
+
+assign vga_blue[7] = \vga_blue[7]~output_o ;
+
+assign vga_blue[8] = \vga_blue[8]~output_o ;
+
+assign vga_blue[9] = \vga_blue[9]~output_o ;
+
+assign vga_green[0] = \vga_green[0]~output_o ;
+
+assign vga_green[1] = \vga_green[1]~output_o ;
+
+assign vga_green[2] = \vga_green[2]~output_o ;
+
+assign vga_green[3] = \vga_green[3]~output_o ;
+
+assign vga_green[4] = \vga_green[4]~output_o ;
+
+assign vga_green[5] = \vga_green[5]~output_o ;
+
+assign vga_green[6] = \vga_green[6]~output_o ;
+
+assign vga_green[7] = \vga_green[7]~output_o ;
+
+assign vga_green[8] = \vga_green[8]~output_o ;
+
+assign vga_green[9] = \vga_green[9]~output_o ;
+
+assign horiz_sync = \horiz_sync~output_o ;
+
+assign verti_sync = \verti_sync~output_o ;
+
+assign vga_blank = \vga_blank~output_o ;
+
+assign vga_clk = \vga_clk~output_o ;
+
+endmodule
+
+module hard_block (
+
+	devpor,
+	devclrn,
+	devoe);
+
+// Design Ports Information
+// ~ALTERA_ASDO_DATA1~	=>  Location: PIN_F4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_FLASH_nCE_nCSO~	=>  Location: PIN_E2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DCLK~	=>  Location: PIN_P3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DATA0~	=>  Location: PIN_N7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_nCEO~	=>  Location: PIN_P28,	 I/O Standard: 2.5 V,	 Current Strength: 8mA
+
+input 	devpor;
+input 	devclrn;
+input 	devoe;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+wire \~ALTERA_ASDO_DATA1~~padout ;
+wire \~ALTERA_FLASH_nCE_nCSO~~padout ;
+wire \~ALTERA_DATA0~~padout ;
+wire \~ALTERA_ASDO_DATA1~~ibuf_o ;
+wire \~ALTERA_FLASH_nCE_nCSO~~ibuf_o ;
+wire \~ALTERA_DATA0~~ibuf_o ;
+
+
+endmodule
