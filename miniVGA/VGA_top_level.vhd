@@ -32,7 +32,7 @@ begin
 --------------------------------
 	videoGen:pixelGenerator
 	port map(
-		clk => clock_50, ROM_clk => vga_clock_int, rst_n => reset_n, video_on => video_on, eof => eof,
+		clk => vga_clock_int, ROM_clk => vga_clock_int, rst_n => reset_n, video_on => video_on, eof => eof,
 		pixel_row => pixel_row, pixel_column => pixel_column,
 		red_out => vga_red, blue_out => vga_blue, green_out => vga_green
 	);

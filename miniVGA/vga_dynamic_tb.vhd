@@ -12,8 +12,8 @@ architecture sim of vga_dynamic_tb is
   ------------------------------------------------------------------
   -- 1) 基本時脈 / reset
   ------------------------------------------------------------------
-  constant T_50       : time   := 20 ns;   -- 50 MHz
-  constant TOTAL_FRAMES : integer := 2;   -- 要截多少偵（你可以先改成 5 測試）
+  constant T_50         : time   := 20 ns;   -- 50 MHz
+  constant TOTAL_FRAMES : integer := 10;     -- 要截多少偵
 
   signal clock_50   : std_logic := '0';
   signal reset_n    : std_logic := '0';
@@ -41,27 +41,25 @@ architecture sim of vga_dynamic_tb is
   signal bottom_tank_x : std_logic_vector(9 downto 0);
   signal bottom_tank_y : std_logic_vector(9 downto 0);
 
-  -- top tank (先用固定位置：右上角)
+  -- top tank (會動)
   signal top_tank_x    : std_logic_vector(9 downto 0);
   signal top_tank_y    : std_logic_vector(9 downto 0);
 
-  -- 控制 bottom tank 的移動
+  -- 控制移動
   signal move_pulse    : std_logic := '0';
-  signal speed_sel     : std_logic_vector(1 downto 0) := "00";  -- 慢速
+  signal speed_sel     : std_logic_vector(1 downto 0) := "10";
   signal freeze        : std_logic := '0';
 
-  -- 給 top tank 用的常數（右上角）
-  constant SCREEN_WIDTH_C : integer := 640;
-  constant WALL_WIDTH_C   : integer := 5;
-  constant TANK_WIDTH_C   : integer := 32;
-  constant TOP_TANK_X_INT : integer := SCREEN_WIDTH_C - WALL_WIDTH_C - TANK_WIDTH_C;
-begin
   ------------------------------------------------------------------
-  -- 固定 top tank 的座標（右上角）
+  -- bottom bullet 訊號
   ------------------------------------------------------------------
-  top_tank_x <= std_logic_vector(to_unsigned(TOP_TANK_X_INT, 10));
-  top_tank_y <= (others => '0');  -- y=0，佔用 0~9 列
+  signal bottom_bullet_active : std_logic;
+  signal bottom_bullet_x      : std_logic_vector(9 downto 0);
+  signal bottom_bullet_y      : std_logic_vector(9 downto 0);
+  signal fire_bottom          : std_logic := '0';
+  signal bottom_tank_dir      : std_logic;
 
+begin
   ------------------------------------------------------------------
   -- 3) 50MHz system clock 產生器
   ------------------------------------------------------------------
@@ -79,7 +77,7 @@ begin
   rst_proc : process
   begin
     reset_n <= '0';
-	 wait for 0 ns;
+    wait for 0 ns;
     reset_n <= '1';
     wait;  -- 之後一直保持 '1'
   end process;
@@ -100,8 +98,7 @@ begin
     );
 
   ------------------------------------------------------------------
-  -- 6) 實例化 bottom tank（用你寫好的 tank_bottom）
-  --    注意：這裡我讓 tank 的 clk 用 vga_clk，方便用「每偵移動一次」的脈衝
+  -- 6) 實例化 bottom tank
   ------------------------------------------------------------------
   u_tank_bottom : entity work.tank_bottom
     generic map(
@@ -113,44 +110,97 @@ begin
       INIT_DIR     => '1'      -- 一開始往右
     )
     port map(
-      clk       => vga_clk,        -- 注意：這裡用 pixel clock
-      rst_n     => reset_n,
-      move_pulse=> move_pulse,
-      speed_sel => speed_sel,      -- tb 固定 "00"
-      freeze    => freeze,         -- tb 固定 '0'
-      tankx     => bottom_tank_x,
-      tanky     => bottom_tank_y,
-      tank_dir  => open            -- 目前沒用到方向
+      clk        => vga_clk,
+      rst_n      => reset_n,
+      move_pulse => move_pulse,
+      speed_sel  => speed_sel,
+      freeze     => freeze,
+      tankx      => bottom_tank_x,
+      tanky      => bottom_tank_y,
+      tank_dir   => bottom_tank_dir
     );
 
   ------------------------------------------------------------------
-  -- 7) 實例化 pixelGenerator_dynamicmodule
-  --    clk / ROM_clk 都用 vga_clk，與 pixel_row/column 同步
+  -- 6b) 實例化 top tank
   ------------------------------------------------------------------
-  u_pix : entity work.pixelGenerator_dynamicmodule
+  u_tank_top : entity work.tank_top
+    generic map(
+      SCREEN_WIDTH => 640,
+      TANK_WIDTH   => 32,
+      WALL_WIDTH   => 5,
+      X_INIT       => 593,     -- 右上角
+      Y_FIXED      => 0,
+      INIT_DIR     => '0'
+    )
+    port map(
+      clk        => vga_clk,
+      rst_n      => reset_n,
+      move_pulse => move_pulse,
+      speed_sel  => speed_sel,
+      freeze     => freeze,
+      tankx      => top_tank_x,
+      tanky      => top_tank_y,
+      tank_dir   => open
+    );
+
+  ------------------------------------------------------------------
+  -- 6c) 實例化 bottom bullet（只給 bottom tank 用）
+  ------------------------------------------------------------------
+  u_bullet_bottom : entity work.tank_bullet_bottom
+    generic map(
+      SCREEN_WIDTH  => 640,
+      SCREEN_HEIGHT => 480,
+      TANK_W        => 32,
+      TANK_H        => 10,
+      BULLET_SIZE   => 5,
+      DIR_UP        => '1',   -- 往上飛
+      STEP_PIXELS   => 20
+    )
     port map(
       clk           => vga_clk,
-      ROM_clk       => vga_clk,
       rst_n         => reset_n,
-      video_on      => video_on,
-      eof           => eof,
-      pixel_row     => pixel_row,
-      pixel_column  => pixel_column,
-      bottom_tank_x => bottom_tank_x,
-      bottom_tank_y => bottom_tank_y,
-      top_tank_x    => top_tank_x,
-      top_tank_y    => top_tank_y,
-      red_out       => vga_red,
-      blue_out      => vga_blue,
-      green_out     => vga_green
+      move_pulse    => move_pulse,
+      fire          => fire_bottom,  -- 下面 dump_proc 只會拉一次
+      tankx         => bottom_tank_x,
+      tanky         => bottom_tank_y,
+		tank_dir      => bottom_tank_dir,
+		speed_sel     => speed_sel,
+      bullet_active => bottom_bullet_active,
+      bullet_x      => bottom_bullet_x,
+      bullet_y      => bottom_bullet_y
     );
 
   ------------------------------------------------------------------
-  -- 8) Dump 多個 frame 到同一個檔案 frames_dump.txt
-  --    並且在每一偵的開始打一個 move_pulse，坦克就往前走一步
+  -- 7) 實例化 pixelGenerator_dynamicbulletmodule
+  ------------------------------------------------------------------
+  u_pix : entity work.pixelGenerator_dynamicbulletmodule
+    port map(
+      clk                  => vga_clk,
+      ROM_clk              => vga_clk,
+      rst_n                => reset_n,
+      video_on             => video_on,
+      eof                  => eof,
+      pixel_row            => pixel_row,
+      pixel_column         => pixel_column,
+      bottom_tank_x        => bottom_tank_x,
+      bottom_tank_y        => bottom_tank_y,
+      top_tank_x           => top_tank_x,
+      top_tank_y           => top_tank_y,
+      bottom_bullet_active => bottom_bullet_active,
+      bottom_bullet_x      => bottom_bullet_x,
+      bottom_bullet_y      => bottom_bullet_y,
+      red_out              => vga_red,
+      blue_out             => vga_blue,
+      green_out            => vga_green
+    );
+
+  ------------------------------------------------------------------
+  -- 8) Dump 多個 frame 到 frames_dump.txt
+  --    並在每一 frame 開頭打一個 move_pulse；
+  --    fire_bottom 只在「第 1 frame 開頭」拉一次（只發射一顆子彈）
   ------------------------------------------------------------------
   dump_proc : process
-    file f          : text open write_mode is "frames_dump.txt";
+    file f          : text open write_mode is "frames_dump1.txt";
     variable L      : line;
     variable row_i  : integer;
     variable col_i  : integer;
@@ -166,8 +216,9 @@ begin
       -- 每個 pixel clock 都進來一次
       wait until rising_edge(vga_clk);
 
-      -- 預設 move_pulse 為 0，只在偵開始那一個 clock 拉高
-      move_pulse <= '0';
+      -- 預設這拍不移動 / 不開火
+      move_pulse   <= '0';
+      fire_bottom  <= '0';
 
       -- 偵測 eof 的 0->1 上升緣：代表「新的一偵開始」
       if (prev_eof = '0') and (eof = '1') then
@@ -176,7 +227,12 @@ begin
         -- 在每一偵開始的那個 pixel clock 打一下 move_pulse
         move_pulse <= '1';
 
-        -- 也可以寫一個 frame header 方便 debug
+        -- 只在第一個 frame 開始時 fire 一次
+        if frame_idx = 1 then
+          fire_bottom <= '1';
+        end if;
+
+        -- frame header（方便 debug）
         write(L, string'("FRAME "));
         write(L, frame_idx);
         writeline(f, L);
@@ -211,25 +267,22 @@ begin
 
     -- 跑到這裡代表抓完 TOTAL_FRAMES 偵了
     report "Captured " & integer'image(frame_idx) & " frames. Simulation stop." severity note;
-    assert false report "End of simulation" severity failure;  -- 用 assert 讓 run -all 停住
-    --std.env.stop;
+    assert false report "End of simulation" severity failure;
   end process;
-  
-	  ------------------------------------------------------------------
-	-- Debug：每次 pixel_column 接近邊界時印出真實值
-	------------------------------------------------------------------
-	debug_proc : process
-	begin
-	  wait until rising_edge(vga_clk);
 
-	  -- 只檢查 col = 637、638、639、640
-	  if unsigned(pixel_column) = 639 and video_on = '1' then
-		 report "DBG  clk  col=" & integer'image(to_integer(unsigned(pixel_column)))
-				& "  row=" & integer'image(to_integer(unsigned(pixel_row)))
-				& "  video_on=" & std_logic'image(video_on)
-				& "  eof=" & std_logic'image(eof);
-	  end if;
+  ------------------------------------------------------------------
+  -- Debug：每次 pixel_column 接近邊界時印出真實值
+  ------------------------------------------------------------------
+  debug_proc : process
+  begin
+    wait until rising_edge(vga_clk);
 
-	end process;
+    if unsigned(pixel_column) = 639 and video_on = '1' then
+      report "DBG  clk  col=" & integer'image(to_integer(unsigned(pixel_column)))
+          & "  row=" & integer'image(to_integer(unsigned(pixel_row)))
+          & "  video_on=" & std_logic'image(video_on)
+          & "  eof=" & std_logic'image(eof);
+    end if;
+  end process;
 
 end architecture sim;
