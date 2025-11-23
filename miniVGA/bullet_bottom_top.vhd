@@ -1,0 +1,80 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+
+entity bullet_bottom_top is
+	generic(
+	  N_BULLETS   : integer := 5;
+	  BULLET_SIZE : integer := 20;
+	  STEP_PIXELS : integer := 5
+	);
+	port(
+		clk, rst_n:in std_logic;
+		move_pulse:in std_logic;
+		fire_pulse:in std_logic;
+		enemytankx:in std_logic_vector(9 downto 0);
+		tankx, tanky:in std_logic_vector(9 downto 0);
+		tank_dir:in std_logic;
+		speed_sel:in std_logic_vector(1 downto 0);
+		bullet_active_vec:out std_logic_vector(N_BULLETS-1 downto 0);
+		bullet_x_vec, bullet_y_vec:out std_logic_vector((N_BULLETS*10)-1 downto 0);
+		collision_state_vec:out std_logic_vector(N_BULLETS-1 downto 0)		
+	);
+end entity bullet_bottom_top;
+
+
+architecture rtl of bullet_bottom_top is
+  signal bullet_active_s : std_logic_vector(N_BULLETS-1 downto 0);
+  signal fire_vec_s      : std_logic_vector(N_BULLETS-1 downto 0);
+  signal bullet_x_s      : std_logic_vector(N_BULLETS*10-1 downto 0);
+  signal bullet_y_s      : std_logic_vector(N_BULLETS*10-1 downto 0);
+  signal collision_s     : std_logic_vector(N_BULLETS-1 downto 0);
+begin
+-----------------------------------------------------
+	 u_mgr: entity work.bullet_bottom_manager
+    generic map(
+      N_BULLETS => N_BULLETS
+    )
+    port map(
+      fire_pulse        => fire_pulse,
+      bullet_active_vec => bullet_active_s,
+      fire_vec          => fire_vec_s
+    );
+-------------------------------------------------------
+  gen_bullets: for i in 0 to N_BULLETS-1 generate
+    u_bullet: entity work.tank_bullet_bottom_refine
+      generic map(
+        SCREEN_WIDTH  => 640,
+        SCREEN_HEIGHT => 480,
+        TOP_TANKY_BOUNDARY    => 9,
+        BOTTOM_TANKY_BOUNDARY => 470,
+        WALL_WIDTH            => 5,
+        TANK_W                => 32,
+        TANK_H                => 10,
+        BULLET_SIZE           => BULLET_SIZE,
+        DIR_UP                => '1',
+        STEP_PIXELS           => STEP_PIXELS
+      )
+      port map(
+        clk        => clk,
+        rst_n      => rst_n,
+        move_pulse => move_pulse,
+        fire       => fire_vec_s(i),
+
+        enemytankx => enemytankx,
+        tankx      => tankx,
+        tanky      => tanky,
+        tank_dir   => tank_dir,
+        speed_sel  => speed_sel,
+
+        bullet_active   => bullet_active_s(i),
+        bullet_x        => bullet_x_s( (i+1)*10-1 downto i*10 ),
+        bullet_y        => bullet_y_s( (i+1)*10-1 downto i*10 ),
+        collision_state => collision_s(i)
+      );
+  end generate;
+  bullet_active_vec <= bullet_active_s;
+  bullet_x_vec <= bullet_x_s;
+  bullet_y_vec <= bullet_y_s;
+  collision_state_vec <= collision_s;
+end architecture rtl;

@@ -1,0 +1,37 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+
+entity bullet_top_manager is
+
+	generic(
+		N_BULLETS:integer:= 5
+	);
+
+	port(
+		fire_pulse:in std_logic;
+		bullet_active_vec:in std_logic_vector(N_BULLETS-1 downto 0);
+		fire_vec:out std_logic_vector(N_BULLETS-1 downto 0)
+	);
+
+end entity bullet_top_manager;
+
+architecture rtl of bullet_top_manager is
+begin
+	comb:process(all)
+		variable fire_temp:std_logic_vector(N_BULLETS-1 downto 0);
+		variable assign:boolean;
+	begin 
+		fire_temp := (others => '0');
+		assign := false;
+		if fire_pulse = '1' then
+			for i in 0 to N_BULLETS-1 loop			
+				if(not assign) and bullet_active_vec(i) = '0' then
+					fire_temp(i) := '1';
+					assign := true;
+				end if;
+			end loop;
+		end if;
+		fire_vec <= fire_temp;
+	end process;
+end architecture rtl;
