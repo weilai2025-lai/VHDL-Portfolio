@@ -1030,7 +1030,7 @@ addFiller -cell {FILLCELL_X8 FILLCELL_X4 FILLCELL_X2 FILLCELL_X1} -prefix FILLER
 
 **✅ 正確繞線指令**
 
-Innovus 指令對大小寫敏感 (CamelCase)，不需要加 `-globalDetail` 參數。
+Innovus 指令對大小寫敏感 (CamelCase)，可加入 `-globalDetail` 參數確保繞線品質。
 
 ```tcl
 # 1. 存檔 (Post-CTS 狀態)
