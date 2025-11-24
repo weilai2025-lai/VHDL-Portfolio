@@ -129,71 +129,73 @@ comb:process(all)
 				active_next <= '1';
 				
 				-----------------------------------------------------
-				-- 向上發射 (DIR_UP = '1')
+				-- up shooting (DIR_UP = '1')
 				-----------------------------------------------------
 				if DIR_UP = '1' then
 					y_temp := to_integer(y_reg) - STEP_PIXELS;					
 					
-					-- 1. 先判斷是否進入了可能碰撞的區域 (或是穿過頭了)
+					-- 1. detect coliison zone
 					if y_temp <= TOP_TANKY_BOUNDARY then
 						
 						x_temp_enemy := to_integer(unsigned(enemytankx));
 						bullet_l := to_integer(x_reg);
 						bullet_r := to_integer(x_reg) + BULLET_SIZE - 1;
 
-						-- 2. 判斷是否擊中 (X軸重疊)
+						-- 2. verify collsion
 						if bullet_r >= x_temp_enemy and bullet_l <= x_temp_enemy + TANK_W - 1 then
-							-- 擊中！
+							-- hit！
 							state_next <= IDLE;
 							active_next <= '0';
 							fire_next <= '0';
 							colli_next <= '1';
 						
-						-- 3. 沒擊中，判斷是否撞牆 (小於0表示飛出去了)
+						-- 3.not hit and out of screen
 						elsif y_temp < 0 then
 							state_next <= IDLE;
 							active_next <= '0';
 							fire_next <= '0';
 							colli_next <= '0'; -- 沒擊中，只是消失
 						
-						-- 4. 沒擊中也沒撞牆 (依然在 0~9 之間，非常罕見但可能)
+						-- 4.not hit but still in screen
 						else
 							y_next <= to_unsigned(y_temp, y_next'length);
 						end if;
 					
-					-- 還沒飛到邊界
+					--continue update 
 					else
 						y_next <= to_unsigned(y_temp, y_next'length);
 					end if;
 
 				-----------------------------------------------------
-				-- 向下發射 (DIR_UP = '0') - 這裡也幫你修正同樣邏輯
+				-- down shooting (DIR_UP = '0') 
 				-----------------------------------------------------
 				else
 					y_temp := to_integer(y_reg) + STEP_PIXELS;
 					
 					if y_temp + BULLET_SIZE - 1 >= BOTTOM_TANKY_BOUNDARY then
-						
+						-- 1. detect coliison zone
 						x_temp_enemy := to_integer(unsigned(enemytankx));
 						bullet_l := to_integer(x_reg);
 						bullet_r := to_integer(x_reg) + BULLET_SIZE - 1;
-						
+						-- 2. verify collsion
 						if bullet_r >= x_temp_enemy and bullet_l <= x_temp_enemy + TANK_W - 1 then
-							-- 擊中！
+							-- hit！
 							state_next <= IDLE;
 							active_next <= '0';
 							fire_next <= '0';
 							colli_next <= '1';
 						elsif y_temp > SCREEN_HEIGHT - BULLET_SIZE then
-							-- 撞牆 (飛出底部)
+							-- 3.not hit and out of screen
 							state_next <= IDLE;
 							active_next <= '0';
 							fire_next <= '0';
 							colli_next <= '0';
 						else
+							-- 4.not hit but still in screen
 							y_next <= to_unsigned(y_temp, y_next'length);
 						end if;
 					else
+						--continue update 
 						y_next <= to_unsigned(y_temp, y_next'length);
 					end if;
 				end if;

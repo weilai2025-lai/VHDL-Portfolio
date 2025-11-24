@@ -1,0 +1,807 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\VHDL_training\miniVGA\simulation\modelsim
+Ebullet_bottom_manager
+Z1 w1763693062
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\VHDL_training\miniVGA\simulation\modelsim
+Z6 8C:/VHDL_training/miniVGA/bullet_bottom_manager.vhd
+Z7 FC:/VHDL_training/miniVGA/bullet_bottom_manager.vhd
+l0
+L5
+VNCGOdTQe4ea3cU3i:i2kh2
+Z8 OV;C;10.1d;51
+33
+Z9 !s108 1763788636.825000
+Z10 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/bullet_bottom_manager.vhd|
+Z11 !s107 C:/VHDL_training/miniVGA/bullet_bottom_manager.vhd|
+Z12 o-2008 -work work -O0
+Z13 tExplicit 1
+!s100 BEUK:9lJY::hgoBcK?QCa2
+!i10b 1
+Artl
+R2
+R3
+R4
+Z14 DEx4 work 21 bullet_bottom_manager 0 22 NCGOdTQe4ea3cU3i:i2kh2
+l20
+L19
+VN>Doe[X<nj^8BIFcP2mh>3
+R8
+33
+R9
+R10
+R11
+R12
+R13
+!s100 GzT2InXPgVEOfGB9CRNHl1
+!i10b 1
+Ebullet_bottom_top
+Z15 w1763692840
+R2
+R3
+R4
+R5
+Z16 8C:/VHDL_training/miniVGA/bullet_bottom_top.vhd
+Z17 FC:/VHDL_training/miniVGA/bullet_bottom_top.vhd
+l0
+L5
+VH>U_hQ5UKjOefUBokc=FW1
+R8
+33
+Z18 !s108 1763788637.435000
+Z19 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/bullet_bottom_top.vhd|
+Z20 !s107 C:/VHDL_training/miniVGA/bullet_bottom_top.vhd|
+R12
+R13
+!s100 C1BX=`4Vj4AJW8MWNVPE92
+!i10b 1
+Artl
+Z21 DEx4 work 25 tank_bullet_bottom_refine 0 22 azlIN[RXaU<7B<I_HDLIl2
+R14
+R2
+R3
+R4
+Z22 DEx4 work 17 bullet_bottom_top 0 22 H>U_hQ5UKjOefUBokc=FW1
+l30
+L24
+V4_FX4EUJ63Tghn`[gg8o:0
+R8
+33
+R18
+R19
+R20
+R12
+R13
+!s100 bO^<mB@BBAh12okLeEM6P0
+!i10b 1
+Ebullet_top_manager
+Z23 w1763693134
+R2
+R3
+R4
+R5
+Z24 8C:/VHDL_training/miniVGA/bullet_top_manager.vhd
+Z25 FC:/VHDL_training/miniVGA/bullet_top_manager.vhd
+l0
+L5
+VHLVjOUIdF51[HaZcFUj@03
+R8
+33
+Z26 !s108 1763788636.920000
+Z27 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/bullet_top_manager.vhd|
+Z28 !s107 C:/VHDL_training/miniVGA/bullet_top_manager.vhd|
+R12
+R13
+!s100 aWNTJ4`L;?9S<Iz34f^0`2
+!i10b 1
+Artl
+R2
+R3
+R4
+Z29 DEx4 work 18 bullet_top_manager 0 22 HLVjOUIdF51[HaZcFUj@03
+l20
+L19
+VIlX43D5z2=:3cM^L[28U<1
+R8
+33
+R26
+R27
+R28
+R12
+R13
+!s100 zTU>5oE>MV02h?=R3a`f]0
+!i10b 1
+Ebullet_top_top
+Z30 w1763693312
+R2
+R3
+R4
+R5
+Z31 8C:/VHDL_training/miniVGA/bullet_top_top.vhd
+Z32 FC:/VHDL_training/miniVGA/bullet_top_top.vhd
+l0
+L5
+VNE1l73FG7Ca;D848kY2TV1
+R8
+33
+Z33 !s108 1763788637.526000
+Z34 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/bullet_top_top.vhd|
+Z35 !s107 C:/VHDL_training/miniVGA/bullet_top_top.vhd|
+R12
+R13
+!s100 nWLA;`>==jBoUU2KF:n6]0
+!i10b 1
+Artl
+Z36 DEx4 work 22 tank_bullet_top_refine 0 22 c?nd^7[UO[O>41Yo3X@HF0
+R29
+R2
+R3
+R4
+Z37 DEx4 work 14 bullet_top_top 0 22 NE1l73FG7Ca;D848kY2TV1
+l30
+L24
+VE`2R<>>GINP[>mYG6zU9Z1
+R8
+33
+R33
+R34
+R35
+R12
+R13
+!s100 EmnGGN3F9E652T=hEmkD83
+!i10b 1
+Ecolorrom
+Z38 w1763175112
+R3
+R4
+R5
+Z39 8C:/VHDL_training/miniVGA/colorROM.vhd
+Z40 FC:/VHDL_training/miniVGA/colorROM.vhd
+l0
+L41
+V6FY[=zJSgd<h1TXJEl>P32
+R8
+33
+Z41 !s108 1763788636.455000
+Z42 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/colorROM.vhd|
+Z43 !s107 C:/VHDL_training/miniVGA/colorROM.vhd|
+R12
+R13
+!s100 PW]aB1O1c]XdGei;z4OEk0
+!i10b 1
+Asyn
+R3
+R4
+DEx4 work 8 colorrom 0 22 6FY[=zJSgd<h1TXJEl>P32
+l80
+L51
+V76cDJN6odgTX?Y9;aXf4Z0
+R8
+33
+R41
+R42
+R43
+R12
+R13
+!s100 n6zc`R]i4CN:j4ChX2cP62
+!i10b 1
+Ekeyboard
+Z44 w1425056784
+Z45 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z46 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+R3
+R4
+R5
+Z47 8C:/VHDL_training/miniVGA/keyboard.vhd
+Z48 FC:/VHDL_training/miniVGA/keyboard.vhd
+l0
+L6
+VPP<85_OfT64NXXAZSNemz3
+R8
+33
+Z49 !s108 1763788636.171000
+Z50 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/keyboard.vhd|
+Z51 !s107 C:/VHDL_training/miniVGA/keyboard.vhd|
+R12
+R13
+!s100 4gzMRo:NS<LjG9;Q:]0SN2
+!i10b 1
+Aa
+R45
+R46
+R3
+R4
+DEx4 work 8 keyboard 0 22 PP<85_OfT64NXXAZSNemz3
+l21
+L14
+V8jn;^CzRbVYaOfQXniE2U3
+R8
+33
+R49
+R50
+R51
+R12
+R13
+!s100 @B>^mU6]EELHP`H45:3VG2
+!i10b 1
+Ekeyboard_ctrl
+Z52 w1763780101
+R45
+R46
+R3
+R4
+R5
+Z53 8C:/VHDL_training/miniVGA/keyboard_ctrl.vhd
+Z54 FC:/VHDL_training/miniVGA/keyboard_ctrl.vhd
+l0
+L6
+V0UR]a3M3Hzb]b`aJY4ab13
+R8
+33
+Z55 !s108 1763788637.131000
+Z56 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/keyboard_ctrl.vhd|
+Z57 !s107 C:/VHDL_training/miniVGA/keyboard_ctrl.vhd|
+R12
+R13
+!s100 mHmE5Dhde@?R`heO:GP8N1
+!i10b 1
+Artl
+R45
+R46
+R3
+R4
+Z58 DEx4 work 13 keyboard_ctrl 0 22 0UR]a3M3Hzb]b`aJY4ab13
+l38
+L22
+VFTY2n4m]1NRZ6AO3SU[3X0
+R8
+33
+R55
+R56
+R57
+R12
+R13
+!s100 VchiP^83J0NWAQ1KlTXeg2
+!i10b 1
+Ekeyboard_top
+Z59 w1763773499
+R45
+R46
+R3
+R4
+R5
+Z60 8C:/VHDL_training/miniVGA/keyboard_top.vhd
+Z61 FC:/VHDL_training/miniVGA/keyboard_top.vhd
+l0
+L6
+V=VoLLZ4C9hXn5k0?dZ_6>0
+R8
+33
+Z62 !s108 1763788637.629000
+Z63 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/keyboard_top.vhd|
+Z64 !s107 C:/VHDL_training/miniVGA/keyboard_top.vhd|
+R12
+R13
+!s100 0=5KW8TlIb6mOKah34;We0
+!i10b 1
+Astructure
+Z65 DEx4 work 3 ps2 0 22 <kLZ[V>E@dPD4FDaGJ9MD1
+R58
+R45
+R46
+R3
+R4
+Z66 DEx4 work 12 keyboard_top 0 22 =VoLLZ4C9hXn5k0?dZ_6>0
+l22
+L18
+Vjo9eP]hFe7MOm6VdSK9_21
+R8
+33
+R62
+R63
+R64
+R12
+R13
+!s100 :M2EY:[KLkAbeBT7jE<aB1
+!i10b 1
+Eleddcd
+Z67 w1763786438
+R3
+R4
+R5
+Z68 8C:/VHDL_training/miniVGA/leddcd.vhd
+Z69 FC:/VHDL_training/miniVGA/leddcd.vhd
+l0
+L5
+VfIMh[[j3Lz=d8_?ZZVj@d3
+R8
+33
+Z70 !s108 1763788635.886000
+Z71 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/leddcd.vhd|
+Z72 !s107 C:/VHDL_training/miniVGA/leddcd.vhd|
+R12
+R13
+!s100 7o3Ya3gf>AdbB>[aj9@1z2
+!i10b 1
+Adata_flow
+R3
+R4
+Z73 DEx4 work 6 leddcd 0 22 fIMh[[j3Lz=d8_?ZZVj@d3
+l13
+L12
+V1MC21`<jUz:AzRlFoeB9j3
+R8
+33
+R70
+R71
+R72
+R12
+R13
+!s100 UmbALbV7T]=V_NMgeR80^3
+!i10b 1
+Eoneshot
+R44
+R45
+R46
+R3
+R4
+R5
+Z74 8C:/VHDL_training/miniVGA/oneshot.vhd
+Z75 FC:/VHDL_training/miniVGA/oneshot.vhd
+l0
+L6
+V_SG?=BiQ?CQN=kab=hOYK2
+R8
+33
+Z76 !s108 1763788636.080000
+Z77 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/oneshot.vhd|
+Z78 !s107 C:/VHDL_training/miniVGA/oneshot.vhd|
+R12
+R13
+!s100 BRP:R^_LP:2Sz=l>WiA?E1
+!i10b 1
+Add
+R45
+R46
+R3
+R4
+DEx4 work 7 oneshot 0 22 _SG?=BiQ?CQN=kab=hOYK2
+l16
+L14
+VZjbm6hRnDRmHf;`L5g]A02
+R8
+33
+R76
+R77
+R78
+R12
+R13
+!s100 blKm]1Wj7?oi[D?YYWC571
+!i10b 1
+Epixelgenerator_dynamicbulletmodule
+Z79 w1763696555
+R2
+R3
+R4
+R5
+Z80 8C:/VHDL_training/miniVGA/pixelGenerator_dynamicbulletmodule.vhd
+Z81 FC:/VHDL_training/miniVGA/pixelGenerator_dynamicbulletmodule.vhd
+l0
+L5
+V6zjbNkaGSH?Hj6F^QUM1D0
+R8
+33
+Z82 !s108 1763788637.018000
+Z83 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/pixelGenerator_dynamicbulletmodule.vhd|
+Z84 !s107 C:/VHDL_training/miniVGA/pixelGenerator_dynamicbulletmodule.vhd|
+R12
+R13
+!s100 b2Xod8NP1P_jggmWEMo]U0
+!i10b 1
+Abehavior
+R2
+R3
+R4
+Z85 DEx4 work 34 pixelgenerator_dynamicbulletmodule 0 22 6zjbNkaGSH?Hj6F^QUM1D0
+l80
+L38
+V?;]AL;ei]DdTdmlNd5<3G2
+R8
+33
+R82
+R83
+R84
+R12
+R13
+!s100 :B>ADBMGACXZ<e?iJQEoo2
+!i10b 1
+Eps2
+R44
+R45
+R46
+R3
+R4
+R5
+Z86 8C:/VHDL_training/miniVGA/ps2.vhd
+Z87 FC:/VHDL_training/miniVGA/ps2.vhd
+l0
+L6
+V<kLZ[V>E@dPD4FDaGJ9MD1
+R8
+33
+Z88 !s108 1763788635.982000
+Z89 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/ps2.vhd|
+Z90 !s107 C:/VHDL_training/miniVGA/ps2.vhd|
+R12
+R13
+!s100 ThCJ:@Ud1WLPjJmoAJ7fQ0
+!i10b 1
+Astructural
+R45
+R46
+R3
+R4
+R65
+l43
+L19
+Va:?]4NY7khkj=CEl`G;b_1
+R8
+33
+R88
+R89
+R90
+R12
+R13
+!s100 0d<fkTG4nmRViefDf:Vco1
+!i10b 1
+Escore_bottomtank
+Z91 w1763787163
+R2
+R3
+R4
+R5
+Z92 8C:/VHDL_training/miniVGA/score_bottomtank.vhd
+Z93 FC:/VHDL_training/miniVGA/score_bottomtank.vhd
+l0
+L5
+V`S9iZcFb1lK^_h0Fe05T^0
+R8
+33
+Z94 !s108 1763788637.343000
+Z95 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/score_bottomtank.vhd|
+Z96 !s107 C:/VHDL_training/miniVGA/score_bottomtank.vhd|
+R12
+R13
+!s100 Z0P;@j4bGzX97;UKkzDzK3
+!i10b 1
+Artl
+R2
+R3
+R4
+Z97 DEx4 work 16 score_bottomtank 0 22 `S9iZcFb1lK^_h0Fe05T^0
+l22
+L15
+V4Q1eVlGmn60]Ni?H=JNAU1
+R8
+33
+R94
+R95
+R96
+R12
+R13
+!s100 JA0N@85;0`MaoXH0[5gM;1
+!i10b 1
+Escore_toptank
+Z98 w1763787164
+R2
+R3
+R4
+R5
+Z99 8C:/VHDL_training/miniVGA/score_toptank.vhd
+Z100 FC:/VHDL_training/miniVGA/score_toptank.vhd
+l0
+L5
+Vh8R?LDQ;CS;91eIllO_S_1
+R8
+33
+Z101 !s108 1763788637.244000
+Z102 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/score_toptank.vhd|
+Z103 !s107 C:/VHDL_training/miniVGA/score_toptank.vhd|
+R12
+R13
+!s100 C4=9aU`4N72g;_z6fhNzW2
+!i10b 1
+Artl
+R2
+R3
+R4
+Z104 DEx4 work 13 score_toptank 0 22 h8R?LDQ;CS;91eIllO_S_1
+l22
+L15
+VdEeCLMlOfIdA2hoIicdcA3
+R8
+33
+R101
+R102
+R103
+R12
+R13
+!s100 QMCDI`2MAQ9C`VJXOfFn?3
+!i10b 1
+Escoremodule
+Z105 w1763787585
+R2
+R3
+R4
+R5
+Z106 8C:/VHDL_training/miniVGA/scoremodule.vhd
+Z107 FC:/VHDL_training/miniVGA/scoremodule.vhd
+l0
+L5
+V1G]Rg7k=fB0BE8a52PPeY1
+R8
+33
+Z108 !s108 1763788637.718000
+Z109 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/scoremodule.vhd|
+Z110 !s107 C:/VHDL_training/miniVGA/scoremodule.vhd|
+R12
+R13
+!s100 RR13CDdE`8hQ7M[@9iLog1
+!i10b 1
+Astructure
+R73
+R97
+R104
+R2
+R3
+R4
+Z111 DEx4 work 11 scoremodule 0 22 1G]Rg7k=fB0BE8a52PPeY1
+l17
+L14
+V^=78F6Q1Xn>;nQDUz^3=e3
+R8
+33
+R108
+R109
+R110
+R12
+R13
+!s100 AGmEEMYRZjH0Bm7^31BI71
+!i10b 1
+Etank_bottom
+Z112 w1763484175
+R2
+R3
+R4
+R5
+Z113 8C:/VHDL_training/miniVGA/tank_bottom.vhd
+Z114 FC:/VHDL_training/miniVGA/tank_bottom.vhd
+l0
+L5
+V[l][f1HLF]MQ<OzMiWk;W1
+R8
+33
+Z115 !s108 1763788636.542000
+Z116 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/tank_bottom.vhd|
+Z117 !s107 C:/VHDL_training/miniVGA/tank_bottom.vhd|
+R12
+R13
+!s100 Hml^i9]>h0V:WCNIjUZmH1
+!i10b 1
+Abehavior
+R2
+R3
+R4
+Z118 DEx4 work 11 tank_bottom 0 22 [l][f1HLF]MQ<OzMiWk;W1
+l44
+L30
+Vb0dLO8OiYgZoVXzci7MAe0
+R8
+33
+R115
+R116
+R117
+R12
+R13
+!s100 :h6JCom<5JNM:F^_ZGm[T1
+!i10b 1
+Etank_bullet_bottom_refine
+Z119 w1763684917
+R2
+R3
+R4
+R5
+Z120 8C:/VHDL_training/miniVGA/tank_bullet_bottom_refine.vhd
+Z121 FC:/VHDL_training/miniVGA/tank_bullet_bottom_refine.vhd
+l0
+L5
+VazlIN[RXaU<7B<I_HDLIl2
+R8
+33
+Z122 !s108 1763788636.356000
+Z123 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/tank_bullet_bottom_refine.vhd|
+Z124 !s107 C:/VHDL_training/miniVGA/tank_bullet_bottom_refine.vhd|
+R12
+R13
+!s100 0A;o9O_U8^KC;NQ`BG<m42
+!i10b 1
+Abehavior
+R2
+R3
+R4
+R21
+l46
+L35
+VoROD4nQHMnzP@`:WF:Rd;1
+R8
+33
+R122
+R123
+R124
+R12
+R13
+!s100 :li[j1>RTS1CJdj>Bl2][0
+!i10b 1
+Etank_bullet_top_refine
+Z125 w1763684835
+R2
+R3
+R4
+R5
+Z126 8C:/VHDL_training/miniVGA/tank_bullet_top_refine.vhd
+Z127 FC:/VHDL_training/miniVGA/tank_bullet_top_refine.vhd
+l0
+L5
+Vc?nd^7[UO[O>41Yo3X@HF0
+R8
+33
+Z128 !s108 1763788636.251000
+Z129 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/tank_bullet_top_refine.vhd|
+Z130 !s107 C:/VHDL_training/miniVGA/tank_bullet_top_refine.vhd|
+R12
+R13
+!s100 cN7O;ZaCT_RWg4dKm:CW73
+!i10b 1
+Abehavior
+R2
+R3
+R4
+R36
+l46
+L35
+VG_BY=L:Ge@dP1J>>G>g1F2
+R8
+33
+R128
+R129
+R130
+R12
+R13
+!s100 LzJJ2i=2Rno^hh2j;O?`f1
+!i10b 1
+Etank_duel_top
+Z131 w1763787978
+R2
+R3
+R4
+R5
+Z132 8C:/VHDL_training/miniVGA/tank_duel_top .vhd
+Z133 FC:/VHDL_training/miniVGA/tank_duel_top .vhd
+l0
+L5
+V>g]0SeU7]gdj<f>0EWX>10
+!s100 CdaQ4f6CmZ?6>YlX:O2FG2
+R8
+33
+!i10b 1
+Z134 !s108 1763788637.816000
+Z135 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/tank_duel_top .vhd|
+Z136 !s107 C:/VHDL_training/miniVGA/tank_duel_top .vhd|
+R12
+R13
+Artl
+R85
+R111
+R37
+R22
+Z137 DEx4 work 8 tank_top 0 22 IPdn@nXQ`hU2UPVan^M1e2
+R118
+R45
+R46
+R66
+Z138 DEx4 work 13 vga_sync_pipe 0 22 j1_N22J[lDA;Ld^3XRZCn3
+R2
+R3
+R4
+DEx4 work 13 tank_duel_top 0 22 >g]0SeU7]gdj<f>0EWX>10
+l131
+L32
+VIm?dlU9A6`i4zLYRMjYmY2
+!s100 ITC@V5BYL6G2WzhQ@>n`M3
+R8
+33
+!i10b 1
+R134
+R135
+R136
+R12
+R13
+Etank_top
+Z139 w1763484181
+R2
+R3
+R4
+R5
+Z140 8C:/VHDL_training/miniVGA/tank_top.vhd
+Z141 FC:/VHDL_training/miniVGA/tank_top.vhd
+l0
+L5
+VIPdn@nXQ`hU2UPVan^M1e2
+R8
+33
+Z142 !s108 1763788636.637000
+Z143 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/tank_top.vhd|
+Z144 !s107 C:/VHDL_training/miniVGA/tank_top.vhd|
+R12
+R13
+!s100 oSgR=Ud:A@=h==zl6;l961
+!i10b 1
+Abehavior
+R2
+R3
+R4
+R137
+l44
+L30
+VNiFib8DP>OLF?9^@XIJkA1
+R8
+33
+R142
+R143
+R144
+R12
+R13
+!s100 NdBSXoW]25KESA7;z4ZF=2
+!i10b 1
+Evga_sync_pipe
+Z145 w1763520571
+R2
+R3
+R4
+R5
+Z146 8C:/VHDL_training/miniVGA/vga_sync_pipe.vhd
+Z147 FC:/VHDL_training/miniVGA/vga_sync_pipe.vhd
+l0
+L5
+Vj1_N22J[lDA;Ld^3XRZCn3
+R8
+33
+Z148 !s108 1763788636.728000
+Z149 !s90 -reportprogress|300|-2008|-work|work|C:/VHDL_training/miniVGA/vga_sync_pipe.vhd|
+Z150 !s107 C:/VHDL_training/miniVGA/vga_sync_pipe.vhd|
+R12
+R13
+!s100 3JHbdZa1@k:967kS9o>g`3
+!i10b 1
+Abehavior
+R2
+R3
+R4
+R138
+l50
+L21
+VcXUdQRVkDX];lFM7GWc<M2
+R8
+33
+R148
+R149
+R150
+R12
+R13
+!s100 9Jgoj>YlmjSW1LDKWRHlS1
+!i10b 1

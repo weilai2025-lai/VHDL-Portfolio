@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Nov 23 19:05:17 2025
+Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Revision Name : miniVGA
+Top-level Entity Name : tank_duel_top
+Family : Cyclone IV E
+Total logic elements : 2,014
+    Total combinational functions : 1,888
+    Dedicated logic registers : 365
+Total registers : 365
+Total pins : 52
+Total virtual pins : 0
+Total memory bits : 240
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

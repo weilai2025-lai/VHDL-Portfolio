@@ -1,0 +1,1611 @@
+Analysis & Synthesis report for miniVGA
+Sun Nov 23 19:05:17 2025
+Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors|altsyncram:altsyncram_component|altsyncram_b481:auto_generated
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |tank_duel_top
+ 17. Parameter Settings for User Entity Instance: PLL_clock_top:u_pll|PLL_clock:uPLL|altpll:altpll_component
+ 18. Parameter Settings for User Entity Instance: tank_bottom:u_tank_bottom
+ 19. Parameter Settings for User Entity Instance: tank_top:u_tank_top
+ 20. Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom
+ 21. Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom|bullet_bottom_manager:u_mgr
+ 22. Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:0:u_bullet
+ 23. Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:1:u_bullet
+ 24. Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:2:u_bullet
+ 25. Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:3:u_bullet
+ 26. Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:4:u_bullet
+ 27. Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top
+ 28. Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top|bullet_top_manager:u_mgr
+ 29. Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:0:u_bullet
+ 30. Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:1:u_bullet
+ 31. Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:2:u_bullet
+ 32. Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:3:u_bullet
+ 33. Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:4:u_bullet
+ 34. Parameter Settings for User Entity Instance: pixelGenerator_dynamicbulletmodule:u_pix
+ 35. Parameter Settings for User Entity Instance: pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors|altsyncram:altsyncram_component
+ 36. Parameter Settings for Inferred Entity Instance: tank_top:u_tank_top|lpm_add_sub:Add0
+ 37. Parameter Settings for Inferred Entity Instance: tank_bottom:u_tank_bottom|lpm_add_sub:Add0
+ 38. altpll Parameter Settings by Entity Instance
+ 39. altsyncram Parameter Settings by Entity Instance
+ 40. Port Connectivity Checks: "keyboard_top:u_kbd|ps2:uPS2"
+ 41. Port Connectivity Checks: "vga_sync_pipe:u_sync"
+ 42. Port Connectivity Checks: "PLL_clock_top:u_pll|PLL_clock:uPLL"
+ 43. Post-Synthesis Netlist Statistics for Top Partition
+ 44. Elapsed Time Per Partition
+ 45. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Nov 23 19:05:17 2025          ;
+; Quartus Prime Version              ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
+; Revision Name                      ; miniVGA                                        ;
+; Top-level Entity Name              ; tank_duel_top                                  ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 2,014                                          ;
+;     Total combinational functions  ; 1,888                                          ;
+;     Dedicated logic registers      ; 365                                            ;
+; Total registers                    ; 365                                            ;
+; Total pins                         ; 52                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 240                                            ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 1                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; tank_duel_top      ; miniVGA            ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; VHDL Show LMF Mapping Messages                                   ; Off                ;                    ;
+; VHDL Version                                                     ; VHDL_2008          ; VHDL_1993          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                          ;
++----------------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path       ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                      ; Library ;
++----------------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------+---------+
+; leddcd.vhd                             ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/leddcd.vhd                                               ;         ;
+; ps2.vhd                                ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/ps2.vhd                                                  ;         ;
+; oneshot.vhd                            ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/oneshot.vhd                                              ;         ;
+; keyboard.vhd                           ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/keyboard.vhd                                             ;         ;
+; tank_bullet_top_refine.vhd             ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/tank_bullet_top_refine.vhd                               ;         ;
+; tank_bullet_bottom_refine.vhd          ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/tank_bullet_bottom_refine.vhd                            ;         ;
+; colorROM.vhd                           ; yes             ; User Wizard-Generated File             ; C:/VHDL_training/miniVGA/colorROM.vhd                                             ;         ;
+; tank_bottom.vhd                        ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/tank_bottom.vhd                                          ;         ;
+; tank_top.vhd                           ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/tank_top.vhd                                             ;         ;
+; vga_sync_pipe.vhd                      ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/vga_sync_pipe.vhd                                        ;         ;
+; bullet_bottom_manager.vhd              ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/bullet_bottom_manager.vhd                                ;         ;
+; bullet_bottom_top.vhd                  ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/bullet_bottom_top.vhd                                    ;         ;
+; bullet_top_manager.vhd                 ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/bullet_top_manager.vhd                                   ;         ;
+; bullet_top_top.vhd                     ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/bullet_top_top.vhd                                       ;         ;
+; pixelGenerator_dynamicbulletmodule.vhd ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/pixelGenerator_dynamicbulletmodule.vhd                   ;         ;
+; keyboard_ctrl.vhd                      ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/keyboard_ctrl.vhd                                        ;         ;
+; keyboard_top.vhd                       ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/keyboard_top.vhd                                         ;         ;
+; PLL_clock.vhd                          ; yes             ; User Wizard-Generated File             ; C:/VHDL_training/miniVGA/PLL_clock.vhd                                            ;         ;
+; PLL_clock_top.vhd                      ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/PLL_clock_top.vhd                                        ;         ;
+; tank_duel_top .vhd                     ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/tank_duel_top .vhd                                       ;         ;
+; score_toptank.vhd                      ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/score_toptank.vhd                                        ;         ;
+; score_bottomtank.vhd                   ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/score_bottomtank.vhd                                     ;         ;
+; scoremodule.vhd                        ; yes             ; User VHDL File                         ; C:/VHDL_training/miniVGA/scoremodule.vhd                                          ;         ;
+; altpll.tdf                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altpll.tdf              ;         ;
+; aglobal221.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/aglobal221.inc          ;         ;
+; stratix_pll.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/stratix_pll.inc         ;         ;
+; stratixii_pll.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/stratixii_pll.inc       ;         ;
+; cycloneii_pll.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/cycloneii_pll.inc       ;         ;
+; db/pll_clock_altpll.v                  ; yes             ; Auto-Generated Megafunction            ; C:/VHDL_training/miniVGA/db/pll_clock_altpll.v                                    ;         ;
+; altsyncram.tdf                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altsyncram.tdf          ;         ;
+; stratix_ram_block.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/stratix_ram_block.inc   ;         ;
+; lpm_mux.inc                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_mux.inc             ;         ;
+; lpm_decode.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_decode.inc          ;         ;
+; a_rdenreg.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/a_rdenreg.inc           ;         ;
+; altrom.inc                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altrom.inc              ;         ;
+; altram.inc                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altram.inc              ;         ;
+; altdpram.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altdpram.inc            ;         ;
+; db/altsyncram_b481.tdf                 ; yes             ; Auto-Generated Megafunction            ; C:/VHDL_training/miniVGA/db/altsyncram_b481.tdf                                   ;         ;
+; colorrom.mif                           ; yes             ; Auto-Found Memory Initialization File  ; C:/VHDL_training/miniVGA/colorrom.mif                                             ;         ;
+; lpm_add_sub.tdf                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_add_sub.tdf         ;         ;
+; addcore.inc                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/addcore.inc             ;         ;
+; look_add.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/look_add.inc            ;         ;
+; bypassff.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/bypassff.inc            ;         ;
+; altshift.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altshift.inc            ;         ;
+; alt_stratix_add_sub.inc                ; yes             ; Megafunction                           ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/alt_stratix_add_sub.inc ;         ;
+; db/add_sub_lvi.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/VHDL_training/miniVGA/db/add_sub_lvi.tdf                                       ;         ;
++----------------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                                                               ;
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------+
+; Resource                                    ; Usage                                                                                                       ;
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------+
+; Estimated Total logic elements              ; 2,014                                                                                                       ;
+;                                             ;                                                                                                             ;
+; Total combinational functions               ; 1888                                                                                                        ;
+; Logic element usage by number of LUT inputs ;                                                                                                             ;
+;     -- 4 input functions                    ; 267                                                                                                         ;
+;     -- 3 input functions                    ; 636                                                                                                         ;
+;     -- <=2 input functions                  ; 985                                                                                                         ;
+;                                             ;                                                                                                             ;
+; Logic elements by mode                      ;                                                                                                             ;
+;     -- normal mode                          ; 636                                                                                                         ;
+;     -- arithmetic mode                      ; 1252                                                                                                        ;
+;                                             ;                                                                                                             ;
+; Total registers                             ; 365                                                                                                         ;
+;     -- Dedicated logic registers            ; 365                                                                                                         ;
+;     -- I/O registers                        ; 0                                                                                                           ;
+;                                             ;                                                                                                             ;
+; I/O pins                                    ; 52                                                                                                          ;
+; Total memory bits                           ; 240                                                                                                         ;
+;                                             ;                                                                                                             ;
+; Embedded Multiplier 9-bit elements          ; 0                                                                                                           ;
+;                                             ;                                                                                                             ;
+; Total PLLs                                  ; 1                                                                                                           ;
+;     -- PLLs                                 ; 1                                                                                                           ;
+;                                             ;                                                                                                             ;
+; Maximum fan-out node                        ; PLL_clock_top:u_pll|PLL_clock:uPLL|altpll:altpll_component|PLL_clock_altpll:auto_generated|wire_pll1_clk[0] ;
+; Maximum fan-out                             ; 293                                                                                                         ;
+; Total fan-out                               ; 6332                                                                                                        ;
+; Average fan-out                             ; 2.65                                                                                                        ;
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                               ;
++-----------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+------------------------------------+--------------+
+; Compilation Hierarchy Node                                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                    ; Entity Name                        ; Library Name ;
++-----------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+------------------------------------+--------------+
+; |tank_duel_top                                            ; 1888 (2)            ; 365 (0)                   ; 240         ; 0            ; 0       ; 0         ; 52   ; 0            ; |tank_duel_top                                                                                                                         ; tank_duel_top                      ; work         ;
+;    |PLL_clock_top:u_pll|                                  ; 36 (36)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|PLL_clock_top:u_pll                                                                                                     ; PLL_clock_top                      ; work         ;
+;       |PLL_clock:uPLL|                                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|PLL_clock_top:u_pll|PLL_clock:uPLL                                                                                      ; PLL_clock                          ; work         ;
+;          |altpll:altpll_component|                        ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|PLL_clock_top:u_pll|PLL_clock:uPLL|altpll:altpll_component                                                              ; altpll                             ; work         ;
+;             |PLL_clock_altpll:auto_generated|             ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|PLL_clock_top:u_pll|PLL_clock:uPLL|altpll:altpll_component|PLL_clock_altpll:auto_generated                              ; PLL_clock_altpll                   ; work         ;
+;    |bullet_bottom_top:u_bullets_bottom|                   ; 342 (0)             ; 110 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|bullet_bottom_top:u_bullets_bottom                                                                                      ; bullet_bottom_top                  ; work         ;
+;       |tank_bullet_bottom_refine:\gen_bullets:0:u_bullet| ; 81 (81)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:0:u_bullet                                    ; tank_bullet_bottom_refine          ; work         ;
+;       |tank_bullet_bottom_refine:\gen_bullets:1:u_bullet| ; 64 (64)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:1:u_bullet                                    ; tank_bullet_bottom_refine          ; work         ;
+;       |tank_bullet_bottom_refine:\gen_bullets:2:u_bullet| ; 64 (64)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:2:u_bullet                                    ; tank_bullet_bottom_refine          ; work         ;
+;       |tank_bullet_bottom_refine:\gen_bullets:3:u_bullet| ; 68 (68)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:3:u_bullet                                    ; tank_bullet_bottom_refine          ; work         ;
+;       |tank_bullet_bottom_refine:\gen_bullets:4:u_bullet| ; 65 (65)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:4:u_bullet                                    ; tank_bullet_bottom_refine          ; work         ;
+;    |bullet_top_top:u_bullets_top|                         ; 466 (0)             ; 110 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|bullet_top_top:u_bullets_top                                                                                            ; bullet_top_top                     ; work         ;
+;       |tank_bullet_top_refine:\gen_bullets:0:u_bullet|    ; 101 (101)           ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:0:u_bullet                                             ; tank_bullet_top_refine             ; work         ;
+;       |tank_bullet_top_refine:\gen_bullets:1:u_bullet|    ; 87 (87)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:1:u_bullet                                             ; tank_bullet_top_refine             ; work         ;
+;       |tank_bullet_top_refine:\gen_bullets:2:u_bullet|    ; 87 (87)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:2:u_bullet                                             ; tank_bullet_top_refine             ; work         ;
+;       |tank_bullet_top_refine:\gen_bullets:3:u_bullet|    ; 103 (103)           ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:3:u_bullet                                             ; tank_bullet_top_refine             ; work         ;
+;       |tank_bullet_top_refine:\gen_bullets:4:u_bullet|    ; 88 (88)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:4:u_bullet                                             ; tank_bullet_top_refine             ; work         ;
+;    |keyboard_top:u_kbd|                                   ; 40 (0)              ; 43 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|keyboard_top:u_kbd                                                                                                      ; keyboard_top                       ; work         ;
+;       |keyboard_ctrl:Ukeycontrol|                         ; 21 (21)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|keyboard_top:u_kbd|keyboard_ctrl:Ukeycontrol                                                                            ; keyboard_ctrl                      ; work         ;
+;       |ps2:uPS2|                                          ; 19 (0)              ; 36 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|keyboard_top:u_kbd|ps2:uPS2                                                                                             ; ps2                                ; work         ;
+;          |keyboard:u1|                                    ; 17 (17)             ; 34 (34)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|keyboard_top:u_kbd|ps2:uPS2|keyboard:u1                                                                                 ; keyboard                           ; work         ;
+;          |oneshot:pulser|                                 ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|keyboard_top:u_kbd|ps2:uPS2|oneshot:pulser                                                                              ; oneshot                            ; work         ;
+;    |pixelGenerator_dynamicbulletmodule:u_pix|             ; 820 (820)           ; 3 (3)                     ; 240         ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|pixelGenerator_dynamicbulletmodule:u_pix                                                                                ; pixelGenerator_dynamicbulletmodule ; work         ;
+;       |colorROM:colors|                                   ; 0 (0)               ; 0 (0)                     ; 240         ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors                                                                ; colorROM                           ; work         ;
+;          |altsyncram:altsyncram_component|                ; 0 (0)               ; 0 (0)                     ; 240         ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors|altsyncram:altsyncram_component                                ; altsyncram                         ; work         ;
+;             |altsyncram_b481:auto_generated|              ; 0 (0)               ; 0 (0)                     ; 240         ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors|altsyncram:altsyncram_component|altsyncram_b481:auto_generated ; altsyncram_b481                    ; work         ;
+;    |scoremodule:u_score|                                  ; 17 (1)              ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|scoremodule:u_score                                                                                                     ; scoremodule                        ; work         ;
+;       |leddcd:uled_b|                                     ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|scoremodule:u_score|leddcd:uled_b                                                                                       ; leddcd                             ; work         ;
+;       |leddcd:uled_t|                                     ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|scoremodule:u_score|leddcd:uled_t                                                                                       ; leddcd                             ; work         ;
+;       |score_bottomtank:uscore_b|                         ; 5 (5)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|scoremodule:u_score|score_bottomtank:uscore_b                                                                           ; score_bottomtank                   ; work         ;
+;       |score_toptank:uscore_t|                            ; 5 (5)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|scoremodule:u_score|score_toptank:uscore_t                                                                              ; score_toptank                      ; work         ;
+;    |tank_bottom:u_tank_bottom|                            ; 53 (40)             ; 11 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|tank_bottom:u_tank_bottom                                                                                               ; tank_bottom                        ; work         ;
+;       |lpm_add_sub:Add0|                                  ; 13 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|tank_bottom:u_tank_bottom|lpm_add_sub:Add0                                                                              ; lpm_add_sub                        ; work         ;
+;          |add_sub_lvi:auto_generated|                     ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|tank_bottom:u_tank_bottom|lpm_add_sub:Add0|add_sub_lvi:auto_generated                                                   ; add_sub_lvi                        ; work         ;
+;    |tank_top:u_tank_top|                                  ; 50 (37)             ; 11 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|tank_top:u_tank_top                                                                                                     ; tank_top                           ; work         ;
+;       |lpm_add_sub:Add0|                                  ; 13 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|tank_top:u_tank_top|lpm_add_sub:Add0                                                                                    ; lpm_add_sub                        ; work         ;
+;          |add_sub_lvi:auto_generated|                     ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|tank_top:u_tank_top|lpm_add_sub:Add0|add_sub_lvi:auto_generated                                                         ; add_sub_lvi                        ; work         ;
+;    |vga_sync_pipe:u_sync|                                 ; 62 (62)             ; 46 (46)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tank_duel_top|vga_sync_pipe:u_sync                                                                                                    ; vga_sync_pipe                      ; work         ;
++-----------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                   ;
++------------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+--------------+
+; Name                                                                                                                               ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF          ;
++------------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+--------------+
+; pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors|altsyncram:altsyncram_component|altsyncram_b481:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 8            ; 30           ; --           ; --           ; 240  ; colorROM.mif ;
++------------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                               ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                   ; IP Include File ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------------+-----------------+
+; Altera ; ALTPLL       ; 22.1    ; N/A          ; N/A          ; |tank_duel_top|PLL_clock_top:u_pll|PLL_clock:uPLL ; PLL_clock.vhd   ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------------+-----------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                  ;
++-----------------------------------------------------------------------------------------------+---------------------------------------------------------------------+
+; Register name                                                                                 ; Reason for Removal                                                  ;
++-----------------------------------------------------------------------------------------------+---------------------------------------------------------------------+
+; tank_bottom:u_tank_bottom|state_reg                                                           ; Merged with tank_top:u_tank_top|state_reg                           ;
+; tank_top:u_tank_top|y_reg[0,5,6,8]                                                            ; Merged with tank_top:u_tank_top|y_reg[9]                            ;
+; tank_bottom:u_tank_bottom|y_reg[9]                                                            ; Merged with tank_top:u_tank_top|y_reg[9]                            ;
+; tank_top:u_tank_top|y_reg[1..4,7]                                                             ; Merged with tank_top:u_tank_top|y_reg[9]                            ;
+; tank_bottom:u_tank_bottom|y_reg[0,3,5]                                                        ; Merged with tank_top:u_tank_top|y_reg[9]                            ;
+; tank_bottom:u_tank_bottom|y_reg[1,2,4,6,7]                                                    ; Merged with tank_bottom:u_tank_bottom|y_reg[8]                      ;
+; tank_top:u_tank_top|y_reg[9]                                                                  ; Stuck at GND due to stuck port data_in                              ;
+; tank_bottom:u_tank_bottom|y_reg[8]                                                            ; Stuck at VCC due to stuck port data_in                              ;
+; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:4:u_bullet|y_reg[0]          ; Stuck at GND due to stuck port data_in                              ;
+; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:3:u_bullet|y_reg[0]          ; Stuck at GND due to stuck port data_in                              ;
+; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:2:u_bullet|y_reg[0]          ; Stuck at GND due to stuck port data_in                              ;
+; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:1:u_bullet|y_reg[0]          ; Stuck at GND due to stuck port data_in                              ;
+; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:0:u_bullet|y_reg[0]          ; Stuck at GND due to stuck port data_in                              ;
+; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:4:u_bullet|y_reg[0] ; Stuck at GND due to stuck port data_in                              ;
+; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:3:u_bullet|y_reg[0] ; Stuck at GND due to stuck port data_in                              ;
+; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:2:u_bullet|y_reg[0] ; Stuck at GND due to stuck port data_in                              ;
+; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:1:u_bullet|y_reg[0] ; Stuck at GND due to stuck port data_in                              ;
+; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:0:u_bullet|y_reg[0] ; Stuck at GND due to stuck port data_in                              ;
+; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:4:u_bullet|y_reg[1] ; Stuck at GND due to stuck port data_in                              ;
+; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:3:u_bullet|y_reg[1] ; Stuck at GND due to stuck port data_in                              ;
+; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:2:u_bullet|y_reg[1] ; Stuck at GND due to stuck port data_in                              ;
+; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:1:u_bullet|y_reg[1] ; Stuck at GND due to stuck port data_in                              ;
+; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:0:u_bullet|y_reg[1] ; Stuck at GND due to stuck port data_in                              ;
+; vga_sync_pipe:u_sync|pixel_row[0]                                                             ; Lost fanout                                                         ;
+; tank_top:u_tank_top|x_reg[0]                                                                  ; Stuck at VCC due to stuck port data_in                              ;
+; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:4:u_bullet|x_reg[0]          ; Stuck at GND due to stuck port data_in                              ;
+; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:3:u_bullet|x_reg[0]          ; Stuck at GND due to stuck port data_in                              ;
+; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:2:u_bullet|x_reg[0]          ; Stuck at GND due to stuck port data_in                              ;
+; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:0:u_bullet|x_reg[0]          ; Stuck at GND due to stuck port data_in                              ;
+; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:1:u_bullet|x_reg[0]          ; Stuck at GND due to stuck port data_in                              ;
+; scoremodule:u_score|score_bottomtank:uscore_b|score_reg[3]                                    ; Merged with scoremodule:u_score|score_toptank:uscore_t|score_reg[3] ;
+; scoremodule:u_score|score_toptank:uscore_t|score_reg[2,3]                                     ; Stuck at GND due to stuck port data_in                              ;
+; scoremodule:u_score|score_bottomtank:uscore_b|score_reg[2]                                    ; Stuck at GND due to stuck port data_in                              ;
+; Total Number of Removed Registers = 47                                                        ;                                                                     ;
++-----------------------------------------------------------------------------------------------+---------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                          ;
++---------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------+
+; Register name                                           ; Reason for Removal        ; Registers Removed due to This Register                                                         ;
++---------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------+
+; tank_top:u_tank_top|y_reg[9]                            ; Stuck at GND              ; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:4:u_bullet|y_reg[0],          ;
+;                                                         ; due to stuck port data_in ; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:3:u_bullet|y_reg[0],          ;
+;                                                         ;                           ; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:2:u_bullet|y_reg[0],          ;
+;                                                         ;                           ; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:1:u_bullet|y_reg[0],          ;
+;                                                         ;                           ; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:0:u_bullet|y_reg[0],          ;
+;                                                         ;                           ; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:4:u_bullet|y_reg[0], ;
+;                                                         ;                           ; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:3:u_bullet|y_reg[0], ;
+;                                                         ;                           ; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:2:u_bullet|y_reg[0], ;
+;                                                         ;                           ; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:1:u_bullet|y_reg[0], ;
+;                                                         ;                           ; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:0:u_bullet|y_reg[0], ;
+;                                                         ;                           ; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:4:u_bullet|y_reg[1], ;
+;                                                         ;                           ; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:3:u_bullet|y_reg[1], ;
+;                                                         ;                           ; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:2:u_bullet|y_reg[1], ;
+;                                                         ;                           ; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:1:u_bullet|y_reg[1], ;
+;                                                         ;                           ; bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:0:u_bullet|y_reg[1]  ;
+; tank_top:u_tank_top|x_reg[0]                            ; Stuck at VCC              ; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:4:u_bullet|x_reg[0],          ;
+;                                                         ; due to stuck port data_in ; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:3:u_bullet|x_reg[0],          ;
+;                                                         ;                           ; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:2:u_bullet|x_reg[0],          ;
+;                                                         ;                           ; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:0:u_bullet|x_reg[0],          ;
+;                                                         ;                           ; bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:1:u_bullet|x_reg[0]           ;
+; scoremodule:u_score|score_toptank:uscore_t|score_reg[3] ; Stuck at GND              ; scoremodule:u_score|score_toptank:uscore_t|score_reg[2],                                       ;
+;                                                         ; due to stuck port data_in ; scoremodule:u_score|score_bottomtank:uscore_b|score_reg[2]                                     ;
++---------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 365   ;
+; Number of registers using Synchronous Clear  ; 12    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 284   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 291   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------+
+; Inverted Register Statistics                                       ;
++----------------------------------------------------------+---------+
+; Inverted Register                                        ; Fan out ;
++----------------------------------------------------------+---------+
+; pixelGenerator_dynamicbulletmodule:u_pix|colorAddress[1] ; 1       ;
+; pixelGenerator_dynamicbulletmodule:u_pix|colorAddress[2] ; 1       ;
+; vga_sync_pipe:u_sync|horiz_sync                          ; 1       ;
+; vga_sync_pipe:u_sync|verti_sync                          ; 1       ;
+; tank_top:u_tank_top|x_reg[9]                             ; 11      ;
+; tank_top:u_tank_top|x_reg[6]                             ; 12      ;
+; tank_top:u_tank_top|x_reg[4]                             ; 14      ;
+; tank_bottom:u_tank_bottom|x_reg[3]                       ; 10      ;
+; tank_bottom:u_tank_bottom|x_reg[1]                       ; 10      ;
+; tank_bottom:u_tank_bottom|dir_reg                        ; 17      ;
+; Total number of inverted registers = 10                  ;         ;
++----------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |tank_duel_top|bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:0:u_bullet|y_reg[4]          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |tank_duel_top|bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:1:u_bullet|y_reg[4]          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |tank_duel_top|bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:2:u_bullet|y_reg[5]          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |tank_duel_top|bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:3:u_bullet|y_reg[7]          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |tank_duel_top|bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:4:u_bullet|y_reg[8]          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |tank_duel_top|bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:0:u_bullet|y_reg[7] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |tank_duel_top|bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:1:u_bullet|y_reg[9] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |tank_duel_top|bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:2:u_bullet|y_reg[2] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |tank_duel_top|bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:3:u_bullet|y_reg[5] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |tank_duel_top|bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:4:u_bullet|y_reg[7] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |tank_duel_top|keyboard_top:u_kbd|keyboard_ctrl:Ukeycontrol|fire_pulse_top_reg                               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |tank_duel_top|keyboard_top:u_kbd|ps2:uPS2|keyboard:u1|INCNT[2]                                              ;
+; 256:1              ; 2 bits    ; 340 LEs       ; 4 LEs                ; 336 LEs                ; Yes        ; |tank_duel_top|keyboard_top:u_kbd|keyboard_ctrl:Ukeycontrol|speed_sel_top_reg[1]                             ;
+; 256:1              ; 2 bits    ; 340 LEs       ; 4 LEs                ; 336 LEs                ; Yes        ; |tank_duel_top|keyboard_top:u_kbd|keyboard_ctrl:Ukeycontrol|speed_sel_bottom_reg[1]                          ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |tank_duel_top|pixelGenerator_dynamicbulletmodule:u_pix|colorAddress[2]                                      ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |tank_duel_top|vga_sync_pipe:u_sync|v_next                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors|altsyncram:altsyncram_component|altsyncram_b481:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                               ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |tank_duel_top ;
++-----------------+-------+-----------------------------------------------------+
+; Parameter Name  ; Value ; Type                                                ;
++-----------------+-------+-----------------------------------------------------+
+; GEN_BULLET_SIZE ; 10    ; Signed Integer                                      ;
+; GEN_BULLET_STEP ; 20    ; Signed Integer                                      ;
++-----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PLL_clock_top:u_pll|PLL_clock:uPLL|altpll:altpll_component ;
++-------------------------------+-----------------------------+-------------------------------------------+
+; Parameter Name                ; Value                       ; Type                                      ;
++-------------------------------+-----------------------------+-------------------------------------------+
+; OPERATION_MODE                ; NORMAL                      ; Untyped                                   ;
+; PLL_TYPE                      ; AUTO                        ; Untyped                                   ;
+; LPM_HINT                      ; CBX_MODULE_PREFIX=PLL_clock ; Untyped                                   ;
+; QUALIFY_CONF_DONE             ; OFF                         ; Untyped                                   ;
+; COMPENSATE_CLOCK              ; CLK0                        ; Untyped                                   ;
+; SCAN_CHAIN                    ; LONG                        ; Untyped                                   ;
+; PRIMARY_CLOCK                 ; INCLK0                      ; Untyped                                   ;
+; INCLK0_INPUT_FREQUENCY        ; 20000                       ; Signed Integer                            ;
+; INCLK1_INPUT_FREQUENCY        ; 0                           ; Untyped                                   ;
+; GATE_LOCK_SIGNAL              ; NO                          ; Untyped                                   ;
+; GATE_LOCK_COUNTER             ; 0                           ; Untyped                                   ;
+; LOCK_HIGH                     ; 1                           ; Untyped                                   ;
+; LOCK_LOW                      ; 1                           ; Untyped                                   ;
+; VALID_LOCK_MULTIPLIER         ; 1                           ; Untyped                                   ;
+; INVALID_LOCK_MULTIPLIER       ; 5                           ; Untyped                                   ;
+; SWITCH_OVER_ON_LOSSCLK        ; OFF                         ; Untyped                                   ;
+; SWITCH_OVER_ON_GATED_LOCK     ; OFF                         ; Untyped                                   ;
+; ENABLE_SWITCH_OVER_COUNTER    ; OFF                         ; Untyped                                   ;
+; SKIP_VCO                      ; OFF                         ; Untyped                                   ;
+; SWITCH_OVER_COUNTER           ; 0                           ; Untyped                                   ;
+; SWITCH_OVER_TYPE              ; AUTO                        ; Untyped                                   ;
+; FEEDBACK_SOURCE               ; EXTCLK0                     ; Untyped                                   ;
+; BANDWIDTH                     ; 0                           ; Untyped                                   ;
+; BANDWIDTH_TYPE                ; AUTO                        ; Untyped                                   ;
+; SPREAD_FREQUENCY              ; 0                           ; Untyped                                   ;
+; DOWN_SPREAD                   ; 0                           ; Untyped                                   ;
+; SELF_RESET_ON_GATED_LOSS_LOCK ; OFF                         ; Untyped                                   ;
+; SELF_RESET_ON_LOSS_LOCK       ; OFF                         ; Untyped                                   ;
+; CLK9_MULTIPLY_BY              ; 0                           ; Untyped                                   ;
+; CLK8_MULTIPLY_BY              ; 0                           ; Untyped                                   ;
+; CLK7_MULTIPLY_BY              ; 0                           ; Untyped                                   ;
+; CLK6_MULTIPLY_BY              ; 0                           ; Untyped                                   ;
+; CLK5_MULTIPLY_BY              ; 1                           ; Untyped                                   ;
+; CLK4_MULTIPLY_BY              ; 1                           ; Untyped                                   ;
+; CLK3_MULTIPLY_BY              ; 1                           ; Untyped                                   ;
+; CLK2_MULTIPLY_BY              ; 1                           ; Untyped                                   ;
+; CLK1_MULTIPLY_BY              ; 1                           ; Untyped                                   ;
+; CLK0_MULTIPLY_BY              ; 2                           ; Signed Integer                            ;
+; CLK9_DIVIDE_BY                ; 0                           ; Untyped                                   ;
+; CLK8_DIVIDE_BY                ; 0                           ; Untyped                                   ;
+; CLK7_DIVIDE_BY                ; 0                           ; Untyped                                   ;
+; CLK6_DIVIDE_BY                ; 0                           ; Untyped                                   ;
+; CLK5_DIVIDE_BY                ; 1                           ; Untyped                                   ;
+; CLK4_DIVIDE_BY                ; 1                           ; Untyped                                   ;
+; CLK3_DIVIDE_BY                ; 1                           ; Untyped                                   ;
+; CLK2_DIVIDE_BY                ; 1                           ; Untyped                                   ;
+; CLK1_DIVIDE_BY                ; 1                           ; Untyped                                   ;
+; CLK0_DIVIDE_BY                ; 1                           ; Signed Integer                            ;
+; CLK9_PHASE_SHIFT              ; 0                           ; Untyped                                   ;
+; CLK8_PHASE_SHIFT              ; 0                           ; Untyped                                   ;
+; CLK7_PHASE_SHIFT              ; 0                           ; Untyped                                   ;
+; CLK6_PHASE_SHIFT              ; 0                           ; Untyped                                   ;
+; CLK5_PHASE_SHIFT              ; 0                           ; Untyped                                   ;
+; CLK4_PHASE_SHIFT              ; 0                           ; Untyped                                   ;
+; CLK3_PHASE_SHIFT              ; 0                           ; Untyped                                   ;
+; CLK2_PHASE_SHIFT              ; 0                           ; Untyped                                   ;
+; CLK1_PHASE_SHIFT              ; 0                           ; Untyped                                   ;
+; CLK0_PHASE_SHIFT              ; 0                           ; Untyped                                   ;
+; CLK5_TIME_DELAY               ; 0                           ; Untyped                                   ;
+; CLK4_TIME_DELAY               ; 0                           ; Untyped                                   ;
+; CLK3_TIME_DELAY               ; 0                           ; Untyped                                   ;
+; CLK2_TIME_DELAY               ; 0                           ; Untyped                                   ;
+; CLK1_TIME_DELAY               ; 0                           ; Untyped                                   ;
+; CLK0_TIME_DELAY               ; 0                           ; Untyped                                   ;
+; CLK9_DUTY_CYCLE               ; 50                          ; Untyped                                   ;
+; CLK8_DUTY_CYCLE               ; 50                          ; Untyped                                   ;
+; CLK7_DUTY_CYCLE               ; 50                          ; Untyped                                   ;
+; CLK6_DUTY_CYCLE               ; 50                          ; Untyped                                   ;
+; CLK5_DUTY_CYCLE               ; 50                          ; Untyped                                   ;
+; CLK4_DUTY_CYCLE               ; 50                          ; Untyped                                   ;
+; CLK3_DUTY_CYCLE               ; 50                          ; Untyped                                   ;
+; CLK2_DUTY_CYCLE               ; 50                          ; Untyped                                   ;
+; CLK1_DUTY_CYCLE               ; 50                          ; Untyped                                   ;
+; CLK0_DUTY_CYCLE               ; 50                          ; Signed Integer                            ;
+; CLK9_USE_EVEN_COUNTER_MODE    ; OFF                         ; Untyped                                   ;
+; CLK8_USE_EVEN_COUNTER_MODE    ; OFF                         ; Untyped                                   ;
+; CLK7_USE_EVEN_COUNTER_MODE    ; OFF                         ; Untyped                                   ;
+; CLK6_USE_EVEN_COUNTER_MODE    ; OFF                         ; Untyped                                   ;
+; CLK5_USE_EVEN_COUNTER_MODE    ; OFF                         ; Untyped                                   ;
+; CLK4_USE_EVEN_COUNTER_MODE    ; OFF                         ; Untyped                                   ;
+; CLK3_USE_EVEN_COUNTER_MODE    ; OFF                         ; Untyped                                   ;
+; CLK2_USE_EVEN_COUNTER_MODE    ; OFF                         ; Untyped                                   ;
+; CLK1_USE_EVEN_COUNTER_MODE    ; OFF                         ; Untyped                                   ;
+; CLK0_USE_EVEN_COUNTER_MODE    ; OFF                         ; Untyped                                   ;
+; CLK9_USE_EVEN_COUNTER_VALUE   ; OFF                         ; Untyped                                   ;
+; CLK8_USE_EVEN_COUNTER_VALUE   ; OFF                         ; Untyped                                   ;
+; CLK7_USE_EVEN_COUNTER_VALUE   ; OFF                         ; Untyped                                   ;
+; CLK6_USE_EVEN_COUNTER_VALUE   ; OFF                         ; Untyped                                   ;
+; CLK5_USE_EVEN_COUNTER_VALUE   ; OFF                         ; Untyped                                   ;
+; CLK4_USE_EVEN_COUNTER_VALUE   ; OFF                         ; Untyped                                   ;
+; CLK3_USE_EVEN_COUNTER_VALUE   ; OFF                         ; Untyped                                   ;
+; CLK2_USE_EVEN_COUNTER_VALUE   ; OFF                         ; Untyped                                   ;
+; CLK1_USE_EVEN_COUNTER_VALUE   ; OFF                         ; Untyped                                   ;
+; CLK0_USE_EVEN_COUNTER_VALUE   ; OFF                         ; Untyped                                   ;
+; LOCK_WINDOW_UI                ;  0.05                       ; Untyped                                   ;
+; LOCK_WINDOW_UI_BITS           ; UNUSED                      ; Untyped                                   ;
+; VCO_RANGE_DETECTOR_LOW_BITS   ; UNUSED                      ; Untyped                                   ;
+; VCO_RANGE_DETECTOR_HIGH_BITS  ; UNUSED                      ; Untyped                                   ;
+; DPA_MULTIPLY_BY               ; 0                           ; Untyped                                   ;
+; DPA_DIVIDE_BY                 ; 1                           ; Untyped                                   ;
+; DPA_DIVIDER                   ; 0                           ; Untyped                                   ;
+; EXTCLK3_MULTIPLY_BY           ; 1                           ; Untyped                                   ;
+; EXTCLK2_MULTIPLY_BY           ; 1                           ; Untyped                                   ;
+; EXTCLK1_MULTIPLY_BY           ; 1                           ; Untyped                                   ;
+; EXTCLK0_MULTIPLY_BY           ; 1                           ; Untyped                                   ;
+; EXTCLK3_DIVIDE_BY             ; 1                           ; Untyped                                   ;
+; EXTCLK2_DIVIDE_BY             ; 1                           ; Untyped                                   ;
+; EXTCLK1_DIVIDE_BY             ; 1                           ; Untyped                                   ;
+; EXTCLK0_DIVIDE_BY             ; 1                           ; Untyped                                   ;
+; EXTCLK3_PHASE_SHIFT           ; 0                           ; Untyped                                   ;
+; EXTCLK2_PHASE_SHIFT           ; 0                           ; Untyped                                   ;
+; EXTCLK1_PHASE_SHIFT           ; 0                           ; Untyped                                   ;
+; EXTCLK0_PHASE_SHIFT           ; 0                           ; Untyped                                   ;
+; EXTCLK3_TIME_DELAY            ; 0                           ; Untyped                                   ;
+; EXTCLK2_TIME_DELAY            ; 0                           ; Untyped                                   ;
+; EXTCLK1_TIME_DELAY            ; 0                           ; Untyped                                   ;
+; EXTCLK0_TIME_DELAY            ; 0                           ; Untyped                                   ;
+; EXTCLK3_DUTY_CYCLE            ; 50                          ; Untyped                                   ;
+; EXTCLK2_DUTY_CYCLE            ; 50                          ; Untyped                                   ;
+; EXTCLK1_DUTY_CYCLE            ; 50                          ; Untyped                                   ;
+; EXTCLK0_DUTY_CYCLE            ; 50                          ; Untyped                                   ;
+; VCO_MULTIPLY_BY               ; 0                           ; Untyped                                   ;
+; VCO_DIVIDE_BY                 ; 0                           ; Untyped                                   ;
+; SCLKOUT0_PHASE_SHIFT          ; 0                           ; Untyped                                   ;
+; SCLKOUT1_PHASE_SHIFT          ; 0                           ; Untyped                                   ;
+; VCO_MIN                       ; 0                           ; Untyped                                   ;
+; VCO_MAX                       ; 0                           ; Untyped                                   ;
+; VCO_CENTER                    ; 0                           ; Untyped                                   ;
+; PFD_MIN                       ; 0                           ; Untyped                                   ;
+; PFD_MAX                       ; 0                           ; Untyped                                   ;
+; M_INITIAL                     ; 0                           ; Untyped                                   ;
+; M                             ; 0                           ; Untyped                                   ;
+; N                             ; 1                           ; Untyped                                   ;
+; M2                            ; 1                           ; Untyped                                   ;
+; N2                            ; 1                           ; Untyped                                   ;
+; SS                            ; 1                           ; Untyped                                   ;
+; C0_HIGH                       ; 0                           ; Untyped                                   ;
+; C1_HIGH                       ; 0                           ; Untyped                                   ;
+; C2_HIGH                       ; 0                           ; Untyped                                   ;
+; C3_HIGH                       ; 0                           ; Untyped                                   ;
+; C4_HIGH                       ; 0                           ; Untyped                                   ;
+; C5_HIGH                       ; 0                           ; Untyped                                   ;
+; C6_HIGH                       ; 0                           ; Untyped                                   ;
+; C7_HIGH                       ; 0                           ; Untyped                                   ;
+; C8_HIGH                       ; 0                           ; Untyped                                   ;
+; C9_HIGH                       ; 0                           ; Untyped                                   ;
+; C0_LOW                        ; 0                           ; Untyped                                   ;
+; C1_LOW                        ; 0                           ; Untyped                                   ;
+; C2_LOW                        ; 0                           ; Untyped                                   ;
+; C3_LOW                        ; 0                           ; Untyped                                   ;
+; C4_LOW                        ; 0                           ; Untyped                                   ;
+; C5_LOW                        ; 0                           ; Untyped                                   ;
+; C6_LOW                        ; 0                           ; Untyped                                   ;
+; C7_LOW                        ; 0                           ; Untyped                                   ;
+; C8_LOW                        ; 0                           ; Untyped                                   ;
+; C9_LOW                        ; 0                           ; Untyped                                   ;
+; C0_INITIAL                    ; 0                           ; Untyped                                   ;
+; C1_INITIAL                    ; 0                           ; Untyped                                   ;
+; C2_INITIAL                    ; 0                           ; Untyped                                   ;
+; C3_INITIAL                    ; 0                           ; Untyped                                   ;
+; C4_INITIAL                    ; 0                           ; Untyped                                   ;
+; C5_INITIAL                    ; 0                           ; Untyped                                   ;
+; C6_INITIAL                    ; 0                           ; Untyped                                   ;
+; C7_INITIAL                    ; 0                           ; Untyped                                   ;
+; C8_INITIAL                    ; 0                           ; Untyped                                   ;
+; C9_INITIAL                    ; 0                           ; Untyped                                   ;
+; C0_MODE                       ; BYPASS                      ; Untyped                                   ;
+; C1_MODE                       ; BYPASS                      ; Untyped                                   ;
+; C2_MODE                       ; BYPASS                      ; Untyped                                   ;
+; C3_MODE                       ; BYPASS                      ; Untyped                                   ;
+; C4_MODE                       ; BYPASS                      ; Untyped                                   ;
+; C5_MODE                       ; BYPASS                      ; Untyped                                   ;
+; C6_MODE                       ; BYPASS                      ; Untyped                                   ;
+; C7_MODE                       ; BYPASS                      ; Untyped                                   ;
+; C8_MODE                       ; BYPASS                      ; Untyped                                   ;
+; C9_MODE                       ; BYPASS                      ; Untyped                                   ;
+; C0_PH                         ; 0                           ; Untyped                                   ;
+; C1_PH                         ; 0                           ; Untyped                                   ;
+; C2_PH                         ; 0                           ; Untyped                                   ;
+; C3_PH                         ; 0                           ; Untyped                                   ;
+; C4_PH                         ; 0                           ; Untyped                                   ;
+; C5_PH                         ; 0                           ; Untyped                                   ;
+; C6_PH                         ; 0                           ; Untyped                                   ;
+; C7_PH                         ; 0                           ; Untyped                                   ;
+; C8_PH                         ; 0                           ; Untyped                                   ;
+; C9_PH                         ; 0                           ; Untyped                                   ;
+; L0_HIGH                       ; 1                           ; Untyped                                   ;
+; L1_HIGH                       ; 1                           ; Untyped                                   ;
+; G0_HIGH                       ; 1                           ; Untyped                                   ;
+; G1_HIGH                       ; 1                           ; Untyped                                   ;
+; G2_HIGH                       ; 1                           ; Untyped                                   ;
+; G3_HIGH                       ; 1                           ; Untyped                                   ;
+; E0_HIGH                       ; 1                           ; Untyped                                   ;
+; E1_HIGH                       ; 1                           ; Untyped                                   ;
+; E2_HIGH                       ; 1                           ; Untyped                                   ;
+; E3_HIGH                       ; 1                           ; Untyped                                   ;
+; L0_LOW                        ; 1                           ; Untyped                                   ;
+; L1_LOW                        ; 1                           ; Untyped                                   ;
+; G0_LOW                        ; 1                           ; Untyped                                   ;
+; G1_LOW                        ; 1                           ; Untyped                                   ;
+; G2_LOW                        ; 1                           ; Untyped                                   ;
+; G3_LOW                        ; 1                           ; Untyped                                   ;
+; E0_LOW                        ; 1                           ; Untyped                                   ;
+; E1_LOW                        ; 1                           ; Untyped                                   ;
+; E2_LOW                        ; 1                           ; Untyped                                   ;
+; E3_LOW                        ; 1                           ; Untyped                                   ;
+; L0_INITIAL                    ; 1                           ; Untyped                                   ;
+; L1_INITIAL                    ; 1                           ; Untyped                                   ;
+; G0_INITIAL                    ; 1                           ; Untyped                                   ;
+; G1_INITIAL                    ; 1                           ; Untyped                                   ;
+; G2_INITIAL                    ; 1                           ; Untyped                                   ;
+; G3_INITIAL                    ; 1                           ; Untyped                                   ;
+; E0_INITIAL                    ; 1                           ; Untyped                                   ;
+; E1_INITIAL                    ; 1                           ; Untyped                                   ;
+; E2_INITIAL                    ; 1                           ; Untyped                                   ;
+; E3_INITIAL                    ; 1                           ; Untyped                                   ;
+; L0_MODE                       ; BYPASS                      ; Untyped                                   ;
+; L1_MODE                       ; BYPASS                      ; Untyped                                   ;
+; G0_MODE                       ; BYPASS                      ; Untyped                                   ;
+; G1_MODE                       ; BYPASS                      ; Untyped                                   ;
+; G2_MODE                       ; BYPASS                      ; Untyped                                   ;
+; G3_MODE                       ; BYPASS                      ; Untyped                                   ;
+; E0_MODE                       ; BYPASS                      ; Untyped                                   ;
+; E1_MODE                       ; BYPASS                      ; Untyped                                   ;
+; E2_MODE                       ; BYPASS                      ; Untyped                                   ;
+; E3_MODE                       ; BYPASS                      ; Untyped                                   ;
+; L0_PH                         ; 0                           ; Untyped                                   ;
+; L1_PH                         ; 0                           ; Untyped                                   ;
+; G0_PH                         ; 0                           ; Untyped                                   ;
+; G1_PH                         ; 0                           ; Untyped                                   ;
+; G2_PH                         ; 0                           ; Untyped                                   ;
+; G3_PH                         ; 0                           ; Untyped                                   ;
+; E0_PH                         ; 0                           ; Untyped                                   ;
+; E1_PH                         ; 0                           ; Untyped                                   ;
+; E2_PH                         ; 0                           ; Untyped                                   ;
+; E3_PH                         ; 0                           ; Untyped                                   ;
+; M_PH                          ; 0                           ; Untyped                                   ;
+; C1_USE_CASC_IN                ; OFF                         ; Untyped                                   ;
+; C2_USE_CASC_IN                ; OFF                         ; Untyped                                   ;
+; C3_USE_CASC_IN                ; OFF                         ; Untyped                                   ;
+; C4_USE_CASC_IN                ; OFF                         ; Untyped                                   ;
+; C5_USE_CASC_IN                ; OFF                         ; Untyped                                   ;
+; C6_USE_CASC_IN                ; OFF                         ; Untyped                                   ;
+; C7_USE_CASC_IN                ; OFF                         ; Untyped                                   ;
+; C8_USE_CASC_IN                ; OFF                         ; Untyped                                   ;
+; C9_USE_CASC_IN                ; OFF                         ; Untyped                                   ;
+; CLK0_COUNTER                  ; G0                          ; Untyped                                   ;
+; CLK1_COUNTER                  ; G0                          ; Untyped                                   ;
+; CLK2_COUNTER                  ; G0                          ; Untyped                                   ;
+; CLK3_COUNTER                  ; G0                          ; Untyped                                   ;
+; CLK4_COUNTER                  ; G0                          ; Untyped                                   ;
+; CLK5_COUNTER                  ; G0                          ; Untyped                                   ;
+; CLK6_COUNTER                  ; E0                          ; Untyped                                   ;
+; CLK7_COUNTER                  ; E1                          ; Untyped                                   ;
+; CLK8_COUNTER                  ; E2                          ; Untyped                                   ;
+; CLK9_COUNTER                  ; E3                          ; Untyped                                   ;
+; L0_TIME_DELAY                 ; 0                           ; Untyped                                   ;
+; L1_TIME_DELAY                 ; 0                           ; Untyped                                   ;
+; G0_TIME_DELAY                 ; 0                           ; Untyped                                   ;
+; G1_TIME_DELAY                 ; 0                           ; Untyped                                   ;
+; G2_TIME_DELAY                 ; 0                           ; Untyped                                   ;
+; G3_TIME_DELAY                 ; 0                           ; Untyped                                   ;
+; E0_TIME_DELAY                 ; 0                           ; Untyped                                   ;
+; E1_TIME_DELAY                 ; 0                           ; Untyped                                   ;
+; E2_TIME_DELAY                 ; 0                           ; Untyped                                   ;
+; E3_TIME_DELAY                 ; 0                           ; Untyped                                   ;
+; M_TIME_DELAY                  ; 0                           ; Untyped                                   ;
+; N_TIME_DELAY                  ; 0                           ; Untyped                                   ;
+; EXTCLK3_COUNTER               ; E3                          ; Untyped                                   ;
+; EXTCLK2_COUNTER               ; E2                          ; Untyped                                   ;
+; EXTCLK1_COUNTER               ; E1                          ; Untyped                                   ;
+; EXTCLK0_COUNTER               ; E0                          ; Untyped                                   ;
+; ENABLE0_COUNTER               ; L0                          ; Untyped                                   ;
+; ENABLE1_COUNTER               ; L0                          ; Untyped                                   ;
+; CHARGE_PUMP_CURRENT           ; 2                           ; Untyped                                   ;
+; LOOP_FILTER_R                 ;  1.000000                   ; Untyped                                   ;
+; LOOP_FILTER_C                 ; 5                           ; Untyped                                   ;
+; CHARGE_PUMP_CURRENT_BITS      ; 9999                        ; Untyped                                   ;
+; LOOP_FILTER_R_BITS            ; 9999                        ; Untyped                                   ;
+; LOOP_FILTER_C_BITS            ; 9999                        ; Untyped                                   ;
+; VCO_POST_SCALE                ; 0                           ; Untyped                                   ;
+; CLK2_OUTPUT_FREQUENCY         ; 0                           ; Untyped                                   ;
+; CLK1_OUTPUT_FREQUENCY         ; 0                           ; Untyped                                   ;
+; CLK0_OUTPUT_FREQUENCY         ; 0                           ; Untyped                                   ;
+; INTENDED_DEVICE_FAMILY        ; Cyclone IV E                ; Untyped                                   ;
+; PORT_CLKENA0                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLKENA1                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLKENA2                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLKENA3                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLKENA4                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLKENA5                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_EXTCLKENA0               ; PORT_CONNECTIVITY           ; Untyped                                   ;
+; PORT_EXTCLKENA1               ; PORT_CONNECTIVITY           ; Untyped                                   ;
+; PORT_EXTCLKENA2               ; PORT_CONNECTIVITY           ; Untyped                                   ;
+; PORT_EXTCLKENA3               ; PORT_CONNECTIVITY           ; Untyped                                   ;
+; PORT_EXTCLK0                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_EXTCLK1                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_EXTCLK2                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_EXTCLK3                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLKBAD0                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLKBAD1                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLK0                     ; PORT_USED                   ; Untyped                                   ;
+; PORT_CLK1                     ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLK2                     ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLK3                     ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLK4                     ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLK5                     ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLK6                     ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLK7                     ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLK8                     ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLK9                     ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_SCANDATA                 ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_SCANDATAOUT              ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_SCANDONE                 ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_SCLKOUT1                 ; PORT_CONNECTIVITY           ; Untyped                                   ;
+; PORT_SCLKOUT0                 ; PORT_CONNECTIVITY           ; Untyped                                   ;
+; PORT_ACTIVECLOCK              ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLKLOSS                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_INCLK1                   ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_INCLK0                   ; PORT_USED                   ; Untyped                                   ;
+; PORT_FBIN                     ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_PLLENA                   ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_CLKSWITCH                ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_ARESET                   ; PORT_USED                   ; Untyped                                   ;
+; PORT_PFDENA                   ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_SCANCLK                  ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_SCANACLR                 ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_SCANREAD                 ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_SCANWRITE                ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_ENABLE0                  ; PORT_CONNECTIVITY           ; Untyped                                   ;
+; PORT_ENABLE1                  ; PORT_CONNECTIVITY           ; Untyped                                   ;
+; PORT_LOCKED                   ; PORT_USED                   ; Untyped                                   ;
+; PORT_CONFIGUPDATE             ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_FBOUT                    ; PORT_CONNECTIVITY           ; Untyped                                   ;
+; PORT_PHASEDONE                ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_PHASESTEP                ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_PHASEUPDOWN              ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_SCANCLKENA               ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_PHASECOUNTERSELECT       ; PORT_UNUSED                 ; Untyped                                   ;
+; PORT_VCOOVERRANGE             ; PORT_CONNECTIVITY           ; Untyped                                   ;
+; PORT_VCOUNDERRANGE            ; PORT_CONNECTIVITY           ; Untyped                                   ;
+; M_TEST_SOURCE                 ; 5                           ; Untyped                                   ;
+; C0_TEST_SOURCE                ; 5                           ; Untyped                                   ;
+; C1_TEST_SOURCE                ; 5                           ; Untyped                                   ;
+; C2_TEST_SOURCE                ; 5                           ; Untyped                                   ;
+; C3_TEST_SOURCE                ; 5                           ; Untyped                                   ;
+; C4_TEST_SOURCE                ; 5                           ; Untyped                                   ;
+; C5_TEST_SOURCE                ; 5                           ; Untyped                                   ;
+; C6_TEST_SOURCE                ; 5                           ; Untyped                                   ;
+; C7_TEST_SOURCE                ; 5                           ; Untyped                                   ;
+; C8_TEST_SOURCE                ; 5                           ; Untyped                                   ;
+; C9_TEST_SOURCE                ; 5                           ; Untyped                                   ;
+; CBXI_PARAMETER                ; PLL_clock_altpll            ; Untyped                                   ;
+; VCO_FREQUENCY_CONTROL         ; AUTO                        ; Untyped                                   ;
+; VCO_PHASE_SHIFT_STEP          ; 0                           ; Untyped                                   ;
+; WIDTH_CLOCK                   ; 5                           ; Signed Integer                            ;
+; WIDTH_PHASECOUNTERSELECT      ; 4                           ; Untyped                                   ;
+; USING_FBMIMICBIDIR_PORT       ; OFF                         ; Untyped                                   ;
+; DEVICE_FAMILY                 ; Cyclone IV E                ; Untyped                                   ;
+; SCAN_CHAIN_MIF_FILE           ; UNUSED                      ; Untyped                                   ;
+; SIM_GATE_LOCK_DEVICE_BEHAVIOR ; OFF                         ; Untyped                                   ;
+; AUTO_CARRY_CHAINS             ; ON                          ; AUTO_CARRY                                ;
+; IGNORE_CARRY_BUFFERS          ; OFF                         ; IGNORE_CARRY                              ;
+; AUTO_CASCADE_CHAINS           ; ON                          ; AUTO_CASCADE                              ;
+; IGNORE_CASCADE_BUFFERS        ; OFF                         ; IGNORE_CASCADE                            ;
++-------------------------------+-----------------------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tank_bottom:u_tank_bottom ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; screen_width   ; 640   ; Signed Integer                                ;
+; tank_width     ; 32    ; Signed Integer                                ;
+; wall_width     ; 5     ; Signed Integer                                ;
+; x_init         ; 10    ; Signed Integer                                ;
+; y_fixed        ; 470   ; Signed Integer                                ;
+; init_dir       ; '1'   ; Enumerated                                    ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tank_top:u_tank_top ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; screen_width   ; 640   ; Signed Integer                          ;
+; tank_width     ; 32    ; Signed Integer                          ;
+; wall_width     ; 5     ; Signed Integer                          ;
+; x_init         ; 593   ; Signed Integer                          ;
+; y_fixed        ; 0     ; Signed Integer                          ;
+; init_dir       ; '0'   ; Enumerated                              ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; n_bullets      ; 5     ; Signed Integer                                         ;
+; bullet_size    ; 10    ; Signed Integer                                         ;
+; step_pixels    ; 20    ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom|bullet_bottom_manager:u_mgr ;
++----------------+-------+------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                               ;
++----------------+-------+------------------------------------------------------------------------------------+
+; n_bullets      ; 5     ; Signed Integer                                                                     ;
++----------------+-------+------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:0:u_bullet ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+; Parameter Name        ; Value ; Type                                                                                              ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+; screen_width          ; 640   ; Signed Integer                                                                                    ;
+; screen_height         ; 480   ; Signed Integer                                                                                    ;
+; top_tanky_boundary    ; 9     ; Signed Integer                                                                                    ;
+; bottom_tanky_boundary ; 470   ; Signed Integer                                                                                    ;
+; wall_width            ; 5     ; Signed Integer                                                                                    ;
+; tank_w                ; 32    ; Signed Integer                                                                                    ;
+; tank_h                ; 10    ; Signed Integer                                                                                    ;
+; bullet_size           ; 10    ; Signed Integer                                                                                    ;
+; dir_up                ; '1'   ; Enumerated                                                                                        ;
+; step_pixels           ; 20    ; Signed Integer                                                                                    ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:1:u_bullet ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+; Parameter Name        ; Value ; Type                                                                                              ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+; screen_width          ; 640   ; Signed Integer                                                                                    ;
+; screen_height         ; 480   ; Signed Integer                                                                                    ;
+; top_tanky_boundary    ; 9     ; Signed Integer                                                                                    ;
+; bottom_tanky_boundary ; 470   ; Signed Integer                                                                                    ;
+; wall_width            ; 5     ; Signed Integer                                                                                    ;
+; tank_w                ; 32    ; Signed Integer                                                                                    ;
+; tank_h                ; 10    ; Signed Integer                                                                                    ;
+; bullet_size           ; 10    ; Signed Integer                                                                                    ;
+; dir_up                ; '1'   ; Enumerated                                                                                        ;
+; step_pixels           ; 20    ; Signed Integer                                                                                    ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:2:u_bullet ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+; Parameter Name        ; Value ; Type                                                                                              ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+; screen_width          ; 640   ; Signed Integer                                                                                    ;
+; screen_height         ; 480   ; Signed Integer                                                                                    ;
+; top_tanky_boundary    ; 9     ; Signed Integer                                                                                    ;
+; bottom_tanky_boundary ; 470   ; Signed Integer                                                                                    ;
+; wall_width            ; 5     ; Signed Integer                                                                                    ;
+; tank_w                ; 32    ; Signed Integer                                                                                    ;
+; tank_h                ; 10    ; Signed Integer                                                                                    ;
+; bullet_size           ; 10    ; Signed Integer                                                                                    ;
+; dir_up                ; '1'   ; Enumerated                                                                                        ;
+; step_pixels           ; 20    ; Signed Integer                                                                                    ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:3:u_bullet ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+; Parameter Name        ; Value ; Type                                                                                              ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+; screen_width          ; 640   ; Signed Integer                                                                                    ;
+; screen_height         ; 480   ; Signed Integer                                                                                    ;
+; top_tanky_boundary    ; 9     ; Signed Integer                                                                                    ;
+; bottom_tanky_boundary ; 470   ; Signed Integer                                                                                    ;
+; wall_width            ; 5     ; Signed Integer                                                                                    ;
+; tank_w                ; 32    ; Signed Integer                                                                                    ;
+; tank_h                ; 10    ; Signed Integer                                                                                    ;
+; bullet_size           ; 10    ; Signed Integer                                                                                    ;
+; dir_up                ; '1'   ; Enumerated                                                                                        ;
+; step_pixels           ; 20    ; Signed Integer                                                                                    ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:4:u_bullet ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+; Parameter Name        ; Value ; Type                                                                                              ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+; screen_width          ; 640   ; Signed Integer                                                                                    ;
+; screen_height         ; 480   ; Signed Integer                                                                                    ;
+; top_tanky_boundary    ; 9     ; Signed Integer                                                                                    ;
+; bottom_tanky_boundary ; 470   ; Signed Integer                                                                                    ;
+; wall_width            ; 5     ; Signed Integer                                                                                    ;
+; tank_w                ; 32    ; Signed Integer                                                                                    ;
+; tank_h                ; 10    ; Signed Integer                                                                                    ;
+; bullet_size           ; 10    ; Signed Integer                                                                                    ;
+; dir_up                ; '1'   ; Enumerated                                                                                        ;
+; step_pixels           ; 20    ; Signed Integer                                                                                    ;
++-----------------------+-------+---------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; n_bullets      ; 5     ; Signed Integer                                   ;
+; bullet_size    ; 10    ; Signed Integer                                   ;
+; step_pixels    ; 20    ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top|bullet_top_manager:u_mgr ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; n_bullets      ; 5     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:0:u_bullet ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+; Parameter Name        ; Value ; Type                                                                                     ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+; screen_width          ; 640   ; Signed Integer                                                                           ;
+; screen_height         ; 480   ; Signed Integer                                                                           ;
+; top_tanky_boundary    ; 9     ; Signed Integer                                                                           ;
+; bottom_tanky_boundary ; 470   ; Signed Integer                                                                           ;
+; wall_width            ; 5     ; Signed Integer                                                                           ;
+; tank_w                ; 32    ; Signed Integer                                                                           ;
+; tank_h                ; 10    ; Signed Integer                                                                           ;
+; bullet_size           ; 10    ; Signed Integer                                                                           ;
+; dir_up                ; '0'   ; Enumerated                                                                               ;
+; step_pixels           ; 20    ; Signed Integer                                                                           ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:1:u_bullet ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+; Parameter Name        ; Value ; Type                                                                                     ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+; screen_width          ; 640   ; Signed Integer                                                                           ;
+; screen_height         ; 480   ; Signed Integer                                                                           ;
+; top_tanky_boundary    ; 9     ; Signed Integer                                                                           ;
+; bottom_tanky_boundary ; 470   ; Signed Integer                                                                           ;
+; wall_width            ; 5     ; Signed Integer                                                                           ;
+; tank_w                ; 32    ; Signed Integer                                                                           ;
+; tank_h                ; 10    ; Signed Integer                                                                           ;
+; bullet_size           ; 10    ; Signed Integer                                                                           ;
+; dir_up                ; '0'   ; Enumerated                                                                               ;
+; step_pixels           ; 20    ; Signed Integer                                                                           ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:2:u_bullet ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+; Parameter Name        ; Value ; Type                                                                                     ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+; screen_width          ; 640   ; Signed Integer                                                                           ;
+; screen_height         ; 480   ; Signed Integer                                                                           ;
+; top_tanky_boundary    ; 9     ; Signed Integer                                                                           ;
+; bottom_tanky_boundary ; 470   ; Signed Integer                                                                           ;
+; wall_width            ; 5     ; Signed Integer                                                                           ;
+; tank_w                ; 32    ; Signed Integer                                                                           ;
+; tank_h                ; 10    ; Signed Integer                                                                           ;
+; bullet_size           ; 10    ; Signed Integer                                                                           ;
+; dir_up                ; '0'   ; Enumerated                                                                               ;
+; step_pixels           ; 20    ; Signed Integer                                                                           ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:3:u_bullet ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+; Parameter Name        ; Value ; Type                                                                                     ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+; screen_width          ; 640   ; Signed Integer                                                                           ;
+; screen_height         ; 480   ; Signed Integer                                                                           ;
+; top_tanky_boundary    ; 9     ; Signed Integer                                                                           ;
+; bottom_tanky_boundary ; 470   ; Signed Integer                                                                           ;
+; wall_width            ; 5     ; Signed Integer                                                                           ;
+; tank_w                ; 32    ; Signed Integer                                                                           ;
+; tank_h                ; 10    ; Signed Integer                                                                           ;
+; bullet_size           ; 10    ; Signed Integer                                                                           ;
+; dir_up                ; '0'   ; Enumerated                                                                               ;
+; step_pixels           ; 20    ; Signed Integer                                                                           ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:4:u_bullet ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+; Parameter Name        ; Value ; Type                                                                                     ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+; screen_width          ; 640   ; Signed Integer                                                                           ;
+; screen_height         ; 480   ; Signed Integer                                                                           ;
+; top_tanky_boundary    ; 9     ; Signed Integer                                                                           ;
+; bottom_tanky_boundary ; 470   ; Signed Integer                                                                           ;
+; wall_width            ; 5     ; Signed Integer                                                                           ;
+; tank_w                ; 32    ; Signed Integer                                                                           ;
+; tank_h                ; 10    ; Signed Integer                                                                           ;
+; bullet_size           ; 10    ; Signed Integer                                                                           ;
+; dir_up                ; '0'   ; Enumerated                                                                               ;
+; step_pixels           ; 20    ; Signed Integer                                                                           ;
++-----------------------+-------+------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pixelGenerator_dynamicbulletmodule:u_pix ;
++------------------+-------+------------------------------------------------------------+
+; Parameter Name   ; Value ; Type                                                       ;
++------------------+-------+------------------------------------------------------------+
+; n_bottom_bullets ; 5     ; Signed Integer                                             ;
+; n_top_bullets    ; 5     ; Signed Integer                                             ;
+; bullet_size      ; 10    ; Signed Integer                                             ;
++------------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                      ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                   ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                                                   ;
+; WIDTH_A                            ; 30                   ; Signed Integer                                                            ;
+; WIDTHAD_A                          ; 3                    ; Signed Integer                                                            ;
+; NUMWORDS_A                         ; 8                    ; Signed Integer                                                            ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; WIDTH_B                            ; 1                    ; Untyped                                                                   ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                                   ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                                   ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                                   ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                            ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                                   ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                                   ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                   ;
+; INIT_FILE                          ; colorROM.mif         ; Untyped                                                                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                   ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                   ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                   ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                                                   ;
+; CBXI_PARAMETER                     ; altsyncram_b481      ; Untyped                                                                   ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tank_top:u_tank_top|lpm_add_sub:Add0 ;
++------------------------+--------------+-----------------------------------------------+
+; Parameter Name         ; Value        ; Type                                          ;
++------------------------+--------------+-----------------------------------------------+
+; LPM_WIDTH              ; 10           ; Untyped                                       ;
+; LPM_REPRESENTATION     ; UNSIGNED     ; Untyped                                       ;
+; LPM_DIRECTION          ; DEFAULT      ; Untyped                                       ;
+; ONE_INPUT_IS_CONSTANT  ; NO           ; Untyped                                       ;
+; LPM_PIPELINE           ; 0            ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5            ; Untyped                                       ;
+; REGISTERED_AT_END      ; 0            ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 5            ; Untyped                                       ;
+; USE_CS_BUFFERS         ; 1            ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL       ; Untyped                                       ;
+; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                            ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                       ;
+; USE_WYS                ; OFF          ; Untyped                                       ;
+; STYLE                  ; FAST         ; Untyped                                       ;
+; CBXI_PARAMETER         ; add_sub_lvi  ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                ;
++------------------------+--------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tank_bottom:u_tank_bottom|lpm_add_sub:Add0 ;
++------------------------+--------------+-----------------------------------------------------+
+; Parameter Name         ; Value        ; Type                                                ;
++------------------------+--------------+-----------------------------------------------------+
+; LPM_WIDTH              ; 10           ; Untyped                                             ;
+; LPM_REPRESENTATION     ; UNSIGNED     ; Untyped                                             ;
+; LPM_DIRECTION          ; DEFAULT      ; Untyped                                             ;
+; ONE_INPUT_IS_CONSTANT  ; NO           ; Untyped                                             ;
+; LPM_PIPELINE           ; 0            ; Untyped                                             ;
+; MAXIMIZE_SPEED         ; 5            ; Untyped                                             ;
+; REGISTERED_AT_END      ; 0            ; Untyped                                             ;
+; OPTIMIZE_FOR_SPEED     ; 5            ; Untyped                                             ;
+; USE_CS_BUFFERS         ; 1            ; Untyped                                             ;
+; CARRY_CHAIN            ; MANUAL       ; Untyped                                             ;
+; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                                  ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                             ;
+; USE_WYS                ; OFF          ; Untyped                                             ;
+; STYLE                  ; FAST         ; Untyped                                             ;
+; CBXI_PARAMETER         ; add_sub_lvi  ; Untyped                                             ;
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                      ;
++------------------------+--------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; altpll Parameter Settings by Entity Instance                                               ;
++-------------------------------+------------------------------------------------------------+
+; Name                          ; Value                                                      ;
++-------------------------------+------------------------------------------------------------+
+; Number of entity instances    ; 1                                                          ;
+; Entity Instance               ; PLL_clock_top:u_pll|PLL_clock:uPLL|altpll:altpll_component ;
+;     -- OPERATION_MODE         ; NORMAL                                                     ;
+;     -- PLL_TYPE               ; AUTO                                                       ;
+;     -- PRIMARY_CLOCK          ; INCLK0                                                     ;
+;     -- INCLK0_INPUT_FREQUENCY ; 20000                                                      ;
+;     -- INCLK1_INPUT_FREQUENCY ; 0                                                          ;
+;     -- VCO_MULTIPLY_BY        ; 0                                                          ;
+;     -- VCO_DIVIDE_BY          ; 0                                                          ;
++-------------------------------+------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                     ;
++-------------------------------------------+------------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                                    ;
++-------------------------------------------+------------------------------------------------------------------------------------------+
+; Number of entity instances                ; 1                                                                                        ;
+; Entity Instance                           ; pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                                      ;
+;     -- WIDTH_A                            ; 30                                                                                       ;
+;     -- NUMWORDS_A                         ; 8                                                                                        ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                             ;
+;     -- WIDTH_B                            ; 1                                                                                        ;
+;     -- NUMWORDS_B                         ; 1                                                                                        ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                   ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                             ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                     ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                ;
++-------------------------------------------+------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keyboard_top:u_kbd|ps2:uPS2"                                                         ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; hist3 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; hist2 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; hist1 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; hist0 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_sync_pipe:u_sync"                                                                            ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                             ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; video_on_pipe     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; eof               ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pixel_row_pipe    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pixel_column_pipe ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PLL_clock_top:u_pll|PLL_clock:uPLL"                                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; areset ; Input  ; Info     ; Stuck at GND                                                                        ;
+; locked ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 52                          ;
+; cycloneiii_ff         ; 365                         ;
+;     CLR               ; 43                          ;
+;     ENA               ; 50                          ;
+;     ENA CLR           ; 230                         ;
+;     ENA CLR SCLR      ; 11                          ;
+;     SCLR              ; 1                           ;
+;     plain             ; 30                          ;
+; cycloneiii_lcell_comb ; 1892                        ;
+;     arith             ; 1252                        ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 683                         ;
+;         3 data inputs ; 564                         ;
+;     normal            ; 640                         ;
+;         0 data inputs ; 57                          ;
+;         1 data inputs ; 31                          ;
+;         2 data inputs ; 213                         ;
+;         3 data inputs ; 72                          ;
+;         4 data inputs ; 267                         ;
+; cycloneiii_pll        ; 1                           ;
+; cycloneiii_ram_block  ; 30                          ;
+;                       ;                             ;
+; Max LUT depth         ; 9.90                        ;
+; Average LUT depth     ; 6.64                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+    Info: Processing started: Sun Nov 23 19:04:49 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off miniVGA -c miniVGA
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file leddcd.vhd
+    Info (12022): Found design unit 1: leddcd-data_flow File: C:/VHDL_training/miniVGA/leddcd.vhd Line: 12
+    Info (12023): Found entity 1: leddcd File: C:/VHDL_training/miniVGA/leddcd.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file ps2.vhd
+    Info (12022): Found design unit 1: ps2-structural File: C:/VHDL_training/miniVGA/ps2.vhd Line: 19
+    Info (12023): Found entity 1: ps2 File: C:/VHDL_training/miniVGA/ps2.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file oneshot.vhd
+    Info (12022): Found design unit 1: oneshot-dd File: C:/VHDL_training/miniVGA/oneshot.vhd Line: 14
+    Info (12023): Found entity 1: oneshot File: C:/VHDL_training/miniVGA/oneshot.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file keyboard.vhd
+    Info (12022): Found design unit 1: keyboard-a File: C:/VHDL_training/miniVGA/keyboard.vhd Line: 14
+    Info (12023): Found entity 1: keyboard File: C:/VHDL_training/miniVGA/keyboard.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file tank_bullet_top_refine.vhd
+    Info (12022): Found design unit 1: tank_bullet_top_refine-behavior File: C:/VHDL_training/miniVGA/tank_bullet_top_refine.vhd Line: 35
+    Info (12023): Found entity 1: tank_bullet_top_refine File: C:/VHDL_training/miniVGA/tank_bullet_top_refine.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file tank_bullet_bottom_refine.vhd
+    Info (12022): Found design unit 1: tank_bullet_bottom_refine-behavior File: C:/VHDL_training/miniVGA/tank_bullet_bottom_refine.vhd Line: 35
+    Info (12023): Found entity 1: tank_bullet_bottom_refine File: C:/VHDL_training/miniVGA/tank_bullet_bottom_refine.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file colorrom.vhd
+    Info (12022): Found design unit 1: colorrom-SYN File: C:/VHDL_training/miniVGA/colorROM.vhd Line: 51
+    Info (12023): Found entity 1: colorROM File: C:/VHDL_training/miniVGA/colorROM.vhd Line: 41
+Info (12021): Found 2 design units, including 1 entities, in source file tank_bottom.vhd
+    Info (12022): Found design unit 1: tank_bottom-behavior File: C:/VHDL_training/miniVGA/tank_bottom.vhd Line: 30
+    Info (12023): Found entity 1: tank_bottom File: C:/VHDL_training/miniVGA/tank_bottom.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file tank_top.vhd
+    Info (12022): Found design unit 1: tank_top-behavior File: C:/VHDL_training/miniVGA/tank_top.vhd Line: 30
+    Info (12023): Found entity 1: tank_top File: C:/VHDL_training/miniVGA/tank_top.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file vga_sync_pipe.vhd
+    Info (12022): Found design unit 1: vga_sync_pipe-behavior File: C:/VHDL_training/miniVGA/vga_sync_pipe.vhd Line: 21
+    Info (12023): Found entity 1: vga_sync_pipe File: C:/VHDL_training/miniVGA/vga_sync_pipe.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file bullet_bottom_manager.vhd
+    Info (12022): Found design unit 1: bullet_bottom_manager-rtl File: C:/VHDL_training/miniVGA/bullet_bottom_manager.vhd Line: 19
+    Info (12023): Found entity 1: bullet_bottom_manager File: C:/VHDL_training/miniVGA/bullet_bottom_manager.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file bullet_bottom_top.vhd
+    Info (12022): Found design unit 1: bullet_bottom_top-rtl File: C:/VHDL_training/miniVGA/bullet_bottom_top.vhd Line: 26
+    Info (12023): Found entity 1: bullet_bottom_top File: C:/VHDL_training/miniVGA/bullet_bottom_top.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file bullet_top_manager.vhd
+    Info (12022): Found design unit 1: bullet_top_manager-rtl File: C:/VHDL_training/miniVGA/bullet_top_manager.vhd Line: 19
+    Info (12023): Found entity 1: bullet_top_manager File: C:/VHDL_training/miniVGA/bullet_top_manager.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file bullet_top_top.vhd
+    Info (12022): Found design unit 1: bullet_top_top-rtl File: C:/VHDL_training/miniVGA/bullet_top_top.vhd Line: 26
+    Info (12023): Found entity 1: bullet_top_top File: C:/VHDL_training/miniVGA/bullet_top_top.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file pixelgenerator_dynamicbulletmodule.vhd
+    Info (12022): Found design unit 1: pixelGenerator_dynamicbulletmodule-behavior File: C:/VHDL_training/miniVGA/pixelGenerator_dynamicbulletmodule.vhd Line: 39
+    Info (12023): Found entity 1: pixelGenerator_dynamicbulletmodule File: C:/VHDL_training/miniVGA/pixelGenerator_dynamicbulletmodule.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file vga_dynamic_tb_pipe.vhd
+    Info (12022): Found design unit 1: vga_dynamic_tb_pipe-sim File: C:/VHDL_training/miniVGA/vga_dynamic_tb_pipe.vhd Line: 11
+    Info (12023): Found entity 1: vga_dynamic_tb_pipe File: C:/VHDL_training/miniVGA/vga_dynamic_tb_pipe.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file keyboard_ctrl.vhd
+    Info (12022): Found design unit 1: keyboard_ctrl-rtl File: C:/VHDL_training/miniVGA/keyboard_ctrl.vhd Line: 22
+    Info (12023): Found entity 1: keyboard_ctrl File: C:/VHDL_training/miniVGA/keyboard_ctrl.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file keyboard_top.vhd
+    Info (12022): Found design unit 1: keyboard_top-structure File: C:/VHDL_training/miniVGA/keyboard_top.vhd Line: 18
+    Info (12023): Found entity 1: keyboard_top File: C:/VHDL_training/miniVGA/keyboard_top.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file pll_clock.vhd
+    Info (12022): Found design unit 1: pll_clock-SYN File: C:/VHDL_training/miniVGA/PLL_clock.vhd Line: 54
+    Info (12023): Found entity 1: PLL_clock File: C:/VHDL_training/miniVGA/PLL_clock.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file pll_clock_top.vhd
+    Info (12022): Found design unit 1: PLL_clock_top-rtl File: C:/VHDL_training/miniVGA/PLL_clock_top.vhd Line: 16
+    Info (12023): Found entity 1: PLL_clock_top File: C:/VHDL_training/miniVGA/PLL_clock_top.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file tank_duel_top .vhd
+    Info (12022): Found design unit 1: tank_duel_top-rtl File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 37
+    Info (12023): Found entity 1: tank_duel_top File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file tank_duel_tb.vhd
+    Info (12022): Found design unit 1: tank_duel_tb-sim File: C:/VHDL_training/miniVGA/tank_duel_tb.vhd Line: 11
+    Info (12023): Found entity 1: tank_duel_tb File: C:/VHDL_training/miniVGA/tank_duel_tb.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file score_toptank.vhd
+    Info (12022): Found design unit 1: score_toptank-rtl File: C:/VHDL_training/miniVGA/score_toptank.vhd Line: 15
+    Info (12023): Found entity 1: score_toptank File: C:/VHDL_training/miniVGA/score_toptank.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file score_bottomtank.vhd
+    Info (12022): Found design unit 1: score_bottomtank-rtl File: C:/VHDL_training/miniVGA/score_bottomtank.vhd Line: 15
+    Info (12023): Found entity 1: score_bottomtank File: C:/VHDL_training/miniVGA/score_bottomtank.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file scoremodule.vhd
+    Info (12022): Found design unit 1: scoremodule-structure File: C:/VHDL_training/miniVGA/scoremodule.vhd Line: 14
+    Info (12023): Found entity 1: scoremodule File: C:/VHDL_training/miniVGA/scoremodule.vhd Line: 5
+Info (12127): Elaborating entity "tank_duel_top" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at tank_duel_top .vhd(72): object "video_on_pipe" assigned a value but never read File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 72
+Warning (10036): Verilog HDL or VHDL warning at tank_duel_top .vhd(74): object "eof" assigned a value but never read File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 74
+Warning (10036): Verilog HDL or VHDL warning at tank_duel_top .vhd(77): object "pixel_row_pipe" assigned a value but never read File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 77
+Warning (10036): Verilog HDL or VHDL warning at tank_duel_top .vhd(79): object "pixel_column_pipe" assigned a value but never read File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 79
+Info (12128): Elaborating entity "PLL_clock_top" for hierarchy "PLL_clock_top:u_pll" File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 148
+Info (12128): Elaborating entity "PLL_clock" for hierarchy "PLL_clock_top:u_pll|PLL_clock:uPLL" File: C:/VHDL_training/miniVGA/PLL_clock_top.vhd Line: 23
+Info (12128): Elaborating entity "altpll" for hierarchy "PLL_clock_top:u_pll|PLL_clock:uPLL|altpll:altpll_component" File: C:/VHDL_training/miniVGA/PLL_clock.vhd Line: 141
+Info (12130): Elaborated megafunction instantiation "PLL_clock_top:u_pll|PLL_clock:uPLL|altpll:altpll_component" File: C:/VHDL_training/miniVGA/PLL_clock.vhd Line: 141
+Info (12133): Instantiated megafunction "PLL_clock_top:u_pll|PLL_clock:uPLL|altpll:altpll_component" with the following parameter: File: C:/VHDL_training/miniVGA/PLL_clock.vhd Line: 141
+    Info (12134): Parameter "bandwidth_type" = "AUTO"
+    Info (12134): Parameter "clk0_divide_by" = "1"
+    Info (12134): Parameter "clk0_duty_cycle" = "50"
+    Info (12134): Parameter "clk0_multiply_by" = "2"
+    Info (12134): Parameter "clk0_phase_shift" = "0"
+    Info (12134): Parameter "compensate_clock" = "CLK0"
+    Info (12134): Parameter "inclk0_input_frequency" = "20000"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "CBX_MODULE_PREFIX=PLL_clock"
+    Info (12134): Parameter "lpm_type" = "altpll"
+    Info (12134): Parameter "operation_mode" = "NORMAL"
+    Info (12134): Parameter "pll_type" = "AUTO"
+    Info (12134): Parameter "port_activeclock" = "PORT_UNUSED"
+    Info (12134): Parameter "port_areset" = "PORT_USED"
+    Info (12134): Parameter "port_clkbad0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkbad1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkloss" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkswitch" = "PORT_UNUSED"
+    Info (12134): Parameter "port_configupdate" = "PORT_UNUSED"
+    Info (12134): Parameter "port_fbin" = "PORT_UNUSED"
+    Info (12134): Parameter "port_inclk0" = "PORT_USED"
+    Info (12134): Parameter "port_inclk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_locked" = "PORT_USED"
+    Info (12134): Parameter "port_pfdena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasecounterselect" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasedone" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasestep" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phaseupdown" = "PORT_UNUSED"
+    Info (12134): Parameter "port_pllena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanaclr" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanclk" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanclkena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandata" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandataout" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandone" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanread" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanwrite" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk0" = "PORT_USED"
+    Info (12134): Parameter "port_clk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk3" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk4" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk5" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena3" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena4" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena5" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
+    Info (12134): Parameter "self_reset_on_loss_lock" = "OFF"
+    Info (12134): Parameter "width_clock" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/pll_clock_altpll.v
+    Info (12023): Found entity 1: PLL_clock_altpll File: C:/VHDL_training/miniVGA/db/pll_clock_altpll.v Line: 31
+Info (12128): Elaborating entity "PLL_clock_altpll" for hierarchy "PLL_clock_top:u_pll|PLL_clock:uPLL|altpll:altpll_component|PLL_clock_altpll:auto_generated" File: c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altpll.tdf Line: 898
+Info (12128): Elaborating entity "vga_sync_pipe" for hierarchy "vga_sync_pipe:u_sync" File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 160
+Info (12128): Elaborating entity "keyboard_top" for hierarchy "keyboard_top:u_kbd" File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 178
+Info (12128): Elaborating entity "keyboard_ctrl" for hierarchy "keyboard_top:u_kbd|keyboard_ctrl:Ukeycontrol" File: C:/VHDL_training/miniVGA/keyboard_top.vhd Line: 24
+Info (12128): Elaborating entity "ps2" for hierarchy "keyboard_top:u_kbd|ps2:uPS2" File: C:/VHDL_training/miniVGA/keyboard_top.vhd Line: 36
+Info (12128): Elaborating entity "keyboard" for hierarchy "keyboard_top:u_kbd|ps2:uPS2|keyboard:u1" File: C:/VHDL_training/miniVGA/ps2.vhd Line: 45
+Info (12128): Elaborating entity "oneshot" for hierarchy "keyboard_top:u_kbd|ps2:uPS2|oneshot:pulser" File: C:/VHDL_training/miniVGA/ps2.vhd Line: 55
+Info (12128): Elaborating entity "tank_bottom" for hierarchy "tank_bottom:u_tank_bottom" File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 193
+Info (12128): Elaborating entity "tank_top" for hierarchy "tank_top:u_tank_top" File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 216
+Info (12128): Elaborating entity "bullet_bottom_top" for hierarchy "bullet_bottom_top:u_bullets_bottom" File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 243
+Info (12128): Elaborating entity "bullet_bottom_manager" for hierarchy "bullet_bottom_top:u_bullets_bottom|bullet_bottom_manager:u_mgr" File: C:/VHDL_training/miniVGA/bullet_bottom_top.vhd Line: 34
+Info (12128): Elaborating entity "tank_bullet_bottom_refine" for hierarchy "bullet_bottom_top:u_bullets_bottom|tank_bullet_bottom_refine:\gen_bullets:0:u_bullet" File: C:/VHDL_training/miniVGA/bullet_bottom_top.vhd Line: 45
+Info (12128): Elaborating entity "bullet_top_top" for hierarchy "bullet_top_top:u_bullets_top" File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 269
+Info (12128): Elaborating entity "bullet_top_manager" for hierarchy "bullet_top_top:u_bullets_top|bullet_top_manager:u_mgr" File: C:/VHDL_training/miniVGA/bullet_top_top.vhd Line: 34
+Info (12128): Elaborating entity "tank_bullet_top_refine" for hierarchy "bullet_top_top:u_bullets_top|tank_bullet_top_refine:\gen_bullets:0:u_bullet" File: C:/VHDL_training/miniVGA/bullet_top_top.vhd Line: 45
+Info (12128): Elaborating entity "scoremodule" for hierarchy "scoremodule:u_score" File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 295
+Info (12128): Elaborating entity "score_toptank" for hierarchy "scoremodule:u_score|score_toptank:uscore_t" File: C:/VHDL_training/miniVGA/scoremodule.vhd Line: 19
+Info (12128): Elaborating entity "score_bottomtank" for hierarchy "scoremodule:u_score|score_bottomtank:uscore_b" File: C:/VHDL_training/miniVGA/scoremodule.vhd Line: 28
+Info (12128): Elaborating entity "leddcd" for hierarchy "scoremodule:u_score|leddcd:uled_t" File: C:/VHDL_training/miniVGA/scoremodule.vhd Line: 37
+Info (12128): Elaborating entity "pixelGenerator_dynamicbulletmodule" for hierarchy "pixelGenerator_dynamicbulletmodule:u_pix" File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 311
+Info (12128): Elaborating entity "colorROM" for hierarchy "pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors" File: C:/VHDL_training/miniVGA/pixelGenerator_dynamicbulletmodule.vhd Line: 89
+Info (12128): Elaborating entity "altsyncram" for hierarchy "pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors|altsyncram:altsyncram_component" File: C:/VHDL_training/miniVGA/colorROM.vhd Line: 83
+Info (12130): Elaborated megafunction instantiation "pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors|altsyncram:altsyncram_component" File: C:/VHDL_training/miniVGA/colorROM.vhd Line: 83
+Info (12133): Instantiated megafunction "pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors|altsyncram:altsyncram_component" with the following parameter: File: C:/VHDL_training/miniVGA/colorROM.vhd Line: 83
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "colorROM.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone II"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "8"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "widthad_a" = "3"
+    Info (12134): Parameter "width_a" = "30"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_b481.tdf
+    Info (12023): Found entity 1: altsyncram_b481 File: C:/VHDL_training/miniVGA/db/altsyncram_b481.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_b481" for hierarchy "pixelGenerator_dynamicbulletmodule:u_pix|colorROM:colors|altsyncram:altsyncram_component|altsyncram_b481:auto_generated" File: c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "tank_top:u_tank_top|Add0" File: C:/VHDL_training/miniVGA/tank_top.vhd Line: 86
+    Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "tank_bottom:u_tank_bottom|Add0" File: C:/VHDL_training/miniVGA/tank_bottom.vhd Line: 86
+Info (12130): Elaborated megafunction instantiation "tank_top:u_tank_top|lpm_add_sub:Add0" File: C:/VHDL_training/miniVGA/tank_top.vhd Line: 86
+Info (12133): Instantiated megafunction "tank_top:u_tank_top|lpm_add_sub:Add0" with the following parameter: File: C:/VHDL_training/miniVGA/tank_top.vhd Line: 86
+    Info (12134): Parameter "LPM_WIDTH" = "10"
+    Info (12134): Parameter "LPM_DIRECTION" = "DEFAULT"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "ONE_INPUT_IS_CONSTANT" = "NO"
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_lvi.tdf
+    Info (12023): Found entity 1: add_sub_lvi File: C:/VHDL_training/miniVGA/db/add_sub_lvi.tdf Line: 23
+Info (13000): Registers with preset signals will power-up high File: C:/VHDL_training/miniVGA/pixelGenerator_dynamicbulletmodule.vhd Line: 120
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX_TOP[1]" is stuck at GND File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 31
+    Warning (13410): Pin "HEX_BOTTOM[1]" is stuck at GND File: C:/VHDL_training/miniVGA/tank_duel_top .vhd Line: 32
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 2145 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 48 output pins
+    Info (21061): Implemented 2062 logic cells
+    Info (21064): Implemented 30 RAM segments
+    Info (21065): Implemented 1 PLLs
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
+    Info: Peak virtual memory: 13355 megabytes
+    Info: Processing ended: Sun Nov 23 19:05:17 2025
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:00:33
+
+

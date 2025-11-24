@@ -1,0 +1,154 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity tank_bullet_bottom is
+  generic(
+    SCREEN_WIDTH  : integer := 640;
+    SCREEN_HEIGHT : integer := 480;
+    TANK_W        : integer := 32;
+    TANK_H        : integer := 10;
+    BULLET_SIZE   : integer := 5;
+    DIR_UP        : std_logic := '1';  -- '1' = 往上飛（給 bottom tank 用）, '0' = 往下飛
+    STEP_PIXELS   : integer := 5       -- 每次 move_pulse 子彈移動幾個 pixel
+  );
+  port(
+    clk           : in  std_logic;
+    rst_n         : in  std_logic;
+    move_pulse    : in  std_logic;  -- 一般可以先用你現有的 move_pulse
+    fire          : in  std_logic;  -- 拉一次 = 發射一顆新子彈
+
+    tankx         : in  std_logic_vector(9 downto 0); -- 坦克左上角 x
+    tanky         : in  std_logic_vector(9 downto 0); -- 坦克左上角 y
+
+    bullet_active : out std_logic;                    -- 1 = 這顆子彈目前存在
+    bullet_x      : out std_logic_vector(9 downto 0); -- 子彈左上角 x
+    bullet_y      : out std_logic_vector(9 downto 0)  -- 子彈左上角 y
+  );
+end entity tank_bullet_bottom;
+
+architecture behavior of tank_bullet_bottom is
+  type state_t is (IDLE, FLY);
+  signal state_reg, state_next   : state_t;
+  signal x_reg, x_next           : unsigned(9 downto 0);
+  signal y_reg, y_next           : unsigned(9 downto 0);
+  signal active_reg, active_next : std_logic;
+begin
+  --------------------------------------------------------------------
+  -- 暫存器
+  --------------------------------------------------------------------
+  reg : process(clk, rst_n)
+  begin
+    if rst_n = '0' then
+      state_reg   <= IDLE;
+      x_reg       <= (others => '0');
+      y_reg       <= (others => '0');
+      active_reg  <= '0';
+    elsif rising_edge(clk) then
+      state_reg   <= state_next;
+      x_reg       <= x_next;
+      y_reg       <= y_next;
+      active_reg  <= active_next;
+    end if;
+  end process;
+
+  --------------------------------------------------------------------
+  -- 組合邏輯：決定下一個 state / 位置
+  --------------------------------------------------------------------
+  comb : process(all)
+    variable mid_x    : integer;
+    variable x_start  : integer;
+    variable y_start  : integer;
+    variable y_tmp    : integer;
+  begin
+    -- 預設維持
+    state_next   <= state_reg;
+    x_next       <= x_reg;
+    y_next       <= y_reg;
+    active_next  <= active_reg;
+
+    case state_reg is
+      ----------------------------------------------------------------
+      -- 沒有子彈的時候：等 fire
+      ----------------------------------------------------------------
+      when IDLE =>
+        active_next <= '0';
+
+        if (fire = '1') and (move_pulse = '1') then
+          -- 1) 以坦克中心為基準算 bullet 左上角 x
+          mid_x   := to_integer(unsigned(tankx)) + TANK_W / 2;
+          x_start := mid_x - BULLET_SIZE / 2;
+
+          -- clamp 在畫面裡（避免超出 0~SCREEN_WIDTH-BULLET_SIZE）
+          if x_start < 0 then
+            x_start := 0;
+          elsif x_start > SCREEN_WIDTH - BULLET_SIZE then
+            x_start := SCREEN_WIDTH - BULLET_SIZE;
+          end if;
+
+          -- 2) 算 bullet 左上角 y（依方向決定在坦克上方或下方）
+          if DIR_UP = '1' then
+            -- 底部坦克的子彈：在坦克正上方
+            y_start := to_integer(unsigned(tanky)) - BULLET_SIZE;
+          else
+            -- 上方坦克的子彈：在坦克正下方
+            y_start := to_integer(unsigned(tanky)) + TANK_H;
+          end if;
+
+          -- 同樣 clamp 在畫面裡
+          if y_start < 0 then
+            y_start := 0;
+          elsif y_start > SCREEN_HEIGHT - BULLET_SIZE then
+            y_start := SCREEN_HEIGHT - BULLET_SIZE;
+          end if;
+
+          -- 3) 寫入暫存器
+          x_next      <= to_unsigned(x_start, 10);
+          y_next      <= to_unsigned(y_start, 10);
+          active_next <= '1';
+          state_next  <= FLY;
+        end if;
+
+      ----------------------------------------------------------------
+      -- 子彈飛行狀態
+      ----------------------------------------------------------------
+      when FLY =>
+        active_next <= '1';
+
+        if move_pulse = '1' then
+          if DIR_UP = '1' then
+            -- 往上飛
+            y_tmp := to_integer(y_reg) - STEP_PIXELS;
+            if y_tmp < 0 then
+              -- 飛出畫面，上一顆消失
+              state_next  <= IDLE;
+              active_next <= '0';
+            else
+              y_next <= to_unsigned(y_tmp, 10);
+            end if;
+          else
+            -- 往下飛
+            y_tmp := to_integer(y_reg) + STEP_PIXELS;
+            if y_tmp > SCREEN_HEIGHT - BULLET_SIZE then
+              state_next  <= IDLE;
+              active_next <= '0';
+            else
+              y_next <= to_unsigned(y_tmp, 10);
+            end if;
+          end if;
+        end if;
+
+      when others =>
+        state_next  <= IDLE;
+        active_next <= '0';
+    end case;
+  end process;
+
+  --------------------------------------------------------------------
+  -- 對外輸出
+  --------------------------------------------------------------------
+  bullet_x      <= std_logic_vector(x_reg);
+  bullet_y      <= std_logic_vector(y_reg);
+  bullet_active <= active_reg;
+
+end architecture behavior;

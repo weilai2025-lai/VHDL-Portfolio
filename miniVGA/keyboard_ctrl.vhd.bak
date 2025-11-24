@@ -1,0 +1,107 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity keyboard_ctrl is
+
+	port(
+		clk, rst_n:in std_logic;
+		--from ps2 module--
+		scan_code:in std_logic_vector(7 downto 0);
+		scan_ready:in std_logic;
+		--output signal--
+		speed_sel_top:out std_logic_vector(1 downto 0);
+		speed_sel_bottom:out std_logic_vector(1 downto 0);
+		fire_pulse_top:out std_logic;
+		fire_pulse_bottom:out std_logic
+	);
+
+end entity keyboard_ctrl;
+
+architecture rtl of keyboard_ctrl is
+	type state_t is(WAIT_CODE, GOT_F0);
+	signal state_next, state_reg:state_t;
+	signal speed_sel_top_next, speed_sel_top_reg:std_logic_vector(1 downto 0);
+	signal speed_sel_bottom_next, speed_sel_bottom_reg:std_logic_vector(1 downto 0);
+	signal fire_pulse_top_next, fire_pulse_top_reg:std_logic;
+	signal fire_pulse_bottom_next, fire_pulse_bottom_reg:std_logic;	
+	constant CODE_Z:=std_logic_vector(7 downto 0):= x"1A";
+	constant CODE_X:=std_logic_vector(7 downto 0):= x"22";
+	constant CODE_C:=std_logic_vector(7 downto 0):= x"21";
+	constant CODE_F0:=std_logic_vector(7 downto 0):= x"F0";
+	constant CODE_NUM1:=std_logic_vector(7 downto 0):= x"69"; 
+	constant CODE_NUM2:=std_logic_vector(7 downto 0):= x"72"; 
+	constant CODE_NUM3:=std_logic_vector(7 downto 0):= x"7A"; 
+	constant CODE_SPACE:=std_logic_vector(7 downto 0):= x"29"; 
+	constant CODE_NUMENT  : std_logic_vector(7 downto 0) := x"5A";
+begin
+----register value----------
+	reg:process(clk, rst_n)
+	begin
+	if rst_n = '0' then
+		state_reg <= WAIT_CODE;
+		speed_sel_top_reg <= (others => '0');
+		speed_sel_bottom_reg <= (others => '0');
+		fire_puls_top_reg <= '0';
+		fire_puls_bottom_reg <= '0';
+	elsif rising_edge(clk) then
+		state_reg <= state_next;
+		speed_sel_top_reg <= speed_sel_top_next;
+		speed_sel_bottom_reg <= speed_sel_bottom_next;
+		fire_pulse_top_reg <= fire_pulse_top_next;
+		fire_pulse_bottom_reg <= fire_pulse_bottom_next;
+	end if;
+	end process reg;
+---update value------------
+	comb:process(all)	
+	begin
+---------------------------
+	state_next <= state_reg;
+	speed_sel_top_next <= speed_sel_top_reg;
+	speed_sel_bottom_next <= speed_sel_bottom_reg;
+	fire_pulse_top_next <= fire_pulse_top_reg;
+	fire_pulse_bottom_next <= fire_pulse_bottom_reg;
+---------------------------
+	case(state_reg) is
+		when WAIT_CODE => 
+			if scan_ready = '1' then
+				case(scan_code) is
+				when CODE_F0 => 
+					state_next <= GOT_F0;
+				when  CODE_Z =>
+					state_next <= WAIT_CODE;
+					speed_sel_top_next <= "00";
+				when  CODE_X =>
+					state_next <= WAIT_CODE;
+					speed_sel_top_next <= "01";
+				when  CODE_C=>
+					state_next <= WAIT_CODE;
+					speed_sel_top_next <= "10";
+				when CODE_NUM1 =>
+					state_next <= WAIT_CODE;
+					speed_sel_bottom_next <= "00";
+				when CODE_NUM2 =>
+					state_next <= WAIT_CODE;
+					speed_sel_bottom_next <= "01";
+				when CODE_NUM3=>
+					state_next <= WAIT_CODE;
+					speed_sel_bottom_next <= "10";	
+				when CODE_SPACE=>
+					state_next <= WAIT_CODE;
+					fire_pulse_top_next <= "1";		
+				when CODE_NUMENT=>
+					state_next <= WAIT_CODE;
+					fire_pulse_bottom_next <= "1";				
+				end case;
+			end if;
+		when GOT_F0 =>
+			state_next <= WAIT_CODE;
+	end case;	
+	end process comb:
+---------------------------------------------------
+	fire_pulse_top <= fire_pulse_top_reg;
+	fire_pulse_bottom <= fire_pulse_bottom_reg;
+	speed_sel_top <= speed_sel_top_reg;
+	speed_sel_bottom <= speed_sel_bottom_reg;
+end architecture rtl ;

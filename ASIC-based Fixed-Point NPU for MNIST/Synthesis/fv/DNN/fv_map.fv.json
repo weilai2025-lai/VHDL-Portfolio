@@ -167,7 +167,7 @@
 "type":"root"},
 
 {"commit_cpf_done":"false",
-"hdl_filelist":"{default -vhdl1993 {SYNTHESIS} {../nn_config.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {../Weight_Memory.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {../Sig_ROM.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {../neuron.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {../maxFinder.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {../Layer_1.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {../Layer_2.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {../Layer_3.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {../Layer_4.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {../DNN.vhd} {} {}}",
+"hdl_filelist":"{default -vhdl1993 {SYNTHESIS} {nn_config.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {Weight_Memory.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {Sig_ROM.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {neuron.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {maxFinder.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {Layer_1.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {Layer_2.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {Layer_3.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {Layer_4.vhd} {} {}} {default -vhdl1993 {SYNTHESIS} {DNN.vhd} {} {}}",
 "hdl_parameters":"{C_S_AXI_DATA_WIDTH 32 0} {C_S_AXI_ADDR_WIDTH 5 0}",
 "hdl_user_name":"DNN",
 "is_retimed":"false",
@@ -1587,523 +1587,523 @@
 "object":"/designs/DNN/subdesigns/mult_signed_28_3173",
 "type":"subdesign"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValid",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValid",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[31]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[30]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[29]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[28]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[27]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[26]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[25]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[24]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[23]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[22]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[21]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[20]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[19]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[18]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[17]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[16]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[15]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[14]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[13]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[12]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[11]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[10]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[9]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[8]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[7]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[6]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[5]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[4]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[3]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[2]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[1]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/weightValue[0]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[31]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[30]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[29]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[28]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[27]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[26]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[25]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[24]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[23]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[22]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[21]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[20]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[19]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[18]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[17]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[16]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[15]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[14]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[13]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[12]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[11]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[10]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[9]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[8]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[7]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[6]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[5]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[4]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[3]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[2]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[1]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/biasValue[0]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[31]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[30]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[29]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[28]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[27]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[26]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[25]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[24]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[23]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[22]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[21]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[20]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[19]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[18]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[17]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[16]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[15]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[14]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[13]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[12]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[11]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[10]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[9]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[8]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[7]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[6]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[5]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[4]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[3]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[2]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[1]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_layer_num[0]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[31]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[30]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[29]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[28]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[27]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[26]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[25]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[24]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[23]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[22]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[21]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[20]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[19]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[18]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[17]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[16]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[15]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[14]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[13]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[12]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[11]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[10]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[9]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[8]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[7]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[6]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[5]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[4]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[3]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[2]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[1]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L1/pins_in/config_neuron_num[0]",
 "type":"pin"},
 
@@ -3423,523 +3423,523 @@
 "object":"/designs/DNN/instances_hier/L1/instances_hier/n_164_mul_679_23/pins_out/Z[28]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValid",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValid",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[31]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[30]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[29]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[28]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[27]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[26]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[25]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[24]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[23]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[22]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[21]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[20]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[19]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[18]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[17]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[16]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[15]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[14]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[13]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[12]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[11]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[10]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[9]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[8]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[7]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[6]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[5]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[4]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[3]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[2]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[1]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/weightValue[0]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[31]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[30]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[29]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[28]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[27]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[26]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[25]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[24]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[23]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[22]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[21]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[20]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[19]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[18]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[17]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[16]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[15]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[14]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[13]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[12]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[11]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[10]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[9]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[8]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[7]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[6]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[5]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[4]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[3]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[2]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[1]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/biasValue[0]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[31]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[30]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[29]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[28]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[27]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[26]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[25]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[24]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[23]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[22]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[21]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[20]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[19]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[18]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[17]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[16]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[15]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[14]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[13]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[12]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[11]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[10]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[9]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[8]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[7]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[6]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[5]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[4]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[3]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[2]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[1]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_layer_num[0]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[31]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[30]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[29]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[28]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[27]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[26]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[25]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[24]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[23]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[22]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[21]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[20]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[19]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[18]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[17]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[16]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[15]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[14]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[13]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[12]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[11]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[10]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[9]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[8]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[7]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[6]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[5]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[4]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[3]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[2]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[1]",
 "type":"pin"},
 
-{"boundary_change":"gobbled",
+{"boundary_change":"constant 0 propagated",
 "object":"/designs/DNN/instances_hier/L2/pins_in/config_neuron_num[0]",
 "type":"pin"},
 
@@ -55504,14 +55504,14 @@
 "type":"instance"},
 
 {"index": "1", 
- "date": "Wed Oct 29 08:42:10 CDT 2025",
- "seconds": 1761745330.170101,
+ "date": "Wed Nov 12 20:14:53 CST 2025",
+ "seconds": 1763000093.384707,
  "netlist": "fv/DNN/fv_map.v.gz", 
  "design_name": "DNN", 
- "synth_workdir": "/home/kpb1466/Neuron/Synthesis", 
+ "synth_workdir": "/home/kpb1466/Neuron_refine4/Synthesis", 
  "synthesis_command":"",
  "current_label": "fv_map", 
  "previous_label": "rtl", 
- "write_verif_file_runtime": 9.479846 
+ "write_verif_file_runtime": 8.669858 
  }
 ]

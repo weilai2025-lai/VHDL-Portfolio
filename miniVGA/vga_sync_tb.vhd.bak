@@ -1,0 +1,94 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity vga_sync_tb is
+end entity vga_sync_tb;
+
+architecture sim of vga_sync_tb is
+  ------------------------------------------------------------------
+  -- 1) 50 MHz 輸入時脈
+  ------------------------------------------------------------------
+  constant T_50 : time := 20 ns;
+
+  signal clock_50mhz    : std_logic := '0';
+
+  ------------------------------------------------------------------
+  -- 2) 觀察 vga_sync 的輸出
+  ------------------------------------------------------------------
+  signal horiz_sync_out : std_logic;
+  signal verti_syn_out  : std_logic;
+  signal video_on       : std_logic;
+  signal pixel_clock    : std_logic;
+  signal eof            : std_logic;
+
+  signal pixel_row      : std_logic_vector(9 downto 0);
+  signal pixel_column   : std_logic_vector(9 downto 0);
+
+begin
+  ------------------------------------------------------------------
+  -- 3) 時脈產生器：50 MHz
+  ------------------------------------------------------------------
+  clk_proc : process
+  begin
+    clock_50mhz <= '0';
+    wait for T_50/2;
+    clock_50mhz <= '1';
+    wait for T_50/2;
+  end process;
+
+  ------------------------------------------------------------------
+  -- 4) 實例化 vga_sync
+  ------------------------------------------------------------------
+  uut : entity work.vga_sync
+    port map(
+      clock_50mhz    => clock_50mhz,
+      horiz_sync_out => horiz_sync_out,
+      verti_syn_out  => verti_syn_out,
+      video_on       => video_on,
+      pixel_clock    => pixel_clock,
+      eof            => eof,
+      pixel_row      => pixel_row,
+      pixel_column   => pixel_column
+    );
+
+  ------------------------------------------------------------------
+  -- 5) Debug：每次 pixel_clock 上升緣，抓 col=639 & video_on=1
+  --
+  --    重點：這裡故意用 pixel_clock，而不是 clock_50mhz，
+  --          因為 vga_sync 的座標更新是對 pixel_clock_int 的
+  ------------------------------------------------------------------
+  monitor_proc : process
+    variable row_i : integer;
+    variable col_i : integer;
+  begin
+    wait until rising_edge(pixel_clock);
+
+    row_i := to_integer(unsigned(pixel_row));
+    col_i := to_integer(unsigned(pixel_column));
+
+    -- 你原本指定的條件：只印出 col=639 且 video_on='1' 的拍
+    if (col_i = 639) and (video_on = '1') then
+      report "DBG pixel_clock↑  row="
+             & integer'image(row_i)
+             & "  col="
+             & integer'image(col_i)
+             & "  video_on="
+             & std_logic'image(video_on)
+             & "  eof="
+             & std_logic'image(eof);
+    end if;
+  end process;
+
+  ------------------------------------------------------------------
+  -- 6) 自動結束模擬（避免 run -all 無限跑）
+  --    一整列 800 pixel clock 大約 800 * 20ns * 2 ≒ 32us
+  --    我們跑個 200us 足夠看好幾列 / 幾個 frame
+  ------------------------------------------------------------------
+  stop_proc : process
+  begin
+    wait for 200 us;
+    assert false report "vga_sync_tb: End of simulation." severity failure;
+  end process;
+
+end architecture sim;

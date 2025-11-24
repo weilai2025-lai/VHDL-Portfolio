@@ -1,0 +1,174 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity pixelGenerator_dynamicbulletmodule is
+  port(
+    -- 基本 VGA / 顏色輸出
+    clk, ROM_clk, rst_n, video_on, eof : in  std_logic;
+    pixel_row, pixel_column            : in  std_logic_vector(9 downto 0);
+
+    -- 兩台坦克的位置（左上角座標）
+    bottom_tank_x : in std_logic_vector(9 downto 0);
+    bottom_tank_y : in std_logic_vector(9 downto 0);
+    top_tank_x    : in std_logic_vector(9 downto 0);
+    top_tank_y    : in std_logic_vector(9 downto 0);
+
+    -- 新增：bottom tank 動態子彈
+    bottom_bullet_active : in std_logic;
+    bottom_bullet_x      : in std_logic_vector(9 downto 0); -- 子彈左上角 x
+    bottom_bullet_y      : in std_logic_vector(9 downto 0); -- 子彈左上角 y
+
+    red_out, blue_out, green_out      : out std_logic_vector(9 downto 0)
+  );
+end entity pixelGenerator_dynamicbulletmodule;
+
+architecture behavior of pixelGenerator_dynamicbulletmodule is
+  ------------------------------------------------------------------
+  -- colorROM.mif 對應的顏色 index
+  ------------------------------------------------------------------
+  constant color_red     : std_logic_vector(2 downto 0) := "000";
+  constant color_green   : std_logic_vector(2 downto 0) := "001";
+  constant color_blue    : std_logic_vector(2 downto 0) := "010";
+  constant color_yellow  : std_logic_vector(2 downto 0) := "011";
+  constant color_magenta : std_logic_vector(2 downto 0) := "100";
+  constant color_cyan    : std_logic_vector(2 downto 0) := "101";
+  constant color_black   : std_logic_vector(2 downto 0) := "110";
+  constant color_white   : std_logic_vector(2 downto 0) := "111";
+
+  ------------------------------------------------------------------
+  -- 幾何尺寸參數
+  ------------------------------------------------------------------
+  constant SCREEN_WIDTH  : integer := 640;
+  constant WALL_WIDTH    : integer := 5;    -- 左右牆寬度
+
+  constant TANK_W        : integer := 32;   -- tank 寬 32
+  constant TANK_H        : integer := 10;   -- tank 高 10
+
+  constant BULLET_SIZE   : integer := 5;    -- bullet 5x5
+
+  ------------------------------------------------------------------
+  -- colorROM component 宣告
+  ------------------------------------------------------------------
+  component colorROM is
+    port(
+      address : in  std_logic_vector(2 downto 0);
+      clock   : in  std_logic := '1';
+      q       : out std_logic_vector(29 downto 0)
+    );
+  end component colorROM;
+
+  ------------------------------------------------------------------
+  -- 內部訊號：color index / color bus / 當前掃描座標
+  ------------------------------------------------------------------
+  signal colorAddress        : std_logic_vector(2 downto 0);
+  signal color               : std_logic_vector(29 downto 0);
+  signal pixel_row_int       : integer;
+  signal pixel_column_int    : integer;
+
+begin
+  ------------------------------------------------------------------
+  -- 1) 把 pixel_row / pixel_column 轉成 integer 方便比大小
+  ------------------------------------------------------------------
+  pixel_row_int    <= to_integer(unsigned(pixel_row));
+  pixel_column_int <= to_integer(unsigned(pixel_column));
+
+  ------------------------------------------------------------------
+  -- 2) colorROM instance：用 colorAddress 查出 30-bit RGB
+  ------------------------------------------------------------------
+  colors : colorROM
+    port map(
+      address => colorAddress,
+      clock   => ROM_clk,
+      q       => color
+    );
+
+  -- 把 30-bit RGB 展開成 3 個 10-bit channel
+  red_out   <= color(29 downto 20);
+  green_out <= color(19 downto 10);
+  blue_out  <= color(9 downto 0);
+
+  ------------------------------------------------------------------
+  -- 3) 主要繪圖邏輯：根據 pixel 座標 + tank / bullet 位置決定 colorAddress
+  ------------------------------------------------------------------
+  pixelDraw : process(clk)
+    -- 把 tank 座標都用 integer 處理
+    variable bot_x, bot_y : integer;
+    variable top_x, top_y : integer;
+
+    -- bottom bullet 的矩形座標（左 / 右 / 上 / 下）
+    variable bot_bx_l, bot_bx_r : integer;
+    variable bot_by_t, bot_by_b : integer;
+  begin
+    if rising_edge(clk) then
+      -- 非可見區：直接黑畫面
+      if video_on = '0' then
+        colorAddress <= color_black;
+
+      else
+        --------------------------------------------------------------
+        -- 3-1) 先 sample 當下兩台坦克的左上角座標
+        --------------------------------------------------------------
+        bot_x := to_integer(unsigned(bottom_tank_x));
+        bot_y := to_integer(unsigned(bottom_tank_y));
+        top_x := to_integer(unsigned(top_tank_x));
+        top_y := to_integer(unsigned(top_tank_y));
+
+        --------------------------------------------------------------
+        -- 3-2) 由「子彈左上角座標」求出 bottom bullet 的矩形區域
+        --------------------------------------------------------------
+        if bottom_bullet_active = '1' then
+          bot_bx_l := to_integer(unsigned(bottom_bullet_x));
+          bot_by_t := to_integer(unsigned(bottom_bullet_y));
+          bot_bx_r := bot_bx_l + BULLET_SIZE - 1;
+          bot_by_b := bot_by_t + BULLET_SIZE - 1;
+        else
+          -- 若沒有子彈，給一個不可能打中的區域
+          bot_bx_l := -1;
+          bot_bx_r := -1;
+          bot_by_t := -1;
+          bot_by_b := -1;
+        end if;
+
+        --------------------------------------------------------------
+        -- 3-3) 依優先順序決定每個 pixel 的顏色
+        --      牆(red) > bottom 子彈(blue) > 兩台 tank(green) > 背景(black)
+        --------------------------------------------------------------
+
+        -- 牆：左右各 WALL_WIDTH pixel
+        if (pixel_column_int < WALL_WIDTH) or
+           (pixel_column_int >= SCREEN_WIDTH - WALL_WIDTH) then
+          colorAddress <= color_red;
+
+        -- bottom 動態子彈（藍色）
+        elsif (bottom_bullet_active = '1') and
+              (pixel_column_int >= bot_bx_l) and
+              (pixel_column_int <= bot_bx_r) and
+              (pixel_row_int    >= bot_by_t) and
+              (pixel_row_int    <= bot_by_b) then
+          colorAddress <= color_blue;
+
+        -- bottom tank（綠色）
+        elsif (pixel_column_int >= bot_x) and
+              (pixel_column_int <  bot_x + TANK_W) and
+              (pixel_row_int    >= bot_y) and
+              (pixel_row_int    <  bot_y + TANK_H) then
+          colorAddress <= color_green;
+
+        -- top tank（綠色）
+        elsif (pixel_column_int >= top_x) and
+              (pixel_column_int <  top_x + TANK_W) and
+              (pixel_row_int    >= top_y) and
+              (pixel_row_int    <  top_y + TANK_H) then
+          colorAddress <= color_green;
+
+        -- 其他背景（黑）
+        else
+          colorAddress <= color_black;
+        end if;
+
+      end if;  -- video_on
+    end if;    -- rising_edge
+  end process pixelDraw;
+
+end architecture behavior;

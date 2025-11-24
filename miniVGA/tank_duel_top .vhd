@@ -5,8 +5,8 @@ use IEEE.numeric_std.all;
 entity tank_duel_top is
   generic(
     -- 全域子彈大小與步長（往下傳給 bullet_*_top -> tank_bullet_*_refine）
-    GEN_BULLET_SIZE : integer := 20;
-    GEN_BULLET_STEP : integer := 5
+    GEN_BULLET_SIZE : integer := 10;
+    GEN_BULLET_STEP : integer := 20
   );
   port(
     -- 板子 50MHz 時脈

@@ -1,0 +1,176 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sun Nov 23 15:47:46 2025                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v16.20-p002_1 (64bit) 11/08/2016 11:31 (Linux 2.6.18-194.el5)
+#@(#)CDS: NanoRoute 16.20-p002_1 NR161103-1425/16_20-UB (database version 2.30, 354.6.1) {superthreading v1.34}
+#@(#)CDS: AAE 16.20-p004 (64bit) 11/08/2016 (Linux 2.6.18-194.el5)
+#@(#)CDS: CTE 16.20-p008_1 () Oct 29 2016 08:26:57 ( )
+#@(#)CDS: SYNTECH 16.20-p001_1 () Oct 27 2016 11:33:00 ( )
+#@(#)CDS: CPE v16.20-p011
+#@(#)CDS: IQRC/TQRC 15.2.5-s803 (64bit) Tue Sep 13 18:23:58 PDT 2016 (Linux 2.6.18-194.el5)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getDrawView
+loadWorkspace -name Physical
+win
+set init_gnd_net VSS
+set init_lef_file /vol/ece303/genus_tutorial/NangateOpenCellLibrary.lef
+set init_design_settop 0
+set init_verilog Neuron_refine/Synthesis/DNN_syn.v
+set init_mmmc_file Neuron_refine/backend/DNN.view
+set init_pwr_net VDD
+init_design
+setDesignMode -process 45
+getIoFlowFlag
+setIoFlowFlag 0
+floorPlan -coreMarginsBy die -site FreePDK45_38x28_10R_NP_162NW_34O -r 0.998175378341 0.6 50 50 50 50
+uiSetTool select
+getIoFlowFlag
+fit
+setIoFlowFlag 0
+floorPlan -site FreePDK45_38x28_10R_NP_162NW_34O -r 0.997020854022 0.599918 50.16 50.12 50.16 50.12
+uiSetTool select
+getIoFlowFlag
+fit
+getIoFlowFlag
+globalNetConnect VDD -type pgpin -pin VDD -inst *
+globalNetConnect VSS -type pgpin -pin VSS -inst *
+globalNetConnect VDD -type tiehi
+globalNetConnect VSS -type tielo
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Left -layer 3 -spreadType center -spacing 2 -pin {{axis_in_data[0]} {axis_in_data[1]} {axis_in_data[2]} {axis_in_data[3]} {axis_in_data[4]} {axis_in_data[5]} {axis_in_data[6]} {axis_in_data[7]} {axis_in_data[8]} {axis_in_data[9]} {axis_in_data[10]} {axis_in_data[11]} {axis_in_data[12]} {axis_in_data[13]} {axis_in_data[14]} {axis_in_data[15]}}
+setPinAssignMode -pinEditInBatch true
+editPin -use TIEHI -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Left -layer 3 -spreadType center -spacing 0.14 -pin axis_in_data_ready
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Left -layer 3 -spreadType center -spacing 0.14 -pin axis_in_data_valid
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Right -layer 3 -spreadType center -spacing 2 -pin {{class_id[0]} {class_id[1]} {class_id[2]} {class_id[3]}}
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Right -layer 3 -spreadType center -spacing 0.14 -pin class_valid
+setPinAssignMode -pinEditInBatch true
+editPin -use CLOCK -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Left -layer 3 -spreadType center -spacing 0.14 -pin s_axi_aclk
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Left -layer 3 -spreadType center -spacing 0.14 -pin s_axi_aresetn
+setPinAssignMode -pinEditInBatch true
+editPin -use POWER -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Top -layer 5 -spreadType center -spacing 0.14 -pin VDD
+setPinAssignMode -pinEditInBatch true
+editPin -use GROUND -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Bottom -layer 5 -spreadType center -spacing 0.14 -pin VSS
+setPinAssignMode -pinEditInBatch true
+editPin -use GROUND -pinWidth 0.14 -pinDepth 0.14 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Bottom -layer 5 -spreadType center -spacing 0.28 -pin VSS
+setPinAssignMode -pinEditInBatch false
+saveDesign DNN_conv_fl2.enc
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+setAddRingMode -ring_target default -extend_over_row 0 -ignore_rows 0 -avoid_short 0 -skip_crossing_trunks none -stacked_via_top_layer metal10 -stacked_via_bottom_layer metal1 -via_using_exact_crossover_size 1 -orthogonal_only true -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape }
+addRing -nets {VDD VSS} -type core_rings -follow core -layer {top metal5 bottom metal5 left metal6 right metal6} -width {top 5 bottom 5 left 5 right 5} -spacing {top 3 bottom 3 left 3 right 3} -offset {top 0 bottom 0 left 0 right 0} -center 0 -extend_corner {} -threshold 0 -jog_distance 0 -snap_wire_center_to_grid None
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+setAddStripeMode -ignore_block_check false -break_at none -route_over_rows_only false -rows_without_stripes_only false -extend_to_closest_target none -stop_at_last_wire_for_area false -partial_set_thru_domain false -ignore_nondefault_domains false -trim_antenna_back_to_shape none -spacing_type edge_to_edge -spacing_from_block 0 -stripe_min_length 0 -stacked_via_top_layer metal10 -stacked_via_bottom_layer metal1 -via_using_exact_crossover_size false -split_vias false -orthogonal_only true -allow_jog { padcore_ring  block_ring }
+addStripe -nets {VDD VSS} -layer metal6 -direction vertical -width 3 -spacing 4.2 -set_to_set_distance 100 -start_from left -switch_layer_over_obs false -max_same_layer_jog_length 2 -padcore_ring_top_layer_limit metal10 -padcore_ring_bottom_layer_limit metal1 -block_ring_top_layer_limit metal10 -block_ring_bottom_layer_limit metal1 -use_wire_group 0 -snap_wire_center_to_grid None -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape }
+setAddStripeMode -ignore_block_check false -break_at none -route_over_rows_only false -rows_without_stripes_only false -extend_to_closest_target none -stop_at_last_wire_for_area false -partial_set_thru_domain false -ignore_nondefault_domains false -trim_antenna_back_to_shape none -spacing_type edge_to_edge -spacing_from_block 0 -stripe_min_length 0 -stacked_via_top_layer metal10 -stacked_via_bottom_layer metal1 -via_using_exact_crossover_size false -split_vias false -orthogonal_only true -allow_jog { padcore_ring  block_ring }
+addStripe -nets {VDD VSS} -layer metal5 -direction horizontal -width 3 -spacing 4.2 -set_to_set_distance 100 -start_from top -switch_layer_over_obs false -max_same_layer_jog_length 2 -padcore_ring_top_layer_limit metal10 -padcore_ring_bottom_layer_limit metal1 -block_ring_top_layer_limit metal10 -block_ring_bottom_layer_limit metal1 -use_wire_group 0 -snap_wire_center_to_grid None -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape }
+getMultiCpuUsage -localCpu
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report DNN.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { 1 10 } -blockPinTarget { nearestRingStripe nearestTarget } -padPinPortConnect { allPort oneGeom } -checkAlignedSecondaryPin 1 -blockPin useLef -allowJogging 1 -crossoverViaBottomLayer 1 -crossoverViaTopLayer 10 -allowLayerChange 1 -targetViaTopLayer 10 -targetViaBottomLayer 1 -nets { VDD VSS }
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report DNN.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+editPowerVia -skip_via_on_pin Standardcell -bottom_layer metal1 -add_vias 1 -top_layer metal6
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report DNN.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+saveDesign DNN_conv_power2.enc
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -placeIOPins 0
+setPlaceMode -fp false
+placeDesign
+saveDesign DNN_conv_placedesign2.enc
+saveDesign DNN_conv_placeDesign2.enc
+add_ndr -width {metal1 0.14 metal2 0.14 metal3 0.14 metal4 0.28 metal5 0.28 metal6 0.28 metal7 0.8 metal8 0.8 metal9 1.6 metal10 1.6 } -name CTS_2W1S
+add_ndr -init CTS_2W1S -spacing {metal1 0.13 metal2 0.14 metal3 0.14 metal4 0.28 metal5 0.28 metal6 0.28 metal7 0.8 metal8 0.8 metal9 1.6 metal10 1.6 } -name CTS_2W2S
+modify_ndr -name CTS_2W2S
+create_route_type -name leaf_rule -non_default_rule CTS_2W1S -top_preferred_layer metal4 -bottom_preferred_layer metal1
+create_route_type -name trunk_rule -non_default_rule CTS_2W2S -top_preferred_layer metal10 -bottom_preferred_layer metal7 -shield_net VSS -bottom_shield_layer metal7
+set_ccopt_property route_type -net_type leaf leaf_rule
+set_ccopt_property route_type -net_type trunk trunk_rule
+create_ccopt_clock_tree_spec
+ccopt_design
+saveDesign DNN_conv_ccoptDesign2.enc
+selectNet -clock
+setLayerPreference shield -isVisible 0
+setLayerPreference unknowState -isVisible 0
+setLayerPreference metalFill -isVisible 0
+setLayerPreference whatIfShape -isVisible 0
+setLayerPreference wire -isVisible 0
+setLayerPreference via -isVisible 0
+deselectAll
+optDesign -postCTS
+optDesign -postCTS -hold
+saveDesign DNN_conv_ccoptDesign2.enc
+setOptMode -fixFanoutLoad true -fixDrvs true -holdTargetSlack 0.05
+setLayerPreference shield -isVisible 1
+setLayerPreference unknowState -isVisible 1
+setLayerPreference metalFill -isVisible 1
+setLayerPreference whatIfShape -isVisible 1
+setLayerPreference wire -isVisible 1
+setLayerPreference via -isVisible 1
+setOptMode -fixFanoutLoad true -holdTargetSlack 0.05
+optDesign -postRoute -hold -setup
+optDesign -postCTS -hold
+saveDesign DNN_conv_ccoptDesign2.enc
+routeDesign -globalDetail

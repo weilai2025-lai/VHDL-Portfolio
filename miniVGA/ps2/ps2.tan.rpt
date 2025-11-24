@@ -1,0 +1,541 @@
+Classic Timing Analyzer report for ps2
+Fri Feb 26 18:25:10 2010
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'clock_50MHz'
+  6. Clock Hold: 'clock_50MHz'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                  ;
++------------------------------+------------------------------------------+---------------+----------------------------------+--------------------------+-----------------------+-------------+-------------+--------------+
+; Type                         ; Slack                                    ; Required Time ; Actual Time                      ; From                     ; To                    ; From Clock  ; To Clock    ; Failed Paths ;
++------------------------------+------------------------------------------+---------------+----------------------------------+--------------------------+-----------------------+-------------+-------------+--------------+
+; Worst-case tsu               ; N/A                                      ; None          ; 4.545 ns                         ; keyboard_clk             ; keyboard:u1|filter[7] ; --          ; clock_50MHz ; 0            ;
+; Worst-case tco               ; N/A                                      ; None          ; 17.506 ns                        ; history2[6]              ; hist2[6]              ; clock_50MHz ; --          ; 0            ;
+; Worst-case th                ; N/A                                      ; None          ; 0.275 ns                         ; reset                    ; keyboard:u1|READ_CHAR ; --          ; clock_50MHz ; 0            ;
+; Clock Setup: 'clock_50MHz'   ; N/A                                      ; None          ; 223.36 MHz ( period = 4.477 ns ) ; keyboard:u1|scan_ready   ; oneshot:pulser|delay  ; clock_50MHz ; clock_50MHz ; 0            ;
+; Clock Hold: 'clock_50MHz'    ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; keyboard:u1|scan_code[0] ; history0[0]           ; clock_50MHz ; clock_50MHz ; 8            ;
+; Total number of failed paths ;                                          ;               ;                                  ;                          ;                       ;             ;             ; 8            ;
++------------------------------+------------------------------------------+---------------+----------------------------------+--------------------------+-----------------------+-------------+-------------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EP2C35F672C6       ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clock_50MHz     ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clock_50MHz'                                                                                                                                                                                                                     ;
++-------+------------------------------------------------+-----------------------------------+-----------------------------------+-------------+-------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                              ; To                                ; From Clock  ; To Clock    ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+-----------------------------------+-----------------------------------+-------------+-------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 223.36 MHz ( period = 4.477 ns )               ; keyboard:u1|scan_ready            ; oneshot:pulser|delay              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.555 ns                ;
+; N/A   ; 223.41 MHz ( period = 4.476 ns )               ; keyboard:u1|scan_ready            ; oneshot:pulser|pulse_out          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.554 ns                ;
+; N/A   ; 254.45 MHz ( period = 3.930 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|scan_code[1]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.727 ns                ;
+; N/A   ; 254.45 MHz ( period = 3.930 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|scan_code[2]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.727 ns                ;
+; N/A   ; 254.45 MHz ( period = 3.930 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|scan_code[3]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.727 ns                ;
+; N/A   ; 254.45 MHz ( period = 3.930 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|scan_code[4]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.727 ns                ;
+; N/A   ; 254.45 MHz ( period = 3.930 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|scan_code[5]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.727 ns                ;
+; N/A   ; 254.45 MHz ( period = 3.930 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|scan_code[6]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.727 ns                ;
+; N/A   ; 254.45 MHz ( period = 3.930 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|scan_code[7]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.727 ns                ;
+; N/A   ; 258.00 MHz ( period = 3.876 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|scan_code[1]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.673 ns                ;
+; N/A   ; 258.00 MHz ( period = 3.876 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|scan_code[2]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.673 ns                ;
+; N/A   ; 258.00 MHz ( period = 3.876 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|scan_code[3]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.673 ns                ;
+; N/A   ; 258.00 MHz ( period = 3.876 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|scan_code[4]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.673 ns                ;
+; N/A   ; 258.00 MHz ( period = 3.876 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|scan_code[5]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.673 ns                ;
+; N/A   ; 258.00 MHz ( period = 3.876 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|scan_code[6]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.673 ns                ;
+; N/A   ; 258.00 MHz ( period = 3.876 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|scan_code[7]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.673 ns                ;
+; N/A   ; 260.89 MHz ( period = 3.833 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|SHIFTIN[0]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.630 ns                ;
+; N/A   ; 260.89 MHz ( period = 3.833 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|SHIFTIN[1]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.630 ns                ;
+; N/A   ; 260.89 MHz ( period = 3.833 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|SHIFTIN[2]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.630 ns                ;
+; N/A   ; 260.89 MHz ( period = 3.833 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|SHIFTIN[3]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.630 ns                ;
+; N/A   ; 260.89 MHz ( period = 3.833 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|SHIFTIN[4]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.630 ns                ;
+; N/A   ; 260.89 MHz ( period = 3.833 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|SHIFTIN[5]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.630 ns                ;
+; N/A   ; 260.89 MHz ( period = 3.833 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|SHIFTIN[6]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.630 ns                ;
+; N/A   ; 260.89 MHz ( period = 3.833 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|SHIFTIN[7]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.630 ns                ;
+; N/A   ; 260.89 MHz ( period = 3.833 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|SHIFTIN[8]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.630 ns                ;
+; N/A   ; 264.62 MHz ( period = 3.779 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|SHIFTIN[0]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.576 ns                ;
+; N/A   ; 264.62 MHz ( period = 3.779 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|SHIFTIN[1]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.576 ns                ;
+; N/A   ; 264.62 MHz ( period = 3.779 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|SHIFTIN[2]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.576 ns                ;
+; N/A   ; 264.62 MHz ( period = 3.779 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|SHIFTIN[3]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.576 ns                ;
+; N/A   ; 264.62 MHz ( period = 3.779 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|SHIFTIN[4]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.576 ns                ;
+; N/A   ; 264.62 MHz ( period = 3.779 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|SHIFTIN[5]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.576 ns                ;
+; N/A   ; 264.62 MHz ( period = 3.779 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|SHIFTIN[6]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.576 ns                ;
+; N/A   ; 264.62 MHz ( period = 3.779 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|SHIFTIN[7]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.576 ns                ;
+; N/A   ; 264.62 MHz ( period = 3.779 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|SHIFTIN[8]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.576 ns                ;
+; N/A   ; 266.81 MHz ( period = 3.748 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|scan_code[1]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.545 ns                ;
+; N/A   ; 266.81 MHz ( period = 3.748 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|scan_code[2]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.545 ns                ;
+; N/A   ; 266.81 MHz ( period = 3.748 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|scan_code[3]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.545 ns                ;
+; N/A   ; 266.81 MHz ( period = 3.748 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|scan_code[4]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.545 ns                ;
+; N/A   ; 266.81 MHz ( period = 3.748 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|scan_code[5]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.545 ns                ;
+; N/A   ; 266.81 MHz ( period = 3.748 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|scan_code[6]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.545 ns                ;
+; N/A   ; 266.81 MHz ( period = 3.748 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|scan_code[7]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.545 ns                ;
+; N/A   ; 271.08 MHz ( period = 3.689 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|scan_code[1]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.486 ns                ;
+; N/A   ; 271.08 MHz ( period = 3.689 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|scan_code[2]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.486 ns                ;
+; N/A   ; 271.08 MHz ( period = 3.689 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|scan_code[3]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.486 ns                ;
+; N/A   ; 271.08 MHz ( period = 3.689 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|scan_code[4]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.486 ns                ;
+; N/A   ; 271.08 MHz ( period = 3.689 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|scan_code[5]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.486 ns                ;
+; N/A   ; 271.08 MHz ( period = 3.689 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|scan_code[6]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.486 ns                ;
+; N/A   ; 271.08 MHz ( period = 3.689 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|scan_code[7]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.486 ns                ;
+; N/A   ; 273.90 MHz ( period = 3.651 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|SHIFTIN[0]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.448 ns                ;
+; N/A   ; 273.90 MHz ( period = 3.651 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|SHIFTIN[1]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.448 ns                ;
+; N/A   ; 273.90 MHz ( period = 3.651 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|SHIFTIN[2]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.448 ns                ;
+; N/A   ; 273.90 MHz ( period = 3.651 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|SHIFTIN[3]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.448 ns                ;
+; N/A   ; 273.90 MHz ( period = 3.651 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|SHIFTIN[4]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.448 ns                ;
+; N/A   ; 273.90 MHz ( period = 3.651 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|SHIFTIN[5]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.448 ns                ;
+; N/A   ; 273.90 MHz ( period = 3.651 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|SHIFTIN[6]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.448 ns                ;
+; N/A   ; 273.90 MHz ( period = 3.651 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|SHIFTIN[7]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.448 ns                ;
+; N/A   ; 273.90 MHz ( period = 3.651 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|SHIFTIN[8]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.448 ns                ;
+; N/A   ; 276.17 MHz ( period = 3.621 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|ready_set             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.612 ns                ;
+; N/A   ; 276.40 MHz ( period = 3.618 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|scan_code[1]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.415 ns                ;
+; N/A   ; 276.40 MHz ( period = 3.618 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|scan_code[2]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.415 ns                ;
+; N/A   ; 276.40 MHz ( period = 3.618 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|scan_code[3]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.415 ns                ;
+; N/A   ; 276.40 MHz ( period = 3.618 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|scan_code[4]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.415 ns                ;
+; N/A   ; 276.40 MHz ( period = 3.618 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|scan_code[5]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.415 ns                ;
+; N/A   ; 276.40 MHz ( period = 3.618 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|scan_code[6]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.415 ns                ;
+; N/A   ; 276.40 MHz ( period = 3.618 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|scan_code[7]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.415 ns                ;
+; N/A   ; 278.24 MHz ( period = 3.594 ns )               ; keyboard:u1|INCNT[1]              ; keyboard:u1|scan_code[0]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.413 ns                ;
+; N/A   ; 279.72 MHz ( period = 3.575 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|SHIFTIN[0]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.372 ns                ;
+; N/A   ; 279.72 MHz ( period = 3.575 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|SHIFTIN[1]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.372 ns                ;
+; N/A   ; 279.72 MHz ( period = 3.575 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|SHIFTIN[2]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.372 ns                ;
+; N/A   ; 279.72 MHz ( period = 3.575 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|SHIFTIN[3]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.372 ns                ;
+; N/A   ; 279.72 MHz ( period = 3.575 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|SHIFTIN[4]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.372 ns                ;
+; N/A   ; 279.72 MHz ( period = 3.575 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|SHIFTIN[5]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.372 ns                ;
+; N/A   ; 279.72 MHz ( period = 3.575 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|SHIFTIN[6]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.372 ns                ;
+; N/A   ; 279.72 MHz ( period = 3.575 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|SHIFTIN[7]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.372 ns                ;
+; N/A   ; 279.72 MHz ( period = 3.575 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|SHIFTIN[8]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.372 ns                ;
+; N/A   ; 280.35 MHz ( period = 3.567 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|ready_set             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.558 ns                ;
+; N/A   ; 282.49 MHz ( period = 3.540 ns )               ; keyboard:u1|INCNT[3]              ; keyboard:u1|scan_code[0]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.359 ns                ;
+; N/A   ; 284.01 MHz ( period = 3.521 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|SHIFTIN[0]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.318 ns                ;
+; N/A   ; 284.01 MHz ( period = 3.521 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|SHIFTIN[1]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.318 ns                ;
+; N/A   ; 284.01 MHz ( period = 3.521 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|SHIFTIN[2]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.318 ns                ;
+; N/A   ; 284.01 MHz ( period = 3.521 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|SHIFTIN[3]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.318 ns                ;
+; N/A   ; 284.01 MHz ( period = 3.521 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|SHIFTIN[4]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.318 ns                ;
+; N/A   ; 284.01 MHz ( period = 3.521 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|SHIFTIN[5]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.318 ns                ;
+; N/A   ; 284.01 MHz ( period = 3.521 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|SHIFTIN[6]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.318 ns                ;
+; N/A   ; 284.01 MHz ( period = 3.521 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|SHIFTIN[7]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.318 ns                ;
+; N/A   ; 284.01 MHz ( period = 3.521 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|SHIFTIN[8]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.318 ns                ;
+; N/A   ; 290.78 MHz ( period = 3.439 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|ready_set             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.430 ns                ;
+; N/A   ; 293.08 MHz ( period = 3.412 ns )               ; keyboard:u1|INCNT[2]              ; keyboard:u1|scan_code[0]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.231 ns                ;
+; N/A   ; 298.24 MHz ( period = 3.353 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|scan_code[0]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.172 ns                ;
+; N/A   ; 302.21 MHz ( period = 3.309 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|ready_set             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; 304.69 MHz ( period = 3.282 ns )               ; keyboard:u1|INCNT[0]              ; keyboard:u1|scan_code[0]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 3.101 ns                ;
+; N/A   ; 313.48 MHz ( period = 3.190 ns )               ; keyboard:u1|READ_CHAR             ; keyboard:u1|ready_set             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.181 ns                ;
+; N/A   ; 377.07 MHz ( period = 2.652 ns )               ; history2[3]                       ; hist3[3]~reg0                     ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 2.401 ns                ;
+; N/A   ; 419.82 MHz ( period = 2.382 ns )               ; keyboard:u1|SHIFTIN[0]            ; keyboard:u1|scan_code[0]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 2.190 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|READ_CHAR             ; keyboard:u1|INCNT[1]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.758 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|READ_CHAR             ; keyboard:u1|INCNT[3]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.758 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|READ_CHAR             ; keyboard:u1|INCNT[2]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.758 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|READ_CHAR             ; keyboard:u1|INCNT[0]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.758 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[1]              ; keyboard:u1|INCNT[0]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.757 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[1]              ; keyboard:u1|INCNT[2]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.751 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[3]              ; keyboard:u1|INCNT[0]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.703 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[3]              ; keyboard:u1|INCNT[3]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.700 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[3]              ; keyboard:u1|INCNT[2]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.697 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[1]              ; keyboard:u1|INCNT[3]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.614 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[0]              ; keyboard:u1|INCNT[3]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.583 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[2]              ; keyboard:u1|INCNT[0]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.575 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[2]              ; keyboard:u1|INCNT[2]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.569 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[2]              ; keyboard:u1|INCNT[3]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.496 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[1]              ; keyboard:u1|READ_CHAR             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.457 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[0]              ; keyboard:u1|INCNT[0]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.445 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[0]              ; keyboard:u1|INCNT[2]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.439 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[3]              ; keyboard:u1|READ_CHAR             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.403 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|keyboard_clk_filtered ; keyboard:u1|keyboard_clk_filtered ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.401 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[6]             ; keyboard:u1|keyboard_clk_filtered ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.702 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[1]             ; keyboard:u1|keyboard_clk_filtered ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.678 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[1]              ; keyboard:u1|INCNT[1]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.287 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[2]              ; keyboard:u1|READ_CHAR             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.275 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|ready_set             ; keyboard:u1|ready_set             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.250 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[3]              ; keyboard:u1|INCNT[1]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.233 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[7]             ; keyboard:u1|keyboard_clk_filtered ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.531 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[0]              ; keyboard:u1|READ_CHAR             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.145 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|clock_enable          ; keyboard:u1|filter[7]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.137 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|clock_enable          ; keyboard:u1|filter[2]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.137 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|clock_enable          ; keyboard:u1|filter[4]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.137 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|clock_enable          ; keyboard:u1|filter[6]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.137 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|clock_enable          ; keyboard:u1|filter[1]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.137 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|clock_enable          ; keyboard:u1|filter[0]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.137 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|clock_enable          ; keyboard:u1|filter[3]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.137 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|clock_enable          ; keyboard:u1|filter[5]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.137 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[2]              ; keyboard:u1|INCNT[1]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.105 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[2]             ; keyboard:u1|keyboard_clk_filtered ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.395 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[3]             ; keyboard:u1|keyboard_clk_filtered ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.389 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[5]             ; keyboard:u1|keyboard_clk_filtered ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.363 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|INCNT[0]              ; keyboard:u1|INCNT[1]              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.975 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[0]             ; keyboard:u1|keyboard_clk_filtered ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.256 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[4]             ; keyboard:u1|keyboard_clk_filtered ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.255 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|clock_enable          ; keyboard:u1|keyboard_clk_filtered ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 1.137 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[2]             ; keyboard:u1|filter[1]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.694 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[1]             ; keyboard:u1|filter[0]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.694 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[1]            ; keyboard:u1|scan_code[1]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.691 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[5]            ; keyboard:u1|scan_code[5]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.690 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history0[6]                       ; history1[6]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.689 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[5]            ; keyboard:u1|SHIFTIN[4]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.688 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history0[7]                       ; history1[7]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.688 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[1]            ; keyboard:u1|SHIFTIN[0]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.687 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history0[4]                       ; history1[4]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.687 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history1[2]                       ; history2[2]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.685 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history2[0]                       ; hist3[0]~reg0                     ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.683 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history1[0]                       ; history2[0]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.683 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[3]             ; keyboard:u1|filter[2]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.682 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history2[4]                       ; hist3[4]~reg0                     ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.679 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[8]            ; keyboard:u1|SHIFTIN[7]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.673 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; oneshot:pulser|delay              ; oneshot:pulser|pulse_out          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.666 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[7]             ; keyboard:u1|filter[6]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.548 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[6]            ; keyboard:u1|SHIFTIN[5]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.548 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[7]            ; keyboard:u1|scan_code[7]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.548 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history1[3]                       ; history2[3]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.548 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[7]            ; keyboard:u1|SHIFTIN[6]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.547 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[3]            ; keyboard:u1|scan_code[3]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.547 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[4]            ; keyboard:u1|scan_code[4]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.547 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[6]            ; keyboard:u1|scan_code[6]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.547 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history0[5]                       ; history1[5]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.547 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history2[6]                       ; hist3[6]~reg0                     ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.547 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history2[7]                       ; hist3[7]~reg0                     ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.547 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history2[2]                       ; hist3[2]~reg0                     ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.546 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history0[2]                       ; history1[2]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.546 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history0[3]                       ; history1[3]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.546 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[5]             ; keyboard:u1|filter[4]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.545 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[4]             ; keyboard:u1|filter[3]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.545 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[3]            ; keyboard:u1|SHIFTIN[2]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.545 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[4]            ; keyboard:u1|SHIFTIN[3]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.545 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history2[1]                       ; hist3[1]~reg0                     ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.545 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history0[1]                       ; history1[1]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.545 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history2[5]                       ; hist3[5]~reg0                     ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.545 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|filter[6]             ; keyboard:u1|filter[5]             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.544 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history1[5]                       ; history2[5]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.543 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history1[7]                       ; history2[7]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.543 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[2]            ; keyboard:u1|SHIFTIN[1]            ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.542 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history1[6]                       ; history2[6]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.542 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|SHIFTIN[2]            ; keyboard:u1|scan_code[2]          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.541 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history0[0]                       ; history1[0]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.541 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history1[1]                       ; history2[1]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.540 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; history1[4]                       ; history2[4]                       ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.540 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|READ_CHAR             ; keyboard:u1|READ_CHAR             ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.407 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; keyboard:u1|clock_enable          ; keyboard:u1|clock_enable          ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.407 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; oneshot:pulser|delay              ; oneshot:pulser|delay              ; clock_50MHz ; clock_50MHz ; None                        ; None                      ; 0.407 ns                ;
++-------+------------------------------------------------+-----------------------------------+-----------------------------------+-------------+-------------+-----------------------------+---------------------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'clock_50MHz'                                                                                                                                                                          ;
++------------------------------------------+--------------------------+-------------+-------------+-------------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                     ; To          ; From Clock  ; To Clock    ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+--------------------------+-------------+-------------+-------------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; keyboard:u1|scan_code[0] ; history0[0] ; clock_50MHz ; clock_50MHz ; None                       ; None                       ; 0.683 ns                 ;
+; Not operational: Clock Skew > Data Delay ; keyboard:u1|scan_code[5] ; history0[5] ; clock_50MHz ; clock_50MHz ; None                       ; None                       ; 1.739 ns                 ;
+; Not operational: Clock Skew > Data Delay ; keyboard:u1|scan_code[7] ; history0[7] ; clock_50MHz ; clock_50MHz ; None                       ; None                       ; 1.761 ns                 ;
+; Not operational: Clock Skew > Data Delay ; keyboard:u1|scan_code[6] ; history0[6] ; clock_50MHz ; clock_50MHz ; None                       ; None                       ; 1.764 ns                 ;
+; Not operational: Clock Skew > Data Delay ; keyboard:u1|scan_code[4] ; history0[4] ; clock_50MHz ; clock_50MHz ; None                       ; None                       ; 1.873 ns                 ;
+; Not operational: Clock Skew > Data Delay ; keyboard:u1|scan_code[2] ; history0[2] ; clock_50MHz ; clock_50MHz ; None                       ; None                       ; 2.171 ns                 ;
+; Not operational: Clock Skew > Data Delay ; keyboard:u1|scan_code[1] ; history0[1] ; clock_50MHz ; clock_50MHz ; None                       ; None                       ; 2.177 ns                 ;
+; Not operational: Clock Skew > Data Delay ; keyboard:u1|scan_code[3] ; history0[3] ; clock_50MHz ; clock_50MHz ; None                       ; None                       ; 2.211 ns                 ;
++------------------------------------------+--------------------------+-------------+-------------+-------------+----------------------------+----------------------------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; tsu                                                                                        ;
++-------+--------------+------------+---------------+--------------------------+-------------+
+; Slack ; Required tsu ; Actual tsu ; From          ; To                       ; To Clock    ;
++-------+--------------+------------+---------------+--------------------------+-------------+
+; N/A   ; None         ; 4.545 ns   ; keyboard_clk  ; keyboard:u1|filter[7]    ; clock_50MHz ;
+; N/A   ; None         ; 3.016 ns   ; keyboard_data ; keyboard:u1|ready_set    ; clock_50MHz ;
+; N/A   ; None         ; 2.305 ns   ; reset         ; keyboard:u1|scan_code[1] ; clock_50MHz ;
+; N/A   ; None         ; 2.305 ns   ; reset         ; keyboard:u1|scan_code[2] ; clock_50MHz ;
+; N/A   ; None         ; 2.305 ns   ; reset         ; keyboard:u1|scan_code[3] ; clock_50MHz ;
+; N/A   ; None         ; 2.305 ns   ; reset         ; keyboard:u1|scan_code[4] ; clock_50MHz ;
+; N/A   ; None         ; 2.305 ns   ; reset         ; keyboard:u1|scan_code[5] ; clock_50MHz ;
+; N/A   ; None         ; 2.305 ns   ; reset         ; keyboard:u1|scan_code[6] ; clock_50MHz ;
+; N/A   ; None         ; 2.305 ns   ; reset         ; keyboard:u1|scan_code[7] ; clock_50MHz ;
+; N/A   ; None         ; 2.226 ns   ; reset         ; keyboard:u1|SHIFTIN[0]   ; clock_50MHz ;
+; N/A   ; None         ; 2.226 ns   ; reset         ; keyboard:u1|SHIFTIN[1]   ; clock_50MHz ;
+; N/A   ; None         ; 2.226 ns   ; reset         ; keyboard:u1|SHIFTIN[2]   ; clock_50MHz ;
+; N/A   ; None         ; 2.226 ns   ; reset         ; keyboard:u1|SHIFTIN[3]   ; clock_50MHz ;
+; N/A   ; None         ; 2.226 ns   ; reset         ; keyboard:u1|SHIFTIN[4]   ; clock_50MHz ;
+; N/A   ; None         ; 2.226 ns   ; reset         ; keyboard:u1|SHIFTIN[5]   ; clock_50MHz ;
+; N/A   ; None         ; 2.226 ns   ; reset         ; keyboard:u1|SHIFTIN[6]   ; clock_50MHz ;
+; N/A   ; None         ; 2.226 ns   ; reset         ; keyboard:u1|SHIFTIN[7]   ; clock_50MHz ;
+; N/A   ; None         ; 2.226 ns   ; reset         ; keyboard:u1|SHIFTIN[8]   ; clock_50MHz ;
+; N/A   ; None         ; 2.088 ns   ; reset         ; keyboard:u1|ready_set    ; clock_50MHz ;
+; N/A   ; None         ; 1.969 ns   ; reset         ; keyboard:u1|scan_code[0] ; clock_50MHz ;
+; N/A   ; None         ; 0.861 ns   ; reset         ; keyboard:u1|INCNT[1]     ; clock_50MHz ;
+; N/A   ; None         ; 0.861 ns   ; reset         ; keyboard:u1|INCNT[3]     ; clock_50MHz ;
+; N/A   ; None         ; 0.861 ns   ; reset         ; keyboard:u1|INCNT[2]     ; clock_50MHz ;
+; N/A   ; None         ; 0.861 ns   ; reset         ; keyboard:u1|INCNT[0]     ; clock_50MHz ;
+; N/A   ; None         ; 0.656 ns   ; keyboard_data ; keyboard:u1|SHIFTIN[8]   ; clock_50MHz ;
+; N/A   ; None         ; 0.513 ns   ; keyboard_data ; keyboard:u1|READ_CHAR    ; clock_50MHz ;
+; N/A   ; None         ; -0.045 ns  ; reset         ; keyboard:u1|READ_CHAR    ; clock_50MHz ;
++-------+--------------+------------+---------------+--------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------+
+; tco                                                                                       ;
++-------+--------------+------------+--------------------------+--------------+-------------+
+; Slack ; Required tco ; Actual tco ; From                     ; To           ; From Clock  ;
++-------+--------------+------------+--------------------------+--------------+-------------+
+; N/A   ; None         ; 17.506 ns  ; history2[6]              ; hist2[6]     ; clock_50MHz ;
+; N/A   ; None         ; 16.231 ns  ; hist3[4]~reg0            ; hist3[4]     ; clock_50MHz ;
+; N/A   ; None         ; 15.299 ns  ; history1[3]              ; hist1[3]     ; clock_50MHz ;
+; N/A   ; None         ; 15.200 ns  ; history1[4]              ; hist1[4]     ; clock_50MHz ;
+; N/A   ; None         ; 15.086 ns  ; hist3[5]~reg0            ; hist3[5]     ; clock_50MHz ;
+; N/A   ; None         ; 15.025 ns  ; history2[3]              ; hist2[3]     ; clock_50MHz ;
+; N/A   ; None         ; 14.868 ns  ; history2[1]              ; hist2[1]     ; clock_50MHz ;
+; N/A   ; None         ; 14.784 ns  ; hist3[0]~reg0            ; hist3[0]     ; clock_50MHz ;
+; N/A   ; None         ; 14.604 ns  ; hist3[7]~reg0            ; hist3[7]     ; clock_50MHz ;
+; N/A   ; None         ; 14.595 ns  ; hist3[2]~reg0            ; hist3[2]     ; clock_50MHz ;
+; N/A   ; None         ; 14.263 ns  ; hist3[3]~reg0            ; hist3[3]     ; clock_50MHz ;
+; N/A   ; None         ; 14.145 ns  ; history0[3]              ; hist0[3]     ; clock_50MHz ;
+; N/A   ; None         ; 14.134 ns  ; history1[0]              ; hist1[0]     ; clock_50MHz ;
+; N/A   ; None         ; 14.131 ns  ; history1[1]              ; hist1[1]     ; clock_50MHz ;
+; N/A   ; None         ; 14.119 ns  ; history0[0]              ; hist0[0]     ; clock_50MHz ;
+; N/A   ; None         ; 14.111 ns  ; history2[2]              ; hist2[2]     ; clock_50MHz ;
+; N/A   ; None         ; 14.104 ns  ; history0[1]              ; hist0[1]     ; clock_50MHz ;
+; N/A   ; None         ; 14.104 ns  ; hist3[1]~reg0            ; hist3[1]     ; clock_50MHz ;
+; N/A   ; None         ; 14.019 ns  ; history1[2]              ; hist1[2]     ; clock_50MHz ;
+; N/A   ; None         ; 13.859 ns  ; history0[2]              ; hist0[2]     ; clock_50MHz ;
+; N/A   ; None         ; 13.831 ns  ; history2[0]              ; hist2[0]     ; clock_50MHz ;
+; N/A   ; None         ; 13.678 ns  ; keyboard:u1|scan_code[4] ; scan_code[4] ; clock_50MHz ;
+; N/A   ; None         ; 13.644 ns  ; history1[5]              ; hist1[5]     ; clock_50MHz ;
+; N/A   ; None         ; 13.635 ns  ; history1[6]              ; hist1[6]     ; clock_50MHz ;
+; N/A   ; None         ; 13.634 ns  ; history2[4]              ; hist2[4]     ; clock_50MHz ;
+; N/A   ; None         ; 13.598 ns  ; history1[7]              ; hist1[7]     ; clock_50MHz ;
+; N/A   ; None         ; 13.596 ns  ; history0[6]              ; hist0[6]     ; clock_50MHz ;
+; N/A   ; None         ; 13.594 ns  ; history0[5]              ; hist0[5]     ; clock_50MHz ;
+; N/A   ; None         ; 13.365 ns  ; history0[7]              ; hist0[7]     ; clock_50MHz ;
+; N/A   ; None         ; 13.330 ns  ; history0[4]              ; hist0[4]     ; clock_50MHz ;
+; N/A   ; None         ; 13.314 ns  ; history2[7]              ; hist2[7]     ; clock_50MHz ;
+; N/A   ; None         ; 13.310 ns  ; history2[5]              ; hist2[5]     ; clock_50MHz ;
+; N/A   ; None         ; 13.303 ns  ; hist3[6]~reg0            ; hist3[6]     ; clock_50MHz ;
+; N/A   ; None         ; 12.405 ns  ; keyboard:u1|scan_code[2] ; scan_code[2] ; clock_50MHz ;
+; N/A   ; None         ; 11.955 ns  ; keyboard:u1|scan_code[7] ; scan_code[7] ; clock_50MHz ;
+; N/A   ; None         ; 11.796 ns  ; keyboard:u1|scan_ready   ; scan_readyo  ; clock_50MHz ;
+; N/A   ; None         ; 11.701 ns  ; keyboard:u1|scan_code[1] ; scan_code[1] ; clock_50MHz ;
+; N/A   ; None         ; 11.666 ns  ; keyboard:u1|scan_code[6] ; scan_code[6] ; clock_50MHz ;
+; N/A   ; None         ; 11.383 ns  ; keyboard:u1|scan_code[0] ; scan_code[0] ; clock_50MHz ;
+; N/A   ; None         ; 11.197 ns  ; keyboard:u1|scan_code[5] ; scan_code[5] ; clock_50MHz ;
+; N/A   ; None         ; 10.984 ns  ; keyboard:u1|scan_code[3] ; scan_code[3] ; clock_50MHz ;
++-------+--------------+------------+--------------------------+--------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; th                                                                                               ;
++---------------+-------------+-----------+---------------+--------------------------+-------------+
+; Minimum Slack ; Required th ; Actual th ; From          ; To                       ; To Clock    ;
++---------------+-------------+-----------+---------------+--------------------------+-------------+
+; N/A           ; None        ; 0.275 ns  ; reset         ; keyboard:u1|READ_CHAR    ; clock_50MHz ;
+; N/A           ; None        ; 0.192 ns  ; reset         ; keyboard:u1|INCNT[1]     ; clock_50MHz ;
+; N/A           ; None        ; 0.179 ns  ; reset         ; keyboard:u1|INCNT[0]     ; clock_50MHz ;
+; N/A           ; None        ; 0.173 ns  ; reset         ; keyboard:u1|INCNT[3]     ; clock_50MHz ;
+; N/A           ; None        ; 0.167 ns  ; reset         ; keyboard:u1|INCNT[2]     ; clock_50MHz ;
+; N/A           ; None        ; -0.283 ns ; keyboard_data ; keyboard:u1|READ_CHAR    ; clock_50MHz ;
+; N/A           ; None        ; -0.426 ns ; keyboard_data ; keyboard:u1|SHIFTIN[8]   ; clock_50MHz ;
+; N/A           ; None        ; -1.617 ns ; reset         ; keyboard:u1|ready_set    ; clock_50MHz ;
+; N/A           ; None        ; -1.739 ns ; reset         ; keyboard:u1|scan_code[0] ; clock_50MHz ;
+; N/A           ; None        ; -1.996 ns ; reset         ; keyboard:u1|SHIFTIN[0]   ; clock_50MHz ;
+; N/A           ; None        ; -1.996 ns ; reset         ; keyboard:u1|SHIFTIN[1]   ; clock_50MHz ;
+; N/A           ; None        ; -1.996 ns ; reset         ; keyboard:u1|SHIFTIN[2]   ; clock_50MHz ;
+; N/A           ; None        ; -1.996 ns ; reset         ; keyboard:u1|SHIFTIN[3]   ; clock_50MHz ;
+; N/A           ; None        ; -1.996 ns ; reset         ; keyboard:u1|SHIFTIN[4]   ; clock_50MHz ;
+; N/A           ; None        ; -1.996 ns ; reset         ; keyboard:u1|SHIFTIN[5]   ; clock_50MHz ;
+; N/A           ; None        ; -1.996 ns ; reset         ; keyboard:u1|SHIFTIN[6]   ; clock_50MHz ;
+; N/A           ; None        ; -1.996 ns ; reset         ; keyboard:u1|SHIFTIN[7]   ; clock_50MHz ;
+; N/A           ; None        ; -1.996 ns ; reset         ; keyboard:u1|SHIFTIN[8]   ; clock_50MHz ;
+; N/A           ; None        ; -2.075 ns ; reset         ; keyboard:u1|scan_code[1] ; clock_50MHz ;
+; N/A           ; None        ; -2.075 ns ; reset         ; keyboard:u1|scan_code[2] ; clock_50MHz ;
+; N/A           ; None        ; -2.075 ns ; reset         ; keyboard:u1|scan_code[3] ; clock_50MHz ;
+; N/A           ; None        ; -2.075 ns ; reset         ; keyboard:u1|scan_code[4] ; clock_50MHz ;
+; N/A           ; None        ; -2.075 ns ; reset         ; keyboard:u1|scan_code[5] ; clock_50MHz ;
+; N/A           ; None        ; -2.075 ns ; reset         ; keyboard:u1|scan_code[6] ; clock_50MHz ;
+; N/A           ; None        ; -2.075 ns ; reset         ; keyboard:u1|scan_code[7] ; clock_50MHz ;
+; N/A           ; None        ; -2.786 ns ; keyboard_data ; keyboard:u1|ready_set    ; clock_50MHz ;
+; N/A           ; None        ; -4.315 ns ; keyboard_clk  ; keyboard:u1|filter[7]    ; clock_50MHz ;
++---------------+-------------+-----------+---------------+--------------------------+-------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
+    Info: Processing started: Fri Feb 26 18:25:09 2010
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off ps2 -c ps2 --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clock_50MHz" is an undefined clock
+Warning: Found 3 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "keyboard:u1|ready_set" as buffer
+    Info: Detected ripple clock "keyboard:u1|scan_ready" as buffer
+    Info: Detected ripple clock "keyboard:u1|keyboard_clk_filtered" as buffer
+Info: Clock "clock_50MHz" has Internal fmax of 223.36 MHz between source register "keyboard:u1|scan_ready" and destination register "oneshot:pulser|delay" (period= 4.477 ns)
+    Info: + Longest register to register delay is 0.555 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X34_Y19_N27; Fanout = 4; REG Node = 'keyboard:u1|scan_ready'
+        Info: 2: + IC(0.321 ns) + CELL(0.150 ns) = 0.471 ns; Loc. = LCCOMB_X34_Y19_N8; Fanout = 1; COMB Node = 'oneshot:pulser|delay~0'
+        Info: 3: + IC(0.000 ns) + CELL(0.084 ns) = 0.555 ns; Loc. = LCFF_X34_Y19_N9; Fanout = 2; REG Node = 'oneshot:pulser|delay'
+        Info: Total cell delay = 0.234 ns ( 42.16 % )
+        Info: Total interconnect delay = 0.321 ns ( 57.84 % )
+    Info: - Smallest clock skew is -3.708 ns
+        Info: + Shortest clock path from clock "clock_50MHz" to destination register is 2.669 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_N2; Fanout = 2; CLK Node = 'clock_50MHz'
+            Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G2; Fanout = 11; COMB Node = 'clock_50MHz~clkctrl'
+            Info: 3: + IC(1.015 ns) + CELL(0.537 ns) = 2.669 ns; Loc. = LCFF_X34_Y19_N9; Fanout = 2; REG Node = 'oneshot:pulser|delay'
+            Info: Total cell delay = 1.536 ns ( 57.55 % )
+            Info: Total interconnect delay = 1.133 ns ( 42.45 % )
+        Info: - Longest clock path from clock "clock_50MHz" to source register is 6.377 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_N2; Fanout = 2; CLK Node = 'clock_50MHz'
+            Info: 2: + IC(1.534 ns) + CELL(0.787 ns) = 3.320 ns; Loc. = LCFF_X28_Y16_N19; Fanout = 5; REG Node = 'keyboard:u1|keyboard_clk_filtered'
+            Info: 3: + IC(1.261 ns) + CELL(0.787 ns) = 5.368 ns; Loc. = LCFF_X34_Y20_N17; Fanout = 2; REG Node = 'keyboard:u1|ready_set'
+            Info: 4: + IC(0.472 ns) + CELL(0.537 ns) = 6.377 ns; Loc. = LCFF_X34_Y19_N27; Fanout = 4; REG Node = 'keyboard:u1|scan_ready'
+            Info: Total cell delay = 3.110 ns ( 48.77 % )
+            Info: Total interconnect delay = 3.267 ns ( 51.23 % )
+    Info: + Micro clock to output delay of source is 0.250 ns
+    Info: + Micro setup delay of destination is -0.036 ns
+Warning: Circuit may not operate. Detected 8 non-operational path(s) clocked by clock "clock_50MHz" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "keyboard:u1|scan_code[0]" and destination pin or register "history0[0]" for clock "clock_50MHz" (Hold time is 2.154 ns)
+    Info: + Largest clock skew is 2.821 ns
+        Info: + Longest clock path from clock "clock_50MHz" to destination register is 9.767 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_N2; Fanout = 2; CLK Node = 'clock_50MHz'
+            Info: 2: + IC(1.534 ns) + CELL(0.787 ns) = 3.320 ns; Loc. = LCFF_X28_Y16_N19; Fanout = 5; REG Node = 'keyboard:u1|keyboard_clk_filtered'
+            Info: 3: + IC(1.261 ns) + CELL(0.787 ns) = 5.368 ns; Loc. = LCFF_X34_Y20_N17; Fanout = 2; REG Node = 'keyboard:u1|ready_set'
+            Info: 4: + IC(0.472 ns) + CELL(0.787 ns) = 6.627 ns; Loc. = LCFF_X34_Y19_N27; Fanout = 4; REG Node = 'keyboard:u1|scan_ready'
+            Info: 5: + IC(1.569 ns) + CELL(0.000 ns) = 8.196 ns; Loc. = CLKCTRL_G5; Fanout = 32; COMB Node = 'keyboard:u1|scan_ready~clkctrl'
+            Info: 6: + IC(1.034 ns) + CELL(0.537 ns) = 9.767 ns; Loc. = LCFF_X12_Y14_N1; Fanout = 2; REG Node = 'history0[0]'
+            Info: Total cell delay = 3.897 ns ( 39.90 % )
+            Info: Total interconnect delay = 5.870 ns ( 60.10 % )
+        Info: - Shortest clock path from clock "clock_50MHz" to source register is 6.946 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_N2; Fanout = 2; CLK Node = 'clock_50MHz'
+            Info: 2: + IC(1.534 ns) + CELL(0.787 ns) = 3.320 ns; Loc. = LCFF_X28_Y16_N19; Fanout = 5; REG Node = 'keyboard:u1|keyboard_clk_filtered'
+            Info: 3: + IC(2.057 ns) + CELL(0.000 ns) = 5.377 ns; Loc. = CLKCTRL_G14; Fanout = 22; COMB Node = 'keyboard:u1|keyboard_clk_filtered~clkctrl'
+            Info: 4: + IC(1.032 ns) + CELL(0.537 ns) = 6.946 ns; Loc. = LCFF_X12_Y14_N9; Fanout = 2; REG Node = 'keyboard:u1|scan_code[0]'
+            Info: Total cell delay = 2.323 ns ( 33.44 % )
+            Info: Total interconnect delay = 4.623 ns ( 66.56 % )
+    Info: - Micro clock to output delay of source is 0.250 ns
+    Info: - Shortest register to register delay is 0.683 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X12_Y14_N9; Fanout = 2; REG Node = 'keyboard:u1|scan_code[0]'
+        Info: 2: + IC(0.317 ns) + CELL(0.366 ns) = 0.683 ns; Loc. = LCFF_X12_Y14_N1; Fanout = 2; REG Node = 'history0[0]'
+        Info: Total cell delay = 0.366 ns ( 53.59 % )
+        Info: Total interconnect delay = 0.317 ns ( 46.41 % )
+    Info: + Micro hold delay of destination is 0.266 ns
+Info: tsu for register "keyboard:u1|filter[7]" (data pin = "keyboard_clk", clock pin = "clock_50MHz") is 4.545 ns
+    Info: + Longest pin to register delay is 7.274 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.872 ns) = 0.872 ns; Loc. = PIN_D26; Fanout = 1; PIN Node = 'keyboard_clk'
+        Info: 2: + IC(6.169 ns) + CELL(0.149 ns) = 7.190 ns; Loc. = LCCOMB_X28_Y16_N22; Fanout = 1; COMB Node = 'keyboard:u1|filter[7]~feeder'
+        Info: 3: + IC(0.000 ns) + CELL(0.084 ns) = 7.274 ns; Loc. = LCFF_X28_Y16_N23; Fanout = 2; REG Node = 'keyboard:u1|filter[7]'
+        Info: Total cell delay = 1.105 ns ( 15.19 % )
+        Info: Total interconnect delay = 6.169 ns ( 84.81 % )
+    Info: + Micro setup delay of destination is -0.036 ns
+    Info: - Shortest clock path from clock "clock_50MHz" to destination register is 2.693 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_N2; Fanout = 2; CLK Node = 'clock_50MHz'
+        Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G2; Fanout = 11; COMB Node = 'clock_50MHz~clkctrl'
+        Info: 3: + IC(1.039 ns) + CELL(0.537 ns) = 2.693 ns; Loc. = LCFF_X28_Y16_N23; Fanout = 2; REG Node = 'keyboard:u1|filter[7]'
+        Info: Total cell delay = 1.536 ns ( 57.04 % )
+        Info: Total interconnect delay = 1.157 ns ( 42.96 % )
+Info: tco from clock "clock_50MHz" to destination pin "hist2[6]" through register "history2[6]" is 17.506 ns
+    Info: + Longest clock path from clock "clock_50MHz" to source register is 9.736 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_N2; Fanout = 2; CLK Node = 'clock_50MHz'
+        Info: 2: + IC(1.534 ns) + CELL(0.787 ns) = 3.320 ns; Loc. = LCFF_X28_Y16_N19; Fanout = 5; REG Node = 'keyboard:u1|keyboard_clk_filtered'
+        Info: 3: + IC(1.261 ns) + CELL(0.787 ns) = 5.368 ns; Loc. = LCFF_X34_Y20_N17; Fanout = 2; REG Node = 'keyboard:u1|ready_set'
+        Info: 4: + IC(0.472 ns) + CELL(0.787 ns) = 6.627 ns; Loc. = LCFF_X34_Y19_N27; Fanout = 4; REG Node = 'keyboard:u1|scan_ready'
+        Info: 5: + IC(1.569 ns) + CELL(0.000 ns) = 8.196 ns; Loc. = CLKCTRL_G5; Fanout = 32; COMB Node = 'keyboard:u1|scan_ready~clkctrl'
+        Info: 6: + IC(1.003 ns) + CELL(0.537 ns) = 9.736 ns; Loc. = LCFF_X2_Y23_N13; Fanout = 2; REG Node = 'history2[6]'
+        Info: Total cell delay = 3.897 ns ( 40.03 % )
+        Info: Total interconnect delay = 5.839 ns ( 59.97 % )
+    Info: + Micro clock to output delay of source is 0.250 ns
+    Info: + Longest register to pin delay is 7.520 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X2_Y23_N13; Fanout = 2; REG Node = 'history2[6]'
+        Info: 2: + IC(4.888 ns) + CELL(2.632 ns) = 7.520 ns; Loc. = PIN_L23; Fanout = 0; PIN Node = 'hist2[6]'
+        Info: Total cell delay = 2.632 ns ( 35.00 % )
+        Info: Total interconnect delay = 4.888 ns ( 65.00 % )
+Info: th for register "keyboard:u1|READ_CHAR" (data pin = "reset", clock pin = "clock_50MHz") is 0.275 ns
+    Info: + Longest clock path from clock "clock_50MHz" to destination register is 6.913 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_N2; Fanout = 2; CLK Node = 'clock_50MHz'
+        Info: 2: + IC(1.534 ns) + CELL(0.787 ns) = 3.320 ns; Loc. = LCFF_X28_Y16_N19; Fanout = 5; REG Node = 'keyboard:u1|keyboard_clk_filtered'
+        Info: 3: + IC(2.057 ns) + CELL(0.000 ns) = 5.377 ns; Loc. = CLKCTRL_G14; Fanout = 22; COMB Node = 'keyboard:u1|keyboard_clk_filtered~clkctrl'
+        Info: 4: + IC(0.999 ns) + CELL(0.537 ns) = 6.913 ns; Loc. = LCFF_X33_Y20_N17; Fanout = 6; REG Node = 'keyboard:u1|READ_CHAR'
+        Info: Total cell delay = 2.323 ns ( 33.60 % )
+        Info: Total interconnect delay = 4.590 ns ( 66.40 % )
+    Info: + Micro hold delay of destination is 0.266 ns
+    Info: - Shortest pin to register delay is 6.904 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.842 ns) = 0.842 ns; Loc. = PIN_N23; Fanout = 10; PIN Node = 'reset'
+        Info: 2: + IC(5.540 ns) + CELL(0.438 ns) = 6.820 ns; Loc. = LCCOMB_X33_Y20_N16; Fanout = 1; COMB Node = 'keyboard:u1|READ_CHAR~0'
+        Info: 3: + IC(0.000 ns) + CELL(0.084 ns) = 6.904 ns; Loc. = LCFF_X33_Y20_N17; Fanout = 6; REG Node = 'keyboard:u1|READ_CHAR'
+        Info: Total cell delay = 1.364 ns ( 19.76 % )
+        Info: Total interconnect delay = 5.540 ns ( 80.24 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 129 megabytes
+    Info: Processing ended: Fri Feb 26 18:25:10 2010
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

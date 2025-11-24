@@ -1,0 +1,4 @@
+*.pak
+*.sdf
+miniVGA/frames_dump_multi.txt
+xcelium.d/

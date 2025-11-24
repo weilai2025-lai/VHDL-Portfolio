@@ -1,0 +1,126 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sun Nov 23 18:23:07 2025                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v16.20-p002_1 (64bit) 11/08/2016 11:31 (Linux 2.6.18-194.el5)
+#@(#)CDS: NanoRoute 16.20-p002_1 NR161103-1425/16_20-UB (database version 2.30, 354.6.1) {superthreading v1.34}
+#@(#)CDS: AAE 16.20-p004 (64bit) 11/08/2016 (Linux 2.6.18-194.el5)
+#@(#)CDS: CTE 16.20-p008_1 () Oct 29 2016 08:26:57 ( )
+#@(#)CDS: SYNTECH 16.20-p001_1 () Oct 27 2016 11:33:00 ( )
+#@(#)CDS: CPE v16.20-p011
+#@(#)CDS: IQRC/TQRC 15.2.5-s803 (64bit) Tue Sep 13 18:23:58 PDT 2016 (Linux 2.6.18-194.el5)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getDrawView
+loadWorkspace -name Physical
+win
+restoreDesign /home/kpb1466/DNN_conv_globalrouting2.enc.dat DNN
+setLayerPreference violation -isVisible 1
+violationBrowser -all -no_display_false
+zoomBox -0.505 399.9 0.665 401.04
+setLayerPreference allM0 -isVisible 0
+setLayerPreference allM1 -isVisible 0
+setLayerPreference allM2Cont -isVisible 0
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3Cont -isVisible 0
+setLayerPreference allM3 -isVisible 0
+setLayerPreference allM4Cont -isVisible 0
+setLayerPreference allM4 -isVisible 0
+setLayerPreference allM5Cont -isVisible 0
+setLayerPreference allM5 -isVisible 0
+setLayerPreference allM6Cont -isVisible 0
+setLayerPreference allM6 -isVisible 0
+setLayerPreference allM7Cont -isVisible 0
+setLayerPreference allM7 -isVisible 0
+setLayerPreference allM8Cont -isVisible 0
+setLayerPreference allM8 -isVisible 0
+setLayerPreference allM9Cont -isVisible 0
+setLayerPreference allM9 -isVisible 0
+setLayerPreference allM10Cont -isVisible 0
+setLayerPreference allM10 -isVisible 0
+setLayerPreference allM2 -isVisible 1
+selectMarker -0.0050 400.4000 0.1650 400.5400 2 1 6
+deleteSelectedFromFPlan
+selectWire -0.0350 400.4000 0.1650 400.5400 2 s_axi_aclk
+deleteSelectedFromFPlan
+selectObject IO_Pin s_axi_aclk
+ptnSprRefreshPinsAndBlockages
+setLayerPreference allM2 -isVisible 0
+setLayerPreference allM3 -isVisible 1
+zoomBox -0.505 399.935 0.605 401.005
+zoomBox 127.585 226.895 128.665 227.965
+zoomBox -0.505 399.935 0.605 401.005
+deselectAll
+selectMarker -0.0050 400.4350 0.1050 400.5050 3 1 6
+deleteSelectedFromFPlan
+ecoRoute
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM2 -isVisible 0
+getMultiCpuUsage -localCpu
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report DNN.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+fit
+setLayerPreference allM0 -isVisible 1
+setLayerPreference allM1 -isVisible 1
+setLayerPreference allM2Cont -isVisible 1
+setLayerPreference allM2 -isVisible 1
+setLayerPreference allM3Cont -isVisible 1
+setLayerPreference allM3 -isVisible 1
+setLayerPreference allM4Cont -isVisible 1
+setLayerPreference allM4 -isVisible 1
+setLayerPreference allM5Cont -isVisible 1
+setLayerPreference allM5 -isVisible 1
+setLayerPreference allM6Cont -isVisible 1
+setLayerPreference allM6 -isVisible 1
+setLayerPreference allM7Cont -isVisible 1
+setLayerPreference allM7 -isVisible 1
+setLayerPreference allM8Cont -isVisible 1
+setLayerPreference allM8 -isVisible 1
+setLayerPreference allM9Cont -isVisible 1
+setLayerPreference allM9 -isVisible 1
+setLayerPreference allM10Cont -isVisible 1
+setLayerPreference allM10 -isVisible 1
+saveDesign DNN_conv_globalrouting_perfect2.enc
+verifyConnectivity -type all -error 1000 -warning 50
+verifyProcessAntenna -reportfile cnn.antenna.rpt -error 1000
+getFillerMode -quiet
+addFillerGap 0.19
+addFiller -cell FILLCELL_X1 FILLCELL_X2 FILLCELL_X4 FILLCELL_X8 -prefix FILLER -markFixed
+fit
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report DNN.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+saveDesign DNN_conv_globalrouting_filler_perfect2.enc
+verifyConnectivity -type all -error 1000 -warning 50
+violationBrowserClose

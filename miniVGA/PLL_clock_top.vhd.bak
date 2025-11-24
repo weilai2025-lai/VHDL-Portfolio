@@ -1,0 +1,38 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.numeric_std.all;
+
+entity PLL_clock_top is	
+	port(
+		clock_50MHz:in std_logic;
+		clock_100Mhz:out std_logic;
+		move_pulse:out std_logic
+	);
+end entity PLL_clock_top;
+
+
+architecture rtl of PLL_clock_top is
+	signal counter_accum:unsigned(20 downto 0):=(others => '0');
+begin
+	uPLL:entity work.PLL_clock
+	port map(
+		areset => '0',
+		inclk0 => clock_50MHz,
+		c0 => clock_100Mhz,
+		locked => open
+	);
+	
+	gen_pulse:process(clock_100Mhz)
+	begin
+	if rising_edge(clock_100Mhz) then
+		if integer(counter_accum) = 1999999 then
+			counter_accum <= (others => '0');
+			move_pulse <= '1';
+		else
+			move_pulse <= '0';
+			counter_accum <= counter_accum + 1;
+		end if;
+	end if;
+	end process gen_pulse;
+
+end architecture PLL_clock_top;
