@@ -1037,7 +1037,7 @@ Innovus 指令對大小寫敏感 (CamelCase)，可加入 `-globalDetail` 參數�
 saveDesign postCTS_ready_to_route.enc
 
 # 2. 執行繞線 (Timing-Driven 是預設值)
-routeDesign
+routeDesign -globalDetail
 
 # 3. 存檔 (Routed 狀態)
 saveDesign routed.enc
