@@ -264,6 +264,19 @@ globalNetConnect VSS -type pgpin -pin VSS -inst *
 >
 > **建議**：既然你在做 Tutorial，**跟著 Tutorial 做 (畫水平 Stripe) 是完全沒問題的！** 這會讓你的電源網更強壯。如果要畫水平 Stripe，記得選 **Metal 5 (Horizontal)**，這樣才能跟垂直的 M6 形成交叉網。
 
+> **Pro Tip: 關於 Stripe Spacing 與 Cell Height 的關係**
+>
+> 你可能聽過「Stripe 間距要是 Cell Height 的整數倍」，這主要適用於 **水平 (Horizontal) Stripe**。
+>
+> - **原理**：
+>   - Standard Cell 是以 Row (列) 為單位排列的。
+>   - 每一列的高度 (Cell Height) 是固定的 (你的 LEF 中是 **1.4 um**)。
+>   - 電源軌 (Power Rail) 通常位於 Cell 的頂部或底部。
+> - **應用**：
+>   - 如果你畫 **水平 Stripe (M5)**，將 `Set-to-set distance` 設為 Cell Height 的偶數倍 (例如 28.0 um = 20 Rows)，可以確保 Stripe 剛好經過一排 Cell 的上方，讓 Via 打得更準、更整齊。
+> - **垂直 Stripe (M6)**：
+>   - 比較不受 Cell Height 限制，因為它是垂直跨過所有 Row 的。
+
 ### SRoute (Special Route, 連接電源網格)
 
 畫完了 Ring 和 Stripe，它們現在還只是「浮在空中」的大水管。
@@ -1167,6 +1180,53 @@ saveDesign final_finished.enc
 4. `optDesign -postRoute` (修時序 + 修 DRC)
 5. `ecoRoute -fix_drc` (補刀)
 6. `addMetalFill` (最後補金屬密度)
+
+---
+
+# 附錄：Power Planning 進階除錯與最佳實踐
+
+## 1. 最佳實踐：Stripe 與 Cell Height 的黃金比例 (Pro Tip)
+
+### 核心觀念
+在畫 **水平 Stripe (Horizontal, e.g., M5)** 時，不應隨意設定間距，最佳作法是配合 **Standard Cell Height**。
+
+* **原理**：
+    * Standard Cell 是以 **Row (列)** 為單位排列的，每一列高度固定 (例如本案 LEF 為 1.4 um)。
+    * 標準元件的 M1 Power Rail 通常位於 Cell 的頂部或底部。
+* **設定技巧**：
+    * 將 **Set-to-set distance** 設為 Cell Height 的 **偶數倍**。
+    * **算式**：1.4 um × 20 Rows = 28.0 um。
+* **優勢**：
+    * 確保水平 Stripe 剛好「騎」在一排 Cell 的正上方。
+    * 讓 M5 下到 M1 的 Via 打得更準、更整齊 (Straight Stack)，減少錯位造成的 DRC 風險。
+* **補充**：垂直 Stripe (M6) 比較不受 Cell Height 限制，因為它是跨越所有 Row 的，但仍需注意左右間距以避免 Enclosure 不足。
+
+## 2. 實戰除錯：NSMetal (Enclosure) 的幾何解法
+
+### 問題描述 (Case Study)
+在 Power Mesh 建立後，發現 **NSMetal (Minimum Enclosure)** 違規。
+* **位置**：Power Via Stack 的中間層 (如 Metal 4)。
+* **原因**：由於 Stripe Spacing 設定較緊 (2um) 且 Via Array 較大 (`Via4Array-0_11`)，導致 VDD 與 VSS 的 Via 金屬外框在 M4 層發生空間擠壓。工具為了避開 Short 自動削金屬，導致包覆面積 (Enclosure) 不足。
+
+### 解決方案：ECO Via Reduction (幾何簡化法)
+
+當無法重新重畫 Power Mesh 時，採用手動 ECO (Engineering Change Order) 方式修復。
+
+**操作步驟**：
+1.  **刪除冗餘 Via**：
+    * 觀察到該處生成了 Double Via Array (左右各一排)。
+    * 手動**刪除左側 Via**，直接騰出物理空間。
+2.  **替換為小尺寸 Via (Downsizing)**：
+    * 將右側原本較大的 `Via4Array-0_11`，替換為標準單一的 **`Via4Array-0_5`**。
+    * **效果**：較小的 Via 需要的 Enclosure 較小，能完美適應狹窄空間。
+
+### 工程思維辯證 (Interview Defense)
+
+**Q: 砍掉 Via 會不會影響 IR Drop？**
+> **A:** 這是一個基於 **可製造性 (Manufacturability)** 的權衡 (Trade-off)。
+> 1.  **冗餘性 (Redundancy)**：該 Via 位於 **Power Mesh** 內部節點，周圍並聯路徑充足，單點移除對整體導電性影響微乎其微。
+> 2.  **優先級**：DRC Clean 是晶片能否生產的硬門檻 (Hard Constraint)；極微幅的電阻上升是可接受的代價。因此選擇犧牲局部冗餘來換取 DRC 收斂。
+
 
 
 
