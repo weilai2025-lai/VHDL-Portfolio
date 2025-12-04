@@ -345,7 +345,8 @@ Tutorial 的指令幫你把這些設定都「明確地」寫出來了，這樣�
 ```tcl
 # 1. 補強電源 Via (這步通常在 SRoute 之後做，確保連接更穩固)
 # 注意：如果這步產生大量 DRC (如 NSMETAL)，且 verifyConnectivity 沒問題，可以跳過此步。
-editPowerVia -skip_via_on_pin Standardcell -bottom_layer metal1 -add_vias 1 -top_layer metal6
+# 更新：為了配合後續 CTS Trunk (M7-M10) 的 VSS Shielding，這裡必須打通到 metal10
+editPowerVia -skip_via_on_pin Standardcell -bottom_layer metal1 -add_vias 1 -top_layer metal10
 
 ### 故障排除：editPowerVia 產生 NSMETAL DRC 怎麼辦？
 
@@ -375,30 +376,31 @@ editPowerVia -skip_via_on_pin Standardcell -bottom_layer metal1 -add_vias 1 -top
 
 **結論**：先試著**不執行這行**，只要 Power 連接沒斷，這就是最乾淨的解法！
 
-### 關鍵觀念：top_layer 的選擇
+### 關鍵觀念：top_layer 的選擇與 Trade-off
 
-**Q: `top_layer` 選多少會影響 DRC 嗎？**
+**Q: `top_layer` 到底該設多少？**
 
-**會的！而且打越高，DRC 越難過！**
+這取決於你的 **CTS (時脈樹) 策略**。這裡有兩個派別：
 
-**關鍵觀念（反直覺）**：
-- ❌ **錯誤想法**：「我有 10 層金屬，所以設 metal10 可以讓電源更強，DRC 更容易過。」
-- ✅ **正確想法**：「我的 Power Grid 最高只到 M6，所以設 metal6 剛好，不阻擋其他走線。」
+#### 情況一：標準做法 (Standard Flow)
+如果你的 CTS 沒有要用到高層金屬做 Shielding (例如只走 M1-M5)，或者你的 Power Ring/Stripe 最高只畫到 M6。
 
-**為什麼打高反而更糟？**
-1. **Via 是柱子，不是空氣**：
-   - `editPowerVia -top_layer metal8` 會從 M1 打一根 Via 柱子到 M8。
-   - 這根柱子會**佔用 M2, M3, M4, M5, M6, M7 所有中間層的空間**。
-2. **阻擋訊號走線**：
-   - M3~M6 是訊號線的主要走線層。如果被電源柱子擋住，訊號線就繞不過去。
-   - 結果：**Congestion (擁擠) → Short/Spacing DRC 爆炸**。
-3. **無意義的連接**：
-   - 如果你的 Power Stripe 最高只在 M6，打 Via 到 M8 只是在接空氣，毫無意義。
+- **建議**：設為 **`metal6`** (跟著你的 Power Grid 最高層)。
+- **原因**：
+  1. **避免 Congestion**：Via 像柱子一樣會佔用空間。如果你打到 M10，中間的 M7, M8, M9 都會被佔用，阻擋訊號走線。
+  2. **避免無效連接**：如果 M7-M10 本來就沒有電源線，打上去也是接空氣。
 
-**正確策略**：
-- 你的 Power Grid (Ring + Stripe) 最高層是什麼，就填那一層。
-- 例如：如果你的 Stripe 是 M5 + M6，就填 `-top_layer metal6`。
-- **不要**因為製程有 10 層就填 metal10，那是自找麻煩。
+#### 情況二：高層 Shielding 需求 (你的情況 ✅)
+如果你在後面的 CTS 步驟 (Step 14) 打算把 Clock Trunk 放在 **M7-M10**，並且設定了 **`-shield_net VSS`**。
+
+- **建議**：必須設為 **`metal10`**。
+- **原因**：
+  - 你的 Clock Trunk 走在 M7-M10，旁邊需要 VSS 保護。
+  - 如果你的 Power Via 只打到 M6，那 M7-M10 的 VSS Shield 就會變成「斷頭路」(Floating)，完全沒有接地效果！
+  - 所以你必須忍受一點 Congestion 的風險，強制把 Power Via 打通到 M10，這樣高層的 Shield 才有電。
+
+**結論**：
+因為你在 Step 14 採用了 `CTS_2W2S` (M7-M10 + Shield) 的策略，所以這裡**必須**改成 `-top_layer metal10`。這是為了訊號品質 (Signal Integrity) 所做的必要犧牲。
 
 # 2. 設定 End Cap (在每一排的頭尾加上保護蓋，這是物理驗證 DRC 的要求)
 setEndCapMode -reset
