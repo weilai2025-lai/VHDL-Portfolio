@@ -70,7 +70,7 @@ Utilization = (Std Cell Area + Macro Area) / Core Area
 如果你設定 **Utilization = 0.7 (70%)**，Innovus 會這樣算：
 Core Area = 297,201 / 0.7 ≈ 424,572 um^2
 Side Length = √424,572 ≈ 651 um
-所以，Innovus 自動幫你算出的 655 x 648 (約 650見方) 是**完全正確且合理**的。
+所以，Innovus 自動幫你算出的 655 x 648 (約 650見方) 是**完全正確且合理**的。(但我實際上是設定0.6)
 
 ### 為什麼 70% 會爆幾十萬個 DRC？
 如果你的面積計算是合理的，但 DRC 卻爆掉，通常**不是因為面積太小**，而是以下原因：
@@ -241,12 +241,12 @@ globalNetConnect VSS -type pgpin -pin VSS -inst *
 - **Net(s)**: `VDD VSS`
 - **Layer**: **Metal 6 (Vertical)**
 - **Width**: **3** (請填數字，不要留 `pin_width`)。
-- **Spacing**: **2** (注意！這是 VDD 跟 VSS **兩條線之間**的距離，不要填 100)。
+- **Spacing**: **4.2** (注意！這是 VDD 跟 VSS **兩條線之間**的距離，不要填 100)。
 
 #### 3. Set Pattern (密度設定)
 - **Set-to-set distance**: **100**。
     - **意義**：這是 **「這一組 VDD/VSS」到「下一組 VDD/VSS」** 的距離。這才是決定密度的參數。
-    - **圖解**：`|VDD| --2um-- |VSS|  ------ 100um ------  |VDD| --2um-- |VSS|`
+    - **圖解**：`|VDD| --4.2um-- |VSS|  ------ 100um ------  |VDD| --4.2um-- |VSS|`
 - **Start from**: **Left** (因為是畫垂直線，所以從左邊開始畫過來)。
 
 #### 4. 預期結果
