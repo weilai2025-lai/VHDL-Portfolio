@@ -41,7 +41,7 @@ The figure below shows the final GDSII layout generated using **Cadence Innovus*
 ## 📂 Repository Structure
 - `ASIC-based Fixed-Point NPU for MNIST`: Synthesis (Genus) and P&R (Innovus) scripts, SDC constraints, and PPA reports.
 - `FPGA-based Fixed-Point NPU for MNIST`: Optimized RTL code for Xilinx/Intel FPGA implementation.
-- `miniVGA`: Peripheral logic for real-time inference visualization.
+- `miniVGA`: General-purpose VGA display engine with color ROM lookup logic, originally designed for the FPGA Tank Duel game.
 
 ---
 © 2026 Wei-In Lai. All rights reserved.
