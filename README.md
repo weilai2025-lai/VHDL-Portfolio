@@ -5,15 +5,13 @@
 [![Target-ASIC](https://img.shields.io/badge/Target-ASIC-green.svg)]()
 
 A high-performance hardware accelerator for Deep Neural Network (DNN) inference, specifically optimized for the MNIST digit recognition task. This project demonstrates a complete silicon realization flow, transitioning from **RTL specification** to a **sign-off ready GDSII layout**.
-![asic_layout](https://github.com/user-attachments/assets/35d83fc6-dd9d-4fc9-8118-a104b72f59bf)
 
-## 🎨 Physical Implementation Showcase![Uploading asic_layout.jpg…]()
-
+## 🎨 Physical Implementation Showcase
 
 The figure below shows the final GDSII layout generated using **Cadence Innovus**. The design achieved full routing closure with zero geometry DRC violations.
 
 <p align="center">
-  <img src="images/layout_view.png" width="500" title="ASIC Layout View">
+  <img src="https://github.com/user-attachments/assets/35d83fc6-dd9d-4fc9-8118-a104b72f59bf" width="600" title="ASIC Layout View">
   <br>
   <i>Final GDSII Layout: Optimized for 45nm Technology Node</i>
 </p>
@@ -44,3 +42,6 @@ The figure below shows the final GDSII layout generated using **Cadence Innovus*
 - `ASIC-based Fixed-Point NPU for MNIST`: Synthesis (Genus) and P&R (Innovus) scripts, SDC constraints, and PPA reports.
 - `FPGA-based Fixed-Point NPU for MNIST`: Optimized RTL code for Xilinx/Intel FPGA implementation.
 - `miniVGA`: Peripheral logic for real-time inference visualization.
+
+---
+© 2026 Wei-In Lai. All rights reserved.
